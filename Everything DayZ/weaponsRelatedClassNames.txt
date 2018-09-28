@@ -1,0 +1,47 @@
+**Lights**
+```"UniversalLight", "TLRLight"```
+
+**Ammo**
+```"Mag_FNX45_15Rnd", "Mag_357Speedloader_6Rnd", "Mag_DE_9rnd", "Mag_1911_7Rnd", "Mag_CZ75_15Rnd", "Mag_Glock_15Rnd", "Mag_P1_8Rnd", "Mag_IJ70_8Rnd", "Mag_MP5_15Rnd", "Mag_MP5_30Rnd", "Mag_PM73_15Rnd", "Mag_PM73_25Rnd", "Mag_CZ61_20Rnd", "Mag_MKII_10Rnd", "Mag_ShockCartridge", "Mag_Ruger1022_10Rnd", "Mag_Ruger1022_30Rnd", "Mag_CLIP762x54_5Rnd", "Mag_762x54Snaploader_2Rnd", "Mag_308WinSnaploader_2Rnd", "Mag_CLIP762x39_10Rnd", "Mag_CLIP9x19_10Rnd", "Mag_AKM_30Rnd", "Mag_AKM_Drum75Rnd", "Mag_AKM_Drum75Rnd_Black", "Mag_AKM_Drum75Rnd_Green", "Mag_AKM_Palm30Rnd", "Mag_AKM_Palm30Rnd_Black", "Mag_AKM_Palm30Rnd_Green", "Mag_CZ527_5rnd", "Mag_STANAG_30Rnd", "Mag_STANAGCoupled_30Rnd", "Mag_CMAG_10Rnd", "Mag_CMAG_10Rnd_Black", "Mag_CMAG_10Rnd_Green", "Mag_CMAG_20Rnd", "Mag_CMAG_20Rnd_Black", "Mag_CMAG_20Rnd_Green", "Mag_CMAG_30Rnd", "Mag_CMAG_30Rnd_Black", "Mag_CMAG_30Rnd_Green", "Mag_CMAG_40Rnd", "Mag_CMAG_40Rnd_Black", "Mag_CMAG_40Rnd_Green", "Mag_AK101_30Rnd", "Mag_AK101_30Rnd_Black", "Mag_AK101_30Rnd_Green", "Mag_AK74_30Rnd", "Mag_AK74_30Rnd_Black", "Mag_AK74_30Rnd_Green", "Mag_SVD_10Rnd", "Mag_FAL_20Rnd", "Mag_Scout_5Rnd", "Mag_UMP_25Rnd", "Mag_VSS_10Rnd", "Mag_M249_Box200Rnd", "Mag_12gaSnaploader_2Rnd", "Mag_Saiga_5Rnd", "Mag_Saiga_8Rnd", "Mag_Saiga_Drum20Rnd", "Mag_Arrows_Quiver", "Mag_Bolts_Quiver", "Mag_Dartgun_CO2", "Mag_Groza_20Rnd", "Mag_MakarovPB_8Rnd"```
+
+**Muzzles**
+```"AK_Bayonet", "M9A1_Bayonet", "Mosin_Bayonet", "SKS_Bayonet", "Mosin_Compensator", "MP5_Compensator", "ImprovisedSuppressor", "M4_Suppressor", "AK_Suppressor", "PistolSuppressor", "Groza_Barrel_Short", "Groza_Barrel_Grip", "Groza_Barrel_Suppressor", "MakarovPBSuppressor", "Aug_Barrel"```
+
+**Optics**
+```"M4_CarryHandleOptic", "BUISOptic", "M68Optic", "M4_T3NRDSOptic", "FNP45_MRDSOptic", "Crossbow_RedpointOptic", "ReflexOptic", "ACOGOptic", "PUScopeOptic", "KashtanOptic", "LongrangeOptic", "HuntingOptic", "PistolOptic", "PSO1Optic", "PSO11Optic", "GrozaOptic", "KobraOptic"```
+
+**Supports**
+```"M4_OEBttstck", "M4_OEBttstck_Black", "M4_OEBttstck_Green", "M4_MPBttstck", "M4_MPBttstck_Black", "M4_MPBttstck_Green", "M4_CQBBttstck", "M4_CQBBttstck_Black", "M4_CQBBttstck_Green", "AK_WoodBttstck", "AK_WoodBttstck_Black", "AK_WoodBttstck_Camo", "AK74_WoodBttstck", "AK74_WoodBttstck_Black", "AK74_WoodBttstck_Camo", "AK_FoldingBttstck", "AK_FoldingBttstck_Black", "AK_FoldingBttstck_Green", "AK_PlasticBttstck", "AK_PlasticBttstck_Black", "AK_PlasticBttstck_Green", "AKS74U_Bttstck", "AKS74U_Bttstck_Black", "AKS74U_Bttstck_Green", "MP5k_StockBttstck", "Red9Bttstck", "Fal_OeBttstck", "Fal_FoldingBttstck", "Saiga_Bttstck", "M4_PlasticHndgrd", "M4_PlasticHndgrd_Black", "M4_PlasticHndgrd_Green", "M4_RISHndgrd", "M4_RISHndgrd_Black", "M4_RISHndgrd_Green", "M4_MPHndgrd", "M4_MPHndgrd_Black", "M4_MPHndgrd_Green", "AK_WoodHndgrd", "AK_WoodHndgrd_Black", "AK_WoodHndgrd_Camo", "AK74_Hndgrd", "AK74_Hndgrd_Black", "AK74_Hndgrd_Camo", "AK_RailHndgrd", "AK_RailHndgrd_Black", "AK_RailHndgrd_Green", "AK_PlasticHndgrd", "MP5_PlasticHndgrd", "MP5_RailHndgrd", "M249_Hndgrd", "M249_RisHndgrd", "AtlasBipod", "M249_Bipod", "GhillieAtt_Tan", "GhillieAtt_Woodland", "GhillieAtt_Mossy", "Groza_LowerReceiver", "GrozaGL_LowerReceiver"```
+
+**Archery**
+```"PVCBow", "QuickieBow", "RecurveBow", "Crossbow"```
+
+**Explosives**
+```"RGD5Grenade", "M67Grenade", "M18SmokeGrenade_Red", "M18SmokeGrenade_Green", "M18SmokeGrenade_Yellow", "M18SmokeGrenade_Purple", "M18SmokeGrenade_White", "RDG2SmokeGrenade_Black", "RDG2SmokeGrenade_White", "FlashGrenade"```
+
+**Firearms**
+```"AK74", "AK74_Black", "AK74_Green", "AKS74U", "AKS74U_Black", "AKS74U_Green", "AK101", "AK101_Black", "AK101_Green", "AKM", "AugSteyr", "B95", "B95_Black", "B95_Green", "CZ61", "CZ527", "CZ527_Black", "CZ527_Green", "CZ527_Camo", "FAL", "Izh18", "SawedoffIzh18", "M4A1", "M4A1_Green", "M4A1_Black", "M249", "Mosin9130", "Mosin9130_Black", "Mosin9130_Green", "Mosin9130_Camo", "SawedoffMosin9130", "SawedoffMosin9130_Black", "SawedoffMosin9130_Green", "SawedoffMosin9130_Camo", "MP5K", "Groza", "PM73Rak", "Repeater", "Ruger1022", "Ruger1022_Black", "Ruger1022_Green", "Scout", "Scout_Black", "Scout_Green", "SKS", "SKS_Black", "SKS_Green", "SVD", "Trumpet", "UMP45", "VSS", "Winchester70", "Winchester70_Black", "Winchester70_Green"
+
+**Launchers**
+```"UnderSlugGrenadeM4", "GP25", "GP25_Standalone", "LAW", "M203", "M203_Standalone","RPG7"```
+
+**MELEE**
+
+**Blades**
+```"WoodAxe", "Hatchet", "FirefighterAxe", "FirefighterAxe_Black", "FirefighterAxe_Green", "Cleaver", "CombatKnife", "HuntingKnife", "Machete", "Pitchfork", "Pickaxe", "Sword"```
+
+**Blunt**
+```"BaseballBat", "NailedBaseballBat", "PipeWrench", "BrassKnuckles_Dull", "BrassKnuckles_Shiny", "TelescopicBaton", "HockeyStick", "NewHockeyStick", "PoliceBaton"```
+
+**Powered**
+```"Chainsaw", "CattleProd", "StunBaton"```
+
+**NonLethal**
+```"DartGun", "Shockpistol", "Shockpistol_Black"```
+
+
+**Pistols**
+```"Colt1911", "Engraved1911", "CZ75", "DE", "Derringer_Black", "Derringer_Pink", "Derringer_Grey", "Flaregun", "FNX45", "FNX45_arrow", "Glock19", "LongHorn", "Magnum", "MKII", "P1", "MakarovPB", "MakarovIJ70", "Red9"```
+
+**Shotguns**
+```"Izh43Shotgun", "SawedoffIzh43Shotgun", "Mp133Shotgun", "Mp133Shotgun_PistolGrip", "Saiga12KShotgun"```
