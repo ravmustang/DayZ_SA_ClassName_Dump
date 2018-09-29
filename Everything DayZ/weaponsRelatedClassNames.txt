@@ -2,6 +2,12 @@
 ```"UniversalLight", "TLRLight"```
 
 **Ammo**
+```"Ammo_45ACP", "Ammo_308Win", "Ammo_9x19", "Ammo_380", "Ammo_556x45", "Ammo_762x54", "Ammo_762x54Tracer", "Ammo_762x39", "Ammo_9x39", "Ammo_22", "Ammo_12gaPellets", "Ammo_12gaSlug", "Ammo_357", "Ammo_545x39", "Ammo_ArrowComposite", "Ammo_SharpStick", "Ammo_ArrowPrimitive", "Ammo_ArrowBoned", "Ammo_ArrowBolt", "Ammo_DartSyringe", "Ammo_Flare", "Ammo_RPG7_HE", "Ammo_RPG7_AP", "Ammo_LAW_HE", "Ammo_GrenadeM4"```
+
+**AmmoBox**
+```"AmmoBox_556x45_20Rnd", "AmmoBox_308Win_20Rnd", "AmmoBox_762x54_20Rnd", "AmmoBox_762x39_20Rnd", "AmmoBox_22_50Rnd", "AmmoBox_357_20Rnd", "AmmoBox_45ACP_25rnd", "AmmoBox_9x19_25rnd", "AmmoBox_380_35rnd", "AmmoBox_00buck_10rnd", "AmmoBox_545x39_20Rnd", "AmmoBox_9x39_20Rnd"```
+
+**Magazines**
 ```"Mag_FNX45_15Rnd", "Mag_357Speedloader_6Rnd", "Mag_DE_9rnd", "Mag_1911_7Rnd", "Mag_CZ75_15Rnd", "Mag_Glock_15Rnd", "Mag_P1_8Rnd", "Mag_IJ70_8Rnd", "Mag_MP5_15Rnd", "Mag_MP5_30Rnd", "Mag_PM73_15Rnd", "Mag_PM73_25Rnd", "Mag_CZ61_20Rnd", "Mag_MKII_10Rnd", "Mag_ShockCartridge", "Mag_Ruger1022_10Rnd", "Mag_Ruger1022_30Rnd", "Mag_CLIP762x54_5Rnd", "Mag_762x54Snaploader_2Rnd", "Mag_308WinSnaploader_2Rnd", "Mag_CLIP762x39_10Rnd", "Mag_CLIP9x19_10Rnd", "Mag_AKM_30Rnd", "Mag_AKM_Drum75Rnd", "Mag_AKM_Drum75Rnd_Black", "Mag_AKM_Drum75Rnd_Green", "Mag_AKM_Palm30Rnd", "Mag_AKM_Palm30Rnd_Black", "Mag_AKM_Palm30Rnd_Green", "Mag_CZ527_5rnd", "Mag_STANAG_30Rnd", "Mag_STANAGCoupled_30Rnd", "Mag_CMAG_10Rnd", "Mag_CMAG_10Rnd_Black", "Mag_CMAG_10Rnd_Green", "Mag_CMAG_20Rnd", "Mag_CMAG_20Rnd_Black", "Mag_CMAG_20Rnd_Green", "Mag_CMAG_30Rnd", "Mag_CMAG_30Rnd_Black", "Mag_CMAG_30Rnd_Green", "Mag_CMAG_40Rnd", "Mag_CMAG_40Rnd_Black", "Mag_CMAG_40Rnd_Green", "Mag_AK101_30Rnd", "Mag_AK101_30Rnd_Black", "Mag_AK101_30Rnd_Green", "Mag_AK74_30Rnd", "Mag_AK74_30Rnd_Black", "Mag_AK74_30Rnd_Green", "Mag_SVD_10Rnd", "Mag_FAL_20Rnd", "Mag_Scout_5Rnd", "Mag_UMP_25Rnd", "Mag_VSS_10Rnd", "Mag_M249_Box200Rnd", "Mag_12gaSnaploader_2Rnd", "Mag_Saiga_5Rnd", "Mag_Saiga_8Rnd", "Mag_Saiga_Drum20Rnd", "Mag_Arrows_Quiver", "Mag_Bolts_Quiver", "Mag_Dartgun_CO2", "Mag_Groza_20Rnd", "Mag_MakarovPB_8Rnd"```
 
 **Muzzles**
