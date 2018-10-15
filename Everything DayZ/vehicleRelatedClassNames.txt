@@ -1,5 +1,32 @@
-**Vehicle Parts**
-```"TruckBattery", "CarBattery", "AircraftBattery", "TruckExhaust", "EngineBelt", "BrakeFluid", "EngineOil", "CarRadiator", "TruckRadiator", "TireRepairKit", "HeadlightH7", "HeadlightH7_Box", "WindscreenBox", "CanisterGasoline", "GlowPlug", "SparkPlug"```
+**Vehicle
+Parts**
+"TruckBattery",
+"CarBattery",
+"AircraftBattery",
+"TruckExhaust",
+"EngineBelt",
+"BrakeFluid",
+"EngineOil",
+"CarRadiator",
+"TruckRadiator",
+"TireRepairKit",
+"HeadlightH7",
+"HeadlightH7_Box",
+"WindscreenBox",
+"CanisterGasoline",
+"GlowPlug",
+"SparkPlug"
 
 **Vehicles**
-```"OffroadHatchback", "CivilianVan", "CivilianSedan", "TransitBus", "V3S_Chassis", "V3S_Chassis_Blue", "V3S_Chassis_Orange", "V3S_Chassis_Grey", "V3S_Cargo", "V3S_Cargo_Blue", "V3S_Cargo_Orange", "V3S_Cargo_Grey"```
+"OffroadHatchback",
+"CivilianVan",
+"CivilianSedan",
+"TransitBus",
+"V3S_Chassis",
+"V3S_Chassis_Blue",
+"V3S_Chassis_Orange",
+"V3S_Chassis_Grey",
+"V3S_Cargo",
+"V3S_Cargo_Blue",
+"V3S_Cargo_Orange",
+"V3S_Cargo_Grey"
