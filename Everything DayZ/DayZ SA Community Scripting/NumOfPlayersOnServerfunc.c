@@ -1,4 +1,5 @@
-// AUTHOR: https://pp.userapi.com/c850636/v850636179/1807a/znUdrLcPrk4.jpg
+// AUTHOR: u/SilvioDoMine @REDDIT DAYZSA
+// Original pic link https://pp.userapi.com/c850636/v850636179/1807a/znUdrLcPrk4.jpg
 
 override void OnInit()
 {
