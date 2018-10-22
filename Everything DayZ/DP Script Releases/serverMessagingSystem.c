@@ -12,6 +12,10 @@
 	-Survivor Named Players custom annoying "Change Name Messages"
 	-Survivor Named Players extreme annoyance "Remove in Hand Object" every 2 second(OFF by default)
 	-full debugging system for easy to follow learning/troubleshooting
+	
+	install:
+	To install ServerMessagingSystem add this to your init.c in the CustomMission section
+	- #include "$CurrentDir:\mpmissions\dayzOffline.chernarusplus\serverMessagingSystem.c"
 */
 
 	//Debugging

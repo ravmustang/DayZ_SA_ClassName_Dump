@@ -5,4 +5,4 @@
 
 ## ServerMessagingSystem
 To install ServerMessagingSystem add this to your init.c in the CustomMission section
-- #include "$CurrentDir:\mpmissions\dayzOffline.chernarusplus\serverMessages.c"
+- #include "$CurrentDir:\mpmissions\dayzOffline.chernarusplus\serverMessagingSystem.c"
