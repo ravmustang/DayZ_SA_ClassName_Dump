@@ -1,0 +1,35 @@
+class ActionDeployHuntingTrap : ActionDeployBase
+{
+	void ActionDeployHuntingTrap()
+	{
+		m_CommandUID 		= DayZPlayerConstants.CMD_ACTIONFB_CRAFTING;
+		m_StanceMask 		= DayZPlayerConstants.STANCEMASK_CROUCH;
+		m_Sound				= "craft_universal_0";
+	}
+	
+	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
+	{
+		// Client
+		if ( !g_Game.IsDedicatedServer() )
+			return item.CanBePlaced( player, player.GetPosition() );
+		
+		// Server
+		return true;
+	}
+	
+	override void CreateConditionComponents()  
+	{
+		m_ConditionItem = new CCINonRuined;
+		m_ConditionTarget = new CCTNone;
+	}
+	
+	override bool ActionConditionContinue( ActionData action_data )
+	{
+		return g_Game.IsClient() || action_data.m_MainItem.CanBePlaced( action_data.m_Player, action_data.m_Player.GetPosition() );
+	}
+	
+	override void MoveEntityToFinalPosition(ActionData action_data, vector position, vector orientation)
+	{
+		ClearInventoryReservationEx(action_data);
+	}
+}

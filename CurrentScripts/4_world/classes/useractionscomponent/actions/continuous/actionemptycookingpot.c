@@ -1,0 +1,3 @@
+class ActionEmptyCookingPot: ActionEmptyBottleBase
+{
+};

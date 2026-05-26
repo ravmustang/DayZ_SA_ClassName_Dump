@@ -1,0 +1,40 @@
+class SymptomCB extends HumanCommandActionCallback
+{
+	//int m_SymptomUID;
+	float m_RunTime;
+	float m_StartingTime;
+	PlayerBase m_Player;
+	
+	override void OnFinish(bool pCanceled)
+	{
+		if( m_Player && m_Player.GetSymptomManager())
+		{
+			m_Player.GetSymptomManager().OnAnimationFinished();
+		}
+	}
+	
+	
+	void Init(float run_time, PlayerBase player)
+	{
+		EnableCancelCondition(true);
+		m_RunTime = run_time * 1000;
+		m_StartingTime = g_Game.GetTime();
+		m_Player = player;
+		
+		if( m_Player && m_Player.GetSymptomManager())
+		{
+			m_Player.GetSymptomManager().OnAnimationStarted();
+		}
+	}
+	
+	bool CancelCondition()
+	{
+		return m_RunTime > 0 && (g_Game.GetTime() > m_StartingTime + m_RunTime);
+	}
+
+	override bool IsSymptomCallback()
+	{
+		return true;
+	}
+	
+};

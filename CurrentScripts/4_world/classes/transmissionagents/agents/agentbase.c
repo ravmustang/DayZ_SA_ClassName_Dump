@@ -1,0 +1,160 @@
+class AgentBase : MessageReceiverBase
+{
+	float	m_Type = 0;
+	float	m_Invasibility;					//! how fast the agent grows when potent enough to grow
+	float 	m_TransferabilityIn;			//! to the player
+	float	m_TransferabilityOut;			//! from the player
+	float	m_Digestibility = 0.1;			//! multiplier for agents digested in the player stomach from an infected item(agents_transfered = digested_amount(in grams or mls) * m_Digestibility)
+	int		m_MaxCount = 1;
+	int		m_AutoinfectCount = 1;			//! number of agents injected during the autoinfection
+	float 	m_AutoinfectProbability = CalculateAutoinfectProbability(0);	// [0..1], 0 = zero chance, 1 = 100% chance of getting this agent once per hour
+	float 	m_TransferabilityAirOut; 		//! transferibility airborne out
+	float 	m_AntibioticsResistance = 1;	//! [0..1], 0 means antibiotics have full effect, 1 means no effect - deprecated, use the m_DrugResistance map below for drug resistances
+	
+	protected ref 	map<EMedicalDrugsType, float> m_DrugResistances = new map<EMedicalDrugsType, float>();
+	
+	EStatLevels m_Potency = EStatLevels.MEDIUM;		//! grow when player's immune system is at this level or lower
+	float m_DieOffSpeed = 1;						//! how fast the agent dies off when not potent enough to grow(per sec)
+	
+	void AgentBase()
+	{
+		InitDefaults();
+		Init();
+	}
+	
+	protected void InitDefaults()
+	{
+		m_DrugResistances.Insert(EMedicalDrugsType.CHELATION, 1.0);
+		m_DrugResistances.Insert(EMedicalDrugsType.ANTIBIOTICS, 1.0);
+	}
+	
+	void Init();
+
+	int GetAgentType()
+	{
+		return m_Type;
+	}
+	
+	float GetDieOffSpeedEx(PlayerBase player)
+	{
+		return GetDieOffSpeed();
+	}
+	
+	EStatLevels GetPotencyEx(PlayerBase player)
+	{
+		return GetPotency();
+	}
+	
+	float GetInvasibilityEx(PlayerBase player)
+	{
+		return GetInvasibility();
+	}
+	
+	float GetDigestibilityEx(PlayerBase player)
+	{
+		return GetDigestibility();
+	}
+	
+	EStatLevels GetPotency()
+	{
+		return m_Potency;
+	}	
+	
+	float GetDieOffSpeed()
+	{
+		return m_DieOffSpeed;
+	}
+	
+	float GetAntiboticsResistance()
+	{
+		return m_AntibioticsResistance;
+	}
+	float GetAntibioticsResistanceEx(PlayerBase player)
+	{
+		return GetAntiboticsResistance();
+	}
+	
+	float GetDrugResistance(EMedicalDrugsType drugType, PlayerBase player)
+	{
+		return m_DrugResistances.Get(drugType);
+	}
+	
+	float GetInvasibility()
+	{
+		return m_Invasibility;
+	}
+
+	//! should this agent grow based on invasibility even during usage of specific medical drugs attack
+	bool GrowDuringMedicalDrugsAttack(EMedicalDrugsType drugType, PlayerBase player)
+	{
+		return true;
+	}
+	
+	float GetDigestibility()
+	{
+		return m_Digestibility;
+	}
+
+	float CalculateAutoinfectProbability(float userprob)
+	{
+		return ( 1 - Math.Pow( 1 - userprob, ( 1 / 1200 ) ) );
+	}
+
+	bool AutoinfectCheck(float deltaT, PlayerBase player)
+	{
+		if (m_AutoinfectProbability == 0.0) 
+			return false;
+		
+		float diceThrow = Math.RandomFloat01();
+		
+		if (diceThrow < m_AutoinfectProbability)
+			return CanAutoinfectPlayer(player);
+
+		return false;
+	}
+
+	bool CanAutoinfectPlayer(PlayerBase player)
+	{
+		return false;
+	}
+	
+	float GetTransferabilityIn()
+	{
+		return m_TransferabilityIn;
+	}
+
+	float GetTransferabilityOut()
+	{
+		return m_TransferabilityOut;
+	}	
+	
+	float GetTransferabilityAirOut()
+	{
+		return m_TransferabilityAirOut;
+	}
+
+	int GetMaxCount()
+	{
+		return m_MaxCount;
+	}
+	
+	int GetAutoinfectCount()
+	{
+		return m_AutoinfectCount;
+	}
+
+	string GetName()
+	{
+		return ClassName();
+	}
+
+	
+	//! DEPRECATED
+	//!
+
+	//! should this agent grow based on invasibility even during antibiotics attack
+	bool GrowDuringAntibioticsAttack(PlayerBase player)
+	{
+		return true;
+	}
+}

@@ -1,0 +1,1612 @@
+// For modding, see PluginDiagMenuModding.c
+// !!! MODDING DISCLAIMER: These are debug functionality files, if you are thinking about modding the vanilla ones, do so at your own risk
+//                         These files will not be maintained with the thought of "what if a modder modded this" (Excluding the modding functionality of course)
+//                         Which is why the modding functionality was developed with the thought of the modded ones having their own isolated safe space
+
+class PluginDiagMenuClient : PluginDiagMenu
+{
+#ifdef DIAG_DEVELOPER
+	static int m_SystemsMask;
+	
+	// Cheats
+	bool m_ModifiersEnabled = true;
+	int m_IsInvincible;	
+	bool m_StaminaDisabled;
+	bool m_ClientInventoryDesync = false;
+	
+	// Misc
+	float m_Playtime;
+	bool m_LogPlayerStats;	
+	Shape m_VehicleFreeAreaBox;	
+	ref EnvDebugData m_EnvDebugData;
+	ref FallDamageDebugData m_FallDamageDebugData;
+#ifndef SERVER
+	ref WeaponLiftDiag m_WeaponLiftDiag = new WeaponLiftDiag();
+	#ifdef DEVELOPER
+	ref UndergroundDiag m_UndergroundDiag = new UndergroundDiag();
+	#endif
+#endif
+	
+	override void OnInit()
+	{
+		super.OnInit();
+		
+		BindCallbacks();
+	}
+	
+	protected void BindCallbacks()
+	{	
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Inventory
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.INVENTORY_USE_ACK_MOVE_HANDS, CBInventoryHandsAckMove);
+		DiagMenu.BindCallback(DiagMenuIDs.INVENTORY_ENABLE_DESYNC_REPAIR, CBEnableDesyncRepair);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Crafting
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.CRAFTING_GENERATE, CBCraftingGenerate);
+		DiagMenu.BindCallback(DiagMenuIDs.CRAFTING_INSTANT, CBCraftingInstant);
+		DiagMenu.BindCallback(DiagMenuIDs.CRAFTING_DUMP, CBCraftingDump);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Vehicles
+		//---------------------------------------------------------------	
+		DiagMenu.BindCallback(DiagMenuIDs.VEHICLE_DEBUG_OUTPUT, CBVehicleDebugOutput);
+		DiagMenu.BindCallback(DiagMenuIDs.VEHICLE_DUMP_CRASH_DATA, CBDumpCrashData);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Cheats
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_MODIFIERS, CBCheatsModifiers);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_KILL_PLAYER, CBCheatsKillPlayer);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_INVINCIBILITY, CBCheatsInvincibility);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_DISABLE_STAMINA, CBCheatsStaminaDisable);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_RESET_PLAYER, CBCheatsResetPlayer);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_RESET_PLAYER_MAX, CBCheatsResetPlayerMax);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_INVENTORY_ACCESS, CBCheatsInventoryAccess);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_FIX_ITEMS, CBCheatsFixItems);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_CREATE_HIT, CBCreateHit);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_CREATE_HIT_LIGHT, CBCreateHitLight);
+		DiagMenu.BindCallback(DiagMenuIDs.CHEATS_CLIENT_DESYNC_INVENTORY, CBClientDesync);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Player Agents
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.PLAYER_AGENTS_INJECTS_SHOW, CBPlayerAgentsInjectActions);
+
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Soft Skills
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.SOFT_SKILLS_SHOW_DEBUG, CBSoftSkillsShowDebug);
+		DiagMenu.BindCallback(DiagMenuIDs.SOFT_SKILLS_TOGGLE_STATE, CBSoftSkillsToggleState);
+		DiagMenu.BindCallback(DiagMenuIDs.SOFT_SKILLS_TOGGLE_MODEL, CBSoftSkillsToggleModel);
+		DiagMenu.BindCallback(DiagMenuIDs.SOFT_SKILLS_SPECIALTY_VALUE, CBSoftSkillsSpecialtyValue);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Lifespan
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.LIFESPAN_BLOODY_HANDS, CBLifespanBloodyHands);
+		DiagMenu.BindCallback(DiagMenuIDs.LIFESPAN_PLAYTIME_UPDATE, CBLifespanPlaytimeUpdate);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Misc
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_DISABLE_PERSONAL_LIGHT, CBMiscPersonalLight);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_ITEM_DEBUG_ACTIONS, CBMiscItemDebugActions); // Is enabled by default now
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_LOG_PLAYER_STATS, CBMiscLogPlayerStats);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_FORCE_HINT_INDEX, CBMiscForceHintIndex);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Misc -> Environment
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_ENVIRONMENT_DEBUG, CBMiscEnvironmentDebug);	
+		#ifdef ENABLE_LOGGING
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_ENVIRONMENT_LOGGING_DRYWET, CBMiscEnvironmentLoggingDryWet);	
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_ENVIRONMENT_LOGGING_ITEMHEAT, CBMiscEnvironmentLoggingItemHeat);	
+		#endif
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Misc
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_PERMANENT_CROSSHAIR, CBMiscPermanentCrossHair);		
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_TOGGLE_HUD, CBMiscToggleHud);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_FALLDAMAGE_DEBUG, CBMiscFallDamageDebug);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_DISPLAY_PLAYER_INFO, CBMiscDisplayPlayerInfo);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_UNIVERSAL_TEMPERATURE_SOURCES, CBMiscUniversalTemperatureSources);			
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_BULLET_IMPACT, CBMiscBulletImpact);			
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_GO_UNCONSCIOUS, CBMiscGoUnconscious);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_GO_UNCONSCIOUS_DELAYED, CBMiscGoUnconsciousDelayed);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_QUICK_RESTRAIN, CBMiscQuickRestrain);
+
+		//---------------------------------------------------------------
+		// LEVEL 3 - Script > Misc > Hair Hiding
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HAIR_LEVEL_HIDE, CBMiscHairHide);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HAIR_HIDE_ALL, CBMiscHairHideAll);
+				
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Misc
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_CAM_SHAKE, CBMiscCamShake);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_QUICK_FISHING, CBMiscQuickFishing);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_SHOCK_IMPACT, CBMiscShockImpact);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_SHOW_PLUG_ARROWS, CBMiscPlugArrows);			
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_TARGETABLE_BY_AI, CBMiscTargetableByAI);
+
+		//---------------------------------------------------------------
+		// LEVEL 3 - Script > Misc > Hit Indication
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_DEBUG, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_SPAWN_HIT, CBMiscHitIndicationSpawnHit);					
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_MODE, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_TYPE, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_DURATION, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_BREAKPOINT, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_DISTANCE, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_ROTATION, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_SCATTER, CBMiscHitIndication);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_HIT_INDICATION_DISABLE_PPE, CBMiscHitIndication);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Misc
+		//---------------------------------------------------------------	
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_FREEZE_ENTITY, CBMiscFreezeEntity);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_FREEZE_PLAYER, CBMiscFreezePlayer);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_DEBUG_MONITOR, CBDebugMonitor);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_SHOW_PRA_ALL, CBPRADrawAll);
+		DiagMenu.BindCallback(DiagMenuIDs.MISC_PRA_DETECT, CBPRADetect);
+
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Simulate script
+		//---------------------------------------------------------------		
+		DiagMenu.BindCallback(DiagMenuIDs.SIMULATE_INFINITE_LOOP, CBSimulateInfiniteLoop);
+		DiagMenu.BindCallback(DiagMenuIDs.SIMULATE_NULL_POINTER, CBSimulateNullPointer);
+		DiagMenu.BindCallback(DiagMenuIDs.SIMULATE_DIVISION_BY_ZERO, CBSimulateDivisionByZero);
+		DiagMenu.BindCallback(DiagMenuIDs.SIMULATE_ERROR_FUNCTION, CBSimulateErrorFunction);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Weapon
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.WEAPON_PARTICLES, CBWeaponParticles);		
+		DiagMenu.BindCallback(DiagMenuIDs.WEAPON_AIM_NOISE, CBWeaponAimNoise);
+		DiagMenu.BindCallback(DiagMenuIDs.WEAPON_RECOIL, CBWeaponRecoil);
+		DiagMenu.BindCallback(DiagMenuIDs.WEAPON_UNLIMITED_AMMO, CBWeaponUnlimitedAmmo);
+		DiagMenu.BindCallback(DiagMenuIDs.WEAPON_BURST_VERSION, CBWeaponBurstVersion);
+
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Bleeding
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDING_SOURCES, CBBleedingSources);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDING_DISABLE_BLOOD_LOSS, CBBleedingDisableBloodLoss);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDING_ACTIVATE_SOURCE, CBBleedingActivateSource);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDING_ACTIVATE_ALL_SOURCES, CBBleedingActivateAllSources);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDING_ACTIVATE_SOURCE_LEVEL, CBBleedingActivateSourceLevel);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDING_RELOAD, CBBleedingReload);
+		
+		//---------------------------------------------------------------
+		// LEVEL 3 - Script > Bleeding > Bleeding Indication
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_USEVALUEOVERRIDES, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_RANDOMROTATION, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_SEQUENCE_DURATION, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_BASEDURATION, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_MINDELAY, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_MAXDELAY, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_PROGRESSTHRESHOLD, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_STARTSIZE, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_ENDSIZE, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_RNDSCALEMIN, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_RNDSCALEMAX, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_SCATTER, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_SLIDEDISTANCE, CBBBleedingIndicators);
+
+		//---------------------------------------------------------------
+		// LEVEL 4 - Script > Bleeding > Bleeding Indication > Color Debug
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_ENABLEDESATURATION, CBBBleedingIndicators);		
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_DESATURATIONEND, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_R, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_G, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_B, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_A_START, CBBBleedingIndicators);
+		DiagMenu.BindCallback(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_A_END, CBBBleedingIndicators);
+		
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Logs
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_ACTIONS, CBLogsActions);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_WEAPONS, CBLogsWeapons);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_SYNC, CBLogsSync);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_BASEBUILDING, CBLogsBaseBuilding);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_SYMPTOMS, CBLogsSymptoms);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_BLEEDING_CHANCES, CBLogsBleedingChances);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_QUICKBAR, CBLogsQuickbar);
+
+		//---------------------------------------------------------------
+		// LEVEL 3 - Script > Logs > InventoryLogs
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_INVENTORY_MOVE, CBLogsInventoryMove);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_INVENTORY_RESERVATION, CBLogsInventoryReservation);
+		DiagMenu.BindCallback(DiagMenuIDs.LOGS_INVENTORY_HFSM, CBLogsInventoryHFSM);
+
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Triggers
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.TRIGGER_DEBUG, CBTriggerDebug);
+
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Base Building
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.BASEBUILDING_WOOD, CBBaseBuildingWood);
+		DiagMenu.BindCallback(DiagMenuIDs.BASEBUILDING_GATE, CBBaseBuildingGate);
+			
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Finishers
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.FINISHERS_FINISHER_FORCED, CBFinishersFinisherForced);
+			
+		//---------------------------------------------------------------
+		// LEVEL 2 - Script > Cinematic Camera Tools
+		//---------------------------------------------------------------
+		DiagMenu.BindCallback(DiagMenuIDs.CAMERATOOLS_ENABLE_REMOTE_CAMERA, CBCameraToolsEnableRemoteCamera);
+	}
+	
+	//---------------------------------------------
+	override void OnRPC(PlayerBase player, int rpc_type, ParamsReadContext ctx)
+	{
+		super.OnRPC(player, rpc_type, ctx);
+		
+		switch (rpc_type)
+		{
+			case ERPCs.DIAG_MISC_ENVIRONMENT_DEBUG_DATA:
+			{
+				if (!m_EnvDebugData)
+					m_EnvDebugData = new EnvDebugData();
+				
+				ctx.Read(m_EnvDebugData);
+				break;
+			}
+			
+			case ERPCs.DIAG_MISC_FALLDAMAGE_DEBUG_DATA:
+			{
+				if (!m_FallDamageDebugData)
+					m_FallDamageDebugData = new FallDamageDebugData();
+				
+				ctx.Read(m_FallDamageDebugData);
+				break;
+			}
+			
+			case ERPCs.DIAG_VEHICLES_DUMP_CRASH_DATA_CONTENTS:
+			{
+				Param1<array<ref CrashDebugData>> par = new Param1<array<ref CrashDebugData>>(null);
+				
+				if (ctx.Read(par))
+					CrashDebugData.DumpDataArray(par.param1);
+				break;
+			}	
+		}
+	}
+	
+	//---------------------------------------------
+	override void OnUpdate(float delta_time)
+	{		
+		super.OnUpdate(delta_time);
+		
+		//---------------------------------------------
+		// every system can handle their own actions locally(within the system itself),
+		// this section is for systems which don't have client side representation,
+		// or don't have their own tick, or for whatever other reason you prefer to put the logic here
+		// PUT ONLY METHOD CALLS HERE, NO CODE !!
+		// PUT ONLY METHOD CALLS HERE, NO CODE !!
+		//---------------------------------------------
+		
+		UpdateMiscVehicleGetOutBox();
+		UpdateEnvironmentDebug();
+		CheckTimeAccel();		
+		UpdateMaterialDebug();
+		UpdateWeaponLiftDiag(delta_time);
+		#ifdef DEVELOPER // TODO@RR - temporary, 
+		UpdateUndegroundDiag(delta_time);
+		#endif
+	}
+	
+	//---------------------------------------------
+	void CheckTimeAccel()
+	{
+		if (!FeatureTimeAccel.m_CurrentTimeAccel)
+		{
+			InitTimeAccel();
+		}
+		
+		if (g_Game && g_Game.GetPlayer()) 
+		{
+			TimeAccelParam param = GetTimeAccelMenuState();
+
+			if (!FeatureTimeAccel.AreTimeAccelParamsSame(param, FeatureTimeAccel.m_CurrentTimeAccel))
+			{
+				int timeAccelBig = param.param2;
+				float timeAccelSmall = param.param2 - timeAccelBig;
+				FeatureTimeAccel.CopyTimeAccelClipboard(param.param1, timeAccelBig, timeAccelSmall, param.param3 );
+				FeatureTimeAccel.SendTimeAccel(g_Game.GetPlayer(), param);
+				FeatureTimeAccel.m_CurrentTimeAccel = param;
+			}		
+		}
+	
+	}
+	
+	static void CBInventoryHandsAckMove(bool enable, int id)
+	{
+		PluginInventoryDebug pluginInventoryDebug = PluginInventoryDebug.Cast(GetPlugin(PluginInventoryDebug));	
+		DiagToggleRPCServer(enable, pluginInventoryDebug.m_IsHandAckEnable, ERPCs.DIAG_INVENTORY_ACK_HANDS);
+	}
+	
+	static void CBEnableDesyncRepair(bool enable, int id)
+	{
+		PluginInventoryDebug pluginInventoryDebug = PluginInventoryDebug.Cast(GetPlugin(PluginInventoryDebug));	
+		DiagToggleRPCServer(enable, pluginInventoryDebug.m_IsDesyncRepairEnable, ERPCs.DIAG_INVENTORY_REPAIR_DESYNC);
+	}
+
+	static void CBClientDesync(bool enable, int id)
+	{
+		PluginInventoryDebug pluginInventoryDebug = PluginInventoryDebug.Cast(GetPlugin(PluginInventoryDebug));
+		pluginInventoryDebug.SetLocalOnlyMoveEnable(enable);
+	}
+	
+	//---------------------------------------------
+	static void CBCraftingGenerate(bool enabled, int id)
+	{
+		PluginRecipesManager pluginRecipesManager = PluginRecipesManager.Cast(GetPlugin(PluginRecipesManager));
+		DiagButtonAction(enabled, id, ScriptCaller.Create(pluginRecipesManager.CallbackGenerateCache));
+	}
+	
+	//---------------------------------------------
+	static void CBCraftingInstant(bool enabled)
+	{
+		PluginRecipesManager pluginRecipesManager = PluginRecipesManager.Cast(GetPlugin(PluginRecipesManager));
+		DiagToggleRPC(enabled, pluginRecipesManager.IsEnableDebugCrafting(), ERPCs.DIAG_CRAFTING_INSTANT);
+	}
+	
+	//---------------------------------------------
+	static void CBCraftingDump(bool enabled, int id)
+	{	
+		PluginRecipesManager pluginRecipesManager = PluginRecipesManager.Cast(GetPlugin(PluginRecipesManager));
+		DiagButtonAction(enabled, id, ScriptCaller.Create(pluginRecipesManager.GenerateHumanReadableRecipeList));
+	}
+	
+	//---------------------------------------------
+	static void CBCheatsModifiers(bool enabled)
+	{
+		PluginDiagMenuClient pluginDiag = PluginDiagMenuClient.Cast(GetPlugin(PluginDiagMenuClient));
+		DiagToggleRPCServer(enabled, pluginDiag.m_ModifiersEnabled, ERPCs.DIAG_CHEATS_MODIFIERS);
+	}
+	
+	//---------------------------------------------
+	static void CBCheatsKillPlayer(bool enabled, int id)
+	{
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_CHEATS_KILL_PLAYER, true);
+	}
+	
+	//---------------------------------------------
+	static void CBCheatsInvincibility(int value)
+	{
+		PluginDiagMenuClient pluginDiag = PluginDiagMenuClient.Cast(GetPlugin(PluginDiagMenuClient));
+		DiagToggleRPCServer(value, pluginDiag.m_IsInvincible, ERPCs.DIAG_CHEATS_INVINCIBILITY);	
+	}
+
+	//---------------------------------------------
+	static void CBCheatsStaminaDisable(bool enabled)
+	{
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		if (player)
+			player.SetStaminaDisabled(enabled);
+
+		PluginDiagMenuClient pluginDiag = PluginDiagMenuClient.Cast(GetPlugin(PluginDiagMenuClient));
+		DiagToggleRPCServer(enabled, pluginDiag.m_StaminaDisabled, ERPCs.DIAG_CHEATS_DISABLE_STAMINA);
+	}
+
+	//---------------------------------------------
+	static void CBCheatsResetPlayer(bool enabled, int id)
+	{
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		if (player)
+			player.ResetPlayer(false);
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_CHEATS_RESET_PLAYER, true);
+	}
+
+	//---------------------------------------------
+	static void CBCheatsResetPlayerMax(bool enabled, int id)
+	{
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		if (player)
+			player.ResetPlayer(true);
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_CHEATS_RESET_PLAYER_MAX, true);
+	}
+	
+	//---------------------------------------------
+	static void CBCheatsInventoryAccess(bool enabled)
+	{
+		DiagToggleRPCServer(enabled, PlayerBase.DEBUG_INVENTORY_ACCESS, ERPCs.DIAG_CHEATS_INVENTORY_ACCESS);
+	}	
+		
+	//---------------------------------------------
+	static void CBCheatsFixItems(bool enabled, int id)
+	{
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_CHEATS_ITEMS_FIX, true);
+	}
+	
+	static void CBCreateHit(bool enabled, int id)
+	{
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_CHEATS_CREATE_HIT, true);
+	}
+	
+	static void CBCreateHitLight(bool enabled, int id)
+	{
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_CHEATS_CREATE_HIT_LIGHT, true);
+	}
+	
+	//---------------------------------------------
+	static void CBPlayerAgentsInjectActions(bool enabled)
+	{
+		DiagDebugAction(DebugActionType.PLAYER_AGENTS, enabled);
+	}
+	
+	//---------------------------------------------
+	static void CBSoftSkillsShowDebug(bool enabled)
+	{
+		SoftSkillsManager ssMngr = GetPlayer().GetSoftSkillsManager();		
+		DiagToggleRPCAction(enabled, ScriptCaller.Create(ssMngr.CreateDebugWindow), ssMngr.IsDebug(), ERPCs.DIAG_SOFT_SKILLS_SHOW_DEBUG);
+	}
+	
+	//---------------------------------------------
+	static void CBSoftSkillsToggleState(bool enabled)
+	{	
+		SoftSkillsManager ssMngr = GetPlayer().GetSoftSkillsManager();		
+		DiagToggleRPC(enabled, ssMngr.GetSoftSkillsState(), ERPCs.DIAG_SOFT_SKILLS_TOGGLE_STATE);
+	}
+	
+	//---------------------------------------------
+	static void CBSoftSkillsToggleModel(bool enabled)
+	{
+		SoftSkillsManager ssMngr = GetPlayer().GetSoftSkillsManager();
+		DiagToggleRPC(enabled, ssMngr.IsLinear(), ERPCs.DIAG_SOFT_SKILLS_TOGGLE_MODEL);
+	}
+
+	//---------------------------------------------
+	static void CBSoftSkillsSpecialtyValue(float value)
+	{
+		SoftSkillsManager ssMngr = GetPlayer().GetSoftSkillsManager();
+		DiagToggleRPC(value, ssMngr.GetSpecialtyLevel(), ERPCs.DIAG_SOFT_SKILLS_SPECIALTY_VALUE);	
+	}
+
+	//---------------------------------------------
+	static void CBLifespanBloodyHands(bool enabled)
+	{		
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		if (player)
+		{
+			bool hasBloodyHands = player.HasBloodyHands();
+			DiagToggleRPCServer(enabled, hasBloodyHands, ERPCs.DIAG_LIFESPAN_BLOODY_HANDS);
+		}
+	}
+
+	//---------------------------------------------
+	static void CBLifespanPlaytimeUpdate(float value)
+	{
+		PluginDiagMenuClient pluginDiag = PluginDiagMenuClient.Cast(GetPlugin(PluginDiagMenuClient));
+		DiagToggleRPCServer(value * 60, pluginDiag.m_Playtime, ERPCs.DIAG_LIFESPAN_PLAYTIME_UPDATE);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscPersonalLight(bool enabled)
+	{
+		PlayerBaseClient.m_PersonalLightDisabledByDebug = enabled;
+		PlayerBaseClient.UpdatePersonalLight();
+	}
+	
+	//---------------------------------------------
+	static void CBMiscItemDebugActions(bool enabled)
+	{
+		DiagDebugAction(DebugActionType.GENERIC_ACTIONS, enabled);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscLogPlayerStats(bool enabled)
+	{
+		PluginDiagMenuClient pluginDiag = PluginDiagMenuClient.Cast(GetPlugin(PluginDiagMenuClient));
+		DiagToggleRPC(enabled, pluginDiag.m_LogPlayerStats, ERPCs.DIAG_MISC_LOG_PLAYER_STATS);
+ 	}
+	
+	//---------------------------------------------
+	static void CBMiscForceHintIndex(int index)
+	{
+		UiHintPanel.m_ForcedIndex = index;
+ 	}
+	
+	//---------------------------------------------	
+	static void CBMiscPermanentCrossHair(bool enabled)
+	{
+		PluginPermanentCrossHair crosshair = PluginPermanentCrossHair.Cast(GetPlugin(PluginPermanentCrossHair));
+		crosshair.SwitchPermanentCrossHair(enabled);
+	}
+	
+	//---------------------------------------------		
+	void UpdateMiscVehicleGetOutBox()
+	{
+		if ( DiagMenu.GetBool(DiagMenuIDs.MISC_VEHICLE_GETOUT_BOX) )
+		{
+			if (m_VehicleFreeAreaBox)
+			{
+				m_VehicleFreeAreaBox.Destroy();
+				m_VehicleFreeAreaBox = null;
+			}
+			
+			HumanCommandVehicle hcv = g_Game.GetPlayer().GetCommand_Vehicle();
+			if (!hcv)
+				return;
+			
+			m_VehicleFreeAreaBox = hcv.GetTransport().DebugFreeAreaAtDoor( hcv.GetVehicleSeat() );
+		}
+		else if (m_VehicleFreeAreaBox)
+		{
+			m_VehicleFreeAreaBox.Destroy();
+			m_VehicleFreeAreaBox = null;
+		}
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscToggleHud(bool enabled)
+	{
+		Mission mission = g_Game.GetMission();
+		mission.GetHud().Show(!enabled);
+		if (enabled)
+		{
+			mission.HideCrosshairVisibility();
+		}
+		else
+		{
+			mission.RefreshCrosshairVisibility();
+		}
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscEnvironmentDebug(bool enabled)
+	{
+		SendDiagRPC(enabled, ERPCs.DIAG_MISC_ENVIRONMENT_DEBUG);
+	}
+	
+	void UpdateEnvironmentDebug()
+	{
+		if (DiagMenu.GetBool(DiagMenuIDs.MISC_ENVIRONMENT_DEBUG) && m_EnvDebugData)
+			Environment.DisplayEnvDebugPlayerInfo(true, m_EnvDebugData);
+		else if (m_EnvDebugData)
+			m_EnvDebugData = null;
+	}
+	
+	//---------------------------------------------
+	void UpdateMaterialDebug()
+	{
+		if (DiagMenu.GetBool(DiagMenuIDs.MATERIALDIAG_GHOSTPP))
+		{
+			MatGhostDebug();
+		}
+	}
+	
+	//---------------------------------------------
+	void UpdateWeaponLiftDiag(float delta_time)
+	{
+		#ifndef SERVER
+		int weaponLiftDebug = DiagMenu.GetValue(DiagMenuIDs.WEAPON_LIFT_DEBUG);		
+		if (weaponLiftDebug)
+		{
+			GetWeaponLiftDiag().DrawDiag(weaponLiftDebug, delta_time);
+		}
+		#endif
+	}
+	
+	#ifndef SERVER
+	//---------------------------------------------
+	static WeaponLiftDiag GetWeaponLiftDiag()
+	{
+		PluginDiagMenuClient pluginDiag = PluginDiagMenuClient.Cast(GetPlugin(PluginDiagMenuClient));
+		return pluginDiag.m_WeaponLiftDiag;
+	}
+	#endif
+	
+	void UpdateUndegroundDiag(float deltaTIme)
+	{
+		#ifndef SERVER
+		#ifdef DEVELOPER
+		if (DiagMenu.GetBool(DiagMenuIDs.UNDERGROUND_DEBUG))
+			m_UndergroundDiag.DrawDiag(deltaTIme);
+		#endif
+		#endif
+	}
+	
+	//---------------------------------------------
+	void MatGhostDebug()
+	{
+		string materialPath = "Graphics/Materials/postprocess/ghost";
+		Material material = g_Game.GetWorld().GetMaterial(materialPath);
+		if (!material)
+		{
+			DiagMenu.SetValue(DiagMenuIDs.MATERIALDIAG_GHOSTPP, 0);
+			return;
+		}
+		
+		DbgUI.Begin("GhostEffect Debug");
+		{
+			float channelWeights[] = { 0, 0, 0, 0 };
+			float noiseOffset[] = { 0, 0 };
+			float noiseScale[] = { 1, 1 };
+			float noiseLo[] = { 0, 0, 0, 0 };
+			float noiseHi[] = { 1, 1, 1, 1 };
+			float ghostOffset[] = { 0, 0 };
+			float ghostScale[] = { 1, 1 };
+			float colormod[] = { 1, 1, 1, 0.5 };
+			int spacer_height = 10;
+			
+			float rw, gw, bw, aw;
+			DbgUI.Text("noise_channel_weight");
+			{			
+				DbgUI.InputFloat("noise_weight_r", rw);
+				DbgUI.InputFloat("noise_weight_g", gw);
+				DbgUI.InputFloat("noise_weight_b", bw);
+				DbgUI.InputFloat("noise_weight_a", aw);
+			}
+			DbgUI.Spacer(spacer_height);
+			//-------------------//
+			float nox, noy;
+			float nsx = 1, nsy = 1;
+			DbgUI.Text("noise_offset");
+			{
+				DbgUI.InputFloat("noise_offset_x", nox);
+				DbgUI.InputFloat("noise_offset_y", noy);
+				DbgUI.InputFloat("noise_scale_x", nsx);
+				DbgUI.InputFloat("noise_scale_y", nsy);
+			}
+			DbgUI.Spacer(spacer_height);
+			//-------------------//
+			float rl = 0, rh = 1;
+			float gl = 0, gh = 1;
+			float bl = 0, bh = 1;
+			float al = 0, ah = 1;
+			DbgUI.Text("noise_remap");
+			{
+				DbgUI.InputFloat("lo_r", rl);
+				DbgUI.SameLine();
+				DbgUI.InputFloat("hi_r", rh);
+				
+				DbgUI.InputFloat("lo_g", gl);
+				DbgUI.SameLine();
+				DbgUI.InputFloat("hi_g", gh);
+				
+				DbgUI.InputFloat("lo_b", bl);
+				DbgUI.SameLine();
+				DbgUI.InputFloat("hi_b", bh);
+				
+				DbgUI.InputFloat("lo_a", al);
+				DbgUI.SameLine();
+				DbgUI.InputFloat("hi_a", ah);
+			}
+			DbgUI.Spacer(spacer_height);
+			//-------------------//
+			float gox = 50, goy = 25;
+			float gsx = 0.85, gsy = 0.85;
+			DbgUI.Text("ghost_offset");
+				{
+				DbgUI.InputFloat("ghost_offset_x", gox);
+				DbgUI.InputFloat("ghost_offset_y", goy);
+				DbgUI.InputFloat("ghost_scale_x", gsx);
+				DbgUI.InputFloat("ghost_scale_y", gsy);
+				}
+			DbgUI.Spacer(spacer_height);
+			//-------------------//
+			float cmr = 1, cmg = 1, cmb = 1, cma = 1;
+			DbgUI.Text("color_mod");
+			{
+				DbgUI.InputFloat("color_mod_r", cmr);
+				DbgUI.InputFloat("color_mod_g", cmg);
+				DbgUI.InputFloat("color_mod_b", cmb);
+				DbgUI.InputFloat("color_curve", cma);
+			}
+			DbgUI.Spacer(spacer_height);
+			//-------------------//
+			channelWeights = { rw, gw, bw, aw };
+			noiseOffset = { nox, noy };	
+			noiseScale = { nsx, nsy };
+			noiseLo = { rl, gl, bl, al };
+			noiseHi = { rh, gh, bh, ah };
+			ghostOffset = { gox, goy };	
+			ghostScale = { gsx, gsy };
+			colormod = { cmr, cmg, cmb, cma };
+
+		}
+		DbgUI.End();
+		
+		material.SetParamByIndex(1, channelWeights);
+		material.SetParamByIndex(2, noiseOffset[0]);
+		material.SetParamByIndex(3, noiseOffset[1]);
+		material.SetParamByIndex(4, noiseScale[0]);
+		material.SetParamByIndex(5, noiseScale[1]);
+		material.SetParamByIndex(6, noiseLo);
+		material.SetParamByIndex(7, noiseHi);
+		material.SetParamByIndex(8, ghostOffset[0]);
+		material.SetParamByIndex(9, ghostOffset[1]);
+		material.SetParamByIndex(10, ghostScale[0]);
+		material.SetParamByIndex(11, ghostScale[1]);
+		material.SetParamByIndex(12, colormod );
+		
+	}
+
+	#ifdef ENABLE_LOGGING
+	static void CBMiscEnvironmentLoggingDryWet(bool enabled)
+	{
+		SendDiagRPC(enabled, ERPCs.DIAG_MISC_ENVIRONMENT_LOGGING_DRYWET);
+	}
+	
+	static void CBMiscEnvironmentLoggingItemHeat(bool enabled)
+	{
+		SendDiagRPC(enabled, ERPCs.DIAG_MISC_ENVIRONMENT_LOGGING_ITEMHEAT);
+	}
+	#endif
+	
+	static void CBMiscFallDamageDebug(bool enabled)
+	{
+		SendDiagRPC(enabled, ERPCs.DIAG_MISC_FALLDAMAGE_DEBUG);
+	}
+	
+	void UpdateFallDamageDebug()
+	{
+		if (DiagMenu.GetBool(DiagMenuIDs.MISC_FALLDAMAGE_DEBUG) && m_FallDamageDebugData)
+			DayZPlayerImplementFallDamage.DisplayFallDamageDebugInfo(true, m_FallDamageDebugData);
+		else if (m_FallDamageDebugData)
+			m_FallDamageDebugData = null;
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscDisplayPlayerInfo(int value)
+	{
+		PluginRemotePlayerDebugClient prpdc = PluginRemotePlayerDebugClient.Cast(GetPlugin(PluginRemotePlayerDebugClient));
+		prpdc.RequestPlayerInfo(PlayerBase.Cast(g_Game.GetPlayer()), value);
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscUniversalTemperatureSources(bool enabled)
+	{
+		PluginUniversalTemperatureSourceClient client = PluginUniversalTemperatureSourceClient.Cast(GetPlugin(PluginUniversalTemperatureSourceClient));
+		client.RequestUniversalTemperatureSources(PlayerBase.Cast(g_Game.GetPlayer()), enabled);
+	}
+
+	//---------------------------------------------	
+	static void CBMiscBulletImpact(bool enabled, int id)
+	{
+		PlayerBase player = GetPlayer();	
+		CachedObjectsParams.PARAM2_FLOAT_FLOAT.param1 = 32;
+		CachedObjectsParams.PARAM2_FLOAT_FLOAT.param2 = 0.3;
+		DiagButtonActionParams(enabled, id, ScriptCaller.Create(player.SpawnDamageDealtEffect2), CachedObjectsParams.PARAM2_FLOAT_FLOAT);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscGoUnconscious(bool enabled, int id)
+	{
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_MISC_GO_UNCONSCIOUS, true);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscGoUnconsciousDelayed(bool enabled, int id)
+	{
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_MISC_GO_UNCONSCIOUS_DELAYED, true);
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscQuickRestrain(bool enabled)
+	{	
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		DiagToggleRPC(enabled, player.IsQuickRestrain(), ERPCs.DIAG_MISC_QUICK_RESTRAIN);
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscHairHide(bool enabled, int id)
+	{
+		int value = DiagMenu.GetRangeValue(DiagMenuIDs.MISC_HAIR_LEVEL);
+		DiagButtonRPCIntInt(enabled, id, value, enabled, ERPCs.DIAG_MISC_HAIR_LEVEL_HIDE, true);
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscHairHideAll(bool enabled)
+	{
+		CachedObjectsParams.PARAM2_INT_INT.param1 = -1;
+		CachedObjectsParams.PARAM2_INT_INT.param2 = enabled;
+		
+		SendDiagRPC(CachedObjectsParams.PARAM2_INT_INT, ERPCs.DIAG_MISC_HAIR_LEVEL_HIDE, true);
+	}
+	
+	//---------------------------------------------		
+	static void CBMiscCamShake(bool enabled, int id)
+	{
+		DayZPlayerCamera cam = g_Game.GetPlayer().GetCurrentCamera();
+		DiagButtonAction(enabled, id, ScriptCaller.Create(cam.SpawnDiagCameraShake));
+	}
+	
+	//---------------------------------------------	
+	static void CBMiscQuickFishing(bool enabled)
+	{
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		DiagToggleRPC(enabled, player.IsQuickFishing(), ERPCs.DIAG_MISC_QUICK_FISHING);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscShockImpact(bool enabled, int id)
+	{
+		DiagButtonAction(enabled, id, ScriptCaller.Create(ShockImpact));
+	}
+	
+	static void ShockImpact()
+	{
+		static float intensity;
+		intensity += 0.25;
+		intensity = Math.WrapFloat(intensity, 0.25, 1);
+		
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		player.SpawnShockEffect(intensity);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscPlugArrows(bool enabled)
+	{
+		g_Game.EnableEMPlugs(enabled);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscTargetableByAI(bool enabled, int id)
+	{
+		PlayerBase player = GetPlayer();
+		if (player)
+			DiagToggleRPC(enabled, player.m_CanBeTargetedDebug, ERPCs.DIAG_MISC_TARGETABLE_BY_AI);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscHitIndication()
+	{
+		PlayerBase player = GetPlayer();
+		
+		if (DiagMenu.GetBool(DiagMenuIDs.MISC_HIT_INDICATION_DEBUG))
+		{
+			HitDirectionEffectBase.m_Mode = DiagMenu.GetValue(DiagMenuIDs.MISC_HIT_INDICATION_MODE);
+			HitDirectionEffectBase.m_ID = DiagMenu.GetValue(DiagMenuIDs.MISC_HIT_INDICATION_TYPE);
+			HitDirectionEffectBase.m_DurationMax = DiagMenu.GetRangeValue(DiagMenuIDs.MISC_HIT_INDICATION_DURATION);
+			HitDirectionEffectBase.m_BreakPointBase = DiagMenu.GetRangeValue(DiagMenuIDs.MISC_HIT_INDICATION_BREAKPOINT);
+			HitDirectionEffectBase.m_DistanceAdjust = DiagMenu.GetRangeValue(DiagMenuIDs.MISC_HIT_INDICATION_DISTANCE);
+			HitDirectionEffectBase.m_RotationOverride = DiagMenu.GetRangeValue(DiagMenuIDs.MISC_HIT_INDICATION_ROTATION);
+			HitDirectionEffectBase.m_Scatter = DiagMenu.GetRangeValue(DiagMenuIDs.MISC_HIT_INDICATION_SCATTER);		
+			
+			if (player)
+			{
+				player.SetHitPPEEnabled(!DiagMenu.GetBool(DiagMenuIDs.MISC_HIT_INDICATION_DISABLE_PPE));
+			}
+		}
+		else
+		{
+			HitDirectionEffectBase.CheckValues();
+			if (player)
+			{
+				player.SetHitPPEEnabled(CfgGameplayHandler.GetHitIndicationPPEEnabled());
+			}
+		}
+	}
+	
+	//---------------------------------------------
+	static void CBMiscHitIndicationSpawnHit(bool enabled, int id)
+	{		
+		DiagButtonAction(enabled, id, ScriptCaller.Create(SpawnHitDirEffect));
+	}
+	
+	static void SpawnHitDirEffect()
+	{
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		g_Game.GetMission().GetHud().SpawnHitDirEffect(player, DiagMenu.GetRangeValue(DiagMenuIDs.MISC_HIT_INDICATION_SPAWN_HIT_DIRECTION), 1.0);
+	}
+	
+	//---------------------------------------------
+	static void CBDebugMonitor(bool enabled, int id)
+	{
+		SendDiagRPC(enabled, ERPCs.DIAG_MISC_DEBUG_MONITOR, true);
+		
+		if (enabled)
+			g_Game.GetMission().CreateDebugMonitor();
+		else
+			g_Game.GetMission().HideDebugMonitor();
+	}
+	
+	static void CBPRADrawAll(bool enabled, int id)
+	{
+		CfgPlayerRestrictedAreaHandler.DrawBoxesDebug(enabled);
+		CfgPlayerRestrictedAreaHandler.DrawPolygonLinesDebug(enabled);
+	}
+	
+	static void CBPRADetect(bool enabled, int id)
+	{
+		if (enabled)
+		{
+			DayZPlayer player = g_Game.GetPlayer();
+			PlayerRestrictedAreaInstance pra;
+			bool res = CfgPlayerRestrictedAreaHandler.IsPointInPlayerRestrictedArea(player.GetPosition(),pra);
+			if (res)
+				Print("player: " + player + " | at position: " + player.GetPosition() + " | intersects area: " + pra.areaName);
+			else
+				Print("player: " + player + " | at position: " + player.GetPosition() + " | is NOT in any PlayerRestrictedArea");
+		}
+		DiagMenu.SetValue(DiagMenuIDs.MISC_PRA_DETECT, false);
+	}
+	
+	//---------------------------------------------
+	static void CBMiscFreezeEntity(bool enabled, int id)
+	{
+		DiagButtonAction(enabled, id, ScriptCaller.Create(FreezeEntity));
+	}
+	
+	static void FreezeEntity()
+	{
+		EntityAI entity;
+		if (PluginSceneManager.GetInstance() && PluginSceneManager.GetInstance().IsOpened())
+		{
+			// Scene Editor
+			SceneObject scene_obj = PluginSceneManager.GetInstance().GetSelectedSceneObject();
+
+			if (scene_obj)
+			{
+				entity = scene_obj.GetObject();
+			}
+		}
+		else
+		{
+			// FreeDebugCamera
+			FreeDebugCamera camera = FreeDebugCamera.GetInstance();
+			entity = EntityAI.Cast(camera.GetCrosshairObject());
+		}
+		
+		if (entity)
+			entity.DisableSimulation(!entity.GetIsSimulationDisabled());
+	}
+	
+	//---------------------------------------------
+	static void CBMiscFreezePlayer(bool enabled, int id)
+	{
+		DiagButtonAction(enabled, id, ScriptCaller.Create(FreezePlayer));
+	}
+	
+	static void FreezePlayer()
+	{
+		EntityAI player = g_Game.GetPlayer();
+		if (player)
+			player.DisableSimulation(!player.GetIsSimulationDisabled());
+	}
+	
+	//---------------------------------------------
+	static void CBVehicleDebugOutput(int value)
+	{
+		
+		int bitValue = 0;
+		if (value == 1)//"Basic"
+		{
+			bitValue = EVehicleDebugOutputType.DAMAGE_APPLIED;
+		}
+		if (value == 2)//"Extended"
+		{
+			bitValue = EVehicleDebugOutputType.DAMAGE_APPLIED | EVehicleDebugOutputType.DAMAGE_CONSIDERED;
+		}
+		else if (value == 3)//"Contact"
+		{
+			bitValue = EVehicleDebugOutputType.CONTACT;
+		}
+		else if (value == 4)//"Basic" + "Contact"
+		{
+			bitValue = EVehicleDebugOutputType.DAMAGE_APPLIED | EVehicleDebugOutputType.CONTACT;
+		}
+		SendDiagRPC(bitValue, ERPCs.DIAG_VEHICLE_DEBUG_OUTPUT, true);
+	}
+	
+	//---------------------------------------------
+	static void CBDumpCrashData(bool value)
+	{
+		if (value)
+		{
+			SendDiagRPC(true, ERPCs.DIAG_VEHICLES_DUMP_CRASH_DATA_REQUEST, true);
+			DiagMenu.SetValue(DiagMenuIDs.VEHICLE_DUMP_CRASH_DATA, 0);
+		}
+		//DiagButtonRPC(value, DiagMenuIDs.VEHICLE_DUMP_CRASH_DATA, ERPCs.DIAG_VEHICLES_DUMP_CRASH_DATA_REQUEST, true);	
+		
+	}
+	
+	//---------------------------------------------
+	static void SimulateMode(bool enabled, int id, int rpc)
+	{
+		int value = DiagMenu.GetRangeValue(DiagMenuIDs.SIMULATE_MODE);
+		
+		switch (value)
+		{
+			case 0:
+			{
+				DiagButtonRPC(enabled, id, rpc, true);
+				break;
+			}
+			case 1:
+			{
+				DiagButtonRPCSelf(enabled, id, rpc);
+				break;
+			}
+			case 2:
+			{
+				DiagButtonRPC(enabled, id, rpc, true);
+				DiagButtonRPCSelf(enabled, id, rpc);
+				break;
+			}
+		}
+	}
+	
+	//---------------------------------------------
+	static void CBSimulateInfiniteLoop(bool enabled, int id)
+	{
+		SimulateMode(enabled, id, ERPCs.DIAG_SIMULATE_INFINITE_LOOP);
+	}
+	
+	//---------------------------------------------
+	static void CBSimulateNullPointer(bool enabled, int id)
+	{
+		SimulateMode(enabled, id, ERPCs.DIAG_SIMULATE_NULL_POINTER);
+	}
+	
+	//---------------------------------------------
+	static void CBSimulateDivisionByZero(bool enabled, int id)
+	{
+		SimulateMode(enabled, id, ERPCs.DIAG_SIMULATE_DIVISION_BY_ZERO);
+	}
+	
+	//---------------------------------------------
+	static void CBSimulateErrorFunction(bool enabled, int id)
+	{
+		SimulateMode(enabled, id, ERPCs.DIAG_SIMULATE_ERROR_FUNCTION);
+	}
+	
+	//---------------------------------------------
+	static void CBWeaponParticles(bool enabled)
+	{
+		DiagToggleRPCServer(enabled, PrtTest.m_GunParticlesState, ERPCs.DIAG_WEAPON_PARTICLES);
+	}
+
+	//---------------------------------------------	
+	static void CBWeaponDebug(bool enabled)
+	{
+		PlayerBase player = GetPlayer();
+		DiagToggleAction(enabled, ScriptCaller.Create(player.ShowWeaponDebug), player.IsWeaponDebugEnabled());
+	}
+	
+	//---------------------------------------------	
+	static void CBWeaponAimNoise(bool enabled)
+	{
+		PlayerBase player = GetPlayer();
+		if (player)
+		{
+			DayZPlayerImplementAiming aimModel = player.GetAimingModel();
+			DiagToggleAction(enabled, ScriptCaller.Create(aimModel.SetAimNoiseAllowed), aimModel.IsAimNoiseAllowed());
+		}
+	}
+	
+	//---------------------------------------------	
+	static void CBWeaponRecoil(bool enabled)
+	{
+		PlayerBase player = GetPlayer();
+		if (player)
+		{
+			DayZPlayerImplementAiming aimModel = player.GetAimingModel();
+			DiagToggleRPC(enabled, aimModel.IsProceduralRecoilEnabled(), ERPCs.DIAG_WEAPON_RECOIL);
+		}
+	}
+	
+	//---------------------------------------------
+	static void CBWeaponUnlimitedAmmo(bool enabled)
+	{
+		DiagDebugAction(DebugActionType.UNLIMITED_AMMO, enabled);
+	}
+	
+	//---------------------------------------------
+	static void CBWeaponBurstVersion(int value)
+	{
+		PlayerBase player = GetPlayer();
+		WeaponManager wpnMngr = player.GetWeaponManager();
+		DiagToggleRPC(value, wpnMngr.GetBurstOption(), ERPCs.DIAG_WEAPON_BURST_VERSION);
+	}
+	
+	//---------------------------------------------
+	static void CBBleedingSources(bool enabled)
+	{
+		PlayerBase player = GetPlayer();
+		player.GetBleedingManagerRemote().SetDiag(enabled);
+	}
+	
+	//---------------------------------------------
+	static void CBBleedingDisableBloodLoss(bool enabled)
+	{		
+		SendDiagRPC(enabled, ERPCs.DIAG_BLEEDING_DISABLE_BLOOD_LOSS, true);
+	}
+	
+	//---------------------------------------------
+	static void CBBleedingActivateSource(int value)
+	{
+		SendDiagRPC(value, ERPCs.DIAG_BLEEDING_ACTIVATE_SOURCE, true);	
+	}
+	
+	//---------------------------------------------
+	static void CBBleedingActivateAllSources(bool enabled, int id)
+	{
+		DiagButtonRPC(enabled, id, ERPCs.DIAG_BLEEDING_ACTIVATE_ALL_SOURCES, true);
+	}
+	
+	//---------------------------------------------
+	static void CBBleedingActivateSourceLevel(int value)
+	{
+		PlayerBase player = GetPlayer();
+		BleedingSourcesManagerBase mgr = player.GetBleedingManagerRemote();
+			
+		int idx = 100; //invalid index, just deletes all
+		if (value != 0)
+		{
+			string bone = ""; //lower-case!
+			switch (value)
+			{
+				case 1: //PlayerConstants.BLEEDING_SOURCE_FLOW_MODIFIER_LOW
+					bone = "lefttoebase";
+					break;
+					
+				case 2: //PlayerConstants.BLEEDING_SOURCE_FLOW_MODIFIER_MEDIUM
+					bone = "leftarm";
+					break;
+					
+				case 3: //PlayerConstants.BLEEDING_SOURCE_FLOW_MODIFIER_HIGH
+					bone = "neck";
+					break;
+			}
+			
+			int count = mgr.m_BleedingSourceZone.Count();
+				
+			for (int i = 0; i < count; ++i)
+			{
+				if (mgr.m_BleedingSourceZone.GetKey(i) == bone)
+				{
+					idx = i;
+					break;
+				}
+			}
+		}
+		
+		CBBleedingActivateSource(idx);
+	}
+	
+	//---------------------------------------------
+	static void CBBleedingReload(bool enabled, int id)
+	{
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		BleedingSourcesManagerRemote bsMngrRem = player.GetBleedingManagerRemote();
+		DiagButtonAction(enabled, id, ScriptCaller.Create(bsMngrRem.Reload));
+	}
+	
+	//---------------------------------------------
+	static void CBBBleedingIndicators()
+	{
+		bool diagEnable = DiagMenu.GetBool(DiagMenuIDs.BLEEDINGINDICATORS);
+		if (diagEnable != DbgBleedingIndicationStaticInfo.m_DbgEnableBleedingIndication)
+		{
+			DbgBleedingIndicationStaticInfo.m_DbgEnableBleedingIndication = diagEnable;
+			PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+			if (player && player.GetBleedingManagerRemote())
+			{
+				player.GetBleedingManagerRemote().Reload();
+			}
+		}
+		
+		DbgBleedingIndicationStaticInfo.m_DbgUseOverrideValues = DiagMenu.GetBool(DiagMenuIDs.BLEEDINGINDICATORS_USEVALUEOVERRIDES);
+		
+		if (DbgBleedingIndicationStaticInfo.m_DbgUseOverrideValues)
+		{
+			DbgBleedingIndicationStaticInfo.m_DbgSequenceDuration = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_SEQUENCE_DURATION);
+			DbgBleedingIndicationStaticInfo.m_DbgDropRotationRandom = DiagMenu.GetBool(DiagMenuIDs.BLEEDINGINDICATORS_DROP_RANDOMROTATION);
+			DbgBleedingIndicationStaticInfo.m_DbgDropDurationBase = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_BASEDURATION);
+			DbgBleedingIndicationStaticInfo.m_DbgDropMinDelay = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_MINDELAY);
+			DbgBleedingIndicationStaticInfo.m_DbgDropMaxDelay = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_MAXDELAY);
+			DbgBleedingIndicationStaticInfo.m_DbgDropProgressTreshold = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_PROGRESSTHRESHOLD);
+			DbgBleedingIndicationStaticInfo.m_DbgDropStartSize = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_STARTSIZE);
+			DbgBleedingIndicationStaticInfo.m_DbgDropEndSize = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_ENDSIZE);
+			DbgBleedingIndicationStaticInfo.m_DbgDropSizeVariationMin = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_RNDSCALEMIN);
+			DbgBleedingIndicationStaticInfo.m_DbgDropSizeVariationMax = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_RNDSCALEMAX);
+			DbgBleedingIndicationStaticInfo.m_DbgDropScatter = (int)DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_SCATTER);
+			DbgBleedingIndicationStaticInfo.m_DbgDropSlideDistance = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_SLIDEDISTANCE);
+			
+			DbgBleedingIndicationStaticInfo.m_DbgDropDesaturate = DiagMenu.GetBool(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_ENABLEDESATURATION);
+			DbgBleedingIndicationStaticInfo.m_DbgDesaturationEnd = DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_DESATURATIONEND);
+			DbgBleedingIndicationStaticInfo.m_DbgDropColorRed = (int)DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_R);
+			DbgBleedingIndicationStaticInfo.m_DbgDropColorGreen = (int)DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_G);
+			DbgBleedingIndicationStaticInfo.m_DbgDropColorBlue = (int)DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_B);
+			DbgBleedingIndicationStaticInfo.m_DbgDropColorAlphaStart = (int)DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_A_START);
+			DbgBleedingIndicationStaticInfo.m_DbgDropColorAlphaEnd = (int)DiagMenu.GetRangeValue(DiagMenuIDs.BLEEDINGINDICATORS_DROP_COLOR_A_END);
+		}
+	}
+	
+	//---------------------------------------------
+	static void CBLogsActions(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsActionLogEnable(), ERPCs.DIAG_LOGS_ACTIONS);
+	}
+	
+	//---------------------------------------------
+	static void CBLogsWeapons(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsWeaponLogEnable(), ERPCs.DIAG_LOGS_WEAPONS);
+	}
+	
+	//---------------------------------------------
+	static void CBLogsSync(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsSyncLogEnable(), ERPCs.DIAG_LOGS_SYNC);
+	}
+	
+	//---------------------------------------------
+	static void CBLogsBaseBuilding(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsBaseBuildingLogEnable(), ERPCs.DIAG_LOGS_BASEBUILDING);
+	}
+	
+	//---------------------------------------------
+	static void CBLogsSymptoms(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsSymptomLogEnable(), ERPCs.DIAG_LOGS_SYMPTOMS);
+	}
+	
+	//---------------------------------------------
+	static void CBLogsInventoryMove(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsInventoryMoveLogEnable(), ERPCs.DIAG_LOGS_INVENTORY_MOVE);
+	}
+	
+	//---------------------------------------------
+	static void CBLogsInventoryReservation(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsInventoryReservationLogEnable(), ERPCs.DIAG_LOGS_INVENTORY_RESERVATION);
+	}
+	
+	//---------------------------------------------
+	static void CBLogsInventoryHFSM(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsInventoryHFSMLogEnable(), ERPCs.DIAG_LOGS_INVENTORY_HFSM);
+	}
+
+	//---------------------------------------------
+	static void CBLogsQuickbar(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsQuickbarLogEnable(), ERPCs.DIAG_LOGS_QUICKBAR);
+	}	
+	
+	//---------------------------------------------
+	static void CBLogsBleedingChances(bool enabled)
+	{
+		DiagToggleRPC(enabled, LogManager.IsBleedingChancesLogEnable(), ERPCs.DIAG_LOGS_BLEEDING_CHANCES);
+	}
+	
+	//---------------------------------------------
+	static void CBTriggerDebug(bool enabled)
+	{
+		EnableDebugSystemClient(ESubscriberSystems.TRIGGERS, enabled);
+	}
+	
+	//---------------------------------------------
+	static void CBBaseBuildingWood(bool enabled)
+	{
+		SendDiagRPC(enabled, ERPCs.DIAG_BASEBUILDING_WOOD, true);
+	}
+	
+	//---------------------------------------------
+	static void CBBaseBuildingGate(bool enabled)
+	{
+		SendDiagRPC(enabled, ERPCs.DIAG_BASEBUILDING_GATE, true);
+	}
+	
+	//---------------------------------------------
+	static void CBFinishersFinisherForced(int value)
+	{
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+		DiagToggleRPC(value - 1, player.GetMeleeCombat().DebugGetForcedFinisherType(), ERPCs.DIAG_FINISHERS_FORCE_FINISHER);
+	}
+	
+	//---------------------------------------------		
+	static void CBCameraToolsEnableRemoteCamera(bool enabled)
+	{
+		PlayerBase player = GetPlayer();
+		
+		if (!player)
+			return;
+		
+		if (!enabled && player.m_CameraToolsMenuClient)
+		{
+			player.m_CameraToolsMenuClient.DelayedDestroy();
+		}
+		
+		auto param = new Param2<bool, EntityAI>(enabled, g_Game.GetPlayer());
+		g_Game.RPCSingleParam( null, ERPCs.DIAG_CAMERATOOLS_CAM_SUBSCRIBE, param, true );
+	}
+	
+	//---------------------------------------------
+	// Misc		
+	//---------------------------------------------
+	static PlayerBase GetPlayer()
+	{
+		if (!g_Game)
+			return null;
+
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
+
+		if (DiagMenu.GetBool(DiagMenuIDs.MISC_ACTION_ON_CURSOR))
+		{
+			float hitFraction;
+			vector start = g_Game.GetCurrentCameraPosition();
+			vector end = start + (g_Game.GetCurrentCameraDirection() * 5.0);	
+
+			vector hitPos, hitNormal;
+			Object hitObj;
+			
+			PhxInteractionLayers hitMask = 0xFFFFFFFFFF;
+
+			DayZPhysics.RayCastBullet(start, end, hitMask, null, hitObj, hitPos, hitNormal, hitFraction);
+			Class.CastTo(player, hitObj);
+		}
+		
+		return player;
+	}
+	
+	//---------------------------------------------
+	// DebugAction		
+	//---------------------------------------------
+	static void DiagDebugAction(DebugActionType type, bool enable)
+	{
+		int mask;
+		if (enable)
+		{
+			mask = (ItemBase.GetDebugActionsMask() | type);
+		}
+		else
+		{
+			mask = (ItemBase.GetDebugActionsMask() & (~type));
+		}
+		
+		DiagToggleRPCAction(mask, ScriptCaller.Create(ItemBase.SetDebugActionsMask), ItemBase.HasDebugActionsMask(type), ERPCs.DIAG_ITEM_DEBUG_ACTIONS);
+	}
+	
+	//---------------------------------------------
+	// SubscriberClient
+	//---------------------------------------------
+	static void EnableDebugSystemClient(ESubscriberSystems system, bool enable)
+	{
+		int mask;
+		if (enable)
+		{
+			mask = (m_SystemsMask | system);//turn on bit
+		}
+		else
+		{
+			mask = (m_SystemsMask & (~system));//turn off bit
+		}
+		
+		if (mask != m_SystemsMask)
+		{
+			CachedObjectsParams.PARAM1_INT.param1 = mask;
+			g_Game.RPCSingleParam( g_Game.GetPlayer(), ERPCs.DEV_DIAGMENU_SUBSCRIBE, CachedObjectsParams.PARAM1_INT, true, g_Game.GetPlayer().GetIdentity() );
+			m_SystemsMask = mask;
+		}
+	}
+	
+	
+	//---------------------------------------------
+	// Helper diag functions			
+	//---------------------------------------------
+	static void DiagButtonActionParams(bool enabled, int id, ScriptCaller action, Param params)
+	{
+		if ( enabled )
+		{
+			action.Invoke(params);				
+			DiagMenu.SetValue(id, false);
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagButtonAction(bool enabled, int id, ScriptCaller action)
+	{
+		DiagButtonActionParams(enabled, id, action, null);
+	}
+	
+	//---------------------------------------------
+	static void DiagButtonRPC(bool enabled, int id, int rpc, bool serverOnly = false)
+	{
+		ScriptCaller action = ScriptCaller.Create(SendDiagRPCBasic);
+		SendDiagRPCBasicParam params = new SendDiagRPCBasicParam(rpc, serverOnly);
+		
+		DiagButtonActionParams(enabled, id, action, params);
+	}
+	
+	//---------------------------------------------
+	static void DiagButtonRPCSelf(bool enabled, int id, int rpc)
+	{
+		ScriptCaller action = ScriptCaller.Create(SendDiagRPCSelfBasic);
+		SendDiagRPCSelfBasicParam params = new SendDiagRPCSelfBasicParam(rpc);
+		
+		DiagButtonActionParams(enabled, id, action, params);
+	}
+	
+	//---------------------------------------------
+	static void DiagButtonRPCIntInt(bool enabled, int id, int value, int value2, int rpc, bool serverOnly = false)
+	{
+		ScriptCaller action = ScriptCaller.Create(SendDiagRPCParam);
+		
+		CachedObjectsParams.PARAM2_INT_INT.param1 = value;
+		CachedObjectsParams.PARAM2_INT_INT.param2 = value2;
+		SendDiagRPCParamParam params = new SendDiagRPCParamParam(rpc, serverOnly, CachedObjectsParams.PARAM2_INT_INT);
+		
+		DiagButtonActionParams(enabled, id, action, params);
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleRPC(bool value, int current, int rpc)
+	{
+		if (value != current)
+		{
+			SendDiagRPC(value, rpc, false);
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleRPC(int value, int current, int rpc)
+	{
+		if (value != current)
+		{
+			SendDiagRPC(value, rpc, false);
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleRPC(float value, int current, int rpc)
+	{
+		if (value != current)
+		{
+			SendDiagRPC(value, rpc, false);
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleRPCServer(bool value, out bool current, int rpc)
+	{
+		if (value != current)
+		{
+			current = value;
+			SendDiagRPC(value, rpc, true);		
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleRPCServer(int value, out int current, int rpc)
+	{
+		if (value != current)
+		{
+			current = value;
+			SendDiagRPC(value, rpc, true);		
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleRPCServer(float value, out float current, int rpc)
+	{
+		if (value != current)
+		{
+			current = value;
+			SendDiagRPC(value, rpc, true);		
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleRPCAction(int value, ScriptCaller action, int current, int rpc)
+	{
+		if (value != current)
+		{
+			SendDiagRPC(value, rpc);
+			action.Invoke(value);
+		}
+	}
+	
+	//---------------------------------------------
+	static void DiagToggleAction(int value, ScriptCaller action, int current)
+	{
+		if (value != current)
+		{
+			action.Invoke(value);
+		}
+	}
+		
+	//---------------------------------------------
+	static void SendDiagRPCSelf(Param value, int rpc)
+	{
+		PlayerBase player = GetPlayer();
+		if (player) 
+		{
+			g_Game.RPCSelfSingleParam(player, rpc, value);
+		}
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPCSelfBasic(SendDiagRPCSelfBasicParam param)
+	{
+		SendDiagRPCSelf(null, param.param1);
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPCSelfParam(SendDiagRPCSelfParamParam param)
+	{
+		SendDiagRPCSelf(param.param2, param.param1);
+ 	}
+		
+	//---------------------------------------------
+	static void SendDiagRPC(Param value, int rpc, bool serverOnly = false)
+	{
+		PlayerBase player = GetPlayer();
+		if (player) 
+		{
+			PlayerIdentity playerIdentity = player.GetIdentity();
+			if (g_Game.IsMultiplayer() && playerIdentity)
+			{
+				g_Game.RPCSingleParam(player, rpc, value, true, playerIdentity);
+			}
+			
+			if (!g_Game.IsMultiplayer() || !serverOnly)
+			{
+				g_Game.RPCSelfSingleParam(player, rpc, value);
+			}
+		}
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPCBasic(SendDiagRPCBasicParam param)
+	{
+		SendDiagRPC(null, param.param1, param.param2);
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPCParam(SendDiagRPCParamParam param)
+	{
+		SendDiagRPC(param.param3, param.param1, param.param2);
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPC(int rpc, bool serverOnly = false)
+	{
+		SendDiagRPC(null, rpc, serverOnly);
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPC(bool value, int rpc, bool serverOnly = false)
+	{
+		CachedObjectsParams.PARAM1_BOOL.param1 = value;
+		SendDiagRPC(CachedObjectsParams.PARAM1_BOOL, rpc, serverOnly);
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPC(int value, int rpc, bool serverOnly = false)
+	{
+		CachedObjectsParams.PARAM1_INT.param1 = value;
+		SendDiagRPC(CachedObjectsParams.PARAM1_INT, rpc, serverOnly);
+ 	}
+	
+	//---------------------------------------------
+	static void SendDiagRPC(float value, int rpc, bool serverOnly = false)
+	{
+		CachedObjectsParams.PARAM1_FLOAT.param1 = value;
+		SendDiagRPC(CachedObjectsParams.PARAM1_FLOAT, rpc, serverOnly);
+ 	}
+#endif
+}

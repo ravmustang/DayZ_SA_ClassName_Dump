@@ -1,0 +1,32 @@
+{
+    "0": {
+        "m_Icon": "set:dayz_gui image:notification_friend",
+        "m_TitleText": "#ps4_invite_friend_connected",
+        "m_DescriptionText": ""
+    },
+    "1": {
+        "m_Icon": "set:dayz_gui image:notification_friend",
+        "m_TitleText": "#ps4_invitation_failed",
+        "m_DescriptionText": ""
+    },
+    "2": {
+        "m_Icon": "",
+        "m_TitleText": "#str_xbox_join_fail_title",
+        "m_DescriptionText": "#str_xbox_join_fail"
+    },
+    "3": {
+        "m_Icon": "",
+        "m_TitleText": "#server_browser_connecting_failed",
+        "m_DescriptionText": "#server_browser_error_unknown"
+    },
+    "4": {
+        "m_Icon": "",
+        "m_TitleText": "#options_game_connectivity_disconnect",
+        "m_DescriptionText": "#STR_MP_SESSION_LOST"
+    },
+    "5": {
+        "m_Icon": "",
+        "m_TitleText": "#server_browser_error_unknown",
+        "m_DescriptionText": ""
+    }
+}

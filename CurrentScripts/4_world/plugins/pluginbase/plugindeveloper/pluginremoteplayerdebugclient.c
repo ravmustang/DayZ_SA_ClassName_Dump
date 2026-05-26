@@ -1,0 +1,249 @@
+enum eRemoteDebugType
+{
+	NONE,
+	DAMAGE_ONLY,
+	ALL,
+}
+
+class PluginRemotePlayerDebugClient extends PluginBase
+{
+	const int MAX_SIMULTANIOUS_PLAYERS = 10;
+	ref array<ref RemotePlayerStatDebug> m_PlayerDebugStats = new array<ref RemotePlayerStatDebug>;
+	ref map<PlayerBase, ref RemotePlayerDamageDebug> m_PlayerDebugDamage = new map<PlayerBase,ref RemotePlayerDamageDebug>;
+	
+	ref Widget 	m_RootWidget[MAX_SIMULTANIOUS_PLAYERS];
+	ref Widget 	m_RootWidgetDamage[MAX_SIMULTANIOUS_PLAYERS];
+	ref TextListboxWidget m_StatListWidgets[MAX_SIMULTANIOUS_PLAYERS];
+	ref TextListboxWidget m_DamageListWidgets[MAX_SIMULTANIOUS_PLAYERS];
+	ref TextWidget m_DistanceWidget[MAX_SIMULTANIOUS_PLAYERS];
+	eRemoteDebugType m_DebugType;
+	
+	override void OnInit()
+	{
+		#ifndef NO_GUI
+		InitWidgets();
+		#endif
+	}
+	
+	override void OnUpdate(float delta_time)
+	{
+		#ifndef NO_GUI
+		if ( m_DebugType !=0 ) UpdateWidgetsStats();
+		#endif
+	}
+	
+	void InitWidgets()
+	{
+		for (int i = 0; i < MAX_SIMULTANIOUS_PLAYERS; ++i)
+		{
+			m_RootWidget[i] = g_Game.GetWorkspace().CreateWidgets("gui/layouts/debug/day_z_debug_remoteinfo.layout");
+			m_RootWidgetDamage[i] = g_Game.GetWorkspace().CreateWidgets("gui/layouts/debug/day_z_debug_remoteinfo_damage.layout");
+			m_DamageListWidgets[i] = TextListboxWidget.Cast(m_RootWidgetDamage[i].FindAnyWidget("TextListboxWidget1"));
+			m_StatListWidgets[i] = TextListboxWidget.Cast(m_RootWidget[i].FindAnyWidget("TextListboxWidget0"));
+			m_DistanceWidget[i] = TextWidget.Cast(m_RootWidget[i].FindAnyWidget("TextWidget0"));
+		}
+	}		
+	
+	void EnableWidgets(bool enable)
+	{
+		for (int i = 0; i < MAX_SIMULTANIOUS_PLAYERS; ++i)
+		{
+			m_RootWidget[i].Show(enable);
+			m_RootWidgetDamage[i].Show(enable);
+		}
+	}
+	
+	void UpdateWidgetsStats()
+	{
+		int i = 0;
+		for (; i < m_PlayerDebugStats.Count(); ++i)
+		{
+			RemotePlayerStatDebug rpd = m_PlayerDebugStats.Get(i);
+			PlayerBase player = rpd.GetPlayer();
+			
+			if (player)
+			{
+				vector pos = player.GetPosition();
+				vector screen_pos_stats = g_Game.GetScreenPos(pos + "0 0 0");
+				vector screen_pos_damage = g_Game.GetScreenPos(pos + "0 2 0");
+				m_RootWidget[i].SetPos(screen_pos_stats[0], screen_pos_stats[1]);
+				m_RootWidgetDamage[i].SetPos(screen_pos_damage[0], screen_pos_damage[1]);
+				
+				if (screen_pos_stats[2] > 0 && screen_pos_stats[0] > 0 && screen_pos_stats[1] > 0)
+				{
+					m_RootWidget[i].Show(true);
+					m_RootWidgetDamage[i].Show(true);
+					UpdateStatsWidget(i, rpd);
+					UpdateDistanceWidget(i, player);
+					UpdateDamageWidget(i, player);
+				}
+				else
+				{
+					m_RootWidget[i].Show(false);
+					m_RootWidgetDamage[i].Show(false);
+				}
+				
+			}
+		}
+		for (; i < MAX_SIMULTANIOUS_PLAYERS; ++i)
+		{
+			m_RootWidget[i].Show(false);
+			m_RootWidgetDamage[i].Show(false);
+		}
+	}
+	
+	
+	void UpdateDamageWidget(int index, PlayerBase player)
+	{
+		array<ref DamageData> damage_list = new array<ref DamageData>;
+		if (m_PlayerDebugDamage.Contains(player))
+		{
+			RemotePlayerDamageDebug value = m_PlayerDebugDamage.Get(player);
+			value.GetReversed(damage_list);
+			
+			m_DamageListWidgets[index].ClearItems();
+			if (damage_list.Count() > 0)
+			{
+				m_DamageListWidgets[index].Show(true);
+				for (int i = 0; i < damage_list.Count(); ++i)
+				{
+					DamageData data = damage_list[i];
+					float value_global = data.GetValueGlobal();
+					float value_blood = data.GetValueBlood();
+					float value_shock = data.GetValueShock();
+					
+					m_DamageListWidgets[index].AddItem( value_global.ToString(), null, 0, i );
+					m_DamageListWidgets[index].SetItem( i, value_blood.ToString(), null, 1 );
+					m_DamageListWidgets[index].SetItem( i, value_shock.ToString(), null, 2 );
+				}
+			}
+			else
+			{
+				m_DamageListWidgets[index].Show(false);
+			}
+		}
+	}
+	
+	void UpdateDistanceWidget(int index, PlayerBase other_player)
+	{
+		float distance = vector.Distance(g_Game.GetCurrentCameraPosition(), other_player.GetPosition());
+		m_DistanceWidget[index].SetText(distance.ToString() + "m");
+	}
+	
+	void UpdateStatsWidget(int index, RemotePlayerStatDebug rpd)
+	{
+		array<string> names = new array<string>;
+		array<string> values = new array<string>;
+		rpd.SerializeNames(names, m_DebugType);
+		rpd.SerializeValues(values,m_DebugType);
+		m_StatListWidgets[index].ClearItems();
+		
+		for (int i = 0; i < names.Count(); ++i)
+		{
+			m_StatListWidgets[index].AddItem( names.Get(i), null, 0, i );
+			m_StatListWidgets[index].SetItem( i, values.Get(i), null, 1 );
+		}
+	}
+
+	void RequestPlayerInfo(PlayerBase player, int type)
+	{
+#ifdef DIAG_DEVELOPER
+		if (type == 0)
+		{
+			EnableWidgets(false);
+		}
+		/*
+		else
+		{
+			EnableWidgets(true);
+		}
+		*/
+		ScriptRPC rpc = new ScriptRPC();
+		m_DebugType = type;
+		rpc.Write(type);
+		rpc.Send( player, ERPCs.DEV_PLAYER_DEBUG_REQUEST, true, player.GetIdentity() );
+#endif
+	}
+	
+	void MergeDamage( array<ref RemotePlayerDamageDebug> delta )
+	{
+		foreach (RemotePlayerDamageDebug valueDelta : delta)
+		{	
+			PlayerBase playerDelta = valueDelta.GetPlayer();
+			
+			if ( m_PlayerDebugDamage.Contains(null) )
+			{
+				//cleans up garbage
+				m_PlayerDebugDamage.Remove(null);
+			}
+			
+			if ( m_PlayerDebugDamage.Contains(playerDelta) )
+			{
+				RemotePlayerDamageDebug valueLocal = m_PlayerDebugDamage.Get(playerDelta);
+				array<ref DamageData> damageList = new array<ref DamageData>;
+				valueDelta.GetReversed(damageList);
+				
+				foreach (DamageData data : damageList)
+				{
+					valueLocal.InsertDamageObject( data );
+				}
+			}
+			else
+			{
+				m_PlayerDebugDamage.Insert(playerDelta, valueDelta);
+			}
+		}
+	}
+	
+	void DebugDamage(PlayerBase player)
+	{
+		for (int i = 0; i < m_PlayerDebugStats.Count(); i++)
+		{
+			player = m_PlayerDebugStats.Get(i).GetPlayer();
+			
+			PrintString("player:" + player.ToString() );
+			m_PlayerDebugStats.Get(i).Debug();
+			PrintString("-------------------------------------");
+		}
+		
+		for (i = 0; i < m_PlayerDebugDamage.Count(); i++)
+		{
+			PrintString("-------------------------------------");
+			if( m_PlayerDebugDamage.GetElement(i) ) m_PlayerDebugDamage.GetElement(i).Debug();
+			PrintString("-------------------------------------");
+		}
+		
+		for (i = 0; i < m_PlayerDebugDamage.Count();i++)
+		{
+			PrintString("------------Debug Damage Start--------------");
+			PlayerBase player2 = m_PlayerDebugDamage.GetKey(i);
+			RemotePlayerDamageDebug obj = m_PlayerDebugDamage.Get(player2);
+			obj.Debug();
+			PrintString("-------------Debug Damage End-------------");
+		}
+	}
+	
+	void OnRPC(ParamsReadContext ctx)
+	{
+		ctx.Read(m_PlayerDebugStats);
+		
+		array<ref RemotePlayerDamageDebug> player_damage = new array<ref RemotePlayerDamageDebug>;
+		
+		ctx.Read(player_damage);
+		PlayerBase player;
+		for (int x = 0; x < player_damage.Count(); x++)
+		{
+			RemotePlayerDamageDebug value = player_damage.Get(x);
+			if (value)
+			{
+				player = value.GetPlayer();
+				PrintString("debug damage: "+x.ToString() + "," + player.ToString());
+				value.Debug();
+
+				int xs = 1 + 1;
+			}
+		}
+		
+		if (player_damage.Count() > 0 ) MergeDamage(player_damage);
+	}
+}

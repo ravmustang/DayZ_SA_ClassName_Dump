@@ -1,0 +1,1 @@
+class ReflexVest extends Vest_Base {};
