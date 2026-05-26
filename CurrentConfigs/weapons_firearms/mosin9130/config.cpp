@@ -1,95 +1,181 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:46:23 2018 : 'file' last modified on Wed Aug 22 21:52:09 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_firearms\mosin9130\config.bin{
 class CfgPatches
 {
 	class DZ_Weapons_Firearms_MosinNagant
 	{
-		units[] = {"Mosin9130","Mosin9130_Black","Mosin9130_Green","Mosin9130_Green_Black","Mosin9130_Black_Green"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Weapons_Firearms"};
+		units[]=
+		{
+			"Mosin9130",
+			"Mosin9130_Black",
+			"Mosin9130_Green",
+			"Mosin9130_Green_Black",
+			"Mosin9130_Black_Green"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Weapons_Firearms"
+		};
 	};
 };
 class Mode_Safe;
 class Mode_SemiAuto;
+class Mode_Single;
 class Mode_Burst;
 class Mode_FullAuto;
+class OpticsInfoRifle;
 class cfgWeapons
 {
-	class Rifle_Base;
-	class Mosin9130_Base: Rifle_Base
+	class BoltActionRifle_InnerMagazine_Base;
+	class Mosin9130_Base: BoltActionRifle_InnerMagazine_Base
 	{
-		scope = 0;
-		animName = "Mosin9130";
-		lootTag[] = {"Civilian","Hunting"};
-		weight = 4000;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		ContinuousActions[] = {"AT_LOAD_MULTI_BULLET_TO_WEAPON"};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		discreteDistance[] = {100,200,300,400,500,600,700,800,900,1000};
-		discreteDistanceInitIndex = 0;
-		PPDOFProperties[] = {1,0.6,200000,0.3,3,0.1};
-		optics = 1;
-		opticsFlare = 0;
-		value = 0;
-		chamberSize = 5;
-		chamberedRound = "";
-		magazines[] = {};
-		chamberableFrom[] = {"Ammo_762x54","Ammo_762x54Tracer","Mag_CLIP762x54_5Rnd"};
-		barrelArmor = 400;
-		ejectType = 0;
-		recoilModifier[] = {1,1,1};
-		drySound[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_dry",0.5,1,20};
-		reloadSkips[] = {0.32,0.41,0.5,0.59,0.69,0.77};
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_reloading",0.8,1,20};
-		reloadSound[] = {"DZ\sounds\weapons\firearms\mosin9130\mosin_cycling",0.8,1,20};
-		reloadAction = "ReloadMosinFull";
-		shotAction = "ReloadMosinShort";
-		hiddenSelections[] = {"camo"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\mosin9130\data\mosin_9130.rvmat"};
-		modes[] = {"Single"};
-		class Single: Mode_SemiAuto
+		scope=0;
+		displayName="$STR_cfgWeapons_Mosin91300";
+		descriptionShort="$STR_cfgWeapons_Mosin91301";
+		animName="Mosin9130";
+		weight=4000;
+		absorbency=0;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		PPDOFProperties[]={1,0.5,20,170,4,10};
+		DisplayMagazine=0;
+		WeaponLength=1.235;
+		ObstructionDistance=1.013;
+		barrelArmor=2;
+		initSpeedMultiplier=1.02;
+		chamberSize=5;
+		chamberedRound="";
+		chamberableFrom[]=
 		{
-			soundSetShot[] = {"Mosin_Shot_SoundSet","Mosin_Tail_SoundSet","Mosin_InteriorTail_SoundSet"};
-			soundSetShotExt[] = {{"Mosin_silencerHomeMade_SoundSet","Mosin_silencerHomeMadeTail_SoundSet","Mosin_silencerInteriorHomeMadeTail_SoundSet"}};
-			begin1[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_close_0",1,1,1000};
-			begin2[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_close_1",1,1,1000};
-			begin3[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_close_2",1,1,1000};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,150};
-			soundBeginExt[] = {{"beginSilenced_HomeMade",1}};
-			reloadTime = 2;
-			recoil = "recoil_mosin";
-			recoilProne = "recoil_mosin_prone";
-			dispersion = 0.001;
-			magazineSlot = "magazine";
+			"Ammo_762x54",
+			"Ammo_762x54Tracer",
+			"Mag_CLIP762x54_5Rnd"
+		};
+		magazines[]={};
+		ejectType=0;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={2.5,2.5,0.89999998};
+		simpleHiddenSelections[]=
+		{
+			"hide_barrel"
+		};
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\mosin9130\data\mosin_9130.rvmat"
+		};
+		class NoiseShoot
+		{
+			strength=100;
+			type="shot";
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=250;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_9130.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_9130.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_9130_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_9130_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_9130_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		modes[]=
+		{
+			"Single"
+		};
+		class Single: Mode_Single
+		{
+			soundSetShot[]=
+			{
+				"Mosin9130_Shot_SoundSet",
+				"Mosin9130_Shot_iterior_SoundSet",
+				"Mosin9130_Tail_SoundSet",
+				"Mosin9130_InteriorTail_SoundSet",
+				"Mosin9130_Tail_2D_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"Mosin9130_silencerHomeMade_SoundSet",
+					"Mosin9130_silencerHomeMadeTail_SoundSet",
+					"Mosin9130_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=1;
+			recoil="recoil_mosin";
+			recoilProne="recoil_mosin_prone";
+			dispersion=0.0012000001;
+			magazineSlot="magazine";
+		};
+		class OpticsInfo: OpticsInfoRifle
+		{
+			memoryPointCamera="eye";
+			modelOptics="-";
+			distanceZoomMin=100;
+			distanceZoomMax=100;
+			discreteDistance[]={100,200,300,400,500,600,700,800,900,1000};
+			discreteDistanceInitIndex=0;
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={0,0,-0.059999999};
+				orientation[]={0,-40,0};
+			};
+			class Melee
+			{
+				position[]={0,0,0.039999999};
+				orientation[]={0,40,0};
+			};
 		};
 		class Particles
 		{
@@ -97,738 +183,282 @@ class cfgWeapons
 			{
 				class MuzzleFlash
 				{
-					ignoreIfSuppressed = 1;
-					overridePoint = "Usti hlavne";
+					overrideParticle="weapon_shot_mosin9130_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={-0.029999999,0,0};
 				};
-				class ChamberFlash
+				class ChamberSmoke
 				{
-					overridePoint = "Usti hlavne";
-					illuminateWorld = 1;
-					overrideParticle = "weapon_shot_izh18_01";
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+					overrideDirectionPoint="Nabojniceend";
 				};
 			};
-		};
-		class Damage
-		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\firearms\mosin9130\data\mosin_9130.rvmat","DZ\weapons\firearms\mosin9130\data\mosin_9130_damage.rvmat","DZ\weapons\firearms\mosin9130\data\mosin_9130_destruct.rvmat"};
-		};
-		class AnimEvents
-		{
-			class SoundWeapon
+			class OnOverheating
 			{
-				class Weapon_Movement_Rifle_Walk
+				maxOverheatingValue=1;
+				shotsToStartOverheating=1;
+				overheatingDecayInterval=0.5;
+				class SmokingBarrel1
 				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
+					overrideParticle="smoking_barrel_small";
+					onlyWithinOverheatLimits[]={0.1,1};
+					positionOffset[]={0,0,0};
+					onlyWithinRainLimits[]={0,0.2};
 				};
-				class Weapon_Movement_Rifle_Run
+				class OpenChamberSmoke
 				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
+					onlyIfBoltIsOpen=1;
+					overrideParticle="smoking_barrel_small";
+					overridePoint="Nabojnicestart";
 				};
-				class Weapon_Movement_Rifle_Sprint
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
 				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
 				};
 			};
 		};
+		weaponStateAnim="dz\anims\anm\player\reloads\Mosin_1903\w_mosin1903_states.anm";
 	};
-	class SawedoffMosin9130_Base: Rifle_Base
+	class SawedoffMosin9130_Base: Mosin9130_Base
 	{
-		scope = 0;
-		animName = "Mosin9130";
-		weight = 3000;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		discreteDistance[] = {50};
-		discreteDistanceInitIndex = 0;
-		optics = 1;
-		opticsFlare = 0;
-		value = 0;
-		chamberSize = 5;
-		chamberedRound = "";
-		magazines[] = {};
-		chamberableFrom[] = {"Ammo_762x54","Ammo_762x54Tracer","Mag_CLIP762x54_5Rnd"};
-		cursor = "aimBowGhost";
-		barrelArmor = 300;
-		ejectType = 0;
-		recoilModifier[] = {1,1,1};
-		drySound[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_dry",0.5,1};
-		reloadSkips[] = {0.32,0.41,0.5,0.59,0.69,0.77};
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_reloading",0.8,1,20};
-		reloadSound[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_cycling",0.8,1,20};
-		reloadAction = "ReloadMosinFull";
-		shotAction = "ReloadMosinShort";
-		hiddenSelections[] = {"camo"};
-		modes[] = {"Single"};
+		scope=0;
+		displayName="$STR_cfgWeapons_SawedoffMosin91300";
+		descriptionShort="$STR_cfgWeapons_SawedoffMosin91301";
+		animName="Mosin9130";
+		weight=3000;
+		absorbency=0.1;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		WeaponLength=0.5;
+		ObstructionDistance=0.46900001;
+		ShoulderDistance=0.30000001;
+		initSpeedMultiplier=0.75;
+		chamberSize=5;
+		chamberedRound="";
+		magazines[]={};
+		chamberableFrom[]=
+		{
+			"Ammo_762x54",
+			"Ammo_762x54Tracer",
+			"Mag_CLIP762x54_5Rnd"
+		};
+		ejectType=0;
+		recoilModifier[]={2,2,1};
+		swayModifier[]={1.5,1.5,1};
+		DisplayMagazine=0;
+		simpleHiddenSelections[]=
+		{
+			"hide_barrel"
+		};
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		modes[]=
+		{
+			"Single"
+		};
 		class Single: Mode_SemiAuto
 		{
-			soundSetShot[] = {"Mosin_Shot_SoundSet","Mosin_Tail_SoundSet","Mosin_InteriorTail_SoundSet"};
-			soundSetShotExt[] = {{"Mosin_silencerHomeMade_SoundSet","Mosin_silencerHomeMadeTail_SoundSet","Mosin_silencerInteriorHomeMadeTail_SoundSet"}};
-			begin1[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_close_0",1,1,1000};
-			begin2[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_close_1",1,1,1000};
-			begin3[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_close_2",1,1,1000};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,150};
-			soundBeginExt[] = {{"beginSilenced_HomeMade",1}};
-			reloadTime = 2;
-			recoil = "recoil_mosin";
-			recoilProne = "recoil_mosin_prone";
-			dispersion = 0.003;
-		};
-		class AnimEvents
-		{
-			class SoundWeapon
+			soundSetShot[]=
 			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
+				"Mosin9130_Shot_Sawedoff_SoundSet",
+				"Mosin9130_Shot_iterior_SoundSet",
+				"Mosin9130_Tail_Sawedoff_SoundSet",
+				"Mosin9130_InteriorTail_SoundSet",
+				"Mosin9130_Tail_2D_Sawedoff_SoundSet"
 			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"Mosin9130_silencerHomeMade_SoundSet",
+					"Mosin9130_silencerHomeMadeTail_SoundSet",
+					"Mosin9130_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=1;
+			recoil="recoil_mosin";
+			recoilProne="recoil_mosin_prone";
+			dispersion=0.003;
+		};
+		class OpticsInfo: OpticsInfo
+		{
+			modelOptics="-";
+			distanceZoomMin=100;
+			distanceZoomMax=100;
+			discreteDistance[]={50};
+			discreteDistanceInitIndex=0;
 		};
 	};
 	class Mosin9130: Mosin9130_Base
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_Mosin91300";
-		descriptionShort = "$STR_cfgWeapons_Mosin91301";
-		model = "\dz\weapons\firearms\mosin9130\mosin9130.p3d";
-		itemSize[] = {9,6};
-		dexterity = 2.3;
-		attachments[] = {"weaponMuzzleMosin","weaponBayonetMosin","weaponOpticsMosin","weaponBipod","weaponWrap","suppressorImpro"};
-		baseAttachments[] = {};
-		randomAttachments[] = {{"Mosin_Compensator","","","","","","","","",""},{"PUScopeOptic","","","","","","","","",""}};
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\mosin9130\data\mosin_9130_co.paa"};
-		class AnimEvents
+		scope=2;
+		model="\dz\weapons\firearms\mosin9130\mosin9130.p3d";
+		itemSize[]={10,3};
+		attachments[]=
 		{
-			class SoundWeapon
-			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
-			};
+			"weaponWrap",
+			"weaponOpticsMosin",
+			"suppressorImpro",
+			"weaponMuzzleMosin",
+			"weaponBayonetMosin"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\firearms\mosin9130\data\mosin_9130_co.paa"
 		};
 	};
-	class Mosin9130_Black: Mosin9130_Base
+	class Mosin9130_Black: Mosin9130
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_Mosin9130_Black0";
-		descriptionShort = "$STR_cfgWeapons_Mosin9130_Black1";
-		model = "\dz\weapons\firearms\mosin9130\mosin9130.p3d";
-		itemSize[] = {10,3};
-		dexterity = 2.3;
-		attachments[] = {"weaponMuzzleMosin","weaponBayonetMosin","weaponOpticsMosin","weaponBipod","weaponWrap","suppressorImpro"};
-		baseAttachments[] = {};
-		randomAttachments[] = {{"Mosin_Compensator","","","","","","","","",""},{"PUScopeOptic","","","","","","","","",""}};
-		color = "Black";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\mosin9130\data\mosin_9130_bk.rvmat"};
-		class AnimEvents
+		scope=2;
+		color="Black";
+		hiddenSelectionsTextures[]=
 		{
-			class SoundWeapon
-			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
-			};
+			"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\mosin9130\data\mosin_9130_bk.rvmat"
 		};
 	};
-	class Mosin9130_Green: Mosin9130_Base
+	class Mosin9130_Green: Mosin9130
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_Mosin9130_Green0";
-		descriptionShort = "$STR_cfgWeapons_Mosin9130_Green1";
-		model = "\dz\weapons\firearms\mosin9130\mosin9130.p3d";
-		itemSize[] = {9,6};
-		dexterity = 2.3;
-		attachments[] = {"weaponMuzzleMosin","weaponBayonetMosin","weaponOpticsMosin","weaponBipod","weaponWrap","suppressorImpro"};
-		baseAttachments[] = {};
-		randomAttachments[] = {{"Mosin_Compensator","","","","","","","","",""},{"PUScopeOptic","","","","","","","","",""}};
-		color = "Green";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"};
-		class AnimEvents
+		scope=2;
+		color="Green";
+		hiddenSelectionsTextures[]=
 		{
-			class SoundWeapon
-			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
-			};
+			"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"
 		};
 	};
-	class Mosin9130_Camo: Mosin9130_Base
+	class Mosin9130_Camo: Mosin9130
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_Mosin9130_Camo0";
-		descriptionShort = "$STR_cfgWeapons_Mosin9130_Camo1";
-		model = "\dz\weapons\firearms\mosin9130\mosin9130.p3d";
-		itemSize[] = {9,6};
-		dexterity = 2.3;
-		attachments[] = {"weaponMuzzleMosin","weaponBayonetMosin","weaponOpticsMosin","weaponBipod","weaponWrap","suppressorImpro"};
-		baseAttachments[] = {};
-		randomAttachments[] = {{"Mosin_Compensator","","","","","","","","",""},{"PUScopeOptic","","","","","","","","",""}};
-		color = "Camo";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\mosin9130\data\mosin_nagant_camo_co.paa"};
-		class AnimEvents
+		scope=2;
+		color="Camo";
+		hiddenSelectionsTextures[]=
 		{
-			class SoundWeapon
-			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
-			};
+			"dz\weapons\firearms\mosin9130\data\mosin_nagant_camo_co.paa"
 		};
 	};
 	class SawedoffMosin9130: SawedoffMosin9130_Base
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_SawedoffMosin91300";
-		descriptionShort = "$STR_cfgWeapons_SawedoffMosin91301";
-		model = "\dz\weapons\firearms\mosin9130\mosin_sawn.p3d";
-		attachments[] = {"weaponOpticsMosin"};
-		baseAttachments[] = {};
-		lootCategory = "Crafted";
-		itemSize[] = {6,5};
-		dexterity = 2.7;
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\mosin9130\data\mosin_sawn_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\mosin9130\data\mosin_sawn.rvmat"};
-		class Damage
+		scope=2;
+		model="\dz\weapons\firearms\mosin9130\mosin_sawn.p3d";
+		attachments[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\firearms\mosin9130\data\mosin_sawn.rvmat","DZ\weapons\firearms\mosin9130\data\mosin_sawn_damage.rvmat","DZ\weapons\firearms\mosin9130\data\mosin_sawn_destruct.rvmat"};
+			"weaponOpticsMosin"
 		};
-		class AnimEvents
+		itemSize[]={5,2};
+		hiddenSelectionsTextures[]=
 		{
-			class SoundWeapon
+			"dz\weapons\firearms\mosin9130\data\mosin_sawn_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\mosin9130\data\mosin_sawn.rvmat"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
 			{
-				class Weapon_Movement_Rifle_Walk
+				class Health
 				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
+					hitpoints=250;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_sawn.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_sawn.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_sawn_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_sawn_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\mosin9130\Data\mosin_sawn_destruct.rvmat"
+							}
+						}
+					};
 				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={-0.050000001,-0.025,0.0099999998};
+				orientation[]={0,0,-10};
+			};
+			class Melee
+			{
+				position[]={-0.050000001,-0.025,-0.029999999};
+				orientation[]={0,0,-10};
 			};
 		};
 	};
 	class SawedoffMosin9130_Black: SawedoffMosin9130
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_SawedoffMosin9130_Black0";
-		color = "Black";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\mosin9130\data\mosin_sawn_bk.rvmat"};
-		class AnimEvents
+		scope=2;
+		color="Black";
+		hiddenSelectionsTextures[]=
 		{
-			class SoundWeapon
-			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
-			};
+			"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\mosin9130\data\mosin_sawn_bk.rvmat"
 		};
 	};
 	class SawedoffMosin9130_Green: SawedoffMosin9130
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_SawedoffMosin9130_Green0";
-		color = "Green";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"};
-		class AnimEvents
+		scope=2;
+		color="Green";
+		hiddenSelectionsTextures[]=
 		{
-			class SoundWeapon
-			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
-			};
+			"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"
 		};
 	};
 	class SawedoffMosin9130_Camo: SawedoffMosin9130
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_SawedoffMosin9130_Camo0";
-		color = "Camo";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\mosin9130\data\mosin_nagant_camo_co.paa"};
-		class AnimEvents
+		scope=2;
+		color="Camo";
+		hiddenSelectionsTextures[]=
 		{
-			class SoundWeapon
-			{
-				class Weapon_Movement_Rifle_Walk
-				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
-				};
-				class Weapon_Movement_Rifle_Run
-				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
-				};
-				class Weapon_Movement_Rifle_Sprint
-				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
-				};
-				class Weapon_Movement_Rifle_Land
-				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
-				};
-				class Char_Gestures_Hand_Grab_Rifle
-				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
-				};
-				class mosin9130_charge_open
-				{
-					soundSet = "mosin9130_charge_open_SoundSet";
-					id = 1;
-				};
-				class mosin9130_chamber_load
-				{
-					soundSet = "mosin9130_chamber_load_SoundSet";
-					id = 2;
-				};
-				class mosin9130_charge_close
-				{
-					soundSet = "mosin9130_charge_close_SoundSet";
-					id = 3;
-				};
-				class mosin9130_dry
-				{
-					soundSet = "mosin9130_dry_SoundSet";
-					id = 10;
-				};
-				class mosin9130_pullout
-				{
-					soundSet = "mosin9130_pullout_SoundSet";
-					id = 11;
-				};
-			};
+			"dz\weapons\firearms\mosin9130\data\mosin_nagant_camo_co.paa"
 		};
 	};
 };
-class cfgRecoils
-{
-	recoil_mosin[] = {0,0,0,0.04,"0.036943*(0.8)","0.0134348*(2.3)",0.08,"0.019755*(0.8)","0.003056*(2.3)",0.09,0,0,0.14,"-0.003138*(0.8)","-0.0005*(2.3)",0.08,"-0.001177*(0.8)","-0.000188*(2.3)",0.12,0,0};
-	recoil_mosin_prone[] = {0,0,0,0.004,"0.036943*(0.01)","0.0134348*(0.1)",0.008,"0.019755*(0.01)","0.003056*(0.1)",0.009,0,0,0.014,"-0.003138*(0.01)","-0.0005*(0.1)",0.008,"-0.001177*(0.01)","-0.000188*(0.1)",0.012,0,0};
-};
-//};

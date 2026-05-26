@@ -1,36 +1,17 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 20:01:43 2018 : 'file' last modified on Wed Aug 22 14:53:49 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\animals\lepus_europaeus\config.bin{
 class CfgPatches
 {
 	class DZ_Animals_lepus_europaeus
 	{
-		units[] = {"Animal_LepusEuropaeus"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Animals"};
+		units[]=
+		{
+			"Animal_LepusEuropaeus"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Animals"
+		};
 	};
 };
 class CfgVehicles
@@ -38,231 +19,350 @@ class CfgVehicles
 	class AnimalBase;
 	class Animal_LepusEuropaeus: AnimalBase
 	{
-		class SoundEnvironExt
+		simulation="dayzanimal";
+		scope=2;
+		model="\DZ\animals\lepus_europaeus\lepus_europaeus.p3d";
+		displayName="$STR_CfgVehicles_Animal_LepusEuropaeus0";
+		descriptionShort="$STR_CfgVehicles_Animal_LepusEuropaeus1";
+		aiAgentTemplate="AmbientLife_Lepus_Europaeus";
+		class DamageSystem
 		{
-			normal[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
-			normalExt[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
-			concrete_int[] = {{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\concrete\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\concrete\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\concrete\bodyfall_2",1,1,50}}};
-			concrete_ext[] = {{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\concrete\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\concrete\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\concrete\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\concrete\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\concrete\bodyfall_2",1,1,50}}};
-			dirt[] = {{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\dirt\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\dirt\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\dirt\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\dirt\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\dirt\bodyfall_2",1,1,50}}};
-			forest[] = {{"\dz\sounds\effects\animals\movement\paw_small\forest\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\forest\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\forest\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\forest\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\forest\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\forest\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\forest\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\forest\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\forest\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\forest\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\forest\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\forest\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\forest\bodyfall_2",1,1,50}}};
-			grass[] = {{"\dz\sounds\effects\animals\movement\paw_small\grass\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\grass\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\grass\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\grass\bodyfall_2",1,1,50}}};
-			drygrass[] = {{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\grass_dry\bodyfall_2",1,1,50}}};
-			gravel[] = {{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\gravel\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\gravel\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\gravel\bodyfall_2",1,1,50}}};
-			gravel2[] = {{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\gravel\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\gravel\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\gravel\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\gravel\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\gravel\bodyfall_2",1,1,50}}};
-			metal[] = {{"\dz\sounds\effects\animals\movement\paw_small\metal\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\metal\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\metal\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\metal\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\metal\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\metal\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\metal\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\metal\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\metal\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\metal\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\metal\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\metal\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\metal\bodyfall_2",1,1,50}}};
-			mud[] = {{"\dz\sounds\effects\animals\movement\paw_small\mud\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\mud\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\mud\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\mud\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\mud\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\mud\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\mud\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\mud\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\mud\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\mud\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\mud\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\mud\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\mud\bodyfall_2",1,1,50}}};
-			road[] = {{"\dz\sounds\effects\animals\movement\paw_small\road\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\road\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\road\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\road\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\road\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\road\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\road\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\road\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\road\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\road\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\road\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\road\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\road\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\road\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\road\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\road\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\road\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\road\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\road\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\road\bodyfall_2",1,1,50}}};
-			rock[] = {{"\dz\sounds\effects\animals\movement\paw_small\rock\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\rock\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\rock\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\rock\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\rock\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\rock\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\rock\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\rock\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\rock\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\rock\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\rock\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\rock\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\rock\bodyfall_2",1,1,50}}};
-			sand[] = {{"\dz\sounds\effects\animals\movement\paw_small\sand\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\sand\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\sand\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\sand\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\sand\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\sand\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\sand\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\sand\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\sand\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\sand\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\sand\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\sand\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\sand\bodyfall_2",1,1,50}}};
-			water[] = {{"\dz\sounds\effects\animals\movement\paw_small\water\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\water\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\water\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\water\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\water\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\water\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\water\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\water\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\water\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\water\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\water\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\water\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\water\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\water\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\water\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\water\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\water\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\water\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\water\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\water\bodyfall_2",1,1,50}}};
-			wood[] = {{"\dz\sounds\effects\animals\movement\paw_small\wood\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_2",1,1,50}}};
-			wood_int[] = {{"\dz\sounds\effects\animals\movement\paw_small\wood\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_2",1,1,50}}};
-			parkety[] = {{"\dz\sounds\effects\animals\movement\paw_small\wood\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\wood\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\wood\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\wood\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\wood\bodyfall_2",1,1,50}}};
-			steel[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
-			hallway[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
-			carpet[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
-			wave_plate[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
-			lepenka[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
-			tasky[] = {{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50},{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",1,1,50}},{"ps_stepl",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",1,1,50}},{"ps_stepr",{"\dz\sounds\effects\animals\movement\paw_small\default\step_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_1",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_2",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_3",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_4",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_5",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_6",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_7",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_8",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_9",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_10",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_11",1,1,50}},{"ps_grazing",{"\dz\sounds\effects\animals\movement\paw_small\default\grazing_12",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_0",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_1",1,1,50}},{"ps_bodyfall",{"\dz\sounds\effects\animals\movement\paw_small\default\bodyfall_2",1,1,50}}};
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=25;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							{}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							{}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							{}
+						}
+					};
+				};
+				class Blood
+				{
+					hitpoints=5000;
+				};
+				class Shock
+				{
+					hitpoints=100;
+				};
+			};
 		};
-		newAnimSystemSoundStepOverride = "walk";
-		scope = 2;
-		model = "\DZ\animals\lepus_europaeus\lepus_europaeus.p3d";
-		armor = 1.2;
-		displayName = "$STR_CfgVehicles_Animal_LepusEuropaeus0";
-		moves = "CfgMovesLepusEuropaeus";
 		class Skinning
 		{
 			class ObtainedSteaks
 			{
-				item = "RabbitLegMeat";
-				count = 2;
-				quantityMinMaxCoef[] = {0.75,1};
+				item="RabbitLegMeat";
+				count=2;
+				quantityMinMaxCoef[]={0.75,1};
 			};
-			class ObtainedGuts
+			class ObtainedPelt
 			{
-				item = "SmallGuts";
-				count = 0;
-				quantityMinMaxCoef[] = {0.5,1};
+				item="RabbitPelt";
+				count=1;
+				quantityCoef=1;
+				transferToolDamageCoef=1;
 			};
 			class ObtainedLard
 			{
-				item = "Lard";
-				count = 0;
-				quantityMinMaxCoef[] = {0.1,0.2};
+				item="Lard";
+				count=1;
+				quantityMinMaxCoef[]={0.1,0.2};
 			};
 			class ObtainedBones
 			{
-				item = "Bone";
-				count = 0;
-				quantityMinMaxCoef[] = {0.2,0.3};
-				transferToolDamageCoef = 1;
+				item="Bone";
+				count=1;
+				quantityMinMaxCoef[]={0.2,0.30000001};
+				transferToolDamageCoef=1;
+			};
+			class BloodInfectionSettings
+			{
+				class Salmonella
+				{
+					chance=0.40000001;
+				};
 			};
 		};
-		class AIAgentTemplate
+		class enfanimsys
 		{
-			name = "hare";
-			HeadLookBoneName = "pin_lookat";
-			teamName = "BigGame";
-			class BehaviourHLAmbientLife
+			meshObject="dz\animals\lepus_europaeus\data\lepus_europaeus_skeleton.xob";
+			graphname="dz\animals\animations\!graph_files\AmbientLife\AmbientLife_Graph.agr";
+			defaultinstance="dz\animals\animations\!graph_files\AmbientLife\LepusEuropaeus_Skeleton_AnimInstance.asi";
+			startnode="Master_SM";
+			skeletonName="lepus_europaeus_skeleton.xob";
+		};
+		class AnimEvents
+		{
+			class Steps
 			{
-				instantAlertRangeMin = 0.0;
-				instantAlertRangeMax = 0.0;
-				instantAlertStrength = 0.0;
-				agentPathLength = 10.0;
-				class SlotCalm
+				class Walk1
 				{
-					class BehaviourAmbientLifeCalm
+					soundLookupTable="PawSmallWalk_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
 					{
-						walkWeight = 25;
-						idle1Weight = 25;
-						idle2Weight = 0;
-						idle3Weight = 25;
-						walkingDurationMin = 5.0;
-						walkingDurationMax = 10.0;
-						idle1DurationMin = 5.0;
-						idle1DurationMax = 10.0;
-						idle2DurationMin = 5.0;
-						idle2DurationMax = 10.0;
-						idle3DurationMin = 5.0;
-						idle3DurationMax = 10.0;
-						class WalkingMovement
-						{
-							maxSpeed = 0.53;
-							minSpeed = 0.53;
-							acceleration = 5.0;
-							maxAngleSpeed = 90.0;
-							slowRadius = 0.0;
-							stopRadius = 0.5;
-						};
+						"WolfStepEffect1",
+						"WolfStepEffect2"
 					};
+					id=1;
 				};
-				class SlotNonSpecificThreat
+				class Walk2
 				{
-					class BehaviourNonSpecificThreat
+					soundLookupTable="PawSmallWalk_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
 					{
-						lookWeight = 30;
-						sniffWeight = 0;
-						sniffDuration = 0.5;
-						lookDuration = 6.0;
+						"WolfStepEffect1",
+						"WolfStepEffect2"
 					};
+					id=2;
 				};
-				class SlotAlerted
+				class Walk3
 				{
-					class BehaviourFleeFromTargets
+					soundLookupTable="PawSmallWalk_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
 					{
-						class RunMovement
-						{
-							maxSpeed = 7.7;
-							minSpeed = 7.7;
-							acceleration = 5.0;
-							maxAngleSpeed = 360.0;
-							slowRadius = 0.0;
-							stopRadius = 0.5;
-							slowToTurn = 1;
-							smoothAcceleration = 0;
-						};
+						"WolfStepEffect1",
+						"WolfStepEffect2"
 					};
+					id=3;
 				};
-				class AlertSystem
+				class Walk4
 				{
-					visionToAlertMultiplier = 7;
-					noiseToAlertMultiplier = 1.0;
-					damageToAlertMultiplier = 1e+006;
-					class Calm
+					soundLookupTable="PawSmallWalk_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
 					{
-						dropSpeed = 5;
-						dropDelay = 1;
-						maxAlertValue = 25;
+						"WolfStepEffect1",
+						"WolfStepEffect2"
 					};
-					class NonSpecificThreat
+					id=4;
+				};
+				class Run1
+				{
+					soundLookupTable="PawSmallRun_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
 					{
-						dropSpeed = 3;
-						dropDelay = 5;
-						maxAlertValue = 50;
+						"WolfStepEffect1",
+						"WolfStepEffect2"
 					};
-					class SpecificThreat
+					id=5;
+				};
+				class Run2
+				{
+					soundLookupTable="PawSmallRun_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
 					{
-						dropSpeed = 2;
-						dropDelay = 8;
-						maxAlertValue = 75;
+						"WolfStepEffect1",
+						"WolfStepEffect2"
 					};
-					class Alerted
+					id=6;
+				};
+				class Run3
+				{
+					soundLookupTable="PawSmallRun_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
 					{
-						dropSpeed = 5;
-						dropDelay = 5;
-						maxAlertValue = 100;
+						"WolfStepEffect1",
+						"WolfStepEffect2"
 					};
+					id=7;
+				};
+				class Run4
+				{
+					soundLookupTable="PawSmallRun_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=8;
+				};
+				class Grazing1
+				{
+					soundLookupTable="PawSmallGrazing_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=9;
+				};
+				class Grazing2
+				{
+					soundLookupTable="PawSmallGrazing_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=10;
+				};
+				class Bodyfall
+				{
+					soundLookupTable="PawSmallBodyfall_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=11;
+				};
+				class Settle
+				{
+					soundLookupTable="PawSmallSettle_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=12;
+				};
+				class Rest2standA
+				{
+					soundLookupTable="PawSmallRest2standA_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=13;
+				};
+				class Rest2standB
+				{
+					soundLookupTable="PawSmallRest2standB_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=14;
+				};
+				class Stand2restA
+				{
+					soundLookupTable="PawSmallStand2restA_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=15;
+				};
+				class Stand2restB
+				{
+					soundLookupTable="PawSmallStand2restB_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=16;
+				};
+				class Stand2restC
+				{
+					soundLookupTable="PawSmallStand2restC_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=17;
+				};
+				class Jump
+				{
+					soundLookupTable="PawSmallJump_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=18;
+				};
+				class Impact
+				{
+					soundLookupTable="PawSmallImpact_LookupTable";
+					noise="WolfStepNoise";
+					effectSet[]=
+					{
+						"WolfStepEffect1",
+						"WolfStepEffect2"
+					};
+					id=19;
 				};
 			};
-			class NoiseSystemParams
+			class Sounds
 			{
-				rangeMin = 10.0;
-				rangeMax = 60.0;
-				rangeShotMin = 100.0;
-				rangeShotMax = 300.0;
-				class NoiseStrengthTeamMultipliers
+				class HareChirp
 				{
-					BigGame = 0.8;
-					Zombies = 1.0;
-					Player = 1.0;
+					soundSet="BrownHareIdle_SoundSet";
+					noise="WolfRoarNoise";
+					id=1;
+				};
+				class HareScream
+				{
+					soundSet="BrownHareDeath_SoundSet";
+					noise="WolfRoarNoise";
+					id=2;
+				};
+				class HareSquawk
+				{
+					soundSet="BrownHarePain_SoundSet";
+					noise="WolfRoarNoise";
+					id=3;
 				};
 			};
-			class TargetSystemDZBase
+			class Damages
 			{
-				class VisionTeamMultipliers
+				class Bite
 				{
-					BigGame = 0.8;
-					Zombies = 1.0;
-					Player = 1.0;
+					damage="WolfBiteDamage";
+					id=1;
 				};
-				visionManSizeStand = 1.0;
-				visionManSizeCrouch = 0.8;
-				visionManSizeProne = 0.45;
-				visionAngularSpeedMin = 0.1;
-				visionAngularSpeedMax = 0.5;
-				visionAngularSpeedMaxMult = 1.5;
-				visionRangeMin = 20;
-				visionRangeMax = 50;
-				visionFov = 1.2;
-				visionPeripheralRangeMin = 0;
-				visionPeripheralRangeMax = 20;
-				visionPeripheralFov = 3.15;
-				visionNightMinMult = 1.0;
-				visionNightMaxMult = 0.5;
-				visionRainMinMult = 1.0;
-				visionRainMaxMult = 0.8;
-				visionFogMinMult = 1.0;
-				visionFogMaxMult = 0.4;
 			};
 		};
-		class AnimSystem
+		class CommandMoveSettings
 		{
-			meshObject = "dz\animals\lepus_europaeus\data\lepus_europaeus_skeleton.xob";
-			animGraph = "dz\animals\animations\hare_skeleton\AG_hare_skeleton.ag";
-			class AnimEventSounds
-			{
-				class hare_scream
-				{
-					sounds[] = {"DZ\sounds\effects\animals\hare\scream\scream_0","DZ\sounds\effects\animals\hare\scream\scream_1","DZ\sounds\effects\animals\hare\scream\scream_2","DZ\sounds\effects\animals\hare\scream\scream_3","DZ\sounds\effects\animals\0\1","DZ\sounds\effects\animals\0\2","DZ\sounds\effects\animals\0\3"};
-					volume = 1;
-					distance = 70;
-				};
-				class hare_chirp
-				{
-					sounds[] = {"DZ\sounds\effects\animals\hare\chirp\chirp_0","DZ\sounds\effects\animals\hare\chirp\chirp_1","DZ\sounds\effects\animals\hare\chirp\chirp_2","DZ\sounds\effects\animals\hare\chirp\chirp_3","DZ\sounds\effects\animals\hare\chirp\chirp_4","DZ\sounds\effects\animals\hare\chirp\chirp_5","DZ\sounds\effects\animals\hare\chirp\chirp_6","DZ\sounds\effects\animals\hare\chirp\chirp_7","DZ\sounds\effects\animals\0\1","DZ\sounds\effects\animals\0\2","DZ\sounds\effects\animals\0\3"};
-					volume = 1;
-					distance = 70;
-				};
-				class hare_squawk
-				{
-					sounds[] = {"DZ\sounds\effects\animals\hare\squawk\squawk_0","DZ\sounds\effects\animals\hare\squawk\squawk_1","DZ\sounds\effects\animals\hare\squawk\squawk_2","DZ\sounds\effects\animals\hare\squawk\squawk_3","DZ\sounds\effects\animals\hare\squawk\squawk_4","DZ\sounds\effects\animals\hare\squawk\squawk_5","DZ\sounds\effects\animals\hare\squawk\squawk_6"};
-					volume = 1;
-					distance = 70;
-				};
-			};
+			useSpeedMapping=1;
+			movementSpeedMapping[]={0,0.25,0.80000001,3,5};
 		};
 	};
 };
-//};

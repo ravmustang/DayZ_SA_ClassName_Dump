@@ -1,36 +1,17 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 20:00:21 2018 : 'file' last modified on Wed Aug 22 14:53:47 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\animals\capra_hircus\config.bin{
 class CfgPatches
 {
 	class DZ_Animals_capra_hircus
 	{
-		units[] = {"Animal_CapraHircus"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Animals"};
+		units[]=
+		{
+			"Animal_CapraHircus"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Animals"
+		};
 	};
 };
 class CfgVehicles
@@ -38,298 +19,199 @@ class CfgVehicles
 	class AnimalBase;
 	class Animal_CapraHircus: AnimalBase
 	{
-		simulation = "dayzanimal";
-		scope = 0;
-		model = "\dz\animals\capra_hircus\capra_hircus.p3d";
-		displayName = "$STR_CfgVehicles_Animal_CapraHircus0";
-		hiddenSelections[] = {"Camo","CamoHair"};
-		aiAgentTemplate = "Herbivores_CapraHircus";
-		injuryLevels[] = {1.0,0.5,0.2,0.0};
+		simulation="dayzanimal";
+		scope=0;
+		model="\dz\animals\capra_hircus\capra_hircus.p3d";
+		displayName="$STR_CfgVehicles_Animal_CapraHircus0";
+		descriptionShort="$STR_CfgVehicles_Animal_CapraHircus1";
+		hiddenSelections[]=
+		{
+			"Camo",
+			"CamoHair"
+		};
+		aiAgentTemplate="Herbivores_CapraHircus";
+		injuryLevels[]={1,0.5,0.2,0};
+		varTemperatureFreezeTime=6600;
+		varTemperatureThawTime=6600;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
+					hitpoints=120;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							{}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							{}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							{}
+						}
+					};
 				};
 				class Blood
 				{
-					hitpoints = 5000;
+					hitpoints=5000;
 				};
 				class Shock
 				{
-					hitpoints = 5000;
+					hitpoints=100;
 				};
 			};
 			class DamageZones
 			{
-				class Zone_Belly
-				{
-					bleedChance = 1;
-					class Health
-					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
-					};
-					class Blood
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
-					};
-					class Shock
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
-					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Belly"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
-				};
-				class Zone_Chest
-				{
-					bleedChance = 1;
-					class Health
-					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
-					};
-					class Blood
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
-					};
-					class Shock
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
-					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.33;
-							Blood = 5;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 2;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Chest"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
-				};
 				class Zone_Head
 				{
-					bleedChance = 1;
+					componentNames[]=
+					{
+						"Zone_Head"
+					};
+					transferToZonesNames[]={};
+					transferToZonesCoefs[]={};
+					fatalInjuryCoef=0.15000001;
+					canBleed=0;
 					class Health
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						hitpoints=80;
+						transferToGlobalCoef=1;
 					};
-					class Blood
+					class Blood: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						hitpoints=0;
 					};
-					class Shock
+					class Shock: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						hitpoints=0;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 10;
-							Blood = 0;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 2;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Head"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Legs
+				class Zone_Neck: Zone_Head
 				{
-					bleedChance = 0;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Neck"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Chest"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.2};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						hitpoints=150;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.1;
-							Blood = 0;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.1;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Legs"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Neck
+				class Zone_Chest: Zone_Head
 				{
-					bleedChance = 0.5;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Chest"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Neck",
+						"Zone_Belly"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.15000001,0.15000001};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						hitpoints=120;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Neck"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Pelvis
+				class Zone_Belly: Zone_Head
 				{
-					bleedChance = 0;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Belly"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Pelvis",
+						"Zone_Chest"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.15000001,0.15000001};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						hitpoints=100;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.2;
-							Blood = 0;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.2;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Pelvis"};
-					transferToZonesNames[] = {"Zone_Spine"};
-					transferToZonesCoefs[] = {0.5};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Spine
+				class Zone_Spine: Zone_Head
 				{
-					bleedChance = 1;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Spine"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Pelvis",
+						"Zone_Belly",
+						"Zone_Chest"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.1,0.1,0.1};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						hitpoints=120;
 					};
-					class ArmorType
+				};
+				class Zone_Pelvis: Zone_Head
+				{
+					componentNames[]=
 					{
-						class Melee
-						{
-							Health = 0.66;
-							Blood = 1;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.66;
-							Blood = 1;
-							Shock = 0;
-						};
+						"Zone_Pelvis"
 					};
-					componentNames[] = {"Zone_Spine"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
+					transferToZonesNames[]=
+					{
+						"Zone_Spine",
+						"Zone_Belly"
+					};
+					transferToZonesCoefs[]={0.15000001,0.15000001};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
+					{
+						hitpoints=120;
+					};
+				};
+				class Zone_Legs: Zone_Head
+				{
+					componentNames[]=
+					{
+						"Zone_Legs"
+					};
+					transferToZonesNames[]=
+					{
+						"Zone_Pelvis",
+						"Zone_Belly",
+						"Zone_Chest"
+					};
+					transferToZonesCoefs[]={0.1,0.1,0.1};
+					fatalInjuryCoef=0;
+					class Health: Health
+					{
+						hitpoints=50;
+					};
 				};
 			};
 		};
@@ -337,43 +219,63 @@ class CfgVehicles
 		{
 			class ObtainedSteaks
 			{
-				item = "GoatSteakMeat";
-				count = 10;
-				quantityMinMaxCoef[] = {0.5,1};
+				item="GoatSteakMeat";
+				count=10;
+				itemZones[]=
+				{
+					"Zone_Chest",
+					"Zone_Belly",
+					"Zone_Pelvis"
+				};
+				countByZone[]={3,2,4};
+				quantityMinMaxCoef[]={0.5,1};
 			};
 			class ObtainedPelt
 			{
-				item = "GoatPelt";
-				count = 1;
-				quantityCoef = 1;
-				transferToolDamageCoef = 1;
+				item="GoatPelt";
+				count=1;
+				itemZones[]=
+				{
+					"Zone_Chest",
+					"Zone_Belly"
+				};
+				quantityCoef=1;
+				transferToolDamageCoef=1;
 			};
 			class ObtainedGuts
 			{
-				item = "Guts";
-				count = 0;
-				quantityMinMaxCoef[] = {0.25,0.5};
+				item="Guts";
+				count=2;
+				quantityMinMaxCoef[]={0.5,0.80000001};
 			};
 			class ObtainedLard
 			{
-				item = "Lard";
-				count = 0;
-				quantityMinMaxCoef[] = {0.3,6};
+				item="Lard";
+				count=1;
+				quantityMinMaxCoef[]={0.30000001,6};
 			};
 			class ObtainedBones
 			{
-				item = "Bone";
-				count = 0;
-				quantityMinMaxCoef[] = {0.8,1};
-				transferToolDamageCoef = 1;
+				item="Bone";
+				count=1;
+				quantityMinMaxCoef[]={0.80000001,1};
+				transferToolDamageCoef=1;
+			};
+			class BloodInfectionSettings
+			{
+				class Salmonella
+				{
+					chance=0.40000001;
+				};
 			};
 		};
 		class enfanimsys
 		{
-			meshObject = "dz\animals\capra_hircus\Data\capra_hircus_skeleton.xob";
-			graphname = "dz\animals\animations\!graph_files\Herbivores\Herbivores_Graph.agr";
-			defaultinstance = "dz\animals\animations\!graph_files\Herbivores\GoatSkeleton_AnimInstance.asi";
-			startnode = "Master_GoatAndSheep_SM";
+			meshObject="dz\animals\capra_hircus\Data\capra_hircus_skeleton.xob";
+			graphname="dz\animals\animations\!graph_files\Herbivores\Herbivores_Graph.agr";
+			defaultinstance="dz\animals\animations\!graph_files\Herbivores\GoatSkeleton_AnimInstance.asi";
+			startnode="Master_GoatAndSheep_SM";
+			skeletonName="capra_hircus_skeleton.xob";
 		};
 		class AnimEvents
 		{
@@ -381,217 +283,647 @@ class CfgVehicles
 			{
 				class Walk1
 				{
-					soundLookupTable = "HoofSmallWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 1;
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=1;
 				};
 				class Walk2
 				{
-					soundLookupTable = "HoofSmallWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 2;
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=2;
 				};
 				class Walk3
 				{
-					soundLookupTable = "HoofSmallWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 3;
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=3;
 				};
 				class Walk4
 				{
-					soundLookupTable = "HoofSmallWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 4;
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=4;
 				};
 				class Run1
 				{
-					soundLookupTable = "HoofSmallRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 5;
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=5;
 				};
 				class Run2
 				{
-					soundLookupTable = "HoofSmallRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 6;
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=6;
 				};
 				class Run3
 				{
-					soundLookupTable = "HoofSmallRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 7;
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=7;
 				};
 				class Run4
 				{
-					soundLookupTable = "HoofSmallRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 8;
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=8;
 				};
 				class Grazing1
 				{
-					soundLookupTable = "HoofSmallGrazing_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 9;
+					soundLookupTable="HoofSmallGrazing_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=9;
 				};
 				class Grazing2
 				{
-					soundLookupTable = "HoofSmallGrazing_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 10;
+					soundLookupTable="HoofSmallGrazing_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=10;
 				};
 				class Bodyfall
 				{
-					soundLookupTable = "HoofSmallBodyfall_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 11;
+					soundLookupTable="HoofSmallBodyfall_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=11;
 				};
 				class Settle
 				{
-					soundLookupTable = "HoofSmallSettle_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 12;
+					soundLookupTable="HoofSmallSettle_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=12;
 				};
 				class Rest2standA
 				{
-					soundLookupTable = "HoofSmallRest2standA_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 13;
+					soundLookupTable="HoofSmallRest2standA_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=13;
 				};
 				class Rest2standB
 				{
-					soundLookupTable = "HoofSmallRest2standB_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 14;
+					soundLookupTable="HoofSmallRest2standB_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=14;
 				};
 				class Stand2restA
 				{
-					soundLookupTable = "HoofSmallStand2restA_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 15;
+					soundLookupTable="HoofSmallStand2restA_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=15;
 				};
 				class Stand2restB
 				{
-					soundLookupTable = "HoofSmallStand2restB_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 16;
+					soundLookupTable="HoofSmallStand2restB_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=16;
 				};
 				class Stand2restC
 				{
-					soundLookupTable = "HoofSmallStand2restC_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 17;
+					soundLookupTable="HoofSmallStand2restC_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=17;
 				};
 				class Rub1
 				{
-					soundLookupTable = "HoofSmallRub1_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 18;
+					soundLookupTable="HoofSmallRub1_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=18;
 				};
 				class Rub2
 				{
-					soundLookupTable = "HoofSmallRub2_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 19;
+					soundLookupTable="HoofSmallRub2_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=19;
 				};
 			};
 			class Sounds
 			{
 				class GoatBleat_A
 				{
-					soundSet = "GoatBleat_A_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 1;
+					soundSet="GoatBleat_A_SoundSet";
+					noise="DeerRoarNoise";
+					id=1;
 				};
 				class GoatBleat_B
 				{
-					soundSet = "GoatBleat_B_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 2;
+					soundSet="GoatBleat_B_SoundSet";
+					noise="DeerRoarNoise";
+					id=2;
 				};
 				class GoatBleat_C
 				{
-					soundSet = "GoatBleat_C_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 3;
+					soundSet="GoatBleat_C_SoundSet";
+					noise="DeerRoarNoise";
+					id=3;
 				};
 				class GoatBleat_D
 				{
-					soundSet = "GoatBleat_D_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 4;
+					soundSet="GoatBleat_D_SoundSet";
+					noise="DeerRoarNoise";
+					id=4;
 				};
 				class GoatBleat_E
 				{
-					soundSet = "GoatBleat_E_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 5;
+					soundSet="GoatBleat_E_SoundSet";
+					noise="DeerRoarNoise";
+					id=5;
 				};
 				class GoatBleat_F
 				{
-					soundSet = "GoatBleat_F_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 6;
+					soundSet="GoatBleat_F_SoundSet";
+					noise="DeerRoarNoise";
+					id=6;
+				};
+				class GoatBleatX1
+				{
+					soundSet="GoatBleatX1_SoundSet";
+					noise="DeerRoarNoise";
+					id=14;
+				};
+				class GoatBleatX2
+				{
+					soundSet="GoatBleatX2_SoundSet";
+					noise="DeerRoarNoise";
+					id=16;
+				};
+				class GoatBleatX3
+				{
+					soundSet="GoatBleatX3_SoundSet";
+					noise="DeerRoarNoise";
+					id=18;
+				};
+				class GoatBleatX4
+				{
+					soundSet="GoatBleatX4_SoundSet";
+					noise="DeerRoarNoise";
+					id=20;
+				};
+				class GoatBleatX5
+				{
+					soundSet="GoatBleatX5_SoundSet";
+					noise="DeerRoarNoise";
+					id=22;
 				};
 			};
 			class Damages
 			{
 				class Bite
 				{
-					damage = "DeerBiteDamage";
-					id = 1;
+					damage="DeerBiteDamage";
+					id=1;
 				};
 			};
 		};
 		class CommandMoveSettings
 		{
-			useSpeedMapping = 1;
-			movementSpeedMapping[] = {0.0,0.11,0.41,2.1,4.56,10.44};
+			useSpeedMapping=1;
+			movementSpeedMapping[]={0,0.11,0.41,2.0999999,4.5599999,10.44};
 		};
 		class CommandLookAtSettings
 		{
-			lookAtFilterTimeout = 0.5;
-			lookAtFilterSpeed = 1.57;
+			lookAtFilterTimeout=0.5;
+			lookAtFilterSpeed=1.5700001;
 		};
 	};
 	class Animal_CapraHircus_Brown: Animal_CapraHircus
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Animal_CapraHircus_Brown0";
-		hiddenSelectionsTextures[] = {"dz\animals\capra_hircus\data\Brown_Goat_CO.paa","dz\animals\capra_hircus\data\Brown_Goat_fur_CO.paa"};
-		hiddenSelectionsMaterials[] = {"dz\animals\capra_hircus\data\Brown_Goat.rvmat","dz\animals\capra_hircus\data\Brown_Goat_Fur.rvmat"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\animals\capra_hircus\data\Brown_Goat_CO.paa",
+			"dz\animals\capra_hircus\data\Brown_Goat_fur_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\animals\capra_hircus\data\Brown_Goat.rvmat",
+			"dz\animals\capra_hircus\data\Brown_Goat_Fur.rvmat"
+		};
 	};
 	class Animal_CapraHircus_Black: Animal_CapraHircus
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Animal_CapraHircus_Black0";
-		hiddenSelectionsTextures[] = {"dz\animals\capra_hircus\data\Black_Goat_CO.paa","dz\animals\capra_hircus\data\black_goat_fur_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\animals\capra_hircus\data\Black_Goat.rvmat","dz\animals\capra_hircus\data\black_goat_fur.rvmat"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\animals\capra_hircus\data\Black_Goat_CO.paa",
+			"dz\animals\capra_hircus\data\black_goat_fur_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\animals\capra_hircus\data\Black_Goat.rvmat",
+			"dz\animals\capra_hircus\data\black_goat_fur.rvmat"
+		};
 	};
 	class Animal_CapraHircus_White: Animal_CapraHircus
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Animal_CapraHircus_White0";
-		hiddenSelectionsTextures[] = {"dz\animals\capra_hircus\data\White_Goat_CO.paa","dz\animals\capra_hircus\data\White_Goat_fur_CO.paa"};
-		hiddenSelectionsMaterials[] = {"dz\animals\capra_hircus\data\White_Goat.rvmat","dz\animals\capra_hircus\data\White_Goat_Fur.rvmat"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\animals\capra_hircus\data\White_Goat_CO.paa",
+			"dz\animals\capra_hircus\data\White_Goat_fur_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\animals\capra_hircus\data\White_Goat.rvmat",
+			"dz\animals\capra_hircus\data\White_Goat_Fur.rvmat"
+		};
+	};
+	class Animal_CapraHircus_Spooky: Animal_CapraHircus
+	{
+		scope=2;
+		class AnimEvents: AnimEvents
+		{
+			class Steps
+			{
+				class Walk1
+				{
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=1;
+				};
+				class Walk2
+				{
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=2;
+				};
+				class Walk3
+				{
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=3;
+				};
+				class Walk4
+				{
+					soundLookupTable="HoofSmallWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=4;
+				};
+				class Run1
+				{
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=5;
+				};
+				class Run2
+				{
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=6;
+				};
+				class Run3
+				{
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=7;
+				};
+				class Run4
+				{
+					soundLookupTable="HoofSmallRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=8;
+				};
+				class Grazing1
+				{
+					soundLookupTable="HoofSmallGrazing_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=9;
+				};
+				class Grazing2
+				{
+					soundLookupTable="HoofSmallGrazing_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=10;
+				};
+				class Bodyfall
+				{
+					soundLookupTable="GoatBleat_Spooky_Kill_SoundShader";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=11;
+				};
+				class Settle
+				{
+					soundLookupTable="HoofSmallSettle_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=12;
+				};
+				class Rest2standA
+				{
+					soundLookupTable="HoofSmallRest2standA_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=13;
+				};
+				class Rest2standB
+				{
+					soundLookupTable="HoofSmallRest2standB_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=14;
+				};
+				class Stand2restA
+				{
+					soundLookupTable="HoofSmallStand2restA_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=15;
+				};
+				class Stand2restB
+				{
+					soundLookupTable="HoofSmallStand2restB_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=16;
+				};
+				class Stand2restC
+				{
+					soundLookupTable="HoofSmallStand2restC_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=17;
+				};
+				class Rub1
+				{
+					soundLookupTable="HoofSmallRub1_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=18;
+				};
+				class Rub2
+				{
+					soundLookupTable="HoofSmallRub2_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=19;
+				};
+			};
+			class Sounds
+			{
+				class GoatBleat_A
+				{
+					soundSet="GoatBleat_Spooky_A_SoundSet";
+					noise="DeerRoarNoise";
+					id=1;
+				};
+				class GoatBleat_B
+				{
+					soundSet="GoatBleat_Spooky_B_SoundSet";
+					noise="DeerRoarNoise";
+					id=2;
+				};
+				class GoatBleat_C
+				{
+					soundSet="GoatBleat_Spooky_A_SoundSet";
+					noise="DeerRoarNoise";
+					id=3;
+				};
+				class GoatBleat_D
+				{
+					soundSet="GoatBleat_Spooky_Kill_SoundSet";
+					noise="DeerRoarNoise";
+					id=4;
+				};
+				class GoatBleat_E
+				{
+					soundSet="GoatBleat_Spooky_Kill_SoundSet";
+					noise="DeerRoarNoise";
+					id=5;
+				};
+				class GoatBleat_F
+				{
+					soundSet="GoatBleat_Spooky_B_SoundSet";
+					noise="DeerRoarNoise";
+					id=6;
+				};
+				class GoatBleat_G
+				{
+					soundSet="GoatBleat_Spooky_Kill_SoundSet";
+					noise="DeerRoarNoise";
+					id=10;
+				};
+				class GoatBleatX1
+				{
+					soundSet="GoatBleat_X_Spooky_A_SoundSet";
+					noise="DeerRoarNoise";
+					id=14;
+				};
+				class GoatBleatX2
+				{
+					soundSet="GoatBleat_X_Spooky_B_SoundSet";
+					noise="DeerRoarNoise";
+					id=16;
+				};
+				class GoatBleatX3
+				{
+					soundSet="GoatBleat_X_Spooky_A_SoundSet";
+					noise="DeerRoarNoise";
+					id=18;
+				};
+				class GoatBleatX4
+				{
+					soundSet="GoatBleat_X_Spooky_B_SoundSet";
+					noise="DeerRoarNoise";
+					id=20;
+				};
+				class GoatBleatX5
+				{
+					soundSet="GoatBleat_X_Spooky_Kill_SoundSet";
+					noise="DeerRoarNoise";
+					id=22;
+				};
+			};
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\animals\capra_hircus\data\Spooky_Goat_CO.paa",
+			"dz\animals\capra_hircus\data\Black_Goat_fur_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\animals\capra_hircus\data\Spooky_Goat_e.rvmat",
+			"dz\animals\capra_hircus\data\Black_Goat_Fur.rvmat"
+		};
 	};
 };
-//};

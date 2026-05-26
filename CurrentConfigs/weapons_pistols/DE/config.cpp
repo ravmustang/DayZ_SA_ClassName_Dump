@@ -1,121 +1,321 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:51:33 2018 : 'file' last modified on Wed Aug 22 22:02:23 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_pistols\DE\config.bin{
 class CfgPatches
 {
 	class DZ_Pistols_DE
 	{
-		units[] = {"DE_Gold"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Pistols"};
+		units[]=
+		{
+			"Deagle",
+			"Deagle_g"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Pistols"
+		};
 	};
 };
 class Mode_Safe;
 class Mode_SemiAuto;
 class Mode_Burst;
 class Mode_FullAuto;
+class OpticsInfoPistol;
 class cfgWeapons
 {
 	class Pistol_Base;
-	class DE_Base: Pistol_Base
+	class Deagle_Base: Pistol_Base
 	{
-		scope = 0;
-		lootTag[] = {"Civilian"};
-		weight = 1500;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		discreteDistance[] = {100};
-		discreteDistanceInitIndex = 1;
-		optics = 1;
-		value = 0;
-		chamberSize = 1;
-		chamberedRound = "";
-		magazines[] = {"Mag_DE_9rnd"};
-		chamberableFrom[] = {"Ammo_357"};
-		ejectType = 1;
-		recoilModifier[] = {1,1,1};
-		drySound[] = {"dz\sounds\weapons\firearms\FNX45\FNX_dry",0.5,1,20};
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\waltherP1\WaltherP1_reload_00",0.8,1,20};
-		reloadAction = "ReloadRugerP1";
-		hiddenSelections[] = {"camo"};
-		modes[] = {"Single"};
-		class Single: Mode_SemiAuto
+		scope=0;
+		weight=1500;
+		absorbency=0;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		PPDOFProperties[]={1,0.89999998,10,250,5,10};
+		WeaponLength=0.28;
+		ShoulderDistance=0.38999999;
+		ObstructionDistance=0.47299999;
+		barrelArmor=0.80000001;
+		initSpeedMultiplier=1;
+		chamberSize=1;
+		chamberedRound="";
+		magazines[]=
 		{
-			soundSetShot[] = {"DEG_Shot_SoundSet","DEG_Tail_SoundSet","DEG_InteriorTail_SoundSet"};
-			reloadTime = 0.18;
-			recoil = "recoil_DE";
-			recoilProne = "recoil_DE_prone";
-			dispersion = 0.006;
-			magazineSlot = "magazine";
-			begin1[] = {"dz\sounds\weapons\firearms\magnum\magnum_single_2",1,1,700};
-			begin2[] = {"dz\sounds\weapons\firearms\magnum\magnum_single_1",1,1,700};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin1",0.33333,"begin2",0.33333};
-			beginSilenced_Pro1[] = {"dz\sounds\weapons\firearms\CZ75\cz75Silenced",1,1,60};
-			beginSilenced_Pro2[] = {"dz\sounds\weapons\firearms\CZ75\cz75Silenced2",1,1,60};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\CZ75\cz75Silenced",1,1,100};
-			soundBeginExt[] = {{"beginSilenced_Pro1",0.5,"beginSilenced_Pro2",0.5},{"beginSilenced_HomeMade",1}};
+			"Mag_Deagle_9rnd"
+		};
+		chamberableFrom[]=
+		{
+			"Ammo_357"
+		};
+		ejectType=1;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={1.3,1.3,0.60000002};
+		simpleHiddenSelections[]=
+		{
+			"hide_barrel"
+		};
+		hiddenSelections[]=
+		{
+			"camo",
+			"camo_plastic"
+		};
+		class NoiseShoot
+		{
+			strength=80;
+			type="shot";
+		};
+		modes[]=
+		{
+			"SemiAuto"
+		};
+		class SemiAuto: Mode_SemiAuto
+		{
+			soundSetShot[]=
+			{
+				"DesertEagleG_Shot_SoundSet",
+				"DesertEagleG_Tail_2D_SoundSet",
+				"DesertEagleG_Shot_iterior_SoundSet",
+				"DesertEagleG_Tail_SoundSet",
+				"DesertEagleG_InteriorTail_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"DesertEagleG_silencer_SoundSet",
+					"DesertEagleG_silencerTail_SoundSet",
+					"DesertEagleG_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"DesertEagleG_silencerHomeMade_SoundSet",
+					"DesertEagleG_silencerHomeMadeTail_SoundSet",
+					"DesertEagleG_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=0.16;
+			dispersion=0.003;
+			magazineSlot="magazine";
+		};
+		class OpticsInfo: OpticsInfoPistol
+		{
+			memoryPointCamera="eye";
+			discreteDistance[]={25};
+			discreteDistanceInitIndex=0;
+			modelOptics="-";
+			distanceZoomMin=100;
+			distanceZoomMax=100;
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
+				};
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_fnx_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={0,0,0};
+				};
+			};
+			class OnOverheating
+			{
+				maxOverheatingValue=8;
+				shotsToStartOverheating=8;
+				overheatingDecayInterval=1;
+				class SmokingBarrel1
+				{
+					overrideParticle="smoking_barrel_small";
+					onlyWithinOverheatLimits[]={0,1};
+					positionOffset[]={0,0,0};
+					onlyWithinRainLimits[]={0,1};
+				};
+				class OpenChamberSmoke
+				{
+					onlyIfBoltIsOpen=1;
+					overrideParticle="smoking_barrel_small";
+					overridePoint="Nabojnicestart";
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\Deagle\w_Deagle_states.anm";
+	};
+	class Deagle: Deagle_Base
+	{
+		scope=2;
+		displayName="$STR_cfgWeapons_DE0";
+		descriptionShort="$STR_cfgWeapons_DE1";
+		model="\dz\weapons\pistols\DE\DE.p3d";
+		attachments[]=
+		{
+			"weaponOpticsCrossbow",
+			"pistolMuzzle"
+		};
+		itemSize[]={4,2};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\pistols\DE\data\deagle_co.paa",
+			"dz\weapons\pistols\DE\data\deagle_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\pistols\DE\data\deagle.rvmat",
+			"dz\weapons\pistols\DE\data\deagle_plastic.rvmat"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=220;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_damage.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_damage.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_destruct.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
 		};
 	};
-	class DE: DE_Base
+	class Deagle_Gold: Deagle
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_DE0";
-		descriptionShort = "$STR_cfgWeapons_DE1";
-		model = "\dz\weapons\pistols\DE\DE.p3d";
-		baseAttachments[] = {};
-		attachments[] = {};
-		randomAttachments[] = {{"Mag_DE_9rnd","","","","","","","","",""}};
-		itemSize[] = {4,3};
-		dexterity = 2.8;
-		hiddenSelectionsTextures[] = {"dz\weapons\pistols\DE\data\gold_DE_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\pistols\DE\data\gold_de.rvmat"};
-		class Damage
+		hiddenSelectionsTextures[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\pistols\DE\data\gold_de.rvmat","DZ\weapons\pistols\DE\data\gold_de_damage.rvmat","DZ\weapons\pistols\DE\data\gold_de_destruct.rvmat"};
+			"dz\weapons\pistols\DE\data\deagle_co.paa",
+			"dz\weapons\pistols\DE\data\deagle_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\pistols\DE\data\deagle_g.rvmat",
+			"dz\weapons\pistols\DE\data\deagle_plastic.rvmat"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=220;
+					RefTexsMats[]=
+					{
+						"dz\weapons\pistols\de\data\deagle.rvmat"
+					};
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_g.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_g.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_g_damage.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_g_damage.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"dz\weapons\pistols\DE\data\deagle_g_destruct.rvmat",
+								"dz\weapons\pistols\DE\data\deagle_plastic_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
 		};
 	};
-};
-class cfgRecoils
-{
-	recoil_DE[] = {0,0,0,0.04,"0.036943*(1)","0.0134348*(3)",0.08,"0.019755*(1)","0.003056*(3)",0.09,0,0,0.14,"-0.003138*(1)","-0.0005*(3)",0.08,"-0.001177*(1)","-0.000188*(3)",0.12,0,0};
-	recoil_DE_prone[] = {0,0,0,0.04,"0.036943*(0.5)","0.0134348*(1)",0.08,"0.019755*(0.5)","0.003056*(1)",0.09,0,0,0.14,"-0.003138*(0.5)","-0.0005*(1)",0.08,"-0.001177*(0.5)","-0.000188*(1)",0.12,0,0};
 };
 class CfgNonAIVehicles
 {
 	class ProxyAttachment;
 	class ProxyDE: ProxyAttachment
 	{
-		scope = 2;
-		inventorySlot = "pistol";
-		model = "\dz\weapons\pistols\DE\DE.p3d";
+		scope=2;
+		inventorySlot="pistol";
+		model="\dz\weapons\pistols\DE\DE.p3d";
 	};
 };
-//};

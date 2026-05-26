@@ -1,143 +1,481 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:45:25 2018 : 'file' last modified on Wed Aug 22 21:50:14 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_firearms\B95\config.bin{
 class CfgPatches
 {
 	class DZ_Weapons_Firearms_B95
 	{
-		units[] = {"b95","b95_Black","b95_Green"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Weapons_Firearms"};
+		units[]=
+		{
+			"b95",
+			"b95_Black",
+			"b95_Green"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Weapons_Firearms"
+		};
 	};
 };
 class Mode_Safe;
 class Mode_SemiAuto;
+class Mode_Single;
 class Mode_Burst;
+class Mode_Double;
 class Mode_FullAuto;
+class Muzzle_Base;
+class OpticsInfoRifle;
 class cfgWeapons
 {
 	class Rifle_Base;
 	class B95_Base: Rifle_Base
 	{
-		scope = 0;
-		lootTag[] = {"Civilian","Hunting"};
-		weight = 2820;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		optics = 1;
-		opticsFlare = 0;
-		value = 0;
-		chamberSize = 2;
-		chamberedRound = "";
-		chamberableFrom[] = {"Ammo_308Win","Mag_308WinSnaploader_2Rnd"};
-		magazines[] = {};
-		barrelArmor = 550;
-		ejectType = 3;
-		recoilModifier[] = {1,1,1};
-		drySound[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_dry",0.5,1,20};
-		reloadAction = "ReloadB95";
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\B95\b95_reload2",0.8,1,20};
-		reloadSound[] = {"",0.05623413,1,20};
-		shotAction = "";
-		tooltip = "_text = _this call fnc_generateTooltip;_text";
-		hiddenSelections[] = {"camoGround"};
-		modes[] = {"Single","Burst"};
-		class Single: Mode_SemiAuto
+		scope=0;
+		weight=2820;
+		itemSize[]={9,3};
+		absorbency=0;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		chamberSize=1;
+		chamberedRound="";
+		chamberableFrom[]=
 		{
-			soundSetShot[] = {"B95_Shot_SoundSet","B95_Tail_SoundSet","B95_InteriorTail_SoundSet"};
-			begin1[] = {"dz\sounds\weapons\firearms\B95\b95_close_1",1,1,800};
-			begin2[] = {"dz\sounds\weapons\firearms\B95\b95_close_0",1,1,800};
-			begin3[] = {"dz\sounds\weapons\firearms\B95\b95_close_1",1,1,800};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			reloadTime = 0.1;
-			recoil = "recoil_b95";
-			recoilProne = "recoil_b95_prone";
-			dispersion = 0.001;
-			magazineSlot = "magazine";
+			"Ammo_308Win",
+			"Ammo_308WinTracer",
+			"Mag_308WinSnaploader_2Rnd"
 		};
-		class Burst: Mode_Burst
+		magazines[]={};
+		DisplayMagazine=0;
+		winchesterTypeOpticsMount=1;
+		PPDOFProperties[]={1,0.5,50,160,4,10};
+		WeaponLength=1.05;
+		ObstructionDistance=0.70700002;
+		barrelArmor=1.6;
+		initSpeedMultiplier=1.05;
+		muzzles[]=
 		{
-			begin1[] = {"dz\sounds\weapons\firearms\B95\b95_close_0_double",1,1,900};
-			begin2[] = {"dz\sounds\weapons\firearms\B95\b95_close_0_double",1,1,900};
-			begin3[] = {"dz\sounds\weapons\firearms\B95\b95_close_0_double",1,1,900};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			reloadTime = 0.01;
-			recoil = "recoil_b95_double";
-			recoilProne = "recoil_b95";
-			dispersion = 0.001;
-			magazineSlot = "magazine";
+			"this",
+			"SecondMuzzle"
+		};
+		ejectType=3;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={2.2,2.2,0.69999999};
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		simpleHiddenSelections[]=
+		{
+			"bullet",
+			"bullet2",
+			"hide_barrel"
+		};
+		class NoiseShoot
+		{
+			strength=100;
+			type="shot";
+		};
+		modes[]=
+		{
+			"Single",
+			"Double"
+		};
+		class Single: Mode_Single
+		{
+			soundSetShot[]=
+			{
+				"B95_Shot_SoundSet",
+				"B95_Shot_iterior_SoundSet",
+				"B95_Tail_SoundSet",
+				"B95_InteriorTail_SoundSet",
+				"B95_Tail_2D_SoundSet"
+			};
+			reloadTime=0.1;
+			dispersion=0.00075000001;
+			magazineSlot="magazine";
+		};
+		class Double: Mode_Double
+		{
+			soundSetShot[]=
+			{
+				"B95_Shot_double_SoundSet",
+				"B95_Shot_iterior_double_SoundSet",
+				"B95_Tail_double_SoundSet",
+				"B95_InteriorTail_double_SoundSet",
+				"B95_Tail_2D_double_SoundSet"
+			};
+			reloadTime=0.1;
+			dispersion=0.0015;
+			magazineSlot="magazine";
+		};
+		class SecondMuzzle: Muzzle_Base
+		{
+			chamberSize=1;
+			muzzlePos="usti hlavne_2";
+			muzzleEnd="konec hlavne_2";
+			cartridgePos="nabojnicestart_2";
+			cartridgeVel="nabojniceend_2";
+			magazines[]={};
+			chamberableFrom[]=
+			{
+				"Ammo_308Win",
+				"Ammo_308WinTracer",
+				"Mag_308WinSnaploader_2Rnd"
+			};
+			barrelArmor=1.6;
+			initSpeedMultiplier=1.05;
+			irDistance=0;
+			irLaserPos="laser pos";
+			irLaserEnd="laser dir";
+			modes[]=
+			{
+				"Single",
+				"Double"
+			};
+			class Single: Mode_Single
+			{
+				soundSetShot[]=
+				{
+					"B95_Shot_SoundSet",
+					"B95_Shot_iterior_SoundSet",
+					"B95_Tail_SoundSet",
+					"B95_InteriorTail_SoundSet",
+					"B95_Tail_2D_SoundSet"
+				};
+				reloadTime=0.1;
+				dispersion=0.00075000001;
+				magazineSlot="magazine";
+			};
+			class Double: Mode_Double
+			{
+				soundSetShot[]=
+				{
+					"B95_Shot_SoundSet",
+					"B95_Shot_iterior_SoundSet",
+					"B95_Tail_SoundSet",
+					"B95_InteriorTail_SoundSet",
+					"B95_Tail_2D_SoundSet"
+				};
+				reloadTime=0.1;
+				dispersion=0.0015;
+				magazineSlot="magazine";
+			};
+			class OpticsInfo: OpticsInfoRifle
+			{
+				memoryPointCamera="eye";
+				modelOptics="-";
+				distanceZoomMin=50;
+				distanceZoomMax=200;
+				discreteDistance[]={50,100,200};
+				discreteDistanceInitIndex=0;
+			};
+		};
+		class OpticsInfo: OpticsInfoRifle
+		{
+			memoryPointCamera="eye";
+			modelOptics="-";
+			distanceZoomMin=50;
+			distanceZoomMax=200;
+			discreteDistance[]={50,100,200};
+			discreteDistanceInitIndex=0;
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
+				};
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_winch70_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={0,0,0};
+				};
+				class MuzzleFlash2
+				{
+					overrideParticle="weapon_shot_winch70_01";
+					overridePoint="Usti hlavne_2";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={0,0,0};
+					muzzleIndex=1;
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\B95\w_B95_states.anm";
+		boneRemap[]=
+		{
+			"release",
+			"Weapon_Bone_02",
+			"barrel",
+			"Weapon_Bone_01",
+			"trigger",
+			"Weapon_Trigger",
+			"ejector",
+			"Weapon_Bone_03",
+			"bullet",
+			"Weapon_Bullet",
+			"bullet2",
+			"Weapon_Bone_04",
+			"snaploader",
+			"Weapon_Bone_05"
 		};
 	};
 	class B95: B95_Base
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_B950";
-		descriptionShort = "$STR_cfgWeapons_B951";
-		model = "\dz\weapons\firearms\B95\b95.p3d";
-		attachments[] = {"weaponWrap","weaponOpticsHunting"};
-		baseAttachments[] = {};
-		randomAttachments[] = {{"HuntingOptic","","","","","",""}};
-		dexterity = 2.65;
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\B95\data\b95_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\B95\data\b95.rvmat"};
-		class Damage
+		scope=2;
+		displayName="$STR_cfgWeapons_B950";
+		descriptionShort="$STR_cfgWeapons_B951";
+		model="\dz\weapons\firearms\B95\b95.p3d";
+		attachments[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\firearms\B95\data\b95.rvmat","DZ\weapons\firearms\B95\data\b95_damage.rvmat","DZ\weapons\firearms\B95\data\b95_destruct.rvmat"};
+			"weaponWrap",
+			"weaponOpticsHunting"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\firearms\B95\data\b95_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\B95\data\b95.rvmat"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=250;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={0,0.0099999998,-0.029999999};
+				orientation[]={0,-30,0};
+			};
+			class Melee
+			{
+				position[]={0,0,0};
+				orientation[]={0,30,0};
+			};
 		};
 	};
 	class B95_Black: B95
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_B95_Black0";
-		color = "Black";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\B95\data\b95_painted.rvmat"};
+		scope=2;
+		color="Black";
+		hiddenSelectionsTextures[]=
+		{
+			"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\B95\data\b95_painted.rvmat"
+		};
 	};
 	class B95_Green: B95
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_B95_Green0";
-		color = "Green";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\B95\data\b95_painted.rvmat"};
+		scope=2;
+		color="Green";
+		hiddenSelectionsTextures[]=
+		{
+			"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\B95\data\b95_painted.rvmat"
+		};
+	};
+	class SawedoffB95: B95_Base
+	{
+		scope=2;
+		displayName="$STR_SawedoffB950";
+		descriptionShort="$STR_SawedoffB951";
+		model="\dz\weapons\firearms\B95\b95_sawn.p3d";
+		weight=2000;
+		itemSize[]={5,2};
+		initSpeedMultiplier=0.75;
+		WeaponLength=0.66000003;
+		ObstructionDistance=0.41800001;
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=250;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\B95\Data\b95_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class Single: Single
+		{
+			soundSetShot[]=
+			{
+				"B95Sawedoff_Shot_SoundSet",
+				"B95_Shot_iterior_SoundSet",
+				"B95Sawedoff_Tail_SoundSet",
+				"B95_InteriorTail_SoundSet",
+				"B95Sawedoff_Tail_2D_SoundSet"
+			};
+			dispersion=0.0024999999;
+		};
+		class Double: Double
+		{
+			soundSetShot[]=
+			{
+				"B95Sawedoff_Shot_double_SoundSet",
+				"B95_Shot_iterior_double_SoundSet",
+				"B95_Tail_double_SoundSet",
+				"B95_InteriorTail_double_SoundSet",
+				"B95_Tail_2D_double_SoundSet"
+			};
+			dispersion=0.003;
+		};
+		class SecondMuzzle: SecondMuzzle
+		{
+			initSpeedMultiplier=0.75;
+			class Single: Single
+			{
+				soundSetShot[]=
+				{
+					"B95Sawedoff_Shot_SoundSet",
+					"B95_Shot_iterior_SoundSet",
+					"B95Sawedoff_Tail_SoundSet",
+					"B95_InteriorTail_SoundSet",
+					"B95Sawedoff_Tail_2D_SoundSet"
+				};
+				dispersion=0.0024999999;
+			};
+			class Double: Double
+			{
+				soundSetShot[]=
+				{
+					"B95Sawedoff_Shot_SoundSet",
+					"B95_Shot_iterior_SoundSet",
+					"B95Sawedoff_Tail_SoundSet",
+					"B95_InteriorTail_SoundSet",
+					"B95Sawedoff_Tail_2D_SoundSet"
+				};
+				dispersion=0.003;
+			};
+		};
+		attachments[]=
+		{
+			"weaponOpticsHunting"
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={-0.050000001,-0.0099999998,0.0099999998};
+				orientation[]={0,0,-10};
+			};
+			class Melee
+			{
+				position[]={-0.050000001,-0.0099999998,-0.029999999};
+				orientation[]={0,0,-10};
+			};
+		};
 	};
 };
-class cfgRecoils
-{
-	recoil_b95[] = {0,0,0,0.04,"0.036943*(0.7)","0.0134348*(2)",0.09,"0.019755*(0.7)","0.003056*(2)",0.12,0,0,0.18,"-0.003138*(0.7)","-0.0005*(2)",0.12,"-0.001177*(0.7)","-0.000188*(2)",0.12,0,0};
-	recoil_b95_double[] = {0,0,0,0.05,"0.036943*(1.2)","0.0134348*(5)",0.09,"0.019755*(1.2)","0.003056*(5)",0.12,0,0,0.18,"-0.003138*(1.2)","-0.0005*(5)",0.12,"-0.001177*(1.2)","-0.000188*(5)",0.12,0,0};
-	recoil_b95_prone[] = {0,0,0,0.04,"0.036943*(0.5)","0.0134348*(1.5)",0.09,"0.019755*(0.5)","0.003056*(1.5)",0.12,0,0,0.18,"-0.003138*(0.5)","-0.0005*(1.5)",0.12,"-0.001177*(0.5)","-0.000188*(1.5)",0.12,0,0};
-	recoil_b95sawedoff[] = {0,0,0,0.04,"0.036943*(2)","0.0134348*(20)",0.09,"0.019755*(2)","0.003056*(20)",0.12,0,0,0.18,"-0.003138*(2)","-0.0005*(20)",0.12,"-0.001177*(2)","-0.000188*(20)",0.12,0,0};
-	recoil_b95sawedoff_double[] = {0,0,0,0.05,"0.036943*(5)","0.0134348*(70)",0.09,"0.019755*(5)","0.003056*(70)",0.12,0,0,0.18,"-0.003138*(5)","-0.0005*(70)",0.12,"-0.001177*(5)","-0.000188*(70)",0.12,0,0};
-};
-//};

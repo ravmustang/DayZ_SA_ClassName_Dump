@@ -1,118 +1,216 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:52:20 2018 : 'file' last modified on Wed Aug 22 22:02:23 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_pistols\LongHorn\config.bin{
 class CfgPatches
 {
 	class DZ_Pistols_Encore
 	{
-		units[] = {"LongHorn"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Pistols"};
+		units[]=
+		{
+			"LongHorn"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Pistols"
+		};
 	};
 };
 class Mode_Safe;
 class Mode_SemiAuto;
+class Mode_Single;
 class Mode_Burst;
 class Mode_FullAuto;
+class OpticsInfoRifle;
 class cfgWeapons
 {
 	class Pistol_Base;
 	class LongHorn_Base: Pistol_Base
 	{
-		scope = 0;
-		lootTag[] = {"Hunting"};
-		inventorySlot = "";
-		weight = 1700;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		optics = 1;
-		value = 0;
-		chamberSize = 1;
-		chamberedRound = "";
-		magazines[] = {};
-		chamberableFrom[] = {"Ammo_308Win"};
-		barrelArmor = 1820;
-		ejectType = 2;
-		recoilModifier[] = {1,1,1};
-		drySound[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_dry",0.5,1,20};
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\LongHorn\Longhorn_reload",0.8,1,20};
-		ReloadAction = "reloadLonghorn";
-		modes[] = {"Single"};
-		class Single: Mode_SemiAuto
+		scope=0;
+		weight=2050;
+		absorbency=0;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		WeaponLength=0.44;
+		ShoulderDistance=0.41;
+		ObstructionDistance=0.66900003;
+		initSpeedMultiplier=0.80000001;
+		barrelArmor=2;
+		PPDOFProperties[]={1,0.89999998,10,150,5,10};
+		distanceZoomMin=100;
+		distanceZoomMax=100;
+		hiddenSelections[]=
 		{
-			soundSetShot[] = {"LongHorn_Shot_SoundSet","LongHorn_Tail_SoundSet","LongHorn_InteriorTail_SoundSet"};
-			soundSetShotExt[] = {{"LongHorn_silencerHomeMade_SoundSet","LongHorn_silencerHomeMadeTail_SoundSet","LongHorn_silencerInteriorHomeMadeTail_SoundSet"}};
-			begin1[] = {"dz\sounds\weapons\firearms\LongHorn\LongHorn_close_0",1,1,900};
-			begin2[] = {"dz\sounds\weapons\firearms\LongHorn\LongHorn_close_1",1,1,900};
-			begin3[] = {"dz\sounds\weapons\firearms\LongHorn\LongHorn_close_2",1,1,900};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin3",0.33333};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,150};
-			soundBeginExt[] = {{"beginSilenced_HomeMade",1}};
-			reloadTime = 1.0;
-			recoil = "recoil_longhorn";
-			recoilProne = "recoil_longhorn_prone";
-			dispersion = 0.002;
-			magazineSlot = "magazine";
+			"camo"
+		};
+		chamberSize=1;
+		chamberedRound="";
+		magazines[]={};
+		chamberableFrom[]=
+		{
+			"Ammo_308Win",
+			"Ammo_308WinTracer"
+		};
+		ejectType=2;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={1.45,1.45,0.60000002};
+		class NoiseShoot
+		{
+			strength=80;
+			type="shot";
+		};
+		modes[]=
+		{
+			"Single"
+		};
+		class Single: Mode_Single
+		{
+			soundSetShot[]=
+			{
+				"longhorn_Shot_SoundSet",
+				"longhorn_Tail_2D_SoundSet",
+				"longhorn_Shot_iterior_SoundSet",
+				"longhorn_Tail_SoundSet",
+				"longhorn_InteriorTail_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"longhorn_silencerHomeMade_SoundSet",
+					"longhorn_silencerHomeMadeTail_SoundSet",
+					"longhorn_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=1;
+			recoil="recoil_longhorn";
+			recoilProne="recoil_longhorn_prone";
+			dispersion=0.003;
+			magazineSlot="magazine";
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
+				};
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_fnx_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={0,0,0};
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\LongHorn\w_longhorn_states.anm";
+		boneRemap[]=
+		{
+			"latch",
+			"Weapon_Bone_01",
+			"hammer",
+			"Weapon_Bone_02",
+			"reload",
+			"Weapon_Bolt",
+			"trigger",
+			"Weapon_Trigger",
+			"bullet",
+			"Weapon_Bullet"
 		};
 	};
 	class LongHorn: LongHorn_Base
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_LongHorn0";
-		descriptionShort = "$STR_cfgWeapons_LongHorn1";
-		model = "\dz\weapons\pistols\LongHorn\LongHorn.p3d";
-		attachments[] = {"suppressorImpro","weaponOpticsCrossbow"};
-		baseAttachments[] = {"PistolOptic"};
-		randomAttachments[] = {{"Crossbow_RedpointOptic","PistolOptic","PistolOptic","PistolOptic","PistolOptic","PistolOptic","PistolOptic","PistolOptic"}};
-		itemSize[] = {4,3};
-		dexterity = 3.7;
-		class Damage
+		scope=2;
+		displayName="$STR_cfgWeapons_LongHorn0";
+		descriptionShort="$STR_cfgWeapons_LongHorn1";
+		model="\dz\weapons\pistols\LongHorn\LongHorn.p3d";
+		hiddenSelectionsTextures[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\pistols\LongHorn\data\LongHorn.rvmat","DZ\weapons\pistols\LongHorn\data\LongHorn_damage.rvmat","DZ\weapons\pistols\LongHorn\data\LongHorn_destruct.rvmat"};
+			"DZ\weapons\pistols\LongHorn\data\longhorn_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\weapons\pistols\LongHorn\data\longhorn.rvmat"
+		};
+		attachments[]=
+		{
+			"weaponOpticsCrossbow",
+			"suppressorImpro"
+		};
+		DisplayMagazine=0;
+		itemSize[]={5,2};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=200;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\pistols\LongHorn\data\LongHorn.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\pistols\LongHorn\data\LongHorn.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\pistols\LongHorn\data\LongHorn_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\pistols\LongHorn\data\LongHorn_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\pistols\LongHorn\data\LongHorn_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
 		};
 	};
-};
-class cfgRecoils
-{
-	recoil_longhorn[] = {0,0,0,0.04,"0.036943*(1)","0.0134348*(3)",0.08,"0.019755*(1)","0.003056*(3)",0.09,0,0,0.14,"-0.003138*(1)","-0.0005*(3)",0.08,"-0.001177*(1)","-0.000188*(3)",0.12,0,0};
-	recoil_longhorn_prone[] = {0,0,0,0.04,"0.036943*(0.5)","0.0134348*(1)",0.08,"0.019755*(0.5)","0.003056*(1)",0.09,0,0,0.14,"-0.003138*(0.5)","-0.0005*(1)",0.08,"-0.001177*(0.5)","-0.000188*(1)",0.12,0,0};
 };
 class CfgNonAIVehicles
 {
 	class ProxyAttachment;
 	class ProxyLongHorn: ProxyAttachment
 	{
-		scope = 2;
-		inventorySlot = "pistol";
-		model = "\dz\weapons\pistols\LongHorn\LongHorn.p3d";
+		scope=2;
+		inventorySlot="pistol";
+		model="\dz\weapons\pistols\LongHorn\LongHorn.p3d";
 	};
 };
-//};

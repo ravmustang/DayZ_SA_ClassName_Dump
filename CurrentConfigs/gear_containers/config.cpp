@@ -1,36 +1,14 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 17:12:04 2018 : 'file' last modified on Wed Aug 22 17:19:33 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\gear_containers\config.bin{
 class CfgPatches
 {
 	class DZ_Gear_Containers
 	{
-		units[] = {};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data"};
+		units[]={};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data"
+		};
 	};
 };
 class CfgVehicles
@@ -40,450 +18,2317 @@ class CfgVehicles
 	class WorldContainer_Base;
 	class Barrel_ColorBase: Container_Base
 	{
-		displayName = "$STR_CfgVehicles_Barrel_ColorBase0";
-		descriptionShort = "$STR_CfgVehicles_Barrel_ColorBase1";
-		model = "\dz\gear\containers\55galDrum.p3d";
-		overrideDrawArea = "8.0";
-		SingleUseActions[] = {527};
-		InteractActions[] = {1025,1026};
-		ContinuousActions[] = {155};
-		attachments[] = {"BerryR","BerryB","Plant","Nails","OakBark","BirchBark","Lime","Disinfectant","Guts"};
-		destroyOnEmpty = 0;
-		varQuantityDestroyOnMin = 0;
-		quantityBar = 1;
-		carveNavmesh = 1;
-		canBeDigged = 0;
-		weight = 10000;
-		itemSize[] = {9,16};
-		stackedUnit = "ml";
-		randomQuantity = 2;
-		liquidContainerType = "1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256)";
-		varQuantityInit = 0.0;
-		varQuantityMin = 0.0;
-		varQuantityMax = 200000.0;
-		absorbency = 0.1;
-		physLayer = "item_large";
-		allowOwnedCargoManipulation = 1;
-		lootTag[] = {"Work"};
-		hiddenSelections[] = {"camoGround"};
-		class GUIInventoryAttachmentsProps
+		displayName="$STR_CfgVehicles_Barrel_ColorBase0";
+		descriptionShort="$STR_CfgVehicles_Barrel_ColorBase1";
+		model="\dz\gear\containers\55galDrum.p3d";
+		overrideDrawArea="8.0";
+		forceFarBubble="true";
+		slopeTolerance=0.2;
+		yawPitchRollLimit[]={45,45,45};
+		destroyOnEmpty=0;
+		varQuantityDestroyOnMin=0;
+		quantityBar=1;
+		carveNavmesh=1;
+		canBeDigged=0;
+		heavyItem=1;
+		inventorySlot[]=
 		{
-			class TanLeather
+			"Truck_01_Barrel1",
+			"Truck_01_Barrel2",
+			"Truck_01_Barrel3",
+			"Truck_01_Barrel4"
+		};
+		weight=10000;
+		itemSize[]={10,15};
+		repairableWithKits[]={10};
+		repairCosts[]={30};
+		itemBehaviour=0;
+		stackedUnit="ml";
+		randomQuantity=2;
+		varLiquidTypeInit=512;
+		liquidContainerType="1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536  + 131072 + 262144 + 524288 + 2097152 + 4194304 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) - 32768";
+		varQuantityInit=0;
+		varQuantityMin=0;
+		varQuantityMax=200000;
+		varTemperatureMin=-100;
+		varTemperatureMax=200;
+		varTemperatureFreezePoint=-200;
+		varTemperatureThawPoint=-200;
+		varTemperatureFreezeTime=6600;
+		varTemperatureThawTime=6600;
+		absorbency=0.1;
+		allowOwnedCargoManipulation=1;
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
 			{
-				name = "Tan leather";
-				description = "";
-				attachmentSlots[] = {"Lime"};
-				icon = "missing";
+				class Health
+				{
+					hitpoints=1300;
+				};
 			};
-			class BleachCotton
+			class GlobalArmor
 			{
-				name = "Bleach cotton";
-				description = "";
-				attachmentSlots[] = {"Disinfectant"};
-				icon = "missing";
-			};
-			class ColorLeatherClothes
-			{
-				name = "Color leather clothes";
-				description = "";
-				attachmentSlots[] = {"BirchBark","OakBark","Nails"};
-				icon = "missing";
-			};
-			class ColorCottonClothes
-			{
-				name = "Color cotton clothes";
-				description = "";
-				attachmentSlots[] = {"BerryR","BerryB","Nails"};
-				icon = "missing";
+				class FragGrenade
+				{
+					class Health
+					{
+						damage=8;
+					};
+					class Blood
+					{
+						damage=8;
+					};
+					class Shock
+					{
+						damage=8;
+					};
+				};
 			};
 		};
 		class Cargo
 		{
-			itemsCargoSize[] = {9,15};
-			openable = 0;
-			allowOwnedCargoManipulation = 1;
+			itemsCargoSize[]={10,15};
+			openable=0;
+			allowOwnedCargoManipulation=1;
 		};
 		class AnimationSources
 		{
 			class Lid
 			{
-				source = "user";
-				initPhase = 0;
-				animPeriod = 0.01;
+				source="user";
+				initPhase=0;
+				animPeriod=0.0099999998;
 			};
 			class Lid2
 			{
-				source = "user";
-				initPhase = 1;
-				animPeriod = 0.01;
+				source="user";
+				initPhase=1;
+				animPeriod=0.0099999998;
 			};
 		};
+		soundImpactType="metal";
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Barrel_open
+				class movement
 				{
-					soundSet = "Barrel_open_SoundSet";
-					id = 701;
+					soundSet="barrel_movement_SoundSet";
+					id=1;
 				};
-				class Barrel_close
+				class pickUpItem_Light
 				{
-					soundSet = "Barrel_close_SoundSet";
-					id = 702;
+					soundSet="pickUpBarrelLight_SoundSet";
+					id=796;
 				};
-				class Barrel_pickup
+				class pickUpItem
 				{
-					soundSet = "Barrel_pickup_SoundSet";
-					id = 801;
+					soundSet="pickUpBarrel_SoundSet";
+					id=797;
 				};
-				class Barrel_putdown
+				class drop
 				{
-					soundSet = "Barrel_putdown_SoundSet";
-					id = 802;
+					soundset="barrel_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
 	class Barrel_Green: Barrel_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Barrel_Green0";
-		color = "Green";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\data\barrel_green_co.paa"};
-		hologramMaterial = "Barrel";
-		hologramMaterialPath = "dz\gear\containers\data";
-		class DamageSystem
+		scope=2;
+		color="Green";
+		hiddenSelectionsTextures[]=
 		{
-			class GlobalHealth
+			"\dz\gear\containers\data\barrel_green_co.paa"
+		};
+		hologramMaterial="barrel";
+		hologramMaterialPath="dz\gear\containers\data";
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
 			{
-				class Health
+				class Health: Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\Barrel_green.rvmat"}},{0.5,{"DZ\gear\containers\data\Barrel_green_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\Barrel_green_destruct.rvmat"}}};
+					RefTexsMats[]=
+					{
+						"dz\gear\containers\data\barrel_green.rvmat"
+					};
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"dz\gear\containers\data\barrel_green.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"dz\gear\containers\data\barrel_green.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"dz\gear\containers\data\barrel_green_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"dz\gear\containers\data\barrel_green_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"dz\gear\containers\data\barrel_green_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
 	class Barrel_Blue: Barrel_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Barrel_Blue0";
-		color = "Blue";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\data\barrel_blue_co.paa"};
-		hologramMaterial = "Barrel";
-		hologramMaterialPath = "dz\gear\containers\data";
-		class DamageSystem
+		scope=2;
+		color="Blue";
+		hiddenSelectionsTextures[]=
 		{
-			class GlobalHealth
+			"\dz\gear\containers\data\barrel_blue_co.paa"
+		};
+		hologramMaterial="barrel";
+		hologramMaterialPath="dz\gear\containers\data";
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
 			{
-				class Health
+				class Health: Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\Barrel_blue.rvmat"}},{0.5,{"DZ\gear\containers\data\Barrel_blue_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\Barrel_blue_destruct.rvmat"}}};
+					RefTexsMats[]=
+					{
+						"dz\gear\containers\data\barrel_green.rvmat"
+					};
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\barrel_blue.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\barrel_blue.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\barrel_blue_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\barrel_blue_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\barrel_blue_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
 	class Barrel_Red: Barrel_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Barrel_Red0";
-		color = "Red";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\data\barrel_red_co.paa"};
-		hologramMaterial = "Barrel";
-		hologramMaterialPath = "dz\gear\containers\data";
-		class DamageSystem
+		scope=2;
+		color="Red";
+		hiddenSelectionsTextures[]=
 		{
-			class GlobalHealth
+			"\dz\gear\containers\data\barrel_red_co.paa"
+		};
+		hologramMaterial="barrel";
+		hologramMaterialPath="dz\gear\containers\data";
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
 			{
-				class Health
+				class Health: Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\Barrel_red.rvmat"}},{0.5,{"DZ\gear\containers\data\Barrel_red_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\Barrel_red_destruct.rvmat"}}};
+					RefTexsMats[]=
+					{
+						"dz\gear\containers\data\barrel_green.rvmat"
+					};
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\barrel_red.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\barrel_red.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\barrel_red_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\barrel_red_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\barrel_red_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
 	class Barrel_Yellow: Barrel_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Barrel_Yellow0";
-		color = "Yellow";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\data\barrel_yellow_co.paa"};
-		hologramMaterial = "Barrel";
-		hologramMaterialPath = "dz\gear\containers\data";
-		class DamageSystem
+		scope=2;
+		color="Yellow";
+		hiddenSelectionsTextures[]=
 		{
-			class GlobalHealth
+			"\dz\gear\containers\data\barrel_yellow_co.paa"
+		};
+		hologramMaterial="barrel";
+		hologramMaterialPath="dz\gear\containers\data";
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
 			{
-				class Health
+				class Health: Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\Barrel_yellow.rvmat"}},{0.5,{"DZ\gear\containers\data\Barrel_yellow_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\Barrel_yellow_destruct.rvmat"}}};
+					RefTexsMats[]=
+					{
+						"dz\gear\containers\data\barrel_green.rvmat"
+					};
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\barrel_yellow.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\barrel_yellow.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\barrel_yellow_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\barrel_yellow_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\barrel_yellow_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
 	class Refrigerator: WorldContainer_Base
 	{
-		scope = 0;
-		displayName = "$STR_CfgVehicles_Refrigerator0";
-		descriptionShort = "$STR_CfgVehicles_Refrigerator1";
-		model = "\DZ\gear\containers\fridge.p3d";
-		itemsCargo[] = {"Food_Rice","Fruit_Apple"};
+		scope=0;
+		displayName="$STR_CfgVehicles_Refrigerator0";
+		descriptionShort="$STR_CfgVehicles_Refrigerator1";
+		model="\DZ\gear\containers\fridge.p3d";
 	};
 	class RefrigeratorMinsk: WorldContainer_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_RefrigeratorMinsk0";
-		descriptionShort = "$STR_CfgVehicles_RefrigeratorMinsk1";
-		model = "\DZ\gear\containers\fridge.p3d";
-		weight = 131072;
-		itemSize[] = {5,10};
-		itemsRandom[] = {{"Fruit_Tomato","Fruit_GreenBellPepper","Fruit_Zucchini","Fruit_Potato"}};
+		scope=2;
+		displayName="$STR_CfgVehicles_RefrigeratorMinsk0";
+		descriptionShort="$STR_CfgVehicles_RefrigeratorMinsk1";
+		model="\DZ\gear\containers\fridge.p3d";
+		weight=50000;
+		itemSize[]={5,10};
 		class Cargo
 		{
-			itemsCargoSize[] = {2,5};
-			openable = 0;
-			allowOwnedCargoManipulation = 1;
-			cargoReceivesDamage = 0;
-			cargoSingleItemMode = 0;
-			cargoReceivedDamageCoeff = 0.0;
+			itemsCargoSize[]={2,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+			cargoReceivesDamage=0;
+			cargoSingleItemMode=0;
+			cargoReceivedDamageCoeff=0;
 		};
 	};
 	class TrashCan: WorldContainer_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_TrashCan0";
-		descriptionShort = "$STR_CfgVehicles_TrashCan1";
-		model = "\DZ\gear\containers\trashcan.p3d";
-		weight = 13500;
-		itemSize[] = {10,15};
-		canBeDigged = 1;
-		itemsRandom[] = {{"Food_Rice","Fruit_Apple","Medical_DisinfectantAlcohol","Consumable_DuctTape","Consumable_BurlapStrips","Drink_SodaCanSpite","Drink_SodaCanKvass","Consumable_Paper","Consumable_Rags"}};
+		scope=2;
+		displayName="$STR_CfgVehicles_TrashCan0";
+		descriptionShort="$STR_CfgVehicles_TrashCan1";
+		model="\DZ\gear\containers\trashcan.p3d";
+		weight=13500;
+		itemSize[]={10,15};
+		canBeDigged=1;
 		class Cargo
 		{
-			itemsCargoSize[] = {5,10};
-			openable = 0;
-			allowOwnedCargoManipulation = 1;
-			cargoReceivesDamage = 0;
-			cargoSingleItemMode = 0;
-			cargoReceivedDamageCoeff = 0.0;
+			itemsCargoSize[]={5,10};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+			cargoReceivesDamage=0;
+			cargoSingleItemMode=0;
+			cargoReceivedDamageCoeff=0;
 		};
 	};
 	class FirstAidKit: Container_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_FirstAidKit0";
-		descriptionShort = "$STR_CfgVehicles_FirstAidKit1";
-		model = "\dz\gear\containers\FirstAidKit.p3d";
-		rotationFlags = 17;
-		weight = 140;
-		itemSize[] = {4,3};
-		itemsCargoSize[] = {4,3};
-		allowOwnedCargoManipulation = 1;
-		randomQuantity = 2;
-		canBeDigged = 1;
-		isMeleeWeapon = 1;
-		lootTag[] = {"Civilian","Medic","Work","Farm","Hygiene"};
-		itemsRandom[] = {{"BandageDressing","BandageDressing","BandageDressing",""},{"BloodTestKit","BloodTestKit","BloodTestKit",""},{"BloodBagEmpty","BloodBagEmpty","",""},{"StartKitIV","StartKitIV","",""}};
+		scope=2;
+		displayName="$STR_CfgVehicles_FirstAidKit0";
+		descriptionShort="$STR_CfgVehicles_FirstAidKit1";
+		model="\dz\gear\containers\FirstAidKit.p3d";
+		rotationFlags=17;
+		weight=140;
+		itemSize[]={3,3};
+		itemsCargoSize[]={3,3};
+		allowOwnedCargoManipulation=1;
+		randomQuantity=2;
+		canBeDigged=1;
+		repairableWithKits[]={2};
+		repairCosts[]={25};
+		isMeleeWeapon=1;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\FirsAidKit.rvmat"}},{0.5,{"DZ\gear\containers\data\FirsAidKit_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\FirsAidKit_destruct.rvmat"}}};
+					hitpoints=80;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\FirsAidKit.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\FirsAidKit.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\FirsAidKit_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\FirsAidKit_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\FirsAidKit_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		soundImpactType="textile";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem_Light
+				{
+					soundSet="pickUpCourierBag_Light_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpCourierBag_SoundSet";
+					id=797;
 				};
 			};
 		};
 	};
 	class SmallProtectorCase: Container_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_SmallProtectorCase0";
-		descriptionShort = "$STR_CfgVehicles_SmallProtectorCase1";
-		model = "\dz\gear\containers\Protector_Case.p3d";
-		rotationFlags = 17;
-		weight = 980;
-		itemSize[] = {6,3};
-		itemsCargoSize[] = {6,3};
-		canBeDigged = 1;
-		isMeleeWeapon = 1;
-		allowOwnedCargoManipulation = 1;
-		randomQuantity = 2;
-		lootTag[] = {"Medic","Work","Camping"};
+		scope=2;
+		displayName="$STR_CfgVehicles_SmallProtectorCase0";
+		descriptionShort="$STR_CfgVehicles_SmallProtectorCase1";
+		model="\dz\gear\containers\Protector_Case.p3d";
+		rotationFlags=17;
+		weight=980;
+		itemSize[]={3,4};
+		itemsCargoSize[]={3,4};
+		canBeDigged=1;
+		isMeleeWeapon=1;
+		allowOwnedCargoManipulation=1;
+		randomQuantity=2;
+		repairableWithKits[]={8};
+		repairCosts[]={25};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\Protector_Case.rvmat"}},{0.5,{"DZ\gear\containers\data\Protector_Case_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\Protector_Case_destruct.rvmat"}}};
+					hitpoints=750;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\Protector_Case.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\Protector_Case.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\Protector_Case_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\Protector_Case_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\Protector_Case_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+			class GlobalArmor
+			{
+				class FragGrenade
+				{
+					class Health
+					{
+						damage=8;
+					};
+					class Blood
+					{
+						damage=8;
+					};
+					class Shock
+					{
+						damage=8;
+					};
+				};
+			};
+		};
+		soundImpactType="plastic";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet="smallprotectorcase_pickup_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="smallprotectorcase_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
-	class CarrierPouches: Container_Base
+	class PlateCarrierPouches: Container_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_CarrierPouches0";
-		descriptionShort = "$STR_CfgVehicles_CarrierPouches1";
-		model = "\dz\characters\vests\plate_carrier_pouches_g.p3d";
-		inventorySlot = "VestPouch";
-		weight = 250;
-		itemSize[] = {6,4};
-		itemsCargoSize[] = {6,4};
-		repairableWithKits[] = {5,2};
-		repairCosts[] = {30.0,25.0};
-		allowOwnedCargoManipulation = 1;
-		randomQuantity = 2;
-		lootTag[] = {"Military_east","Military_west"};
+		scope=2;
+		displayName="$STR_CfgVehicles_CarrierPouches0";
+		descriptionShort="$STR_CfgVehicles_CarrierPouches1";
+		model="\dz\characters\vests\plate_carrier_pouches_g.p3d";
+		inventorySlot[]=
+		{
+			"VestPouch"
+		};
+		weight=250;
+		itemSize[]={5,3};
+		itemsCargoSize[]={5,3};
+		repairableWithKits[]={3};
+		repairCosts[]={25};
+		allowOwnedCargoManipulation=1;
+		randomQuantity=2;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\PlateCarrier.rvmat"}},{0.5,{"DZ\gear\containers\data\PlateCarrier_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\PlateCarrier_destruct.rvmat"}}};
+					hitpoints=200;
+					transferToAttachmentsCoef=0.5;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		soundImpactType="textile";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem_Light
+				{
+					soundSet="pickUpCourierBag_Light_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpCourierBag_SoundSet";
+					id=797;
+				};
+			};
+		};
+	};
+	class PlateCarrierPouches_Black: PlateCarrierPouches
+	{
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\characters\vests\data\BallisticVest_black_co.paa",
+			"\dz\characters\vests\data\BallisticVest_black_co.paa",
+			"\dz\characters\vests\data\BallisticVest_black_co.paa"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=200;
+					transferToAttachmentsCoef=0.5;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class PlateCarrierPouches_Green: PlateCarrierPouches
+	{
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\characters\vests\data\BallisticVest_green_co.paa",
+			"\dz\characters\vests\data\BallisticVest_green_co.paa",
+			"\dz\characters\vests\data\BallisticVest_green_co.paa"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=200;
+					transferToAttachmentsCoef=0.5;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class PlateCarrierPouches_Camo: PlateCarrierPouches
+	{
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\characters\vests\data\BallisticVest_camo_co.paa",
+			"\dz\characters\vests\data\BallisticVest_camo_co.paa",
+			"\dz\characters\vests\data\BallisticVest_camo_co.paa"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=200;
+					transferToAttachmentsCoef=0.5;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class PlateCarrierPouches_Winter: PlateCarrierPouches
+	{
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\characters\vests\data\BallisticVest_winter_co.paa",
+			"\dz\characters\vests\data\BallisticVest_winter_co.paa",
+			"\dz\characters\vests\data\BallisticVest_winter_co.paa"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=200;
+					transferToAttachmentsCoef=0.5;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\characters\vests\Data\BallisticVest_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
 	class AmmoBox: Container_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_AmmoBox0";
-		descriptionShort = "$STR_CfgVehicles_AmmoBox1";
-		model = "\dz\gear\containers\300RoundBox.p3d";
-		weight = 2250;
-		itemSize[] = {6,4};
-		itemsCargoSize[] = {6,4};
-		allowOwnedCargoManipulation = 1;
-		randomQuantity = 4;
-		canBeDigged = 1;
-		lootTag[] = {"Military_east","Military_west"};
+		scope=2;
+		displayName="$STR_CfgVehicles_AmmoBox0";
+		descriptionShort="$STR_CfgVehicles_AmmoBox1";
+		model="\dz\gear\containers\300RoundBox.p3d";
+		weight=2250;
+		itemSize[]={5,4};
+		itemsCargoSize[]={5,4};
+		allowOwnedCargoManipulation=1;
+		randomQuantity=4;
+		canBeDigged=1;
+		repairableWithKits[]={8};
+		repairCosts[]={25};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\300RoundBox.rvmat"}},{0.5,{"DZ\gear\containers\data\300RoundBox_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\300RoundBox_destruct.rvmat"}}};
+					hitpoints=300;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\300RoundBox.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\300RoundBox.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\300RoundBox_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\300RoundBox_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\300RoundBox_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		soundImpactType="metal";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickup
+				{
+					soundSet="sewingkit_pickup_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="ammobox_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
 	class Bear_ColorBase: Container_Base
 	{
-		displayName = "$STR_CfgVehicles_Bear_ColorBase0";
-		descriptionShort = "$STR_CfgVehicles_Bear_ColorBase1";
-		model = "\dz\gear\containers\teddybear.p3d";
-		weight = 130;
-		itemSize[] = {2,2};
-		itemsCargoSize[] = {2,2};
-		canBeDigged = 1;
-		allowOwnedCargoManipulation = 1;
-		itemsRandom[] = {{"Consumable_Paper","Consumable_Rags"}};
-		lootTag[] = {"Civilian"};
-		hiddenSelections[] = {"camoGround"};
+		displayName="$STR_CfgVehicles_Bear_ColorBase0";
+		descriptionShort="$STR_CfgVehicles_Bear_ColorBase1";
+		model="\dz\gear\containers\teddybear.p3d";
+		weight=130;
+		itemSize[]={2,3};
+		itemsCargoSize[]={2,3};
+		canBeDigged=1;
+		allowOwnedCargoManipulation=1;
+		repairableWithKits[]={2};
+		repairCosts[]={25};
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\teddybear.rvmat"}},{0.5,{"DZ\gear\containers\data\teddybear_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\teddybear_destruct.rvmat"}}};
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\teddybear.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\teddybear.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\teddybear_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\teddybear_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\teddybear_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		soundImpactType="textile";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem_Light
+				{
+					soundSet="pickUpCourierBag_Light_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpCourierBag_SoundSet";
+					id=797;
 				};
 			};
 		};
 	};
 	class Bear_Beige: Bear_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Bear_Beige0";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\Data\teddybear_brown_co.paa"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\Data\teddybear_brown_co.paa"
+		};
 	};
 	class Bear_Dark: Bear_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Bear_Dark0";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\Data\teddybear_dark_co.paa"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\Data\teddybear_dark_co.paa"
+		};
 	};
 	class Bear_Pink: Bear_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Bear_Pink0";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\Data\teddybear_pink_co.paa"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\Data\teddybear_pink_co.paa"
+		};
 	};
 	class Bear_White: Bear_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_Bear_White0";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\Data\teddybear_white_co.paa"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\Data\teddybear_white_co.paa"
+		};
 	};
 	class WaterproofBag_ColorBase: Container_Base
 	{
-		displayName = "$STR_CfgVehicles_WaterproofBag_ColorBase0";
-		descriptionShort = "$STR_CfgVehicles_WaterproofBag_ColorBase1";
-		model = "\dz\gear\containers\WaterproofBag.p3d";
-		rotationFlags = 17;
-		weight = 350;
-		itemSize[] = {7,5};
-		itemsCargoSize[] = {7,5};
-		allowOwnedCargoManipulation = 1;
-		canBeDigged = 1;
-		lootTag[] = {"Civilian"};
-		absorbency = 0;
-		heatIsolation = 1;
-		repairableWithKits[] = {5,6};
-		repairCosts[] = {30.0,25.0};
-		hiddenSelections[] = {"camoGround"};
+		displayName="$STR_CfgVehicles_WaterproofBag_ColorBase0";
+		descriptionShort="$STR_CfgVehicles_WaterproofBag_ColorBase1";
+		model="\dz\gear\containers\WaterproofBag.p3d";
+		rotationFlags=17;
+		weight=350;
+		itemSize[]={4,5};
+		itemsCargoSize[]={4,5};
+		allowOwnedCargoManipulation=1;
+		canBeDigged=1;
+		varWetMax=0.249;
+		heatIsolation=1;
+		repairableWithKits[]={5,6};
+		repairCosts[]={30,25};
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\containers\data\WaterproofBag.rvmat"}},{0.5,{"DZ\gear\containers\data\WaterproofBag_damage.rvmat"}},{0.0,{"DZ\gear\containers\data\WaterproofBag_destruct.rvmat"}}};
+					hitpoints=80;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\WaterproofBag.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\WaterproofBag.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\WaterproofBag_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\WaterproofBag_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\WaterproofBag_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		soundImpactType="textile";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItemLight
+				{
+					soundSet="pickUpGardenLimeLight_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpGardenLime_SoundSet";
+					id=797;
 				};
 			};
 		};
 	};
 	class WaterproofBag_Yellow: WaterproofBag_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_WaterproofBag_Yellow0";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\Data\WaterproofBag_yellow_co.paa"};
+		scope=2;
+		color="Yellow";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\Data\WaterproofBag_yellow_co.paa"
+		};
 	};
 	class WaterproofBag_Green: WaterproofBag_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_WaterproofBag_Green0";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\Data\WaterproofBag_green_co.paa"};
+		scope=2;
+		color="Green";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\Data\WaterproofBag_green_co.paa"
+		};
 	};
 	class WaterproofBag_Orange: WaterproofBag_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_WaterproofBag_Orange0";
-		hiddenSelectionsTextures[] = {"\dz\gear\containers\Data\WaterproofBag_orange_co.paa"};
+		scope=2;
+		color="Orange";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\Data\WaterproofBag_orange_co.paa"
+		};
+	};
+	class GiftBox_Base: Container_Base
+	{
+		scope=0;
+		displayName="$STR_cfgvehicles_xmasboxsmall0";
+		descriptionShort="$STR_cfgvehicles_xmasbox_common1";
+		model="\DZ\gear\containers\ChristmasBox1.p3d";
+		weight=100;
+		itemSize[]={2,2};
+		itemsCargoSize[]={2,2};
+		allowOwnedCargoManipulation=1;
+		absorbency=0;
+		reversed=1;
+		hiddenSelections[]=
+		{
+			"ChristmasBox1",
+			"ChristmasBox1_ribbon"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\data\christmas_paper1_CO.paa",
+			"\dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=40;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Small: GiftBox_Base
+	{
+		displayName="$STR_cfgvehicles_xmasboxsmall0";
+	};
+	class GiftBox_Medium: GiftBox_Base
+	{
+		displayName="$STR_cfgvehicles_xmasboxmedium0";
+		model="\DZ\gear\containers\ChristmasBox2.p3d";
+		weight=300;
+		itemSize[]={4,4};
+		itemsCargoSize[]={4,4};
+		hiddenSelections[]=
+		{
+			"ChristmasBox2",
+			"ChristmasBox2_ribbon"
+		};
+	};
+	class GiftBox_Large: GiftBox_Base
+	{
+		displayName="$STR_cfgvehicles_xmasboxlarge0";
+		model="\DZ\gear\containers\ChristmasBox3.p3d";
+		weight=500;
+		itemSize[]={5,5};
+		itemsCargoSize[]={5,5};
+		hiddenSelections[]=
+		{
+			"ChristmasBox3",
+			"ChristmasBox3_ribbon"
+		};
+	};
+	class GiftBox_Small_1: GiftBox_Small
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper1_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Small_2: GiftBox_Small
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper2_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Small_3: GiftBox_Small
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper3_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Small_4: GiftBox_Small
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper4_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Medium_1: GiftBox_Medium
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper1_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=35;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Medium_2: GiftBox_Medium
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper2_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=35;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Medium_3: GiftBox_Medium
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper3_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=35;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Medium_4: GiftBox_Medium
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper4_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=35;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Large_1: GiftBox_Large
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper1_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=40;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_RED_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Large_2: GiftBox_Large
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper2_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=40;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_SILVER_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Large_3: GiftBox_Large
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper3_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=40;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GOLD_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class GiftBox_Large_4: GiftBox_Large
+	{
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\containers\data\christmas_paper4_CO.paa",
+			"dz\gear\containers\data\christmas_paper_ribbon_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\containers\data\christmas_paper1.rvmat",
+			"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+		};
+		class DamageSystem: DamageSystem
+		{
+			class GlobalHealth: GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=40;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_damage.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\christmas_paper1_destruct.rvmat",
+								"DZ\gear\containers\data\christmas_ribbon_GREEN_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class ScientificBriefcase: Container_Base
+	{
+		scope=2;
+		displayName="$STR_CfgVehicles_ScientificBriefcase0";
+		descriptionShort="$STR_CfgVehicles_ScientificBriefcase1";
+		model="\dz\gear\containers\ScientificCase.p3d";
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		rotationFlags=17;
+		weight=2500;
+		itemSize[]={6,4};
+		itemsCargoSize[]={6,4};
+		allowOwnedCargoManipulation=1;
+		randomQuantity=2;
+		canBeDigged=1;
+		repairableWithKits[]={8};
+		repairCosts[]={25};
+		isMeleeWeapon=1;
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=140;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\containers\data\ScientificCase.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\containers\data\ScientificCase.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\containers\data\ScientificCase_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\containers\data\ScientificCase_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\containers\data\ScientificCase_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		soundImpactType="textile";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\containers\data\ScientificCase_CO.paa"
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem_Light
+				{
+					soundSet="pickUpCourierBag_Light_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpCourierBag_SoundSet";
+					id=797;
+				};
+			};
+		};
 	};
 };
-//};

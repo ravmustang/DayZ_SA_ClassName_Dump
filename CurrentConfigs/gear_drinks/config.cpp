@@ -1,54 +1,21 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 17:11:41 2018 : 'file' last modified on Wed Aug 22 17:32:51 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\gear_drinks\config.bin{
 class CfgPatches
 {
 	class DZ_Gear_Drinks
 	{
-		units[] = {"Drink_Canteen","Drink_SodaZlutaKlasik","Drink_SodaZlutaKolaloka","Drink_SodaZlutaMalinovka","Drink_WaterBottle"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data"};
-	};
-};
-class RecipeToolOnTool;
-class CfgRecipes
-{
-	class PourWaterbottles
-	{
-		name = "Pour %TOOL1 into %TOOL2";
-		tools[] = {"BottleBase","BottleBase"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		action = "call player_transferWater";
-	};
-	class FillBarrel: PourWaterbottles
-	{
-		name = "Pour %TOOL1 into %TOOL2";
-		tools[] = {"BottleBase","Container_BarrelBase"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		action = "call player_transferWater";
+		units[]=
+		{
+			"Drink_Canteen",
+			"Drink_SodaZlutaKlasik",
+			"Drink_SodaZlutaKolaloka",
+			"Drink_SodaZlutaMalinovka",
+			"Drink_WaterBottle"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data"
+		};
 	};
 };
 class CfgVehicles
@@ -58,31 +25,85 @@ class CfgVehicles
 	class Bottle_Base;
 	class Canteen: Bottle_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Canteen0";
-		descriptionShort = "$STR_CfgVehicles_Canteen1";
-		model = "\dz\gear\drinks\Canteen.p3d";
-		SingleUseActions[] = {507,"AT_WASH_HANDS",505,544};
-		ContinuousActions[] = {182,176,169,189,160,108,225,226,234,106};
-		itemSize[] = {2,3};
-		weight = 125;
-		varQuantityInit = 1000;
-		varQuantityMin = 0;
-		varQuantityMax = 1000;
-		destroyOnEmpty = 0;
-		varQuantityDestroyOnMin = 0;
-		varLiquidTypeInit = 512;
-		liquidContainerType = "1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256)";
-		isMeleeWeapon = 1;
+		scope=2;
+		displayName="$STR_CfgVehicles_Canteen0";
+		descriptionShort="$STR_CfgVehicles_Canteen1";
+		model="\dz\gear\drinks\Canteen.p3d";
+		debug_ItemCategory=6;
+		inventorySlot[]=
+		{
+			"Belt_Left",
+			"DirectCookingA",
+			"DirectCookingB",
+			"DirectCookingC"
+		};
+		weight=250;
+		itemSize[]={2,2};
+		varTemperatureFreezePoint=-200;
+		varTemperatureThawPoint=-200;
+		varTemperatureFreezeTime=2508;
+		varTemperatureThawTime=2508;
+		varTemperatureMax=110;
+		varQuantityInit=1000;
+		varQuantityMin=0;
+		varQuantityMax=1000;
+		temperaturePerQuantityWeight=2;
+		destroyOnEmpty=0;
+		varQuantityDestroyOnMin=0;
+		varLiquidTypeInit=512;
+		liquidContainerType="1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536  + 131072 + 262144 + 524288 + 2097152 + 4194304 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) - 32768";
+		isMeleeWeapon=1;
+		soundImpactType="plastic";
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\drinks\data\Canteen.rvmat"}},{0.5,{"DZ\gear\drinks\data\Canteen_damage.rvmat"}},{0.0,{"DZ\gear\drinks\data\Canteen_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\drinks\data\Canteen.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\drinks\data\Canteen.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\drinks\data\Canteen_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\drinks\data\Canteen_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\drinks\data\Canteen_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
@@ -90,914 +111,1025 @@ class CfgVehicles
 		{
 			class Default
 			{
-				ammo = "MeleeLightBlunt";
-				range = 1.0;
+				ammo="MeleeLightBlunt";
+				range=1;
 			};
 			class Heavy
 			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 1.0;
+				ammo="MeleeLightBlunt_Heavy";
+				range=1;
 			};
 			class Sprint
 			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 2.8;
+				ammo="MeleeLightBlunt_Heavy";
+				range=2.8;
 			};
 		};
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class Canteen_in_A
-				{
-					soundSet = "Canteen_in_A_SoundSet";
-					id = 201;
-				};
 				class Canteen_in_B
 				{
-					soundSet = "Canteen_in_B_SoundSet";
-					id = 202;
+					soundSet="Canteen_in_B_SoundSet";
+					id=202;
 				};
 				class Canteen_in_C
 				{
-					soundSet = "Canteen_in_C_SoundSet";
-					id = 203;
+					soundSet="Canteen_in_C_SoundSet";
+					id=203;
 				};
-				class Canteen
+				class WaterBottle_in_C1
 				{
-					soundSet = "Canteen_SoundSet";
-					id = 204;
+					soundSet="WaterBottle_in_C1_SoundSet";
+					id=204;
 				};
 				class Canteen_out_A
 				{
-					soundSet = "Canteen_out_A_SoundSet";
-					id = 205;
+					soundSet="Canteen_out_A_SoundSet";
+					id=205;
 				};
 				class Canteen_out_B
 				{
-					soundSet = "Canteen_out_B_SoundSet";
-					id = 206;
+					soundSet="Canteen_out_B_SoundSet";
+					id=206;
 				};
-				class Canteen_out_C
+				class PondBottle_loop
 				{
-					soundSet = "Canteen_out_C_SoundSet";
-					id = 207;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class Canteen_empty_open
+				class WellBottle_loop
 				{
-					soundSet = "Canteen_empty_open_SoundSet";
-					id = 208;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class Canteen_empty_close
-				{
-					soundSet = "Canteen_empty_close_SoundSet";
-					id = 209;
-				};
-				class Canteen_empty_start
-				{
-					soundSet = "Canteen_empty_start_SoundSet";
-					id = 210;
-				};
-				class Canteen_empty_loop
-				{
-					soundSet = "Canteen_empty_loop_SoundSet";
-					id = 211;
-				};
-				class Canteen_empty_end
-				{
-					soundSet = "Canteen_empty_end_SoundSet";
-					id = 212;
-				};
-				class WaterBottle_Whoosh
-				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
-				};
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class DirectCookingA
+			{
+				position[]={0.050000001,0.050000001,0};
+				orientation[]={-3,260,90};
+			};
+			class DirectCookingB
+			{
+				position[]={0.050000001,0.050000001,0};
+				orientation[]={6,260,90};
+			};
+			class DirectCookingC
+			{
+				position[]={0.050000001,0.050000001,0};
+				orientation[]={-3,260,90};
 			};
 		};
 	};
 	class WaterBottle: Bottle_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_WaterBottle0";
-		descriptionShort = "$STR_CfgVehicles_WaterBottle1";
-		model = "\dz\gear\drinks\WaterBottle.p3d";
-		weight = 50;
-		itemSize[] = {2,4};
-		SingleUseActions[] = {507,"AT_WASH_HANDS",505,544};
-		ContinuousActions[] = {182,176,169,189,160,108,225,226,234,106};
-		destroyOnEmpty = 0;
-		varQuantityDestroyOnMin = 0;
-		varLiquidTypeInit = 512;
-		liquidContainerType = "1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256)";
-		varQuantityInit = 1000.0;
-		varQuantityMin = 0.0;
-		varQuantityMax = 1000.0;
-		isMeleeWeapon = 1;
+		scope=2;
+		displayName="$STR_CfgVehicles_WaterBottle0";
+		descriptionShort="$STR_CfgVehicles_WaterBottle1";
+		model="\dz\gear\drinks\WaterBottle.p3d";
+		debug_ItemCategory=6;
+		weight=50;
+		itemSize[]={1,3};
+		destroyOnEmpty=0;
+		varQuantityDestroyOnMin=0;
+		varLiquidTypeInit=512;
+		liquidContainerType="1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536  + 131072 + 262144 + 524288 + 2097152 + 4194304 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) - 32768";
+		varTemperatureFreezePoint=-200;
+		varTemperatureThawPoint=-200;
+		varTemperatureFreezeTime=2508;
+		varTemperatureThawTime=2508;
+		varTemperatureOverheatTime=0;
+		varTemperatureMax=80;
+		varQuantityInit=1000;
+		varQuantityMin=0;
+		varQuantityMax=1000;
+		temperaturePerQuantityWeight=1.5;
+		isMeleeWeapon=1;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\drinks\data\Loot_WaterBottle.rvmat"}},{0.5,{"DZ\gear\drinks\data\Loot_WaterBottle_damage.rvmat"}},{0.0,{"DZ\gear\drinks\data\Loot_WaterBottle_destruct.rvmat"}}};
+					hitpoints=50;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\drinks\data\Loot_WaterBottle.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\drinks\data\Loot_WaterBottle.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\drinks\data\Loot_WaterBottle_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\drinks\data\Loot_WaterBottle_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\drinks\data\Loot_WaterBottle_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
+		soundImpactType="plastic";
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class WaterBottle_in_A
-				{
-					soundSet = "WaterBottle_in_A_SoundSet";
-					id = 201;
-				};
 				class WaterBottle_in_B
 				{
-					soundSet = "WaterBottle_in_B_SoundSet";
-					id = 202;
+					soundSet="WaterBottle_in_B_SoundSet";
+					id=202;
 				};
 				class WaterBottle_in_C
 				{
-					soundSet = "WaterBottle_in_C_SoundSet";
-					id = 203;
+					soundSet="WaterBottle_in_C_SoundSet";
+					id=203;
 				};
-				class WaterBottle
+				class WaterBottle_in_C1
 				{
-					soundSet = "WaterBottle_SoundSet";
-					id = 204;
+					soundSet="WaterBottle_in_C1_SoundSet";
+					id=204;
 				};
 				class WaterBottle_out_A
 				{
-					soundSet = "WaterBottle_out_A_SoundSet";
-					id = 205;
+					soundSet="WaterBottle_out_A_SoundSet";
+					id=205;
 				};
 				class WaterBottle_out_B
 				{
-					soundSet = "WaterBottle_out_B_SoundSet";
-					id = 206;
+					soundSet="WaterBottle_out_B_SoundSet";
+					id=206;
 				};
-				class WaterBottle_out_C
+				class PondBottle_loop
 				{
-					soundSet = "WaterBottle_out_C_SoundSet";
-					id = 207;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class WaterBottle_empty_open
+				class WellBottle_loop
 				{
-					soundSet = "WaterBottle_empty_open_SoundSet";
-					id = 208;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class WaterBottle_empty_close
+				class pickup
 				{
-					soundSet = "WaterBottle_empty_close_SoundSet";
-					id = 209;
-				};
-				class WaterBottle_empty_start
-				{
-					soundSet = "WaterBottle_empty_start_SoundSet";
-					id = 210;
-				};
-				class WaterBottle_empty_loop
-				{
-					soundSet = "WaterBottle_empty_loop_SoundSet";
-					id = 211;
-				};
-				class WaterBottle_empty_end
-				{
-					soundSet = "WaterBottle_empty_end_SoundSet";
-					id = 212;
-				};
-				class WaterBottle_Whoosh
-				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
-				};
-				class ExtinguishByWater
-				{
-					soundSet = "ExtinguishByWater_SoundSet";
-					id = 208;
+					soundSet="WaterBottle_pickup_SoundSet";
+					id=797;
 				};
 			};
 		};
+		class InventorySlotsOffsets
+		{
+			class DirectCookingA
+			{
+				position[]={0.07,0.028999999,0};
+				orientation[]={21,0,90};
+			};
+			class DirectCookingB
+			{
+				position[]={0.07,0.028999999,0};
+				orientation[]={-11,150,90};
+			};
+			class DirectCookingC
+			{
+				position[]={0.07,0.028999999,0};
+				orientation[]={21,0,90};
+			};
+		};
 	};
-	class Vodka: Bottle_Base
+	class GlassBottle: Bottle_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Vodka0";
-		descriptionShort = "$STR_CfgVehicles_Vodka1";
-		model = "\dz\gear\drinks\VodkaBottles.p3d";
-		ContinuousActions[] = {182,176,169,189,160,108,225,226,234,106};
-		weight = 450;
-		itemSize[] = {1,3};
-		destroyOnEmpty = 0;
-		varQuantityDestroyOnMin = 0;
-		varLiquidTypeInit = 2048;
-		liquidContainerType = "1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256)";
-		varQuantityInit = 500.0;
-		varQuantityMin = 0.0;
-		varQuantityMax = 500.0;
+		scope=2;
+		displayName="$STR_CfgVehicles_GlassBottle0";
+		descriptionShort="$STR_CfgVehicles_GlassBottle1";
+		model="\dz\gear\drinks\VodkaBottles.p3d";
+		weight=550;
+		itemSize[]={1,3};
+		destroyOnEmpty=0;
+		varQuantityDestroyOnMin=0;
+		varLiquidTypeInit=512;
+		liquidContainerType="1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536  + 131072 + 262144 + 524288 + 2097152 + 4194304 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) - 32768";
+		varTemperatureFreezePoint=-200;
+		varTemperatureThawPoint=-200;
+		varTemperatureFreezeTime=1980;
+		varTemperatureThawTime=1980;
+		varTemperatureMax=120;
+		varQuantityInit=0;
+		varQuantityMin=0;
+		varQuantityMax=750;
+		temperaturePerQuantityWeight=1.5;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\drinks\data\VodkaBottles.rvmat"}},{0.5,{"DZ\gear\drinks\data\VodkaBottles_damage.rvmat"}},{0.0,{"DZ\gear\drinks\data\VodkaBottles_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\drinks\data\VodkaBottles.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\drinks\data\VodkaBottles.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\drinks\data\VodkaBottles_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\drinks\data\VodkaBottles_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\drinks\data\VodkaBottles_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
+		hiddenSelections[]=
+		{
+			"zbytek"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\gear\drinks\data\vodkabottles.rvmat"
+		};
+		soundImpactType="glass";
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class GlassBottle_in_A
-				{
-					soundSet = "GlassBottle_in_A_SoundSet";
-					id = 201;
-				};
 				class GlassBottle_in_B
 				{
-					soundSet = "GlassBottle_in_B_SoundSet";
-					id = 202;
+					soundSet="GlassBottle_in_B_SoundSet";
+					id=202;
 				};
 				class GlassBottle_in_C
 				{
-					soundSet = "GlassBottle_in_C_SoundSet";
-					id = 203;
+					soundSet="GlassBottle_in_C_SoundSet";
+					id=203;
 				};
-				class GlassBottle
+				class WaterBottle_in_C1
 				{
-					soundSet = "GlassBottle_SoundSet";
-					id = 204;
+					soundSet="WaterBottle_in_C1_SoundSet";
+					id=204;
 				};
 				class GlassBottle_out_A
 				{
-					soundSet = "GlassBottle_out_A_SoundSet";
-					id = 205;
+					soundSet="GlassBottle_out_A_SoundSet";
+					id=205;
 				};
 				class GlassBottle_out_B
 				{
-					soundSet = "GlassBottle_out_B_SoundSet";
-					id = 206;
+					soundSet="GlassBottle_out_B_SoundSet";
+					id=206;
 				};
-				class GlassBottle_out_C
+				class PondBottle_loop
 				{
-					soundSet = "GlassBottle_out_C_SoundSet";
-					id = 207;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class GlassBottle_empty_open
+				class WellBottle_loop
 				{
-					soundSet = "Canteen_empty_open_SoundSet";
-					id = 208;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class GlassBottle_empty_close
-				{
-					soundSet = "Canteen_empty_close_SoundSet";
-					id = 209;
-				};
-				class GlassBottle_empty_start
-				{
-					soundSet = "Canteen_empty_start_SoundSet";
-					id = 210;
-				};
-				class GlassBottle_empty_loop
-				{
-					soundSet = "Canteen_empty_loop_SoundSet";
-					id = 211;
-				};
-				class GlassBottle_empty_end
-				{
-					soundSet = "Canteen_empty_end_SoundSet";
-					id = 212;
-				};
-				class WaterBottle_Whoosh
-				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
-				};
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class DirectCookingA
+			{
+				position[]={0.050000001,0.025,0};
+				orientation[]={-9,0,90};
+			};
+			class DirectCookingB
+			{
+				position[]={0.050000001,0.025,0};
+				orientation[]={-6,150,90};
+			};
+			class DirectCookingC
+			{
+				position[]={0.050000001,0.025,0};
+				orientation[]={-9,0,90};
 			};
 		};
 	};
 	class WaterPouch_ColorBase: Bottle_Base
 	{
-		displayName = "$STR_CfgVehicles_WaterPouch_ColorBase0";
-		descriptionShort = "$STR_CfgVehicles_WaterPouch_ColorBase1";
-		model = "\dz\gear\drinks\waterpouch.p3d";
-		lootCategory = "Crafted";
-		SingleUseActions[] = {507,505,544};
-		ContinuousActions[] = {182,176,169,189,160,108,225,226,234,106};
-		weight = 200;
-		itemSize[] = {2,2};
-		repairableWithKits[] = {5,3};
-		repairCosts[] = {30.0,25.0};
-		destroyOnEmpty = 0;
-		varQuantityDestroyOnMin = 0;
-		liquidContainerType = "1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256)";
-		varQuantityInit = 0.0;
-		varQuantityMin = 0.0;
-		varQuantityMax = 500.0;
+		displayName="$STR_CfgVehicles_WaterPouch_ColorBase0";
+		descriptionShort="$STR_CfgVehicles_WaterPouch_ColorBase1";
+		model="\dz\gear\drinks\waterpouch.p3d";
+		lootCategory="Crafted";
+		weight=250;
+		itemSize[]={2,4};
+		repairableWithKits[]={3};
+		repairCosts[]={25};
+		destroyOnEmpty=0;
+		varQuantityDestroyOnMin=0;
+		liquidContainerType="1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536  + 131072 + 262144 + 524288 + 2097152 + 4194304 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) - 32768";
+		varTemperatureFreezePoint=-200;
+		varTemperatureThawPoint=-200;
+		varTemperatureMax=120;
+		varQuantityInit=0;
+		varQuantityMin=0;
+		varQuantityMax=1250;
+		temperaturePerQuantityWeight=4;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"}},{0.5,{"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"}},{0.0,{"DZ\gear\drinks\data\Drink_WaterPouch_Natural_destruct.rvmat"}}};
+					hitpoints=50;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
+		soundImpactType="textile";
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class WaterPouch_in_A
-				{
-					soundSet = "WaterPouch_in_A_SoundSet";
-					id = 201;
-				};
 				class WaterPouch_in_B
 				{
-					soundSet = "WaterPouch_in_B_SoundSet";
-					id = 202;
+					soundSet="WaterPouch_in_B_SoundSet";
+					id=202;
 				};
 				class WaterPouch_in_C
 				{
-					soundSet = "WaterPouch_in_C_SoundSet";
-					id = 203;
+					soundSet="WaterPouch_in_C_SoundSet";
+					id=203;
 				};
-				class WaterPouch
+				class WaterBottle_in_C1
 				{
-					soundSet = "WaterPouch_SoundSet";
-					id = 204;
+					soundSet="WaterBottle_in_C1_SoundSet";
+					id=204;
 				};
 				class WaterPouch_out_A
 				{
-					soundSet = "WaterPouch_out_A_SoundSet";
-					id = 205;
+					soundSet="WaterPouch_out_A_SoundSet";
+					id=205;
 				};
 				class WaterPouch_out_B
 				{
-					soundSet = "WaterPouch_out_B_SoundSet";
-					id = 206;
+					soundSet="WaterPouch_out_B_SoundSet";
+					id=206;
 				};
-				class WaterPouch_out_C
+				class PondBottle_loop
 				{
-					soundSet = "WaterPouch_out_C_SoundSet";
-					id = 207;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class WaterBottle_Whoosh
+				class WellBottle_loop
 				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
-				};
-				class ExtinguishByWater
-				{
-					soundSet = "ExtinguishByWater_SoundSet";
-					id = 208;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
 			};
 		};
 	};
 	class WaterPouch_Natural: WaterPouch_ColorBase
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgVehicles_WaterPouch_Natural0";
-		rotationFlags = 17;
-		hiddenSelectionsMaterials[] = {"DZ\gear\drinks\data\","Drink_WaterPouch_Natural.rvmat","DZ\gear\drinks\data\","Drink_WaterPouch_Natural.rvmat","DZ\gear\drinks\data\","Drink_WaterPouch_Natural.rvmat"};
+		scope=2;
+		rotationFlags=17;
+		hiddenSelectionsMaterials[]=
+		{
+			"DZ\gear\drinks\data\",
+			"Drink_WaterPouch_Natural.rvmat",
+			"DZ\gear\drinks\data\",
+			"Drink_WaterPouch_Natural.rvmat",
+			"DZ\gear\drinks\data\",
+			"Drink_WaterPouch_Natural.rvmat"
+		};
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class WaterPouch_in_A
-				{
-					soundSet = "WaterPouch_in_A_SoundSet";
-					id = 201;
-				};
 				class WaterPouch_in_B
 				{
-					soundSet = "WaterPouch_in_B_SoundSet";
-					id = 202;
+					soundSet="WaterPouch_in_B_SoundSet";
+					id=202;
 				};
 				class WaterPouch_in_C
 				{
-					soundSet = "WaterPouch_in_C_SoundSet";
-					id = 203;
+					soundSet="WaterPouch_in_C_SoundSet";
+					id=203;
 				};
-				class WaterPouch
+				class WaterBottle_in_C1
 				{
-					soundSet = "WaterPouch_SoundSet";
-					id = 204;
+					soundSet="WaterBottle_in_C1_SoundSet";
+					id=204;
 				};
 				class WaterPouch_out_A
 				{
-					soundSet = "WaterPouch_out_A_SoundSet";
-					id = 205;
+					soundSet="WaterPouch_out_A_SoundSet";
+					id=205;
 				};
 				class WaterPouch_out_B
 				{
-					soundSet = "WaterPouch_out_B_SoundSet";
-					id = 206;
+					soundSet="WaterPouch_out_B_SoundSet";
+					id=206;
 				};
-				class WaterPouch_out_C
+				class PondBottle_loop
 				{
-					soundSet = "WaterPouch_out_C_SoundSet";
-					id = 207;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class WaterBottle_Whoosh
+				class WellBottle_loop
 				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
-				};
-				class ExtinguishByWater
-				{
-					soundSet = "ExtinguishByWater_SoundSet";
-					id = 208;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
 			};
 		};
 	};
-	class SodaCan_ColorBase: Edible_Base
+	class FilteringBottle: Bottle_Base
 	{
-		model = "\dz\gear\drinks\SodaCan.p3d";
-		stackedRandom = 0;
-		autoQuickbar = 1;
-		itemSize[] = {1,2};
-		SingleUseActions[] = {507,505,544};
-		ContinuousActions[] = {108,215};
-		InteractActions[] = {};
-		weight = 33;
-		stackedUnit = "";
-		varQuantityInit = 330;
-		varQuantityMin = 0;
-		varQuantityMax = 330;
-		isMeleeWeapon = 1;
-		hiddenSelections[] = {"camoGround"};
+		scope=2;
+		displayName="$STR_CfgVehicles_FilteringBottle0";
+		descriptionShort="$STR_CfgVehicles_FilteringBottle1";
+		model="\dz\gear\drinks\FilteringBottle.p3d";
+		weight=180;
+		itemSize[]={1,3};
+		destroyOnEmpty=0;
+		varQuantityDestroyOnMin=0;
+		liquidContainerType="1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536  + 131072 + 262144 + 524288 + 2097152 + 4194304 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) - 32768 - 8192 - 16384";
+		varTemperatureFreezePoint=-200;
+		varTemperatureThawPoint=-200;
+		varTemperatureFreezeTime=1980;
+		varTemperatureThawTime=1980;
+		varTemperatureOverheatTime=0;
+		varTemperatureMax=80;
+		varQuantityInit=0;
+		varQuantityMin=0;
+		varQuantityMax=650;
+		temperaturePerQuantityWeight=1.5;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"}},{0.5,{"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"}},{0.0,{"DZ\gear\drinks\data\Drink_WaterPouch_Natural_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\drinks\data\Loot_FilteringBottle.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\drinks\data\Loot_FilteringBottle.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\drinks\data\Loot_FilteringBottle_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\drinks\data\Loot_FilteringBottle_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\drinks\data\Loot_FilteringBottle_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
+		hiddenSelections[]=
+		{
+			"zbytek"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\gear\drinks\data\Loot_FilteringBottle.rvmat"
+		};
+		soundImpactType="plastic";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class WaterPouch_in_B
+				{
+					soundSet="WaterPouch_in_B_SoundSet";
+					id=202;
+				};
+				class WaterPouch_in_C
+				{
+					soundSet="WaterPouch_in_C_SoundSet";
+					id=203;
+				};
+				class WaterBottle_in_C1
+				{
+					soundSet="WaterBottle_in_C1_SoundSet";
+					id=204;
+				};
+				class WaterPouch_out_A
+				{
+					soundSet="WaterPouch_out_A_SoundSet";
+					id=205;
+				};
+				class WaterPouch_out_B
+				{
+					soundSet="WaterPouch_out_B_SoundSet";
+					id=206;
+				};
+				class PondBottle_loop
+				{
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
+				};
+				class WellBottle_loop
+				{
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
+				};
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class DirectCookingA
+			{
+				position[]={0.059999999,0.035,0};
+				orientation[]={3,-95,90};
+			};
+			class DirectCookingB
+			{
+				position[]={0.059999999,0.035,0};
+				orientation[]={-5,105,90};
+			};
+			class DirectCookingC
+			{
+				position[]={0.059999999,0.035,0};
+				orientation[]={3,-95,90};
+			};
+		};
+	};
+	class SodaCan_ColorBase: Edible_Base
+	{
+		model="\dz\gear\drinks\SodaCan.p3d";
+		debug_ItemCategory=6;
+		stackedRandom=0;
+		itemSize[]={1,2};
+		weight=15;
+		stackedUnit="";
+		varTemperatureFreezeTime=1980;
+		varTemperatureThawTime=1980;
+		varTemperatureMax=100;
+		varQuantityInit=330;
+		varQuantityMin=0;
+		varQuantityMax=330;
+		temperaturePerQuantityWeight=1;
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\drinks\data\sodacan.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\drinks\data\sodacan.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\drinks\data\sodacan_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\drinks\data\sodacan_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\drinks\data\sodacan_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		soundImpactType="metal";
 		class Nutrition
 		{
-			totalVolume = 1;
-			energy = 43.5;
-			water = 89;
-			nutritionalIndex = 1;
-			toxicity = 0;
+			totalVolume=1;
+			energy=50;
+			water=90;
+			nutritionalIndex=1;
+			toxicity=0;
 		};
-		class MeleeModes
+		class InventorySlotsOffsets
 		{
-			class Default
+			class DirectCookingA
 			{
-				ammo = "MeleeLightBlunt";
-				range = 1.0;
+				position[]={0.1,0.059999999,0};
+				orientation[]={8,0,0};
 			};
-			class Heavy
+			class DirectCookingB
 			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 1.0;
+				position[]={0.059999999,0.025,0};
+				orientation[]={15,90,45};
 			};
-			class Sprint
+			class DirectCookingC
 			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 2.8;
+				position[]={0.059999999,0.025,0};
+				orientation[]={15,90,45};
 			};
 		};
 	};
 	class SodaCan_Pipsi: SodaCan_ColorBase
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_SodaCan_Pipsi0";
-		descriptionShort = "$STR_CfgVehicles_SodaCan_Pipsi1";
-		hiddenSelectionsTextures[] = {"\dz\gear\drinks\Data\SodaCan_pipsi_co.paa"};
+		scope=2;
+		displayName="$STR_CfgVehicles_SodaCan_Pipsi0";
+		descriptionShort="$STR_CfgVehicles_SodaCan_Pipsi1";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\drinks\Data\SodaCan_pipsi_co.paa"
+		};
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class SodaCan_in_A
-				{
-					soundSet = "SodaCan_in_A_SoundSet";
-					id = 201;
-				};
 				class SodaCan_in_B
 				{
-					soundSet = "SodaCan_in_B_SoundSet";
-					id = 202;
+					soundSet="SodaCan_in_B_SoundSet";
+					id=202;
 				};
-				class SodaCan_in_C
+				class PondBottle_loop
 				{
-					soundSet = "SodaCan_in_C_SoundSet";
-					id = 203;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class SodaCan
+				class WellBottle_loop
 				{
-					soundSet = "SodaCan_SoundSet";
-					id = 204;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class SodaCan_out_A
+				class pickup
 				{
-					soundSet = "SodaCan_out_A_SoundSet";
-					id = 205;
+					soundSet="SodaCan_pickup_SoundSet";
+					id=797;
 				};
-				class SodaCan_out_B
+				class drop
 				{
-					soundSet = "SodaCan_out_B_SoundSet";
-					id = 206;
-				};
-				class SodaCan_out_C
-				{
-					soundSet = "SodaCan_out_C_SoundSet";
-					id = 207;
-				};
-				class WaterBottle_Whoosh
-				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
+					soundset="SodaCan_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
 	class SodaCan_Cola: SodaCan_ColorBase
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_SodaCan_Cola0";
-		descriptionShort = "$STR_CfgVehicles_SodaCan_Cola1";
-		hiddenSelectionsTextures[] = {"\dz\gear\drinks\Data\SodaCan_cola_co.paa"};
+		scope=2;
+		displayName="$STR_CfgVehicles_SodaCan_Cola0";
+		descriptionShort="$STR_CfgVehicles_SodaCan_Cola1";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\drinks\Data\SodaCan_cola_co.paa"
+		};
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class SodaCan_in_A
-				{
-					soundSet = "SodaCan_in_A_SoundSet";
-					id = 201;
-				};
 				class SodaCan_in_B
 				{
-					soundSet = "SodaCan_in_B_SoundSet";
-					id = 202;
+					soundSet="SodaCan_in_B_SoundSet";
+					id=202;
 				};
-				class SodaCan_in_C
+				class PondBottle_loop
 				{
-					soundSet = "SodaCan_in_C_SoundSet";
-					id = 203;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class SodaCan
+				class WellBottle_loop
 				{
-					soundSet = "SodaCan_SoundSet";
-					id = 204;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class SodaCan_out_A
+				class pickup
 				{
-					soundSet = "SodaCan_out_A_SoundSet";
-					id = 205;
+					soundSet="SodaCan_pickup_SoundSet";
+					id=797;
 				};
-				class SodaCan_out_B
+				class drop
 				{
-					soundSet = "SodaCan_out_B_SoundSet";
-					id = 206;
-				};
-				class SodaCan_out_C
-				{
-					soundSet = "SodaCan_out_C_SoundSet";
-					id = 207;
-				};
-				class WaterBottle_Whoosh
-				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
+					soundset="SodaCan_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
 	class SodaCan_Spite: SodaCan_ColorBase
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_SodaCan_Spite0";
-		descriptionShort = "$STR_CfgVehicles_SodaCan_Spite1";
-		hiddenSelectionsTextures[] = {"\dz\gear\drinks\Data\SodaCan_spite_co.paa"};
+		scope=2;
+		displayName="$STR_CfgVehicles_SodaCan_Spite0";
+		descriptionShort="$STR_CfgVehicles_SodaCan_Spite1";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\drinks\Data\SodaCan_spite_co.paa"
+		};
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class SodaCan_in_A
-				{
-					soundSet = "SodaCan_in_A_SoundSet";
-					id = 201;
-				};
 				class SodaCan_in_B
 				{
-					soundSet = "SodaCan_in_B_SoundSet";
-					id = 202;
+					soundSet="SodaCan_in_B_SoundSet";
+					id=202;
 				};
-				class SodaCan_in_C
+				class PondBottle_loop
 				{
-					soundSet = "SodaCan_in_C_SoundSet";
-					id = 203;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class SodaCan
+				class WellBottle_loop
 				{
-					soundSet = "SodaCan_SoundSet";
-					id = 204;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class SodaCan_out_A
+				class pickup
 				{
-					soundSet = "SodaCan_out_A_SoundSet";
-					id = 205;
+					soundSet="SodaCan_pickup_SoundSet";
+					id=797;
 				};
-				class SodaCan_out_B
+				class drop
 				{
-					soundSet = "SodaCan_out_B_SoundSet";
-					id = 206;
-				};
-				class SodaCan_out_C
-				{
-					soundSet = "SodaCan_out_C_SoundSet";
-					id = 207;
-				};
-				class WaterBottle_Whoosh
-				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
+					soundset="SodaCan_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
 	class SodaCan_Kvass: SodaCan_ColorBase
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_SodaCan_Kvass0";
-		descriptionShort = "$STR_CfgVehicles_SodaCan_Kvass1";
-		hiddenSelectionsTextures[] = {"\dz\gear\drinks\Data\SodaCan_rasputin_kvass_co.paa"};
+		scope=2;
+		displayName="$STR_CfgVehicles_SodaCan_Kvass0";
+		descriptionShort="$STR_CfgVehicles_SodaCan_Kvass1";
+		varTemperatureFreezePoint=-3;
+		varTemperatureThawPoint=-3;
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\drinks\Data\SodaCan_rasputin_kvass_co.paa"
+		};
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class SodaCan_in_A
-				{
-					soundSet = "SodaCan_in_A_SoundSet";
-					id = 201;
-				};
 				class SodaCan_in_B
 				{
-					soundSet = "SodaCan_in_B_SoundSet";
-					id = 202;
+					soundSet="SodaCan_in_B_SoundSet";
+					id=202;
 				};
-				class SodaCan_in_C
+				class PondBottle_loop
 				{
-					soundSet = "SodaCan_in_C_SoundSet";
-					id = 203;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class SodaCan
+				class WellBottle_loop
 				{
-					soundSet = "SodaCan_SoundSet";
-					id = 204;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class SodaCan_out_A
+				class pickup
 				{
-					soundSet = "SodaCan_out_A_SoundSet";
-					id = 205;
+					soundSet="SodaCan_pickup_SoundSet";
+					id=797;
 				};
-				class SodaCan_out_B
+				class drop
 				{
-					soundSet = "SodaCan_out_B_SoundSet";
-					id = 206;
-				};
-				class SodaCan_out_C
-				{
-					soundSet = "SodaCan_out_C_SoundSet";
-					id = 207;
-				};
-				class WaterBottle_Whoosh
-				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
-				};
-				class WaterBottle_WhooshShort
-				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
-				};
-				class WaterBottle_WhooshHeavy
-				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
+					soundset="SodaCan_drop_SoundSet";
+					id=898;
 				};
 			};
-		};
-		class Nutrition
-		{
-			totalVolume = 1;
-			energy = 43.5;
-			water = 89;
-			nutritionalIndex = 1;
-			toxicity = 0;
 		};
 	};
 	class SodaCan_Empty: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_SodaCan_Empty0";
-		descriptionShort = "$STR_CfgVehicles_SodaCan_Empty1";
-		model = "\dz\gear\drinks\SodaCan_Used.p3d";
-		inventorySlot = "tripWireAttachment";
+		scope=2;
+		displayName="$STR_CfgVehicles_SodaCan_Empty0";
+		descriptionShort="$STR_CfgVehicles_SodaCan_Empty1";
+		model="\dz\gear\drinks\SodaCan_Used.p3d";
+		inventorySlot[]=
+		{
+			"tripWireAttachment"
+		};
 		class AnimEvents
 		{
 			class SoundWeapon
 			{
-				class Drinking_loop
-				{
-					soundSet = "Drinking_loop_SoundSet";
-					id = 200;
-				};
-				class SodaCan_in_A
-				{
-					soundSet = "SodaCan_in_A_SoundSet";
-					id = 201;
-				};
 				class SodaCan_in_B
 				{
-					soundSet = "SodaCan_in_B_SoundSet";
-					id = 202;
+					soundSet="SodaCan_in_B_SoundSet";
+					id=202;
 				};
-				class SodaCan_in_C
+				class PondBottle_loop
 				{
-					soundSet = "SodaCan_in_C_SoundSet";
-					id = 203;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class SodaCan
+				class WellBottle_loop
 				{
-					soundSet = "SodaCan_SoundSet";
-					id = 204;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class SodaCan_out_A
+				class pickup
 				{
-					soundSet = "SodaCan_out_A_SoundSet";
-					id = 205;
+					soundSet="SodaCan_pickup_SoundSet";
+					id=797;
 				};
-				class SodaCan_out_B
+				class drop
 				{
-					soundSet = "SodaCan_out_B_SoundSet";
-					id = 206;
+					soundset="SodaCan_drop_SoundSet";
+					id=898;
 				};
-				class SodaCan_out_C
+			};
+		};
+	};
+	class SodaCan_Fronta: SodaCan_ColorBase
+	{
+		scope=2;
+		displayName="$STR_CfgVehicles_SodaCan_Fronta0";
+		descriptionShort="$STR_CfgVehicles_SodaCan_Fronta1";
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\drinks\Data\SodaCan_Fanda_co.paa"
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class SodaCan_in_B
 				{
-					soundSet = "SodaCan_out_C_SoundSet";
-					id = 207;
+					soundSet="SodaCan_in_B_SoundSet";
+					id=202;
 				};
-				class WaterBottle_Whoosh
+				class PondBottle_loop
 				{
-					soundSet = "WaterBottle_Whoosh_SoundSet";
-					id = 16;
+					soundSet="PondBottle_loop_SoundSet";
+					id=209;
 				};
-				class WaterBottle_WhooshShort
+				class WellBottle_loop
 				{
-					soundSet = "WaterBottle_WhooshShort_SoundSet";
-					id = 17;
+					soundSet="WellBottle_loop_SoundSet";
+					id=210;
 				};
-				class WaterBottle_WhooshHeavy
+				class pickup
 				{
-					soundSet = "WaterBottle_WhooshHeavy_SoundSet";
-					id = 18;
+					soundSet="SodaCan_pickup_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="SodaCan_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
@@ -1008,9 +1140,11 @@ class CfgNonAIVehicles
 	class ProxyAttachment;
 	class ProxySodaCan_Used: ProxyAttachment
 	{
-		scope = 2;
-		inventorySlot = "tripWireAttachment";
-		model = "\dz\gear\drinks\SodaCan_Used.p3d";
+		scope=2;
+		inventorySlot[]=
+		{
+			"tripWireAttachment"
+		};
+		model="\dz\gear\drinks\SodaCan_Used.p3d";
 	};
 };
-//};

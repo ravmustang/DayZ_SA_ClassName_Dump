@@ -1,165 +1,519 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:53:28 2018 : 'file' last modified on Wed Aug 22 22:07:25 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_shotguns\Izh43\config.bin{
 class CfgPatches
 {
 	class DZ_Weapons_Shotguns_Izh43
 	{
-		units[] = {"ShotgunIzh43","ShotgunIzh43_Sawedoff"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Sounds_Weapons"};
+		units[]=
+		{
+			"ShotgunIzh43",
+			"ShotgunIzh43_Sawedoff"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Sounds_Weapons"
+		};
 	};
 };
-class Mode_Safe;
-class Mode_SemiAuto;
-class Mode_Burst;
-class Mode_FullAuto;
+class Mode_Single;
+class Mode_Double;
+class Muzzle_Base;
+class OpticsInfoShotgun;
 class cfgWeapons
 {
 	class Shotgun_Base;
 	class Izh43Shotgun_Base: Shotgun_Base
 	{
-		scope = 0;
-		lootTag[] = {"Civilian","Hunting"};
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		chamberSize = 2;
-		chamberedRound = "";
-		chamberableFrom[] = {"Ammo_12gaPellets","Ammo_12gaSlug","Mag_12gaSnaploader_2Rnd"};
-		magazines[] = {};
-		ejectType = 3;
-		reloadSkips[] = {0.48,0.81};
-		drySound[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_dry",0.005623413,1};
-		reloadMagazineSound[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_reloading",1.0,1,20};
-		reloadSound[] = {};
-		soundBullet[] = {};
-		reloadAction = "ReloadShotgunIZH43";
-		shotAction = "";
-		hiddenSelections[] = {"camo"};
-		modes[] = {"Single","Burst"};
-		class Single: Mode_SemiAuto
+		scope=0;
+		absorbency=0;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		chamberSize=1;
+		chamberedRound="";
+		chamberableFrom[]=
 		{
-			soundSetShot[] = {"IZH43_Shot_SoundSet","IZH43_Tail_SoundSet","IZH43_InteriorTail_SoundSet"};
-			begin1[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_close_0",1,1,800};
-			begin2[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_close_1",1,1,800};
-			begin3[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_close_2",1,1,800};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin3",0.33333};
-			reloadTime = 0.1;
-			recoil = "recoil_doublebarrel";
-			recoilProne = "recoil_doublebarrel_prone";
-			dispersion = 0.01;
-			firespreadangle = 1.5;
-			magazineSlot = "magazine";
+			"Ammo_12gaPellets",
+			"Ammo_12gaSlug",
+			"Ammo_12gaRubberSlug",
+			"Ammo_12gaBeanbag",
+			"Mag_12gaSnaploader_2Rnd"
 		};
-		class Burst: Mode_Burst
+		DisplayMagazine=0;
+		magazines[]={};
+		PPDOFProperties[]={1,0.5,10,175,4,10};
+		WeaponLength=1.1;
+		ObstructionDistance=0.79000002;
+		barrelArmor=1.3329999;
+		initSpeedMultiplier=1.25;
+		ejectType=3;
+		muzzles[]=
 		{
-			soundSetShot[] = {"IZH43double_Shot_SoundSet","IZH43_Tail_SoundSet","IZH43_InteriorTail_SoundSet"};
-			begin1[] = {"dz\sounds\weapons\shotguns\Izh43\izh43double_close_0",1,1,900};
-			begin2[] = {"dz\sounds\weapons\shotguns\Izh43\izh43double_close_1",1,1,900};
-			soundBegin[] = {"begin1",0.5,"begin2",0.5};
-			reloadTime = 0.01;
-			recoil = "recoil_doublebarrel_double";
-			recoilProne = "recoil_doublebarrel";
-			dispersion = 0.01;
-			magazineSlot = "magazine";
-			firespreadangle = 1.5;
+			"this",
+			"SecondMuzzle"
+		};
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		simpleHiddenSelections[]=
+		{
+			"bullet",
+			"bullet2"
+		};
+		modes[]=
+		{
+			"Single",
+			"Double"
+		};
+		class NoiseShoot
+		{
+			strength=100;
+			type="shot";
+		};
+		class Single: Mode_Single
+		{
+			soundSetShot[]=
+			{
+				"IZH43_Shot_SoundSet",
+				"IZH43_Tail_SoundSet",
+				"IZH43_InteriorTail_SoundSet",
+				"IZH43_Slapback_SoundSet",
+				"IZH43_Tail_2D_SoundSet",
+				"IZH43_Shot_Interior_SoundSet"
+			};
+			reloadTime=1;
+			dispersion=0.0099999998;
+			firespreadangle=1.5;
+			magazineSlot="magazine";
+		};
+		class Double: Mode_Double
+		{
+			soundSetShot[]=
+			{
+				"IZH43Double_Shot_SoundSet",
+				"IZH43dDouble_Tail_SoundSet",
+				"IZH43Double_InteriorTail_SoundSet",
+				"IZH43Double_Slapback_SoundSet",
+				"IZH43Double_Tail_2D_SoundSet",
+				"IZH43double_Shot_Interior_SoundSet"
+			};
+			reloadTime=0.1;
+			dispersion=0.02;
+			magazineSlot="magazine";
+			firespreadangle=1.5;
+		};
+		class OpticsInfo: OpticsInfoShotgun
+		{
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={-0.029999999,0,0.0099999998};
+				orientation[]={0,0,0};
+			};
+			class Melee
+			{
+				position[]={-0.029999999,0,-0.029999999};
+				orientation[]={0,0,0};
+			};
+		};
+		class SecondMuzzle: Muzzle_Base
+		{
+			chamberSize=1;
+			muzzlePos="usti hlavne_2";
+			muzzleEnd="konec hlavne_2";
+			cartridgePos="nabojnicestart_2";
+			cartridgeVel="nabojniceend_2";
+			magazines[]={};
+			chamberableFrom[]=
+			{
+				"Ammo_12gaPellets",
+				"Ammo_12gaSlug",
+				"Ammo_12gaRubberSlug",
+				"Mag_12gaSnaploader_2Rnd"
+			};
+			barrelArmor=1.3329999;
+			initSpeedMultiplier=1.25;
+			irDistance=0;
+			irLaserPos="laser pos";
+			irLaserEnd="laser dir";
+			modes[]=
+			{
+				"Single",
+				"Double"
+			};
+			class Single: Mode_Single
+			{
+				soundSetShot[]=
+				{
+					"IZH43_Shot_SoundSet",
+					"IZH43_Tail_SoundSet",
+					"IZH43_InteriorTail_SoundSet",
+					"IZH43_Slapback_SoundSet",
+					"IZH43_Tail_2D_SoundSet",
+					"IZH43_Shot_Interior_SoundSet"
+				};
+				reloadTime=1;
+				dispersion=0.0099999998;
+				firespreadangle=1.5;
+				magazineSlot="magazine";
+			};
+			class Double: Mode_Double
+			{
+				soundSetShot[]=
+				{
+					"IZH43Double_Shot_SoundSet",
+					"IZH43dDouble_Tail_SoundSet",
+					"IZH43Double_InteriorTail_SoundSet",
+					"IZH43Double_Slapback_SoundSet",
+					"IZH43Double_Tail_2D_SoundSet",
+					"IZH43double_Shot_Interior_SoundSet"
+				};
+				reloadTime=0.1;
+				dispersion=0.02;
+				magazineSlot="magazine";
+				firespreadangle=1.5;
+			};
+			class OpticsInfo: OpticsInfoShotgun
+			{
+			};
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
+					muzzleIndex=0;
+				};
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_mp133_01";
+					illuminateWorld=1;
+					muzzleIndex=0;
+				};
+				class BadlyDamagedChamberSmoke
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+					overrideDirectionPoint="Nabojniceend";
+					onlyWithinHealthLabel[]={3,4};
+					muzzleIndex=0;
+				};
+				class BadlyDamagedChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke_raise";
+					overridePoint="Nabojnicestart";
+					onlyWithinHealthLabel[]={3,4};
+					muzzleIndex=0;
+				};
+				class SmokeCloud_2: SmokeCloud
+				{
+					overridePoint="Usti hlavne_2";
+					muzzleIndex=1;
+				};
+				class MuzzleFlash_2: MuzzleFlash
+				{
+					overridePoint="Usti hlavne_2";
+					muzzleIndex=1;
+				};
+				class BadlyDamagedChamberSmoke_2: BadlyDamagedChamberSmoke
+				{
+					overridePoint="Nabojnicestart_2";
+					muzzleIndex=1;
+				};
+				class BadlyDamagedChamberSmokeRaise_2: BadlyDamagedChamberSmokeRaise
+				{
+					overridePoint="Nabojnicestart_2";
+					muzzleIndex=1;
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\IZH43\w_IZH43_states.anm";
+		boneRemap[]=
+		{
+			"release",
+			"Weapon_Bone_02",
+			"barrel",
+			"Weapon_Bone_01",
+			"trigger",
+			"Weapon_Trigger",
+			"ejector",
+			"Weapon_Bone_03",
+			"bullet",
+			"Weapon_Bullet",
+			"bullet2",
+			"Weapon_Bone_04",
+			"snaploader",
+			"Weapon_Bone_05",
+			"trigger2",
+			"Weapon_Bone_06"
 		};
 	};
 	class Izh43Shotgun: Izh43Shotgun_Base
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_Izh43Shotgun0";
-		descriptionShort = "$STR_cfgWeapons_Izh43Shotgun1";
-		model = "\dz\weapons\shotguns\Izh43\izh43.p3d";
-		baseAttachments[] = {};
-		attachments[] = {"weaponWrap"};
-		itemSize[] = {9,6};
-		dexterity = 2.7;
-		recoilModifier[] = {1,1,1};
-		hiddenSelectionsTextures[] = {"dz\weapons\shotguns\Izh43\data\izh43_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\shotguns\Izh43\data\izh43.rvmat"};
-		class Damage
+		scope=2;
+		displayName="$STR_cfgWeapons_Izh43Shotgun0";
+		descriptionShort="$STR_cfgWeapons_Izh43Shotgun1";
+		model="\dz\weapons\shotguns\Izh43\izh43.p3d";
+		attachments[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\shotguns\Izh43\data\izh43.rvmat","DZ\weapons\shotguns\Izh43\data\izh43_damage.rvmat","DZ\weapons\shotguns\Izh43\data\izh43_destruct.rvmat"};
+			"weaponWrap"
+		};
+		itemSize[]={9,3};
+		weight=3100;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={2.2,2.2,0.85000002};
+		initSpeedMultiplier=1.25;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\shotguns\Izh43\data\izh43_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\shotguns\Izh43\data\izh43.rvmat"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=300;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
 		};
 	};
 	class SawedoffIzh43Shotgun: Izh43Shotgun_Base
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_SawedoffIzh43Shotgun0";
-		descriptionShort = "$STR_cfgWeapons_SawedoffIzh43Shotgun1";
-		model = "\dz\weapons\shotguns\Izh43\izh43_sawedoff.p3d";
-		baseAttachments[] = {};
-		attachments[] = {"weaponWrap"};
-		itemSize[] = {6,5};
-		dexterity = 2.9;
-		recoilModifier[] = {1,1,1};
-		firespreadangle = 3;
-		hiddenSelectionsTextures[] = {"dz\weapons\shotguns\Izh43\data\izh43_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\shotguns\Izh43\data\izh43.rvmat"};
-		class Damage
+		scope=2;
+		displayName="$STR_cfgWeapons_SawedoffIzh43Shotgun0";
+		descriptionShort="$STR_cfgWeapons_SawedoffIzh43Shotgun1";
+		model="\dz\weapons\shotguns\Izh43\izh43_sawedoff.p3d";
+		itemSize[]={5,2};
+		weight=2600;
+		firespreadangle=3;
+		recoilModifier[]={2,2,1};
+		swayModifier[]={1.5,1.5,0.69999999};
+		WeaponLength=0.41999999;
+		ObstructionDistance=0.44499999;
+		ShoulderDistance=0.31999999;
+		initSpeedMultiplier=0.89999998;
+		hiddenSelectionsTextures[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\shotguns\Izh43\data\izh43.rvmat","DZ\weapons\shotguns\Izh43\data\izh43_damage.rvmat","DZ\weapons\shotguns\Izh43\data\izh43_destruct.rvmat"};
+			"dz\weapons\shotguns\Izh43\data\izh43_co.paa"
 		};
-		class Single: Mode_SemiAuto
+		hiddenSelectionsMaterials[]=
 		{
-			soundSetShot[] = {"IZH43sawed_Shot_SoundSet","IZH43_Tail_SoundSet","IZH43_InteriorTail_SoundSet"};
-			begin1[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_close_0",1.7782794,1,1000};
-			begin2[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_close_1",1.7782794,1,1000};
-			begin3[] = {"dz\sounds\weapons\shotguns\Izh43\izh43_close_2",1.7782794,1,1000};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			dispersion = 0.02;
-			firespreadangle = 1.5;
-			recoil = "recoil_sawedoff";
-			recoilProne = "recoil_sawedoff";
+			"dz\weapons\shotguns\Izh43\data\izh43.rvmat"
 		};
-		class Burst: Mode_Burst
+		class DamageSystem
 		{
-			soundSetShot[] = {"IZH43sawedDouble_Shot_SoundSet","IZH43_Tail_SoundSet","IZH43_InteriorTail_SoundSet"};
-			begin1[] = {"dz\sounds\weapons\shotguns\Izh43\izh43double_close_0",3.1622777,1,1000};
-			begin2[] = {"dz\sounds\weapons\shotguns\Izh43\izh43double_close_1",3.1622777,1,1000};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333};
-			reloadTime = 0.01;
-			recoil = "recoil_sawedoff_double";
-			recoilProne = "recoil_sawedoff_double";
-			dispersion = 0.02;
-			magazineSlot = "magazine";
-			firespreadangle = 1.5;
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=300;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\shotguns\Izh43\data\izh43_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class Single: Mode_Single
+		{
+			soundSetShot[]=
+			{
+				"IZH43sawed_Shot_SoundSet",
+				"IZH43sawed_Tail_SoundSet",
+				"IZH43_InteriorTail_SoundSet",
+				"IZH43_Slapback_SoundSet",
+				"IZH43sawed_Tail_2D_SoundSet",
+				"IZH43sawed_Shot_Interior_SoundSet"
+			};
+			reloadTime=1;
+			dispersion=0.079999998;
+			firespreadangle=1.5;
+		};
+		class Double: Mode_Double
+		{
+			soundSetShot[]=
+			{
+				"IZH43sawedDouble_Shot_SoundSet",
+				"IZH43sawedDouble_Tail_SoundSet",
+				"IZH43Double_InteriorTail_SoundSet",
+				"IZH43Double_Slapback_SoundSet",
+				"IZH43sawed3Double_Tail_2D_SoundSet",
+				"IZH43sawedDouble_Shot_Interior_SoundSet"
+			};
+			reloadTime=0.1;
+			dispersion=0.090000004;
+			firespreadangle=1.5;
+		};
+		class SecondMuzzle: SecondMuzzle
+		{
+			chamberSize=1;
+			muzzlePos="usti hlavne_2";
+			muzzleEnd="konec hlavne_2";
+			cartridgePos="nabojnicestart_2";
+			cartridgeVel="nabojniceend_2";
+			magazines[]={};
+			chamberableFrom[]=
+			{
+				"Ammo_12gaPellets",
+				"Ammo_12gaSlug",
+				"Ammo_12gaRubberSlug",
+				"Mag_12gaSnaploader_2Rnd"
+			};
+			barrelArmor=1.3329999;
+			initSpeedMultiplier=0.89999998;
+			irDistance=0;
+			irLaserPos="laser pos";
+			irLaserEnd="laser dir";
+			modes[]=
+			{
+				"Single",
+				"Double"
+			};
+			class Single: Mode_Single
+			{
+				soundSetShot[]=
+				{
+					"IZH43sawed_Shot_SoundSet",
+					"IZH43sawed_Tail_SoundSet",
+					"IZH43_InteriorTail_SoundSet",
+					"IZH43_Slapback_SoundSet",
+					"IZH43sawed_Tail_2D_SoundSet",
+					"IZH43sawed_Shot_Interior_SoundSet"
+				};
+				reloadTime=1;
+				dispersion=0.079999998;
+				firespreadangle=1.5;
+				magazineSlot="magazine";
+			};
+			class Double: Mode_Double
+			{
+				soundSetShot[]=
+				{
+					"IZH43Double_Shot_SoundSet",
+					"IZH43dDouble_Tail_SoundSet",
+					"IZH43Double_InteriorTail_SoundSet",
+					"IZH43Double_Slapback_SoundSet",
+					"IZH43Double_Tail_2D_SoundSet",
+					"IZH43double_Shot_Interior_SoundSet"
+				};
+				reloadTime=0.1;
+				dispersion=0.090000004;
+				magazineSlot="magazine";
+				firespreadangle=1.5;
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={-0.15000001,-0.02,0};
+				orientation[]={0,0,-13};
+			};
+			class Melee
+			{
+				position[]={-0.15000001,0,-0.02};
+				orientation[]={0,0,-13};
+			};
 		};
 	};
 };
-class cfgRecoils
-{
-	recoil_doublebarrel[] = {0,0,0,0.04,"0.036943*(1)","0.0134348*(4)",0.09,"0.019755*(1)","0.003056*(4)",0.12,0,0,0.18,"-0.003138*(1)","-0.0005*(4)",0.12,"-0.001177*(1)","-0.000188*(4)",0.12,0,0};
-	recoil_doublebarrel_double[] = {0,0,0,0.05,"0.036943*(1.5)","0.0134348*(8)",0.09,"0.019755*(1.5)","0.003056*(8)",0.12,0,0,0.18,"-0.003138*(1.5)","-0.0005*(8)",0.12,"-0.001177*(1.5)","-0.000188*(8)",0.12,0,0};
-	recoil_doublebarrel_prone[] = {0,0,0,0.04,"0.036943*(0.5)","0.0134348*(3)",0.09,"0.019755*(0.5)","0.003056*(3)",0.12,0,0,0.18,"-0.003138*(0.5)","-0.0005*(3)",0.12,"-0.001177*(0.5)","-0.000188*(3)",0.12,0,0};
-	recoil_sawedoff[] = {0,0,0,0.04,"0.036943*(1.5)","0.0134348*(6)",0.09,"0.019755*(1.5)","0.003056*(6)",0.12,0,0,0.18,"-0.003138*(1.5)","-0.0005*(6)",0.12,"-0.001177*(1.5)","-0.000188*(6)",0.12,0,0};
-	recoil_sawedoff_double[] = {0,0,0,0.05,"0.036943*(2)","0.0134348*(12)",0.09,"0.019755*(2)","0.003056*(12)",0.12,0,0,0.18,"-0.003138*(2)","-0.0005*(12)",0.12,"-0.001177*(2)","-0.000188*(12)",0.12,0,0};
-};
-//};

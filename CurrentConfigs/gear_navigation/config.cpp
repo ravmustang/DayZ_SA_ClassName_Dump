@@ -1,442 +1,342 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 17:11:31 2018 : 'file' last modified on Wed Aug 22 17:44:36 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\gear_navigation\config.bin{
 class CfgPatches
 {
 	class DZ_Gear_Navigation
 	{
-		units[] = {};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data"};
+		units[]={};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data"
+		};
 	};
 };
-class RecipeToolOnTool;
-class CfgRecipes{};
-class MapDefaults
+class CfgLocationTypes
 {
-	ptsPerSquareSea = 8;
-	ptsPerSquareTxt = 10;
-	ptsPerSquareCLn = 10;
-	ptsPerSquareFor = "6.0f";
-	ptsPerSquareForEdge = "15.0f";
-	ptsPerSquareRoad = "3f";
-	ptsPerSquareObj = 15;
-	showCountourInterval = 1;
-	colorLevels[] = {0.65,0.6,0.45,1.0};
-	colorSea[] = {0.46,0.65,0.74,0.5};
-	colorForest[] = {0.45,0.64,0.333,0.5};
-	colorRocks[] = {0.0,0.0,0.0,0.3};
-	colorCountlines[] = {0.85,0.8,0.65,1.0};
-	colorMainCountlines[] = {0.45,0.4,0.25,1.0};
-	colorCountlinesWater[] = {0.25,0.4,0.5,0.3};
-	colorMainCountlinesWater[] = {0.25,0.4,0.5,0.9};
-	colorPowerLines[] = {0.1,0.1,0.1,1.0};
-	colorRailWay[] = {0.8,0.2,0.0,1.0};
-	colorForestBorder[] = {0.0,0.0,0.0,0.0};
-	colorRocksBorder[] = {0.0,0.0,0.0,0.0};
-	colorNames[] = {0.1,0.1,0.1,0.9};
-	colorOutside[] = {1.0,1.0,1.0,1.0};
-	colorTracks[] = {0.2,0.13,0,1};
-	colorRoads[] = {0.2,0.13,0,1};
-	colorMainRoads[] = {0,0,0,1};
-	colorTracksFill[] = {0,0,0,0};
-	colorRoadsFill[] = {1,0.88,0.65,1};
-	colorMainRoadsFill[] = {0.94,0.69,0.2,1};
-	colorGrid[] = {0.05,0.1,0,0.6};
-	colorGridMap[] = {0.05,0.1,0,0.4};
-	fontNames = "AmorSerifPro";
-	sizeExNames = 0.04;
-	fontGrid = "AmorSerifPro";
-	sizeExGrid = 0.02;
-	fontLevel = "AmorSerifPro";
-	sizeExLevel = 0.02;
-	text = "";
-	class Legend
+	class Name
 	{
-		x = 0.05;
-		y = 0.85;
-		w = 0.4;
-		h = 0.1;
-		font = "AmorSerifPro";
-		sizeEx = 0.02;
-		colorBackground[] = {1,1,1,0.5};
-		color[] = {0,0,0,1};
+		name="keypoint";
+		drawStyle="name";
+		texture="#(argb,1,1,1)color(1,1,1,1)";
+		color[]={0,0,0,1};
+		size=0;
+		font="gui/fonts/MetronBook-Bold28";
+		textSize=0.029999999;
+		shadow=0;
+		importance=1;
 	};
-	class Bunker
+	class NameIcon
 	{
-		icon = "\dz\gear\navigation\map\bunker_ca.paa";
-		color[] = {0,0,0,1};
-		size = 14;
-		importance = "1.5 * 14 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		name="keypoint";
+		drawStyle="icon";
+		texture="#(argb,1,1,1)color(1,1,1,1)";
+		color[]={0,0,0,1};
+		size=0;
+		font="gui/fonts/MetronBook-Bold28";
+		textSize=0.029999999;
+		shadow=0;
+		importance=1;
 	};
-	class Bush
+	class Capital: Name
 	{
-		icon = "\dz\gear\navigation\map\bush_ca.paa";
-		color[] = {0.45,0.64,0.33,0.4};
-		size = 14;
-		importance = "0.2 * 14 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		textSize=0.059999999;
+		importance=7;
 	};
-	class BusStop
+	class City: Name
 	{
-		icon = "\dz\gear\navigation\map\busstop_ca.paa";
-		color[] = {0.15,0.26,0.87,1};
-		size = 12;
-		importance = "1 * 10 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		textSize=0.050000001;
+		importance=6;
 	};
-	class Cross
+	class Village: Name
 	{
-		icon = "\dz\gear\navigation\map\cross_ca.paa";
-		size = 16;
-		color[] = {0,0,0,1};
-		importance = "0.7 * 16 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		textSize=0.039999999;
+		importance=5;
 	};
-	class Fortress
+	class Local: Name
 	{
-		icon = "\dz\gear\navigation\map\fortress_ca.paa";
-		size = 16;
-		color[] = {0,0,0,1};
-		importance = "2 * 16 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		color[]={0.44,0.38,0.30000001,1};
+		textSize=0.029999999;
+		importance=2;
 	};
-	class Fuelstation
+	class Marine: Name
 	{
-		icon = "\dz\gear\navigation\map\fuelstation_ca.paa";
-		size = 16;
-		color[] = {0,0,0,1};
-		importance = "2 * 16 * 0.05";
-		coefMin = 0.75;
-		coefMax = 4;
+		color[]={0.050000001,0.40000001,0.80000001,0.80000001};
+		textSize=0.029999999;
+		importance=2;
 	};
-	class Fountain
+	class Ruin: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\fountain_ca.paa";
-		color[] = {0.2,0.45,0.7,1};
-		size = 11;
-		importance = "1 * 12 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		texture="\DZ\gear\navigation\data\map_ruin_ca.paa";
+		textSize=0.029999999;
+		importance=2;
+		size=7;
 	};
-	class Hospital
+	class Camp: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\hospital_ca.paa";
-		color[] = {0.78,0,0.05,1};
-		size = 16;
-		importance = "2 * 16 * 0.05";
-		coefMin = 0.5;
-		coefMax = 4;
+		color[]={0.44,0.38,0.30000001,1};
+		texture="\DZ\gear\navigation\data\map_camp_ca.paa";
+		textSize=0.039999999;
+		size=9;
 	};
-	class Chapel
+	class Hill: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\chapel_ca.paa";
-		color[] = {0,0,0,1};
-		size = 16;
-		importance = "1 * 16 * 0.05";
-		coefMin = 0.9;
-		coefMax = 4;
+		color[]={0,0,0,1};
+		texture="\DZ\gear\navigation\data\map_hill_ca.paa";
+		size=9;
 	};
-	class Church
+	class ViewPoint: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\church_ca.paa";
-		color[] = {0,0,0,1};
-		size = 16;
-		importance = "2 * 16 * 0.05";
-		coefMin = 0.9;
-		coefMax = 4;
+		color[]={0.77999997,0,0.050000001,1};
+		texture="\DZ\gear\navigation\data\map_viewpoint_ca.paa";
+		size=9;
 	};
-	class Lighthouse
+	class RockArea: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\lighthouse_ca.paa";
-		size = 14;
-		color[] = {0,0,0,1};
-		importance = "3 * 16 * 0.05";
-		coefMin = 0.9;
-		coefMax = 4;
+		color[]={0,0,0,1};
+		texture="\DZ\gear\navigation\data\map_rock_ca.paa";
+		size=9;
 	};
-	class Quay
+	class RailroadStation: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\quay_ca.paa";
-		size = 16;
-		color[] = {0,0,0,1};
-		importance = "2 * 16 * 0.05";
-		coefMin = 0.5;
-		coefMax = 4;
+		color[]={0,0,0,1};
+		texture="\DZ\gear\navigation\data\map_station_ca.paa";
+		size=9;
 	};
-	class Rock
+	class IndustrialSite: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\rock_ca.paa";
-		color[] = {0.1,0.1,0.1,0.8};
-		size = 12;
-		importance = "0.5 * 12 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		color[]={0,0,0,1};
+		texture="\DZ\gear\navigation\data\map_factory_ca.paa";
+		size=9;
 	};
-	class Ruin
+	class LocalOffice: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\ruin_ca.paa";
-		size = 16;
-		color[] = {0,0,0,1};
-		importance = "1.2 * 16 * 0.05";
-		coefMin = 1;
-		coefMax = 4;
+		color[]={0.22,0.20999999,0.50999999,1};
+		texture="\DZ\gear\navigation\data\map_govoffice_ca.paa";
+		size=10;
 	};
-	class SmallTree
+	class BorderCrossing: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\smalltree_ca.paa";
-		color[] = {0.45,0.64,0.33,0.4};
-		size = 12;
-		importance = "0.6 * 12 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		color[]={0.77999997,0,0.050000001,1};
+		texture="\DZ\gear\navigation\data\map_border_cross_ca.paa";
+		size=9;
 	};
-	class Stack
+	class VegetationBroadleaf: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\stack_ca.paa";
-		size = 20;
-		color[] = {0,0,0,1};
-		importance = "2 * 16 * 0.05";
-		coefMin = 0.9;
-		coefMax = 4;
+		color[]={0.25,0.40000001,0.2,1};
+		texture="\DZ\gear\navigation\data\map_broadleaf_ca.paa";
+		size=9;
 	};
-	class Tree
+	class VegetationFir: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\tree_ca.paa";
-		color[] = {0.45,0.64,0.33,0.4};
-		size = 12;
-		importance = "0.9 * 16 * 0.05";
-		coefMin = 0.25;
-		coefMax = 4;
+		color[]={0.25,0.40000001,0.2,1};
+		texture="\DZ\gear\navigation\data\map_fir_ca.paa";
+		size=9;
 	};
-	class Tourism
+	class VegetationPalm: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\tourism_ca.paa";
-		color[] = {0.78,0,0.05,1};
-		size = 16;
-		importance = "1 * 16 * 0.05";
-		coefMin = 0.7;
-		coefMax = 4;
+		color[]={0.25,0.40000001,0.2,1};
+		texture="\DZ\gear\navigation\data\map_palm_ca.paa";
+		size=9;
 	};
-	class Transmitter
+	class VegetationVineyard: NameIcon
 	{
-		icon = "\dz\gear\navigation\map\transmitter_ca.paa";
-		color[] = {0,0,0,1};
-		size = 20;
-		importance = "2 * 16 * 0.05";
-		coefMin = 0.9;
-		coefMax = 4;
-	};
-	class ViewTower
-	{
-		icon = "\dz\gear\navigation\map\viewtower_ca.paa";
-		color[] = {0,0,0,1};
-		size = 16;
-		importance = "2.5 * 16 * 0.05";
-		coefMin = 0.5;
-		coefMax = 4;
-	};
-	class Watertower
-	{
-		icon = "\dz\gear\navigation\map\watertower_ca.paa";
-		color[] = {0.2,0.45,0.7,1};
-		size = 20;
-		importance = "1.2 * 16 * 0.05";
-		coefMin = 0.9;
-		coefMax = 4;
+		color[]={0.25,0.40000001,0.2,1};
+		texture="\DZ\gear\navigation\data\map_vineyard_ca.paa";
+		size=9;
 	};
 };
-class TouristDefaults: MapDefaults
-{
-	scaleMin = 0.5;
-	scaleMax = 0.75;
-	scaleDefault = 0.5;
-	ptsPerSquareCLn = 10;
-	ptsPerSquareFor = "1.0f";
-	ptsPerSquareForEdge = "15.0f";
-	ptsPerSquareRoad = "3f";
-	ptsPerSquareObj = 1;
-	colorLevels[] = {0.65,0.6,0.45,1.0};
-	colorRailWay[] = {0,0,0,1.0};
-	colorPowerLines[] = {0.1,0.1,0.1,0.0};
-	colorRocks[] = {1.0,0.0,0.0,0.0};
-	colorCountlines[] = {0.85,0.8,0.65,0.0};
-	colorMainCountlines[] = {0.45,0.4,0.25,0.0};
-	colorCountlinesWater[] = {0.25,0.4,0.5,0.0};
-	colorMainCountlinesWater[] = {0.25,0.4,0.5,0.0};
-	colorGrid[] = {0.05,0.1,0,0.0};
-	colorGridMap[] = {0.05,0.1,0,0.0};
-	colorSea[] = {0.658,0.772,0.968,1.0};
-	colorForest[] = {0.53,0.99,0.45,0.55};
-	colorRoads[] = {1,0.352,0.223,1};
-	colorRoadsFill[] = {1,0.352,0.223,1};
-	colorMainRoads[] = {0.98039,0.3647,0.2705,1};
-	colorMainRoadsFill[] = {0.9607,1.0,0.0039,1};
-	colorTracks[] = {0.819,0.819,0.819,1.0};
-	colorTracksFill[] = {0.819,0.819,0.819,0.0};
-	colorBackground[] = {0,0,0,1.0};
-	colorOutside[] = {0.0,0.0,0.0,1.0};
-	class Legend
-	{
-		x = 0.05;
-		y = 0.85;
-		w = 0.4;
-		h = 0.1;
-		font = "AmorSerifPro";
-		sizeEx = 0.02;
-		colorBackground[] = {1,1,1,0};
-		color[] = {0,0,0,0};
-	};
-};
-class TouristCityDefaults: MapDefaults
-{
-	ptsPerSquareCLn = 10;
-	ptsPerSquareFor = "1.0f";
-	ptsPerSquareForEdge = "15.0f";
-	ptsPerSquareRoad = "3f";
-	ptsPerSquareObj = 1;
-	colorForest[] = {0.556,0.682,0.396,1};
-	colorLevels[] = {0.65,0.6,0.45,1.0};
-	colorPowerLines[] = {0.1,0.1,0.1,0.0};
-	colorRocks[] = {1.0,0.0,0.0,0.0};
-	colorCountlines[] = {0.85,0.8,0.65,0.0};
-	colorMainCountlines[] = {0.45,0.4,0.25,0.0};
-	colorCountlinesWater[] = {0.25,0.4,0.5,0.0};
-	colorMainCountlinesWater[] = {0.25,0.4,0.5,0.0};
-	colorGrid[] = {0.05,0.1,0,0.0};
-	colorGridMap[] = {0.05,0.1,0,0.0};
-	colorSea[] = {0.658,0.772,0.968,1.0};
-	class Legend
-	{
-		x = 0.05;
-		y = 0.85;
-		w = 0.4;
-		h = 0.1;
-		font = "AmorSerifPro";
-		sizeEx = 0.02;
-		colorBackground[] = {1,1,1,0};
-		color[] = {0,0,0,0};
-	};
-};
+class MapDefaults;
 class CfgVehicles
 {
 	class Inventory_Base;
-	class ItemMap: Inventory_Base{};
+	class ItemMap: Inventory_Base
+	{
+	};
+	class ItemCompass: Inventory_Base
+	{
+	};
+	class ItemGPS: Inventory_Base
+	{
+	};
 	class ChernarusMap: ItemMap
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_ChernarusMap0";
-		descriptionShort = "$STR_CfgVehicles_ChernarusMap1";
-		model = "\dz\gear\navigation\Map_chernarus.p3d";
-		rotationFlags = 17;
-		itemSize[] = {1,2};
-		weight = 40;
-		SingleUseActions[] = {574};
-		world = "ChernarusPlus";
-		selectionPaper = "paper";
-		simulation = "ItemMap";
-		absorbency = 1;
+		scope=2;
+		displayName="$STR_CfgVehicles_ChernarusMap0";
+		descriptionShort="$STR_CfgVehicles_ChernarusMap1";
+		model="\dz\gear\navigation\Map_chernarus_animated.p3d";
+		rotationFlags=17;
+		itemSize[]={1,2};
+		weight=40;
+		selectionPaper="paper";
+		simulation="ItemMap";
+		hiddenSelections[]=
+		{
+			"texture_map_closed",
+			"texture_map_opened",
+			"texture_legend"
+		};
+		absorbency=1;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\navigation\data\Map_chernarus.rvmat"}},{0.5,{"DZ\gear\navigation\data\Map_chernarus_damage.rvmat"}},{0.0,{"DZ\gear\navigation\data\Map_chernarus_destruct.rvmat"}}};
+					hitpoints=50;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\navigation\data\Map_chernarus.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\navigation\data\Map_chernarus.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\navigation\data\Map_chernarus_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\navigation\data\Map_chernarus_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\navigation\data\Map_chernarus_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 		class MapProperties: MapDefaults
 		{
-			scaleMin = 0.1;
-			scaleMax = 1.0;
+			scaleMin=0.079999998;
+			scaleMax=0.347;
 		};
-	};
-	class ChernarusMap_Open: ItemMap
-	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_ChernarusMapOpen0";
-		descriptionShort = "$STR_CfgVehicles_ChernarusMapOpen1";
-		model = "\dz\gear\navigation\Map_chernarus_open.p3d";
-		rotationFlags = 17;
-		itemSize[] = {1,2};
-		weight = 40;
-		SingleUseActions[] = {574};
-		world = "ChernarusPlus";
-		selectionPaper = "paper";
-		simulation = "ItemMap";
-		absorbency = 1;
-		class DamageSystem
+		class AnimationSources
 		{
-			class GlobalHealth
+			class map_closed
 			{
-				class Health
-				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\navigation\data\Map_chernarus.rvmat"}},{0.5,{"DZ\gear\navigation\data\Map_chernarus_damage.rvmat"}},{0.0,{"DZ\gear\navigation\data\Map_chernarus_destruct.rvmat"}}};
-				};
+				source="user";
+				animPeriod=0.1;
+				initPhase=0;
+			};
+			class map_opened
+			{
+				source="user";
+				animPeriod=0.1;
+				initPhase=1;
 			};
 		};
-		class MapProperties: MapDefaults
+	};
+	class ChernarusMap_Open: ChernarusMap
+	{
+	};
+	class ChernarusMap_Open_Test: ChernarusMap
+	{
+		descriptionShort="a map for the video team";
+		class AnimationSources
 		{
-			scaleMin = 0.1;
-			scaleMax = 1.0;
+			class map_closed
+			{
+				source="user";
+				animPeriod=0.1;
+				initPhase=1;
+			};
+			class map_opened
+			{
+				source="user";
+				animPeriod=0.1;
+				initPhase=0;
+			};
 		};
 	};
-	class Compass: Inventory_Base
+	class Compass: ItemCompass
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Compass0";
-		descriptionShort = "$STR_CfgVehicles_Compass1";
-		model = "\dz\gear\navigation\compass.p3d";
-		animClass = "Compass";
-		itemSize[] = {1,1};
-		SingleUseActions[] = {501,538};
-		ContinuousActions[] = {230};
-		autoQuickbar = 1;
-		weight = 190;
-		simulation = "ItemCompass";
+		scope=2;
+		displayName="$STR_CfgVehicles_Compass0";
+		descriptionShort="$STR_CfgVehicles_Compass1";
+		model="\dz\gear\navigation\compass.p3d";
+		animClass="Compass";
+		itemSize[]={1,2};
+		weight=190;
+		simulation="ItemCompass";
+		inventorySlot[]=
+		{
+			"WalkieTalkie",
+			"Chemlight"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\navigation\data\compass.rvmat"}},{0.5,{"DZ\gear\navigation\data\compass_damage.rvmat"}},{0.0,{"DZ\gear\navigation\data\compass_destruct.rvmat"}}};
+					hitpoints=70;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\navigation\data\compass.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\navigation\data\compass.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\navigation\data\compass_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\navigation\data\compass_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\navigation\data\compass_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
@@ -444,32 +344,107 @@ class CfgVehicles
 		{
 			class cover
 			{
-				source = "user";
-				animPeriod = 0.5;
-				initPhase = 0;
+				source="user";
+				animPeriod=0.5;
+				initPhase=0;
+			};
+		};
+		soundImpactType="glass";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class compass_open
+				{
+					soundSet="compass_open_SoundSet";
+					id=204;
+				};
+				class compass_close
+				{
+					soundSet="compass_close_SoundSet";
+					id=205;
+				};
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class Chemlight
+			{
+				position[]={0.050000001,0.059999999,0.050000001};
+				orientation[]={0,0,-97};
+			};
+			class WalkieTalkie
+			{
+				position[]={-0.050000001,0.055,0.064999998};
+				orientation[]={-90,0,-90};
 			};
 		};
 	};
-	class OrienteeringCompass: Inventory_Base
+	class OrienteeringCompass: ItemCompass
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_OrienteeringCompass0";
-		descriptionShort = "$STR_CfgVehicles_OrienteeringCompass1";
-		model = "\dz\gear\navigation\compass_modern.p3d";
-		animClass = "Compass";
-		autoQuickbar = 1;
-		itemSize[] = {1,2};
-		weight = 130;
-		simulation = "ItemCompass";
+		scope=2;
+		displayName="$STR_CfgVehicles_OrienteeringCompass0";
+		descriptionShort="$STR_CfgVehicles_OrienteeringCompass1";
+		model="\dz\gear\navigation\compass_modern.p3d";
+		animClass="Compass";
+		itemSize[]={1,2};
+		weight=130;
+		simulation="ItemCompass";
+		inventorySlot[]=
+		{
+			"WalkieTalkie",
+			"Chemlight"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\navigation\data\compass_modern.rvmat"}},{0.5,{"DZ\gear\navigation\data\compass_modern_damage.rvmat"}},{0.0,{"DZ\gear\navigation\data\compass_modern_destruct.rvmat"}}};
+					hitpoints=70;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\navigation\data\compass_modern.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\navigation\data\compass_modern.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\navigation\data\compass_modern_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\navigation\data\compass_modern_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\navigation\data\compass_modern_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
@@ -477,11 +452,165 @@ class CfgVehicles
 		{
 			class wheel
 			{
-				source = "user";
-				animPeriod = 0;
-				initPhase = 0;
+				source="user";
+				animPeriod=0;
+				initPhase=0;
+			};
+		};
+		soundImpactType="plastic";
+		class InventorySlotsOffsets
+		{
+			class Chemlight
+			{
+				position[]={0.039999999,0.079999998,0.075000003};
+				orientation[]={-10,0,-100};
+			};
+			class WalkieTalkie
+			{
+				position[]={-0.064999998,0.079999998,0.064999998};
+				orientation[]={-90,0,-90};
 			};
 		};
 	};
+	class GPSReceiver: ItemGPS
+	{
+		scope=2;
+		displayName="$STR_GPSReceiver0";
+		descriptionShort="$STR_GPSReceiver1";
+		model="\dz\gear\navigation\GPSReceiver.p3d";
+		itemSize[]={1,2};
+		weight=350;
+		rotationFlags=1;
+		simulation="ItemGPS";
+		inventorySlot[]=
+		{
+			"WalkieTalkie",
+			"Chemlight"
+		};
+		attachments[]=
+		{
+			"BatteryD"
+		};
+		repairableWithKits[]={7};
+		repairCosts[]={50};
+		class EnergyManager
+		{
+			hasIcon=1;
+			autoSwitchOffWhenInCargo=1;
+			energyUsagePerSecond=0.0099999998;
+			plugType=1;
+			attachmentAction=1;
+			updateInterval=3;
+		};
+		hiddenSelections[]=
+		{
+			"grid_1_0",
+			"grid_1_1",
+			"grid_1_2",
+			"grid_2_0",
+			"grid_2_1",
+			"grid_2_2",
+			"alt_0",
+			"alt_1",
+			"alt_2",
+			"alt_3"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa",
+			"dz\gear\navigation\data\GPS_dash_ca.paa"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=50;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\navigation\data\GPSReceiver.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\navigation\data\GPSReceiver.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\navigation\data\GPSReceiver_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\navigation\data\GPSReceiver_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\navigation\data\GPSReceiver_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class Chemlight
+			{
+				position[]={0,0,0};
+				orientation[]={90,10,0};
+			};
+		};
+		class AnimationSources
+		{
+			class DisplayState
+			{
+				source="user";
+				animPeriod=0.1;
+				initPhase=1;
+			};
+		};
+		soundImpactType="plastic";
+	};
 };
-//};
+class CfgNonAIVehicles
+{
+	class ProxyAttachment;
+	class ProxyGPSReceiver: ProxyAttachment
+	{
+		scope=2;
+		inventorySlot[]=
+		{
+			"WalkieTalkie"
+		};
+		model="\dz\gear\navigation\GPSReceiver.p3d";
+	};
+};

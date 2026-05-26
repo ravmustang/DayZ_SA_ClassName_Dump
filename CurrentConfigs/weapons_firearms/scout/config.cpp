@@ -1,135 +1,279 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:47:58 2018 : 'file' last modified on Wed Aug 22 21:52:35 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_firearms\scout\config.bin{
 class CfgPatches
 {
 	class DZ_Weapons_Firearms_Scout
 	{
-		units[] = {"Scout"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Weapons_Firearms"};
+		units[]=
+		{
+			"Scout"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Weapons_Firearms"
+		};
 	};
 };
 class Mode_Safe;
 class Mode_SemiAuto;
+class Mode_Single;
 class Mode_Burst;
 class Mode_FullAuto;
-class DefaultAction;
+class OpticsInfoRifle;
 class cfgWeapons
 {
-	class Rifle_Base;
-	class ScoutBase: Rifle_Base
+	class BoltActionRifle_ExternalMagazine_Base;
+	class Scout_Base: BoltActionRifle_ExternalMagazine_Base
 	{
-		scope = 0;
-		animName = "cz527";
-		lootTag[] = {"Civilian","Hunting"};
-		weight = 2720;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		optics = 1;
-		opticsFlare = 0;
-		value = 0;
-		chamberSize = 1;
-		chamberedRound = "";
-		chamberableFrom[] = {"Ammo_308Win"};
-		magazines[] = {"Mag_Scout_5Rnd"};
-		magazineSwitchTime = 0.38;
-		barrelArmor = 900;
-		ejectType = 0;
-		drySound[] = {"dz\sounds\weapons\firearms\mosin9130\mosin_dry",0.5,1,20};
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\cz527\cz527_reload_0",0.8,1,20};
-		reloadSound[] = {"dz\sounds\weapons\firearms\cz527\cz527_cycling_0",0.8,1,20};
-		reloadAction = "Reloadcz527";
-		shotAction = "Reloadcz527Shot";
-		hiddenSelections[] = {"camo"};
-		modes[] = {"Single"};
-		dispersionModifier = -0.00025;
-		dispersionCondition = "(getText(configFile >> 'CfgMovesMaleSdr2' >> 'states' >> animationState _agent >> 'bodyPosition') == 'prone') and (_this animationPhase 'bipod' == 1)";
-		dexterityModifier = -0.2;
-		dexterityCondition = "(getText(configFile >> 'CfgMovesMaleSdr2' >> 'states' >> animationState _agent >> 'bodyPosition') == 'prone') and (_this animationPhase 'bipod' == 1)";
-		recoilModifier[] = {1,1,1};
-		class Single: Mode_SemiAuto
+		scope=0;
+		weight=3000;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		modelOptics="-";
+		distanceZoomMin=100;
+		distanceZoomMax=100;
+		PPDOFProperties[]={1,0.5,50,160,4,10};
+		opticsFlare=0;
+		winchesterTypeOpticsMount=1;
+		ironsightsExcludingOptics[]=
 		{
-			soundSetShot[] = {"CR527_Shot_SoundSet","CR527_Tail_SoundSet","CR527_InteriorTail_SoundSet"};
-			soundSetShotExt[] = {{"CR527_silencerPro_SoundSet","CR527_silencerTail_SoundSet","CR527_silencerInteriorTail_SoundSet"},{"CR527_silencerHomeMade_SoundSet","CR527_silencerHomeMadeTail_SoundSet","CR527_silencerInteriorTail_SoundSet"}};
-			begin1[] = {"dz\sounds\weapons\firearms\cz527\cz527_single_0",1,1,1000};
-			begin2[] = {"dz\sounds\weapons\firearms\cz527\cz527_single_1",1,1,1000};
-			begin3[] = {"dz\sounds\weapons\firearms\cz527\cz527_single_2",1,1,1000};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,150};
-			soundBeginExt[] = {{"beginSilenced_HomeMade",1}};
-			reloadTime = 2;
-			recoil = "recoil_scout";
-			recoilProne = "recoil_scout_prone";
-			dispersion = 0.0015;
-			magazineSlot = "magazine";
+			"HuntingOptic"
+		};
+		WeaponLength=0.98000002;
+		ObstructionDistance=0.74000001;
+		barrelArmor=1.1109999;
+		initSpeedMultiplier=1.15;
+		chamberSize=1;
+		chamberedRound="";
+		chamberableFrom[]=
+		{
+			"Ammo_556x45",
+			"Ammo_556x45Tracer"
+		};
+		magazines[]=
+		{
+			"Mag_Scout_5Rnd"
+		};
+		magazineSwitchTime=0.38;
+		ejectType=0;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={0.89999998,0.89999998,0.60000002};
+		dispersionModifier=-0.00025000001;
+		dexterityModifier=-0.2;
+		hiddenSelections[]=
+		{
+			"camo",
+			"badge_cherno"
+		};
+		simpleHiddenSelections[]=
+		{
+			"hide_barrel"
+		};
+		class NoiseShoot
+		{
+			strength=100;
+			type="shot";
+		};
+		modes[]=
+		{
+			"Single"
+		};
+		class Single: Mode_Single
+		{
+			soundSetShot[]=
+			{
+				"SCOUT_Shot_SoundSet",
+				"SCOUT_Shot_interior_SoundSet",
+				"SCOUT_Tail_SoundSet",
+				"SCOUT_InteriorTail_SoundSet",
+				"SCOUT_Tail_2D_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"SCOUT_silencer_SoundSet",
+					"SCOUT_silencerTail_SoundSet",
+					"SCOUT_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"SCOUT_silencerHomeMade_SoundSet",
+					"SCOUT_silencerHomeMadeTail_SoundSet",
+					"SCOUT_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=2;
+			recoil="recoil_scout";
+			recoilProne="recoil_scout_prone";
+			dispersion=0.0015;
+			magazineSlot="magazine";
+		};
+		class OpticsInfo: OpticsInfoRifle
+		{
+			modelOptics="-";
+			distanceZoomMin=100;
+			distanceZoomMax=100;
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={0,-0.02,-0.050000001};
+				orientation[]={0,-30,0};
+			};
+			class Melee
+			{
+				position[]={0,0,0.050000001};
+				orientation[]={0,30,0};
+			};
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_mosin9130_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={-0.050000001,0,0};
+				};
+			};
+			class OnOverheating
+			{
+				maxOverheatingValue=1;
+				shotsToStartOverheating=1;
+				overheatingDecayInterval=0.5;
+				class SmokingBarrel1
+				{
+					overrideParticle="smoking_barrel_small";
+					onlyWithinOverheatLimits[]={0.1,1};
+					positionOffset[]={0,0,0};
+					onlyWithinRainLimits[]={0,0.2};
+				};
+				class OpenChamberSmoke
+				{
+					onlyIfBoltIsOpen=1;
+					overrideParticle="smoking_barrel_small";
+					overridePoint="Nabojnicestart";
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\Scout\w_Scout_states.anm";
+	};
+	class Scout: Scout_Base
+	{
+		scope=2;
+		displayName="$STR_cfgWeapons_Scout0";
+		descriptionShort="$STR_cfgWeapons_Scout1";
+		model="\dz\weapons\firearms\scout\scout.p3d";
+		attachments[]=
+		{
+			"weaponWrap",
+			"weaponOptics",
+			"weaponMuzzleM4"
+		};
+		itemSize[]={9,3};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\firearms\scout\data\scout_co.paa",
+			""
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\scout\data\scout.rvmat",
+			""
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=250;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\scout\data\scout.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\scout\data\scout.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\scout\data\scout_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\scout\data\scout_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\scout\data\scout_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
 		};
 	};
-	class Scout: ScoutBase
+	class Scout_Chernarus: Scout
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_Scout0";
-		descriptionShort = "$STR_cfgWeapons_Scout1";
-		model = "\dz\weapons\firearms\scout\scout.p3d";
-		attachments[] = {"weaponOptics","weaponWrap","suppressorImpro","weaponOpticsHunting"};
-		baseAttachments[] = {};
-		randomAttachments[] = {{"M68Optic","ACOGOptic","ACOGOptic","ACOGOptic","ACOGOptic","ACOGOptic"},{"Mag_Scout_5Rnd","","","","","","","",""}};
-		dexterity = 2.7;
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\scout\data\scout_blk_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\scout\data\scout.rvmat"};
-		class Damage
+		scope=2;
+		hiddenSelectionsTextures[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\firearms\scout\data\scout.rvmat","DZ\weapons\firearms\scout\data\scout_damage.rvmat","DZ\weapons\firearms\scout\data\scout_destruct.rvmat"};
+			"dz\weapons\firearms\scout\data\scout_co.paa",
+			"#(argb,8,8,3)color(0.2,0.2,0.2,1.0,co)"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\scout\data\scout.rvmat",
+			"dz\weapons\firearms\scout\data\badge_cherno.rvmat"
 		};
 	};
-	class Scout_Black: Scout
+	class Scout_Livonia: Scout
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_Scout_Black0";
-		color = "Black";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\scout\data\scout_co.paa"};
-	};
-	class Scout_Green: Scout
-	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_Scout_Green0";
-		color = "Green";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\scout\data\scout_grn_co.paa"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\firearms\scout\data\scout_co.paa",
+			"#(argb,8,8,3)color(0.2,0.2,0.2,1.0,co)"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\scout\data\scout.rvmat",
+			"dz\weapons\firearms\scout\data\badge_livonia.rvmat"
+		};
 	};
 };
-class cfgRecoils
-{
-	recoil_scout[] = {0,0,0,0.04,"0.036943*(0.5)","0.0134348*(2)",0.08,"0.019755*(0.5)","0.003056*(2)",0.09,0,0,0.14,"-0.003138*(0.5)","-0.0005*(2)",0.08,"-0.001177*(0.5)","-0.000188*(2)",0.12,0,0};
-	recoil_scout_prone[] = {0,0,0,0.04,"0.036943*(0.3)","0.0134348*(1)",0.08,"0.019755*(0.3)","0.003056*(1)",0.09,0,0,0.14,"-0.003138*(0.3)","-0.0005*(1)",0.08,"-0.001177*(0.3)","-0.000188*(1)",0.12,0,0};
-};
-//};

@@ -1,205 +1,335 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:45:06 2018 : 'file' last modified on Wed Aug 22 21:50:13 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_firearms\AK101\config.bin{
 class CfgPatches
 {
 	class DZ_Weapons_Firearms_AK101
 	{
-		units[] = {"AK101"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Weapons_Firearms"};
+		units[]=
+		{
+			"AK101"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Weapons_Firearms"
+		};
 	};
 };
 class Mode_Safe;
 class Mode_SemiAuto;
 class Mode_Burst;
 class Mode_FullAuto;
+class OpticsInfoRifle;
 class CfgWeapons
 {
 	class Rifle_Base;
 	class AK101_Base: Rifle_Base
 	{
-		scope = 0;
-		lootTag[] = {"Military_west"};
-		weight = 3077;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		barrelArmor = 2560;
-		optics = 1;
-		opticsFlare = 0;
-		value = 0;
-		chamberSize = 1;
-		chamberedRound = "";
-		chamberableFrom[] = {"Ammo_556x45"};
-		magazines[] = {"Mag_AK101_30Rnd","Mag_AK101_30Rnd_Black","Mag_AK101_30Rnd_Green"};
-		magazineSwitchTime = 0.2;
-		drySound[] = {"dz\sounds\weapons\firearms\SKS\SKS_dry",0.5,1,20};
-		ejectType = 1;
-		recoilModifier[] = {1,1,1};
-		reloadAction = "ReloadAKM";
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\akm\Akm_reload",0.8,1,20};
-		hiddenSelections[] = {"camo"};
-		modes[] = {"FullAuto"};
+		scope=0;
+		weight=3077;
+		absorbency=0;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		PPDOFProperties[]={1,0.5,50,160,4,10};
+		WeaponLength=0.94999999;
+		ObstructionDistance=0.63499999;
+		barrelArmor=1.806;
+		initSpeedMultiplier=0.89999998;
+		chamberSize=1;
+		chamberedRound="";
+		chamberableFrom[]=
+		{
+			"Ammo_556x45",
+			"Ammo_556x45Tracer"
+		};
+		magazines[]=
+		{
+			"Mag_AK101_30Rnd",
+			"Mag_AK101_30Rnd_Black",
+			"Mag_AK101_30Rnd_Green"
+		};
+		magazineSwitchTime=0.2;
+		ejectType=1;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={2.2,2.2,0.85000002};
+		simpleHiddenSelections[]=
+		{
+			"hide_barrel",
+			"magazine"
+		};
+		hiddenSelections[]=
+		{
+			"camo",
+			"magazine"
+		};
+		class NoiseShoot
+		{
+			strength=80;
+			type="shot";
+		};
+		modes[]=
+		{
+			"SemiAuto",
+			"FullAuto"
+		};
+		class SemiAuto: Mode_SemiAuto
+		{
+			soundSetShot[]=
+			{
+				"AK74_Shot_1st_SoundSet",
+				"AK74_Shot_1st_iterior_SoundSet",
+				"AK74_Tail_SoundSet",
+				"AK74_InteriorTail_SoundSet",
+				"AK74_Slapback_SoundSet",
+				"AK74_Tail_2D_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AK74_1st_silencer_SoundSet",
+					"AK74_silencerTail_SoundSet",
+					"AK74_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AK74_1st_silencerHomeMade_SoundSet",
+					"AK74_silencerHomeMadeTail_SoundSet",
+					"AK74_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=0.12;
+			recoil="recoil_AK101";
+			recoilProne="recoil_AK101_prone";
+			dispersion=0.0020000001;
+			magazineSlot="magazine";
+		};
 		class FullAuto: Mode_FullAuto
 		{
-			soundSetShot[] = {"AK_Shot_SoundSet","AK_Tail_SoundSet","AK_InteriorTail_SoundSet"};
-			soundSetShotExt[] = {{"AK_silencer_SoundSet","AK_silencerTail_SoundSet","AK_silencerInteriorTail_SoundSet"},{"AK_silencerHomeMade_SoundSet","AK_silencerHomeMadeTail_SoundSet","AK_silencerInteriorHomeMadeTail_SoundSet"}};
-			begin1[] = {"dz\sounds\weapons\firearms\AK101\ak101_single_0",1,1,800};
-			begin2[] = {"dz\sounds\weapons\firearms\AK101\ak101_single_0",1,1,800};
-			begin3[] = {"dz\sounds\weapons\firearms\AK101\ak101_single_0",1,1,800};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			beginSilenced_Pro[] = {"dz\sounds\weapons\firearms\AK101\akSilenced",1,1,75};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\AK101\akSilenced",1,1,100};
-			soundBeginExt[] = {{"beginSilenced_Pro",1},{"beginSilenced_HomeMade",1}};
-			reloadTime = 0.1;
-			recoil = "recoil_AK101";
-			recoilProne = "recoil_AK101_prone";
-			dispersion = 0.0015;
-			magazineSlot = "magazine";
-		};
-		class AnimEvents
-		{
-			class SoundWeapon
+			soundSetShot1st[]=
 			{
-				class Weapon_Movement_Rifle_Walk
+				"AK74_Shot_1st_SoundSet",
+				"AK74_Shot_1st_iterior_SoundSet"
+			};
+			soundSetShot[]=
+			{
+				"AK74_Shot_SoundSet",
+				"AK74_Shot_iterior_SoundSet",
+				"AK74_Tail_SoundSet",
+				"AK74_InteriorTail_SoundSet",
+				"AK74_Slapback_SoundSet",
+				"AK74_Tail_2D_SoundSet"
+			};
+			soundSetShotExt1st[]=
+			{
+				
 				{
-					soundSet = "Weapon_Movement_Rifle_Walk_SoundSet";
-					id = 101;
+					"AK74_1st_silencer_SoundSet"
+				},
+				
+				{
+					"AK74_1st_silencerHomeMade_SoundSet"
+				}
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AK74_silencer_SoundSet",
+					"AK74_silencerTail_SoundSet",
+					"AK74_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AK74_silencerHomeMade_SoundSet",
+					"AK74_silencerHomeMadeTail_SoundSet",
+					"AK74_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=0.097999997;
+			recoil="recoil_AK101";
+			recoilProne="recoil_AK101_prone";
+			dispersion=0.0020000001;
+			magazineSlot="magazine";
+		};
+		class OpticsInfo: OpticsInfoRifle
+		{
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={0,-0.015,-0.0099999998};
+				orientation[]={0,-20,0};
+			};
+			class Melee
+			{
+				position[]={0,0,0};
+				orientation[]={0,10,0};
+			};
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
 				};
-				class Weapon_Movement_Rifle_Run
+				class MuzzleFlash
 				{
-					soundSet = "Weapon_Movement_Rifle_Run_SoundSet";
-					id = 102;
+					overrideParticle="weapon_shot_ak101_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={-0.1,0,0};
 				};
-				class Weapon_Movement_Rifle_Sprint
+				class ChamberSmoke
 				{
-					soundSet = "Weapon_Movement_Rifle_Sprint_SoundSet";
-					id = 103;
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+					overrideDirectionPoint="Nabojniceend";
 				};
-				class Weapon_Movement_Rifle_Land
+			};
+			class OnOverheating
+			{
+				maxOverheatingValue=8;
+				shotsToStartOverheating=4;
+				overheatingDecayInterval=0.69999999;
+				class SmokingBarrel1
 				{
-					soundSet = "Weapon_Movement_Rifle_Land_SoundSet";
-					id = 104;
+					overrideParticle="smoking_barrel_small";
+					onlyWithinOverheatLimits[]={0,0.69999999};
+					positionOffset[]={0.1,0,0};
+					onlyWithinRainLimits[]={0,0.2};
 				};
-				class Char_Gestures_Hand_Grab_Rifle
+				class SmokingBarrel2
 				{
-					soundSet = "Char_Gestures_Hand_Grab_FabricRifle_SoundSet";
-					id = 892;
+					overrideParticle="smoking_barrel";
+					onlyWithinOverheatLimits[]={0.69999999,1};
+					positionOffset[]={0.1,0,0};
+					onlyWithinRainLimits[]={0,0.2};
 				};
-				class AK_charge_open
+				class SmokingBarrelHotSteamSmall
 				{
-					soundSet = "AK_charge_open_SoundSet";
-					id = 1;
+					overrideParticle="smoking_barrel_steam_small";
+					positionOffset[]={0.1,0,0};
+					onlyWithinRainLimits[]={0.2,1};
 				};
-				class AK_charge_open_release
+				class OpenChamberSmoke
 				{
-					soundSet = "AK_charge_open_release_SoundSet";
-					id = 2;
+					onlyIfBoltIsOpen=1;
+					overrideParticle="smoking_barrel_small";
+					overridePoint="Nabojnicestart";
 				};
-				class AK_charge_close
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
 				{
-					soundSet = "AK_charge_close_SoundSet";
-					id = 3;
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
 				};
-				class AK_charge_close_release
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\AK101\w_AK101_states.anm";
+	};
+	class AK101: AK101_Base
+	{
+		scope=2;
+		displayName="$STR_CfgWeapons_AK1010";
+		descriptionShort="$STR_CfgWeapons_AK1011";
+		model="\dz\weapons\firearms\AK101\ak101.p3d";
+		attachments[]=
+		{
+			"weaponButtstockAK",
+			"WeaponHandguardAK",
+			"weaponWrap",
+			"weaponOpticsAK",
+			"weaponFlashlight",
+			"weaponMuzzleAK",
+			"weaponBayonetAK"
+		};
+		itemSize[]={8,3};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\firearms\AK101\data\ak101_co.paa",
+			"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\AK101\data\ak101.rvmat",
+			"DZ\weapons\attachments\magazine\data\magazine_ak74.rvmat"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
 				{
-					soundSet = "AK_charge_close_release_SoundSet";
-					id = 4;
-				};
-				class AK_chamber_load
-				{
-					soundSet = "AK_chamber_load_SoundSet";
-					id = 5;
-				};
-				class AK_mag_load
-				{
-					soundSet = "AK_mag_load_SoundSet";
-					id = 6;
-				};
-				class AK_mag_load_slow
-				{
-					soundSet = "AK_mag_load_slow_SoundSet";
-					id = 7;
-				};
-				class AK_jamming
-				{
-					soundSet = "AK_jamming_SoundSet";
-					id = 8;
-				};
-				class AK_pullout
-				{
-					soundSet = "AK_pullout_SoundSet";
-					id = 9;
+					hitpoints=300;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\AK101\Data\ak101.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\AK101\Data\ak101.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\AK101\Data\ak101_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\AK101\Data\ak101_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\AK101\Data\ak101_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
-	class AK101: AK101_Base
-	{
-		scope = 2;
-		displayName = "$STR_CfgWeapons_AK1010";
-		descriptionShort = "$STR_CfgWeapons_AK1011";
-		model = "\dz\weapons\firearms\AK101\ak101.p3d";
-		baseAttachments[] = {"AK_PlasticBttstck","AK_PlasticHndgrd"};
-		attachments[] = {"weaponButtstockAK","weaponHandguardAK","weaponOpticsAK","weaponFlashlight","weaponBipod","weaponWrap","weaponMuzzleAK","weaponBayonetAK","suppressorImpro"};
-		randomAttachments[] = {{"AK_FoldingBttstck","Att_Buttstock_AK_Wood","AK_WoodBttstck","AK_PlasticBttstck","AK_PlasticBttstck","AK_PlasticBttstck","AK_PlasticBttstck","AK_PlasticBttstck"},{"AK_WoodHndgrd","AK_PlasticHndgrd","AK_PlasticHndgrd","AK_PlasticHndgrd","AK_PlasticHndgrd"},{"KashtanOptic","PSO11Optic","","","","","","","","","","","","","","","","","",""},{"AK_Suppressor","","","","","","","","",""},{"Mag_AK101_30Rnd","","","","","","","","",""}};
-		itemSize[] = {9,6};
-		dexterity = 2.75;
-		hiddenSelectionsTextures[] = {"dz\weapons\firearms\AK101\data\ak101_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\firearms\AK101\data\ak101.rvmat"};
-		class Damage
-		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\firearms\AK101\Data\ak101.rvmat","DZ\weapons\firearms\AK101\Data\ak101_damage.rvmat","DZ\weapons\firearms\AK101\Data\ak101_destruct.rvmat"};
-		};
-	};
 	class AK101_Black: AK101
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgWeapons_AK101_Black0";
-		color = "Black";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.12,0.12,0.12,1.0,CO)"};
+		scope=2;
+		color="Black";
+		hiddenSelectionsTextures[]=
+		{
+			"#(argb,8,8,3)color(0.12,0.12,0.12,1.0,CO)"
+		};
 	};
 	class AK101_Green: AK101
 	{
-		scope = 2;
-		descriptionShort = "$STR_CfgWeapons_AK101_Green0";
-		color = "Green";
-		lootCategory = "Crafted";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"};
+		scope=2;
+		color="Green";
+		hiddenSelectionsTextures[]=
+		{
+			"#(argb,8,8,3)color(0.35,0.36,0.28,1.0,CO)"
+		};
 	};
 };
-class cfgRecoils
-{
-	recoil_AK101[] = {0,0,0,0.04,"0.036943*(0.4)","0.0134348*(1.2)",0.08,"0.019755*(0.4)","0.003056*(1.2)",0.09,0,0,0.14,"-0.003138*(0.4)","-0.0005*(1.2)",0.08,"-0.001177*(0.4)","-0.000188*(1.2)",0.12,0,0};
-	recoil_AK101_prone[] = {0,0,0,0.004,"0.036943*(0.01)","0.0134348*(0.1)",0.008,"0.019755*(0.01)","0.003056*(0.1)",0.009,0,0,0.014,"-0.003138*(0.01)","-0.0005*(0.1)",0.008,"-0.001177*(0.01)","-0.000188*(0.1)",0.012,0,0};
-};
-//};

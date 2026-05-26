@@ -1,36 +1,17 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 20:01:04 2018 : 'file' last modified on Wed Aug 22 14:53:48 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\animals\cervus_elaphus_fem\config.bin{
 class CfgPatches
 {
 	class DZ_Animals_cervus_elaphus_feminam
 	{
-		units[] = {"Animal_CervusElaphusF"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Animals"};
+		units[]=
+		{
+			"Animal_CervusElaphusF"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Animals"
+		};
 	};
 };
 class CfgVehicles
@@ -38,297 +19,204 @@ class CfgVehicles
 	class AnimalBase;
 	class Animal_CervusElaphusF: AnimalBase
 	{
-		simulation = "dayzanimal";
-		scope = 2;
-		model = "\DZ\animals\cervus_elaphus_fem\cervus_elaphus_fem.p3d";
-		displayName = "$STR_CfgVehicles_Animal_CervusElaphusF0";
-		aiAgentTemplate = "Herbivores_CervusElaphusFem";
-		injuryLevels[] = {1.0,0.5,0.2,0.0};
+		simulation="dayzanimal";
+		scope=2;
+		model="\DZ\animals\cervus_elaphus_fem\cervus_elaphus_fem.p3d";
+		displayName="$STR_CfgVehicles_Animal_CervusElaphusF0";
+		descriptionShort="$STR_CfgVehicles_Animal_CervusElaphusF1";
+		aiAgentTemplate="Herbivores_CervusElaphusFem";
+		injuryLevels[]={1,0.5,0.2,0};
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\animals\cervus_elaphus_fem\data\red_deer_fem_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\animals\cervus_elaphus_fem\data\red_deer_fem.rvmat"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
+					hitpoints=300;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							{}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							{}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							{}
+						}
+					};
 				};
 				class Blood
 				{
-					hitpoints = 5000;
+					hitpoints=5000;
 				};
 				class Shock
 				{
-					hitpoints = 5000;
+					hitpoints=100;
 				};
 			};
 			class DamageZones
 			{
-				class Zone_Belly
-				{
-					bleedChance = 1;
-					class Health
-					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
-					};
-					class Blood
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
-					};
-					class Shock
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 0;
-					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Belly"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
-				};
-				class Zone_Chest
-				{
-					bleedChance = 1;
-					class Health
-					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
-					};
-					class Blood
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
-					};
-					class Shock
-					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 0;
-					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.33;
-							Blood = 5;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 2;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Chest"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
-				};
 				class Zone_Head
 				{
-					bleedChance = 1;
+					componentNames[]=
+					{
+						"Zone_Head"
+					};
+					transferToZonesNames[]={};
+					transferToZonesCoefs[]={};
+					fatalInjuryCoef=0.15000001;
+					canBleed=0;
 					class Health
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						hitpoints=200;
+						transferToGlobalCoef=1;
 					};
-					class Blood
+					class Blood: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						hitpoints=0;
 					};
-					class Shock
+					class Shock: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 0;
+						hitpoints=0;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 10;
-							Blood = 0;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 2;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Head"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Legs
+				class Zone_Neck: Zone_Head
 				{
-					bleedChance = 0;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Neck"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Chest"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.2};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 0;
+						hitpoints=200;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.1;
-							Blood = 0;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.1;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Legs"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Neck
+				class Zone_Chest: Zone_Head
 				{
-					bleedChance = 0.5;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Chest"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Neck",
+						"Zone_Belly"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.15000001,0.15000001};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 0;
+						hitpoints=200;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.66;
-							Blood = 5;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Neck"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Pelvis
+				class Zone_Belly: Zone_Head
 				{
-					bleedChance = 0;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Belly"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Pelvis",
+						"Zone_Chest"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.15000001,0.15000001};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 0;
+						hitpoints=300;
 					};
-					class ArmorType
-					{
-						class Melee
-						{
-							Health = 0.2;
-							Blood = 0;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.2;
-							Blood = 0;
-							Shock = 0;
-						};
-					};
-					componentNames[] = {"Zone_Pelvis"};
-					transferToZonesNames[] = {"Zone_Spine"};
-					transferToZonesCoefs[] = {0.5};
-					fatalInjuryCoef = 0.1;
 				};
-				class Zone_Spine
+				class Zone_Spine: Zone_Head
 				{
-					bleedChance = 1;
-					class Health
+					componentNames[]=
 					{
-						hitpoints = 100;
-						transferToGlobalCoef = 1;
+						"Zone_Spine"
 					};
-					class Blood
+					transferToZonesNames[]=
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 1;
+						"Zone_Pelvis",
+						"Zone_Belly",
+						"Zone_Chest"
 					};
-					class Shock
+					transferToZonesCoefs[]={0.1,0.1,0.1};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
 					{
-						hitpoints = 5000;
-						transferToGlobalCoef = 0;
+						hitpoints=200;
 					};
-					class ArmorType
+				};
+				class Zone_Pelvis: Zone_Head
+				{
+					componentNames[]=
 					{
-						class Melee
-						{
-							Health = 0.66;
-							Blood = 1;
-							Shock = 0;
-						};
-						class Projectile
-						{
-							Health = 0.66;
-							Blood = 1;
-							Shock = 0;
-						};
+						"Zone_Pelvis"
 					};
-					componentNames[] = {"Zone_Spine"};
-					transferToZonesNames[] = {};
-					transferToZonesCoefs[] = {};
-					fatalInjuryCoef = 0.1;
+					transferToZonesNames[]=
+					{
+						"Zone_Spine",
+						"Zone_Belly"
+					};
+					transferToZonesCoefs[]={0.15000001,0.15000001};
+					fatalInjuryCoef=0.050000001;
+					class Health: Health
+					{
+						hitpoints=250;
+					};
+				};
+				class Zone_Legs: Zone_Head
+				{
+					componentNames[]=
+					{
+						"Zone_Legs"
+					};
+					transferToZonesNames[]=
+					{
+						"Zone_Pelvis",
+						"Zone_Belly",
+						"Zone_Chest"
+					};
+					transferToZonesCoefs[]={0.1,0.1,0.1};
+					fatalInjuryCoef=0;
+					class Health: Health
+					{
+						hitpoints=100;
+					};
 				};
 			};
 		};
@@ -336,36 +224,63 @@ class CfgVehicles
 		{
 			class ObtainedSteaks
 			{
-				item = "DeerSteakMeat";
-				count = 17;
-				quantityMinMaxCoef[] = {0.75,1};
+				item="DeerSteakMeat";
+				count=17;
+				itemZones[]=
+				{
+					"Zone_Chest",
+					"Zone_Belly",
+					"Zone_Pelvis"
+				};
+				countByZone[]={7,5,6};
+				quantityMinMaxCoef[]={0.75,1};
 			};
 			class ObtainedGuts
 			{
-				item = "Guts";
-				count = 0;
-				quantityMinMaxCoef[] = {0.5,1};
+				item="Guts";
+				count=3;
+				quantityMinMaxCoef[]={0.5,0.80000001};
+			};
+			class ObtainedPelt
+			{
+				item="DeerPelt";
+				count=1;
+				itemZones[]=
+				{
+					"Zone_Chest",
+					"Zone_Belly"
+				};
+				quantityCoef=1;
+				transferToolDamageCoef=1;
 			};
 			class ObtainedLard
 			{
-				item = "Lard";
-				count = 0;
-				quantityMinMaxCoef[] = {0.5,1};
+				item="Lard";
+				count=3;
+				quantityMinMaxCoef[]={0.5,1};
 			};
 			class ObtainedBones
 			{
-				item = "Bone";
-				count = 0;
-				quantityMinMaxCoef[] = {0.8,1};
-				transferToolDamageCoef = 1;
+				item="Bone";
+				count=3;
+				quantityMinMaxCoef[]={0.80000001,1};
+				transferToolDamageCoef=1;
+			};
+			class BloodInfectionSettings
+			{
+				class Salmonella
+				{
+					chance=0.40000001;
+				};
 			};
 		};
 		class enfanimsys
 		{
-			meshObject = "dz\animals\cervus_elaphus_fem\Data\cervus_elaphus_fem_skeleton.xob";
-			graphname = "dz\animals\animations\!graph_files\Herbivores\Herbivores_Graph.agr";
-			defaultinstance = "dz\animals\animations\!graph_files\Herbivores\DeerFemSkeleton_AnimInstance.asi";
-			startnode = "MasterDeers_SM";
+			meshObject="dz\animals\cervus_elaphus_fem\Data\cervus_elaphus_fem_skeleton.xob";
+			graphname="dz\animals\animations\!graph_files\Herbivores\Herbivores_Graph.agr";
+			defaultinstance="dz\animals\animations\!graph_files\Herbivores\DeerFemSkeleton_AnimInstance.asi";
+			startnode="MasterDeers_SM";
+			skeletonName="cervus_elaphus_skeleton.xob";
 		};
 		class AnimEvents
 		{
@@ -373,298 +288,373 @@ class CfgVehicles
 			{
 				class Walk1
 				{
-					soundLookupTable = "HoofMediumWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 1;
+					soundLookupTable="HoofMediumWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=1;
 				};
 				class Walk2
 				{
-					soundLookupTable = "HoofMediumWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 2;
+					soundLookupTable="HoofMediumWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=2;
 				};
 				class Walk3
 				{
-					soundLookupTable = "HoofMediumWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 3;
+					soundLookupTable="HoofMediumWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=3;
 				};
 				class Walk4
 				{
-					soundLookupTable = "HoofMediumWalk_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 4;
+					soundLookupTable="HoofMediumWalk_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=4;
 				};
 				class Run1
 				{
-					soundLookupTable = "HoofMediumRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 5;
+					soundLookupTable="HoofMediumRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=5;
 				};
 				class Run2
 				{
-					soundLookupTable = "HoofMediumRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 6;
+					soundLookupTable="HoofMediumRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=6;
 				};
 				class Run3
 				{
-					soundLookupTable = "HoofMediumRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 7;
+					soundLookupTable="HoofMediumRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=7;
 				};
 				class Run4
 				{
-					soundLookupTable = "HoofMediumRun_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 8;
+					soundLookupTable="HoofMediumRun_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=8;
 				};
 				class Grazing1
 				{
-					soundLookupTable = "HoofMediumGrazing_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 9;
+					soundLookupTable="HoofMediumGrazing_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=9;
 				};
 				class Grazing2
 				{
-					soundLookupTable = "HoofMediumGrazing_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 10;
+					soundLookupTable="HoofMediumGrazing_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=10;
 				};
 				class Bodyfall
 				{
-					soundLookupTable = "HoofMediumBodyfall_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 11;
+					soundLookupTable="HoofMediumBodyfall_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=11;
 				};
 				class Settle
 				{
-					soundLookupTable = "HoofMediumSettle_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 12;
+					soundLookupTable="HoofMediumSettle_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=12;
 				};
 				class Rest2standA
 				{
-					soundLookupTable = "HoofMediumRest2standA_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 13;
+					soundLookupTable="HoofMediumRest2standA_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=13;
 				};
 				class Rest2standB
 				{
-					soundLookupTable = "HoofMediumRest2standB_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 14;
+					soundLookupTable="HoofMediumRest2standB_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=14;
 				};
 				class Stand2restA
 				{
-					soundLookupTable = "HoofMediumStand2restA_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 15;
+					soundLookupTable="HoofMediumStand2restA_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=15;
 				};
 				class Stand2restB
 				{
-					soundLookupTable = "HoofMediumStand2restB_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 16;
+					soundLookupTable="HoofMediumStand2restB_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=16;
 				};
 				class Stand2restC
 				{
-					soundLookupTable = "HoofMediumStand2restC_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 17;
+					soundLookupTable="HoofMediumStand2restC_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=17;
 				};
 				class Rub1
 				{
-					soundLookupTable = "HoofMediumRub1_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 18;
+					soundLookupTable="HoofMediumRub1_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=18;
 				};
 				class Rub2
 				{
-					soundLookupTable = "HoofMediumRub2_LookupTable";
-					noise = "DeerStepNoise";
-					effectSet[] = {"DeerStepEffect1","DeerStepEffect2"};
-					id = 19;
+					soundLookupTable="HoofMediumRub2_LookupTable";
+					noise="DeerStepNoise";
+					effectSet[]=
+					{
+						"DeerStepEffect1",
+						"DeerStepEffect2"
+					};
+					id=19;
 				};
 			};
 			class Sounds
 			{
 				class DeerBleat
 				{
-					soundSet = "DeerBleat_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 1;
+					soundSet="DeerBleat_SoundSet";
+					noise="DeerRoarNoise";
+					id=1;
 				};
 				class DoeBleat
 				{
-					soundSet = "DoeBleat_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 2;
+					soundSet="DoeBleat_SoundSet";
+					noise="DeerRoarNoise";
+					id=2;
 				};
 				class DeerBreath
 				{
-					soundSet = "DeerBreath_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 3;
+					soundSet="DeerBreath_SoundSet";
+					noise="DeerRoarNoise";
+					id=3;
 				};
 				class DeerBark
 				{
-					soundSet = "DeerBark_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 4;
+					soundSet="DeerBark_SoundSet";
+					noise="DeerRoarNoise";
+					id=4;
 				};
 				class DoeBark
 				{
-					soundSet = "DoeBark_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 5;
+					soundSet="DoeBark_SoundSet";
+					noise="DeerRoarNoise";
+					id=5;
 				};
 				class RoeBark
 				{
-					soundSet = "RoeBark_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 6;
+					soundSet="RoeBark_SoundSet";
+					noise="DeerRoarNoise";
+					id=6;
 				};
 				class DeerCall
 				{
-					soundSet = "DeerCall_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 7;
+					soundSet="DeerCall_SoundSet";
+					noise="DeerRoarNoise";
+					id=7;
 				};
 				class DeerCallFear
 				{
-					soundSet = "DeerCallFear_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 8;
+					soundSet="DeerCallFear_SoundSet";
+					noise="DeerRoarNoise";
+					id=8;
 				};
 				class DeerGrunt
 				{
-					soundSet = "DeerGrunt_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 9;
+					soundSet="DeerGrunt_SoundSet";
+					noise="DeerRoarNoise";
+					id=9;
 				};
 				class DeerRoar
 				{
-					soundSet = "DeerRoar_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 10;
+					soundSet="DeerRoar_SoundSet";
+					noise="DeerRoarNoise";
+					id=10;
 				};
 				class DeerRoarLong
 				{
-					soundSet = "DeerRoarLong_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 11;
+					soundSet="DeerRoarLong_SoundSet";
+					noise="DeerRoarNoise";
+					id=11;
 				};
 				class DeerRoarShort
 				{
-					soundSet = "DeerRoarShort_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 12;
+					soundSet="DeerRoarShort_SoundSet";
+					noise="DeerRoarNoise";
+					id=12;
 				};
 				class DeerSnort
 				{
-					soundSet = "DeerSnort_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 13;
+					soundSet="DeerSnort_SoundSet";
+					noise="DeerRoarNoise";
+					id=13;
 				};
 				class DeerFemRoarX1
 				{
-					soundSet = "DeerFemRoarX1_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 14;
+					soundSet="DeerFemRoarX1_SoundSet";
+					noise="DeerRoarNoise";
+					id=14;
 				};
 				class DeerFemRoarX1_Tail
 				{
-					soundSet = "DeerFemRoarX1_Tail_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 15;
+					soundSet="DeerFemRoarX1_Tail_SoundSet";
+					noise="DeerRoarNoise";
+					id=15;
 				};
 				class DeerFemRoarX2
 				{
-					soundSet = "DeerFemRoarX2_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 16;
+					soundSet="DeerFemRoarX2_SoundSet";
+					noise="DeerRoarNoise";
+					id=16;
 				};
 				class DeerFemRoarX2_Tail
 				{
-					soundSet = "DeerFemRoarX2_Tail_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 17;
+					soundSet="DeerFemRoarX2_Tail_SoundSet";
+					noise="DeerRoarNoise";
+					id=17;
 				};
 				class DeerFemRoarX3
 				{
-					soundSet = "DeerFemRoarX3_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 18;
+					soundSet="DeerFemRoarX3_SoundSet";
+					noise="DeerRoarNoise";
+					id=18;
 				};
 				class DeerFemRoarX3_Tail
 				{
-					soundSet = "DeerFemRoarX3_Tail_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 19;
+					soundSet="DeerFemRoarX3_Tail_SoundSet";
+					noise="DeerRoarNoise";
+					id=19;
 				};
 				class DeerFemRoarX4
 				{
-					soundSet = "DeerFemRoarX4_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 20;
+					soundSet="DeerFemRoarX4_SoundSet";
+					noise="DeerRoarNoise";
+					id=20;
 				};
 				class DeerFemRoarX4_Tail
 				{
-					soundSet = "DeerFemRoarX4_Tail_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 21;
+					soundSet="DeerFemRoarX4_Tail_SoundSet";
+					noise="DeerRoarNoise";
+					id=21;
 				};
 				class DeerFemRoarX5
 				{
-					soundSet = "DeerFemRoarX5_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 22;
+					soundSet="DeerFemRoarX5_SoundSet";
+					noise="DeerRoarNoise";
+					id=22;
 				};
 				class DeerFemRoarX5_Tail
 				{
-					soundSet = "DeerFemRoarX5_Tail_SoundSet";
-					noise = "DeerRoarNoise";
-					id = 23;
+					soundSet="DeerFemRoarX5_Tail_SoundSet";
+					noise="DeerRoarNoise";
+					id=23;
 				};
 			};
 			class Damages
 			{
 				class Bite
 				{
-					damage = "DeerBiteDamage";
-					id = 1;
+					damage="DeerBiteDamage";
+					id=1;
 				};
 			};
 		};
 		class CommandMoveSettings
 		{
-			useSpeedMapping = 1;
-			movementSpeedMapping[] = {0.0,0.18,0.7,2.8,5.9,15.5};
+			useSpeedMapping=1;
+			movementSpeedMapping[]={0,0.18000001,0.69999999,2.8,5.9000001,15.5};
 		};
 		class CommandLookAtSettings
 		{
-			lookAtFilterTimeout = 0.5;
-			lookAtFilterSpeed = 1.57;
+			lookAtFilterTimeout=0.5;
+			lookAtFilterSpeed=1.5700001;
 		};
 	};
 };
-//};

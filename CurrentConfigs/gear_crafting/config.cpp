@@ -1,745 +1,718 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 17:11:48 2018 : 'file' last modified on Wed Aug 22 17:28:32 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\gear_crafting\config.bin{
 class CfgPatches
 {
 	class DZ_Gear_Crafting
 	{
-		units[] = {};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data"};
-	};
-};
-class RecipeToolOnTool;
-class CfgRecipes
-{
-	class LightTorch
-	{
-		name = "Light Torch";
-		tools[] = {"Crafting_Torch","Consumable_Matchbox"};
-		condition = "((itemInHands _owner == _tool1) || (isNull itemParent _tool1)) && !(isOn _tool1) && (damage _tool1 < 1) && (quantity _tool2 > 0);";
-		action = "_owner playAction 'lightFlare'; _tool2 addQuantity -1; _tool1 powerOn true;";
-	};
-	class LightTorchDrill
-	{
-		name = "Light Torch";
-		tools[] = {"Crafting_Torch","Crafting_HandDrillKit"};
-		condition = "((itemInHands _owner == _tool1) || (isNull itemParent _tool1)) && !(isOn _tool1) && (damage _tool1 < 1) && (damage _tool2 < 1);";
-		action = "_owner playAction 'lightFlare';_dmg = damage _tool2 + 0.25; _tool2 setDamage _dmg; if (damage _tool2 >= 1) then {deleteVehicle _tool2}; _tool1 powerOn true;";
-	};
-	class ExtinguishTorch
-	{
-		name = "Extinguish Torch";
-		tools[] = {"Crafting_Torch","BottleBase"};
-		condition = "(isOn _tool1) and (quantity _tool2) >= 100;";
-		action = "_tool2 addQuantity -100; _tool1 setVariable ['fire', 0]; _tool1 switchLight 'OFF'; _tool1 powerOn false;";
-	};
-	class CraftTorch: RecipeToolOnTool
-	{
-		name = "Craft Torch";
-		condition = "(quantity _tool1 > 0) && (quantity _tool2 > 0)";
-		tools[] = {"Consumable_Rags","Crafting_WoodenStick"};
-		results[] = {"Crafting_Torch"};
-		action = "_tool1 addQuantity -1;_tool2 addQuantity -1;if(quantity _tool1 < 1)then{deleteVehicle _tool1};if(quantity _tool2 < 1)then{deleteVehicle _tool2};[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class CraftTorchSharp: CraftTorch
-	{
-		tools[] = {"Consumable_Rags","Crafting_SharpStick"};
-	};
-	class CraftTorchBandage: RecipeToolOnTool
-	{
-		name = "Craft Torch";
-		condition = "(quantity _tool1 > 0) && (quantity _tool2 > 0)";
-		tools[] = {"Medical_BandageDressing","Crafting_WoodenStick"};
-		results[] = {"Crafting_Torch"};
-		action = "_tool1 addQuantity -0.25;_tool2 addQuantity -1;if(quantity _tool1 < 0.25)then{deleteVehicle _tool1};if(quantity _tool2 < 1)then{deleteVehicle _tool2};[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class CraftTorchSharpBandage: CraftTorch
-	{
-		tools[] = {"Medical_BandageDressing","Crafting_SharpStick"};
-	};
-	class CraftTorchLard: RecipeToolOnTool
-	{
-		name = "Craft Torch";
-		condition = "(quantity _tool1 > 0) && (quantity _tool2 >= 0.5)";
-		tools[] = {"Crafting_WoodenStick","Food_Lard"};
-		results[] = {"Crafting_Torch"};
-		action = "_tool1 addQuantity -1;_tool2 addQuantity -0.5;if(quantity _tool1 < 1)then{deleteVehicle _tool1};if(quantity _tool2 <= 0)then{deleteVehicle _tool2};[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class CraftTorchSharpLard: CraftTorchLard
-	{
-		tools[] = {"Crafting_SharpStick","Food_Lard"};
-	};
-	class CraftArrow: RecipeToolOnTool
-	{
-		name = "Craft Improvised Arrow from %TOOL1 and %TOOL2";
-		tools[] = {"Crafting_ChickenFeather","Crafting_SharpStick"};
-		results[] = {"Arrows_Primitive"};
-		action = "[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;_result1 setMagazineAmmo 1;_result1 setDamage (damage _tool2);magazineRemoveBullet _tool2; if (magazineAmmo _tool2 < 1) then {deleteVehicle _tool2}; _tool1 addQuantity -1; if (quantity _tool1 < 1) then {deleteVehicle _tool1};";
-	};
-	class CraftBoneArrow: RecipeToolOnTool
-	{
-		name = "Craft Bone Arrow from %TOOL1 and %TOOL2";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && ((damage _tool2) < 1) && ((damage _tool1) < 1)";
-		tools[] = {"Arrows_Primitive","Consumable_Bones"};
-		results[] = {"Arrows_Boned"};
-		action = "[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;_result1 setMagazineAmmo 1;_result1 setDamage (damage _tool2);_tool2 addQuantity -1; 	if (quantity _tool2 < 1) then {	deleteVehicle _tool2};magazineRemoveBullet _tool1; if (magazineAmmo _tool1 < 1) then {deleteVehicle _tool1};	";
-	};
-	class CraftBoneHook: RecipeToolOnTool
-	{
-		name = "Craft Improvised Hook";
-		tools[] = {"KnifeBase","Consumable_Bones"};
-		results[] = {"Consumable_BoneHook"};
-		action = "_tool2 addQuantity -1;if (quantity _tool2 < 1) then {deleteVehicle _tool2};[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Craft_BurlapStrips
-	{
-		name = "Cut into strips";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"KnifeBase"};
-		material[] = {"Crafting_BurlapSack"};
-		results[] = {"Consumable_BurlapStrips"};
-		action = "_result1 setQuantity 1;[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;_result1 setDamage (damage _material1);";
-	};
-	class Craft_BurlapStripsBayo: Craft_BurlapStrips
-	{
-		tools[] = {"Att_Bayonet_M9A1"};
-	};
-	class Craft_BurlapStripsBayoAK: Craft_BurlapStrips
-	{
-		tools[] = {"Att_Bayonet_AK"};
-	};
-	class SharpenStick
-	{
-		name = "Sharpen a Stick";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"Crafting_WoodenStick","KnifeBase"};
-		results[] = {"Crafting_SharpStick"};
-		action = "_result1 setMagazineAmmo 1;_result1 setDamage (damage _tool1);if (quantity _tool1 <= 1) then {deleteVehicle _tool1;}else{_tool1 addQuantity -1;};";
-	};
-	class SharpenSticks
-	{
-		name = "Sharpen All Sticks";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		material[] = {"Crafting_WoodenStick"};
-		tools[] = {"KnifeBase"};
-		results[] = {"Crafting_SharpStick"};
-		action = "_result1 setMagazineAmmo (quantity _material1);_result1 setDamage (damage _material1);";
-	};
-	class CombineSmershVest
-	{
-		name = "Attach Backpack to Vest";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"SmershVest","SmershBackpack"};
-		action = "if((count itemsInCargo _tool1) > 0 OR (count itemsInCargo _tool2) > 0)then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;_dt2 = damage _tool2;if((_dt1 == 1) OR (_dt2 == 1))then{[_owner,'It is too damaged to be attached.','colorAction'] call fnc_playerMessage;}else{deleteVehicle _tool1;deleteVehicle _tool2;_vest=['SmershVestBackpack',_owner] call player_addInventory;if(_dt1 > _dt2)then{_vest setDamage _dt1;}else{_vest setDamage _dt2;};};};";
-	};
-	class SplitSmershVest
-	{
-		name = "Detach Backpack";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"SmershVestBackpack"};
-		action = "if((count itemsInCargo _tool1) > 0)then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dmg = damage _tool1;deleteVehicle _tool1;_vest=['SmershVest',_owner] call player_addInventory;_back=['SmershBackpack',_owner] call player_addInventory;_vest setDamage _dmg;_back setDamage _dmg;};";
-	};
-	class AttachHolster
-	{
-		name = "Attach Holster";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierBlank","CarrierHolsterSolo"};
-		action = "if(((count(itemsInInventory _tool1)) > 0) or ((count(itemsInInventory _tool2)) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;_dt2 = damage _tool2;if((_dt1 == 1) OR (_dt2 == 1))then{[_owner,'It is too damaged to be attached.','colorAction'] call fnc_playerMessage;}else{deleteVehicle _tool1;deleteVehicle _tool2;_vest=['PlateCarrierHolster',_owner] call player_addInventory;if(_dt1 > _dt2)then{_vest setDamage _dt1;}else{_vest setDamage _dt2;};};};";
-	};
-	class AttachHolsterPouch: AttachHolster
-	{
-		tools[] = {"PlateCarrierPouches","CarrierHolsterSolo"};
-		action = "if(((count itemsInCargo _tool1) > 0) or ((count(itemsInInventory _tool2)) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;_dt2 = damage _tool2;if((_dt1 == 1) OR (_dt2 == 1))then{[_owner,'It is too damaged to be attached.','colorAction'] call fnc_playerMessage;}else{deleteVehicle _tool1;deleteVehicle _tool2;_vest=['PlateCarrierComplete',_owner] call player_addInventory;if(_dt1 > _dt2)then{_vest setDamage _dt1;}else{_vest setDamage _dt2;};};};";
-	};
-	class AttachPouches
-	{
-		name = "Attach Pouches";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierBlank","Container_CarrierPouches"};
-		action = "if((count itemsInCargo _tool2) > 0)then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;_dt2 = damage _tool2;if((_dt1 == 1) OR (_dt2 == 1))then{[_owner,'It is too damaged to be attached.','colorAction'] call fnc_playerMessage;}else{deleteVehicle _tool1;deleteVehicle _tool2;_vest=['PlateCarrierPouches',_owner] call player_addInventory;if(_dt1 > _dt2)then{_vest setDamage _dt1;}else{_vest setDamage _dt2;};};};";
-	};
-	class AttachPouchesHolster: AttachPouches
-	{
-		tools[] = {"PlateCarrierHolster","Container_CarrierPouches"};
-		action = "if(((count(itemsInInventory _tool1)) > 0) or ((count itemsInCargo _tool2) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;_dt2 = damage _tool2;if((_dt1 == 1) OR (_dt2 == 1))then{[_owner,'It is too damaged to be attached.','colorAction'] call fnc_playerMessage;}else{deleteVehicle _tool1;deleteVehicle _tool2;_vest=['PlateCarrierComplete',_owner] call player_addInventory;if(_dt1 > _dt2)then{_vest setDamage _dt1;}else{_vest setDamage _dt2;};};};";
-	};
-	class DetachHolster
-	{
-		name = "Detach Holster";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierHolster"};
-		action = "if(((count(itemsInInventory _tool1)) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;deleteVehicle _tool1;_vest=['PlateCarrierBlank',_owner] call player_addInventory;_vest2=['CarrierHolsterSolo',_owner] call player_addInventory;_vest setDamage _dt1;_vest2 setDamage _dt1;};";
-	};
-	class DetachPouches
-	{
-		name = "Detach Pouches";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierPouches"};
-		action = "if((count itemsInCargo _tool1) > 0)then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;deleteVehicle _tool1;_vest=['PlateCarrierBlank',_owner] call player_addInventory;_vest2=['Container_CarrierPouches',_owner] call player_addInventory;_vest setDamage _dt1;_vest2 setDamage _dt1;};";
-	};
-	class DetachPouchesComplete
-	{
-		name = "Detach Pouches";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierComplete"};
-		action = "if(((count itemsInCargo _tool1) > 0) or ((count(itemsInInventory _tool1)) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;deleteVehicle _tool1;_vest=['PlateCarrierHolster',_owner] call player_addInventory;_vest2=['Container_CarrierPouches',_owner] call player_addInventory;_vest setDamage _dt1;_vest2 setDamage _dt1;};";
-	};
-	class DetachHolsterComplete
-	{
-		name = "Detach Holster";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierComplete"};
-		action = "if(((count itemsInCargo _tool1) > 0) or ((count(itemsInInventory _tool1)) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;deleteVehicle _tool1;_vest=['PlateCarrierPouches',_owner] call player_addInventory;_vest2=['CarrierHolsterSolo',_owner] call player_addInventory;_vest setDamage _dt1;_vest2 setDamage _dt1;};";
-	};
-	class DetachHolsterPouchesComplete
-	{
-		name = "Detach All Attachments";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierComplete"};
-		action = "if(((count itemsInCargo _tool1) > 0) or ((count(itemsInInventory _tool1)) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;deleteVehicle _tool1;_vest=['PlateCarrierBlank',_owner] call player_addInventory;_vest2=['CarrierHolsterSolo',_owner] call player_addInventory;_vest3=['Container_CarrierPouches',_owner] call player_addInventory;_vest setDamage _dt1;_vest2 setDamage _dt1;_vest3 setDamage _dt1;};";
-	};
-	class CombineCarrierVest
-	{
-		name = "Complete set";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierHolster","PlateCarrierPouches"};
-		action = "if(((count(itemsInInventory _tool1)) > 0) or ((count itemsInCargo _tool2) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;_dt2 = damage _tool2;if((_dt1 == 1) OR (_dt2 == 1))then{[_owner,'It is too damaged to be attached.','colorAction'] call fnc_playerMessage;}else{deleteVehicle _tool1;deleteVehicle _tool2;_vest=['PlateCarrierComplete',_owner] call player_addInventory;_vest2=['PlateCarrierBlank',_owner] call player_addInventory;if(_dt1 > _dt2)then{_vest setDamage _dt1;_vest2 setDamage _dt1;}else{_vest setDamage _dt2;_vest2 setDamage _dt2;};};};";
-	};
-	class SplitCarrierVest
-	{
-		name = "Share attachments";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"PlateCarrierComplete","PlateCarrierBlank"};
-		action = "if(((count itemsInCargo _tool1) > 0) or ((count(itemsInInventory _tool1)) > 0))then{[_owner,'I need to empty it first.','colorAction'] call fnc_playerMessage;}else{_dt1 = damage _tool1;_dt2 = damage _tool2;if((_dt1 == 1) OR (_dt2 == 1))then{[_owner,'It is too damaged to be attached.','colorAction'] call fnc_playerMessage;}else{deleteVehicle _tool1;deleteVehicle _tool2;_vest=['PlateCarrierHolster',_owner] call player_addInventory;_vest2=['PlateCarrierPouches',_owner] call player_addInventory;if(_dt1 > _dt2)then{_vest setDamage _dt1;_vest2 setDamage _dt1;}else{_vest setDamage _dt2;_vest2 setDamage _dt2;};};};";
-	};
-	class Craft_LeatherCourierBag
-	{
-		name = "Craft Leather Bag with %MATERIAL1 and %TOOL1";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"Consumable_PeltWildboar"};
-		material[] = {"Crafting_Rope"};
-		results[] = {"BagCourierImprovisedFur"};
-		action = "_tool1 addQuantity -1; if (quantity _tool1 <= 1) then {deleteVehicle _tool1};[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Decraft_LeatherCourierBag
-	{
-		name = "Break down into Rope and Wild Boar Leather";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count itemsInCargo _material1 == 0)";
-		material[] = {"BagCourierImprovisedFur"};
-		results[] = {"Crafting_Rope","Consumable_PeltWildboar"};
-		action = "_result2 setQuantity 1;[_owner,format['I have broken down the %1.',displayName _material1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Craft_ImprovisedCourierBag
-	{
-		name = "Craft Courier Bag with %MATERIAL1 and %MATERIAL2";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		material[] = {"Crafting_Rope","Crafting_BurlapSack"};
-		results[] = {"BagCourierImprovised"};
-		action = "[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Decraft_ImprovisedCourierBag
-	{
-		name = "Break down into Rope and Burlap Sack";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count itemsInCargo _material1 == 0)";
-		material[] = {"BagCourierImprovised"};
-		results[] = {"Crafting_Rope","Crafting_BurlapSack"};
-		action = "[_owner,format['I have broken down the %1.',displayName _material1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Craft_ImprovisedBackpack
-	{
-		name = "Craft Improvised Backpack from %MATERIAL1 and %TOOL1";
-		condition = "(quantity _tool1) > 2 && (_owner getVariable ['isUsingSomething',0] == 0) and (count itemsInCargo _material1 == 0)";
-		tools[] = {"Crafting_WoodenStick"};
-		material[] = {"BagCourierImprovised"};
-		results[] = {"BagImprovised"};
-		action = "_tool1 addQuantity -3; if (quantity _tool1 <= 1) then {deleteVehicle _tool1}; [_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Decraft_ImprovisedBackpack
-	{
-		name = "Break down into Wooden Sticks and Burlap Sack";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count itemsInCargo _material1 == 0)";
-		material[] = {"BagImprovised"};
-		results[] = {"Crafting_WoodenStick","Crafting_BurlapSack"};
-		action = "[_owner,format['I have broken down the %1, but ruined the rope while doing it.',displayName _material1],'colorAction'] call fnc_playerMessage;_result1 setQuantity 3;";
-	};
-	class Craft_ImprovisedLeatherBackpack
-	{
-		name = "Craft Improvised Leather Backpack from %MATERIAL1 and %TOOL1";
-		condition = "(quantity _tool1) > 2 && (_owner getVariable ['isUsingSomething',0] == 0) and (count itemsInCargo _material1 == 0)";
-		tools[] = {"Crafting_WoodenStick"};
-		material[] = {"BagCourierImprovisedFur"};
-		results[] = {"BagImprovisedFur"};
-		action = "_tool1 addQuantity -3; if (quantity _tool1 <= 1) then {deleteVehicle _tool1};[_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Decraft_ImprovisedLeatherBackpack
-	{
-		name = "Break down into Wooden Sticks and Boar Pelt";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count itemsInCargo _material1 == 0)";
-		material[] = {"BagImprovisedFur"};
-		results[] = {"Crafting_WoodenStick","Consumable_PeltWildboar"};
-		action = "[_owner,format['I have broken down the %1, but ruined the rope while doing it.',displayName _material1],'colorAction'] call fnc_playerMessage;_result2 setQuantity 3;_result1 setQuantity 1;";
-	};
-	class Craft_SplitWoodKnife
-	{
-		name = "Split into thirds";
-		condition = "true";
-		material[] = {"Crafting_LongWoodenStick"};
-		tools[] = {"KnifeBase"};
-		results[] = {"Crafting_WoodenStick"};
-		action = "_result1 setQuantity 3; [_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Craft_SplitWoodAxe
-	{
-		name = "Split into thirds";
-		condition = "true";
-		material[] = {"Crafting_LongWoodenStick"};
-		tools[] = {"AxeBase"};
-		results[] = {"Crafting_WoodenStick"};
-		action = "_result1 setQuantity 3; [_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class Craft_SplitFirewoodAxe
-	{
-		name = "Split into thirds";
-		condition = "true";
-		tools[] = {"AxeBase","Consumable_Firewood"};
-		action = "[_owner, _tool1, _tool2, 'Crafting_WoodenStick', 3] call fnc_axeFirewoodIntoSticks";
-	};
-	class CombineWoodenStick
-	{
-		name = "Group Wooden Sticks";
-		tools[] = {"Crafting_WoodenStick","Crafting_WoodenStick"};
-		condition = "quantity _tool2 < maxQuantity _tool2";
-		action = "call player_combineQuantity;";
-	};
-	class SplitWoodenStick
-	{
-		name = "Split Wooden Sticks";
-		tools[] = {"Crafting_WoodenStick"};
-		condition = "(quantity _tool1) > 1";
-		action = "call player_splitQuantity;";
-	};
-	class CombineFeathers
-	{
-		name = "Combine Feathers";
-		tools[] = {"Crafting_ChickenFeather","Crafting_ChickenFeather"};
-		condition = "quantity _tool2 < maxQuantity _tool2";
-		action = "call player_combineQuantity;";
-	};
-	class SplitFeathers
-	{
-		name = "Split Feathers";
-		tools[] = {"Crafting_ChickenFeather"};
-		condition = "(quantity _tool1) > 1";
-		action = "call player_splitQuantity;";
-	};
-	class CraftSplintBandage: RecipeToolOnTool
-	{
-		name = "Craft Splint from %TOOL1 and %TOOL2";
-		tools[] = {"Medical_Bandage","Crafting_WoodenStick"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		onComplete = "_person setVariable ['isUsingSomething',0]; _tool2 addQuantity -1; if (quantity _tool2 <= 0) then {deleteVehicle _tool2}; ['Medical_Splint',_person] call player_addInventory;";
-		sound = "";
-		playerAction = "PlayerCraft";
-		messages[] = {"The %1 is empty","colorStatusChannel","The %1 is broken","colorImportant","The %1 is broken","colorImportant","I have made a splint.","colorAction"};
-		allowDead = 0;
-		interactionWeight = 0.1;
-		useQuantity = 1;
-	};
-	class CraftSplintDuctTape: RecipeToolOnTool
-	{
-		name = "Craft Splint from %TOOL1 and %TOOL2";
-		tools[] = {"Consumable_DuctTape","Crafting_WoodenStick"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && quantity _tool1 >= 0.5";
-		onComplete = "_person setVariable ['isUsingSomething',0]; _tool2 addQuantity -1; if (quantity _tool2 <= 0) then {deleteVehicle _tool2}; ['Medical_Splint',_person] call player_addInventory;";
-		sound = "";
-		playerAction = "PlayerCraft";
-		messages[] = {"The %1 is empty","colorStatusChannel","The %1 is broken1","colorImportant","The %1 is broken2","colorImportant","I have made a splint.","colorAction"};
-		allowDead = 0;
-		interactionWeight = 0.1;
-		useQuantity = 0.5;
-	};
-	class Decraft_Splint
-	{
-		name = "Break down into wooden stick";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		material[] = {"Medical_Splint"};
-		results[] = {"Crafting_WoodenStick"};
-		action = "_result1 setQuantity 1;[_owner,format['I have broken down the %1, but ruined the fabric while doing it.',displayName _material1],'colorAction'] call fnc_playerMessage;";
-	};
-	class CraftSplintBandageDressing: CraftSplintBandage
-	{
-		tools[] = {"Medical_BandageDressing","Crafting_WoodenStick"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && quantity _tool1 == maxQuantity _tool1 && !((itemParent _tool1) isKindOf 'Fireplace') && !((itemParent _tool2) isKindOf 'Fireplace')";
-		useQuantity = 1;
-	};
-	class CraftSplintRag: CraftSplintBandage
-	{
-		tools[] = {"Consumable_Rags","Crafting_WoodenStick"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && !((itemParent _tool1) isKindOf 'Fireplace') && !((itemParent _tool2) isKindOf 'Fireplace')";
-		useQuantity = 1;
-	};
-	class CraftBow
-	{
-		name = "Craft Improvised Bow from %MATERIAL1 and %MATERIAL2";
-		material[] = {"Crafting_Rope","Crafting_LongWoodenStick"};
-		results[] = {"Bow_Quickie"};
-		action = "if((typeOf _material1)=='Crafting_Rope')then{_result1 setVariable ['ropemat',-1];}else{_result1 setVariable ['ropemat',-2];};[_owner,format['I have made an %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class DecraftBow
-	{
-		name = "Break Bow into materials";
-		material[] = {"Bow_Quickie"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count itemsInInventory _material1 == 0)";
-		results[] = {"Crafting_LongWoodenStick"};
-		action = "_rm = _material1 getVariable ['ropemat',-1];if(_rm == -1)then{_rp0=['Crafting_Rope',_owner] call player_addInventory;_rp0 setDamage (damage _material1);};	if(_rm == -2)then{_rp1=['Crafting_ImprovisedRope',_owner] call player_addInventory;_rp1 setDamage (damage _material1);};[_owner,format['I have broken the Bow into materials.',displayName _result1],'colorAction'] call fnc_playerMessage;_result1 setDamage (damage _material1);";
-	};
-	class CraftGutsRopeKnife
-	{
-		name = "Craft Improvised Rope";
-		material[] = {"Food_Guts"};
-		tools[] = {"KnifeBase"};
-		condition = "((quantity _material1) > 0.5) and ((damage _material1) < 1) and ((damage _tool1) < 1)";
-		action = "_result1 setDamage (((damage _material1) + (damage _tool1))/2);[_owner,_result1] call event_craftMessage;";
-		results[] = {"Crafting_ImprovisedRope"};
-	};
-	class CraftGutsRopeBayonets: CraftGutsRopeKnife
-	{
-		tools[] = {"BayonetBase"};
-	};
-	class CraftGutsRopeAxes: CraftGutsRopeKnife
-	{
-		tools[] = {"AxeBase"};
-	};
-	class CraftFishingRod
-	{
-		name = "Craft Improvised Fishing Rod from %MATERIAL1 and %MATERIAL2";
-		material[] = {"Crafting_Rope","Crafting_LongWoodenStick"};
-		results[] = {"Tool_ImprovisedFishingRod"};
-		action = "if((typeOf _material1)=='Crafting_Rope')then{_result1 setVariable ['ropemat',-1];}else{_result1 setVariable ['ropemat',-2];};[_owner,format['I have made an %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class DecraftRod
-	{
-		name = "Break Rod into materials";
-		material[] = {"Tool_ImprovisedFishingRod"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && ((count (itemsInInventory _material1)) == 0)";
-		results[] = {"Crafting_LongWoodenStick"};
-		action = "_rm = _material1 getVariable ['ropemat',-1];if(_rm == -1)then{_rp0=['Crafting_Rope',_owner] call player_addInventory;_rp0 setDamage (damage _material1);};	if(_rm == -2)then{_rp1=['Crafting_ImprovisedRope',_owner] call player_addInventory;_rp1 setDamage (damage _material1);};[_owner,format['I have broken the Rod into materials.',displayName _result1],'colorAction'] call fnc_playerMessage;_result1 setDamage (damage _material1);";
-	};
-	class CraftGorkaHelmet_complete
-	{
-		name = "Clip the %MATERIAL1 onto %MATERIAL2";
-		material[] = {"GorkaHelmet_visor","GorkaHelmet_Green"};
-		results[] = {"GorkaHelmet_complete_Green"};
-		action = "_lala=((damage _MATERIAL2+ damage _MATERIAL1)/2); _result1 setDamage _lala;[_owner,format['I have made an %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class CraftGorkaHelmet_complete_Black
-	{
-		name = "Clip the %MATERIAL1 onto %MATERIAL2";
-		material[] = {"GorkaHelmet_visor","GorkaHelmet_Black"};
-		results[] = {"GorkaHelmet_complete_Black"};
-		action = "_lala=((damage _MATERIAL2+ damage _MATERIAL1)/2); _result1 setDamage _lala;[_owner,format['I have made an %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class DetachingGorkaHelmet_complete_Green
-	{
-		name = "Detach Visor";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"GorkaHelmet_complete_Green"};
-		action = "_dt1 = damage _tool1;deleteVehicle _tool1;_helmet=['GorkaHelmet_Green',_owner] call player_addInventory;_helmet2=['GorkaHelmet_visor',_owner] call player_addInventory;_helmet setDamage _dt1;_helmet2 setDamage _dt1;";
-	};
-	class DetachingGorkaHelmet_complete_Black
-	{
-		name = "Detach Visor";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		tools[] = {"GorkaHelmet_complete_Black"};
-		action = "_dt1 = damage _tool1;deleteVehicle _tool1;_helmet=['GorkaHelmet_Black',_owner] call player_addInventory;_helmet2=['GorkaHelmet_visor',_owner] call player_addInventory;_helmet setDamage _dt1;_helmet2 setDamage _dt1;";
-	};
-	class CraftHandDrillKit: RecipeToolOnTool
-	{
-		name = "Craft Hand drill kit from %TOOL1 and %TOOL2";
-		tools[] = {"Crafting_WoodenStick","Consumable_Bark_Oak"};
-		results[] = {"Crafting_HandDrillKit"};
-		action = "[_tool1, -1] call fnc_addQuantity; [_tool2, -1] call fnc_addQuantity; [_owner,format['I have made an %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class DecraftHandDrillKit
-	{
-		name = "Split into Wooden stick and Oak bark";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		material[] = {"Crafting_HandDrillKit"};
-		results[] = {"Crafting_WoodenStick","Consumable_Bark_Oak"};
-		action = "_result1 setQuantity 1; _result2 setQuantity 1; _result1 setdamage (damage _material1); _result2 setdamage (damage _material1); [_owner,format['I have split the %1.',displayName _material1],'colorAction'] call fnc_playerMessage";
-	};
-	class CraftSpear: RecipeToolOnTool
-	{
-		name = "Craft Spear from %TOOL1 and %TOOL2";
-		tools[] = {"Crafting_LongWoodenStick","Consumable_Bones"};
-		results[] = {"Crafting_Spear"};
-		action = "[_tool1, -1] call fnc_addQuantity; [_tool2, -1] call fnc_addQuantity; [_owner,format['I have made a %1.',displayName _result1],'colorAction'] call fnc_playerMessage;";
-	};
-	class DecraftSpear
-	{
-		name = "Break Spear into long wooden stick";
-		condition = "_owner getVariable ['isUsingSomething',0] == 0";
-		material[] = {"Crafting_Spear"};
-		results[] = {"Crafting_LongWoodenStick"};
-		action = "_result1 setQuantity 1; _result1 setdamage (damage _material1); [_owner,format['I have break the %1.',displayName _material1],'colorAction'] call fnc_playerMessage";
-	};
-	class PokeHolesAxes
-	{
-		name = "Poke holes into Barrel";
-		tools[] = {"Container_BarrelBase","AxeBase"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count (itemsInCargo _tool1) == 0)";
-		action = "_posBar = getPosATL _tool1; _d = damage _tool1; _color = getText(configFile >> 'cfgVehicles' >> typeOf _tool1 >> 'color'); _newItemType = format ['%1_%2', _color,'BarrelHoles'];deleteVehicle _tool1; _newItem = createVehicle [_newItemType, _posBar,[],0,'n']; _newItem setDamage _d; [_owner,format['I have made holes into Barrel.'],'colorAction'] call fnc_playerMessage;";
-	};
-	class PokeHolesKnifes
-	{
-		name = "Poke holes into Barrel";
-		tools[] = {"Container_BarrelBase","KnifeBase"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count (itemsInCargo _tool1) == 0)";
-		action = "_posBar = getPosATL _tool1; _d = damage _tool1; _color = getText(configFile >> 'cfgVehicles' >> typeOf _tool1 >> 'color'); _newItemType = format ['%1_%2', _color,'BarrelHoles'];deleteVehicle _tool1; _newItem = createVehicle [_newItemType, _posBar,[],0,'n']; _newItem setDamage _d; [_owner,format['I have made holes into Barrel.'],'colorAction'] call fnc_playerMessage;";
-	};
-	class PokeHolesBayonets
-	{
-		name = "Poke holes into Barrel";
-		tools[] = {"Container_BarrelBase","BayonetBase"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count (itemsInCargo _tool1) == 0)";
-		action = "_posBar = getPosATL _tool1; _d = damage _tool1; _color = getText(configFile >> 'cfgVehicles' >> typeOf _tool1 >> 'color'); _newItemType = format ['%1_%2', _color,'BarrelHoles'];deleteVehicle _tool1; _newItem = createVehicle [_newItemType, _posBar,[],0,'n']; _newItem setDamage _d; [_owner,format['I have made holes into Barrel.'],'colorAction'] call fnc_playerMessage;";
-	};
-	class PokeHolesScrew
-	{
-		name = "Poke holes into Barrel";
-		tools[] = {"Container_BarrelBase","Tool_Screwdriver"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count (itemsInCargo _tool1) == 0)";
-		action = "_posBar = getPosATL _tool1; _d = damage _tool1; _color = getText(configFile >> 'cfgVehicles' >> typeOf _tool1 >> 'color'); _newItemType = format ['%1_%2', _color,'BarrelHoles'];deleteVehicle _tool1; _newItem = createVehicle [_newItemType, _posBar,[],0,'n']; _newItem setDamage _d; [_owner,format['I have made holes into Barrel.'],'colorAction'] call fnc_playerMessage;";
-	};
-	class PokeHolesCrow
-	{
-		name = "Poke holes into Barrel";
-		tools[] = {"Container_BarrelBase","Tool_Crowbar"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count (itemsInCargo _tool1) == 0)";
-		action = "_posBar = getPosATL _tool1; _d = damage _tool1; _color = getText(configFile >> 'cfgVehicles' >> typeOf _tool1 >> 'color'); _newItemType = format ['%1_%2', _color,'BarrelHoles'];deleteVehicle _tool1; _newItem = createVehicle [_newItemType, _posBar,[],0,'n']; _newItem setDamage _d; [_owner,format['I have made holes into Barrel.'],'colorAction'] call fnc_playerMessage;";
-	};
-	class PokeHolesPickAx
-	{
-		name = "Poke holes into Barrel";
-		tools[] = {"Container_BarrelBase","Pickaxe"};
-		condition = "_owner getVariable ['isUsingSomething',0] == 0 && (count (itemsInCargo _tool1) == 0)";
-		action = "_posBar = getPos _tool1; _d = damage _tool1; _color = getText(configFile >> 'cfgVehicles' >> typeOf _tool1 >> 'color'); _newItemType = format ['%1_%2', _color,'BarrelHoles'];deleteVehicle _tool1; _newItem = createVehicle [_newItemType, _posBar,[],0,'n']; _newItem setDamage _d; [_owner,format['I have made holes into Barrel.'],'colorAction'] call fnc_playerMessage;";
+		units[]={};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data"
+		};
 	};
 };
 class CfgVehicles
 {
 	class Inventory_Base;
-	class EnergyItem_Base;
 	class BurlapSack: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_BurlapSack0";
-		descriptionShort = "$STR_CfgVehicles_BurlapSack1";
-		model = "\dz\gear\crafting\bp_burlap_sack.p3d";
-		ContinuousActions[] = {148,147};
-		rotationFlags = 17;
-		weight = 510;
-		itemSize[] = {2,2};
-		repairableWithKits[] = {5,2};
-		repairCosts[] = {30.0,25.0};
-		lootTag[] = {"Camping","Farm","Work","Forester","Hunting"};
-		lootCategory = "Materials";
+		scope=2;
+		displayName="$STR_CfgVehicles_BurlapSack0";
+		descriptionShort="$STR_CfgVehicles_BurlapSack1";
+		model="\dz\gear\crafting\bp_burlap_sack.p3d";
+		rotationFlags=17;
+		weight=510;
+		itemSize[]={3,2};
+		repairableWithKits[]={5,2};
+		repairCosts[]={30,25};
+		soundImpactType="textile";
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\bp_sack_burlap.rvmat"}},{0.5,{"DZ\gear\crafting\data\bp_sack_burlap_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\bp_sack_burlap_destruct.rvmat"}}};
+					hitpoints=200;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\bp_sack_burlap.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\bp_sack_burlap.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\bp_sack_burlap_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\bp_sack_burlap_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\bp_sack_burlap_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem_Light
+				{
+					soundSet="pickUpCourierBag_Light_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpCourierBag_SoundSet";
+					id=797;
 				};
 			};
 		};
 	};
 	class Rope: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Rope0";
-		descriptionShort = "$STR_CfgVehicles_Rope1";
-		model = "\dz\gear\crafting\bp_rope.p3d";
-		ContinuousActions[] = {109};
-		rotationFlags = 17;
-		itemSize[] = {1,3};
-		weight = 280;
-		lootTag[] = {"Camping","Farm","Work","Forester","Hunting"};
-		lootCategory = "Materials";
+		scope=2;
+		displayName="$STR_CfgVehicles_Rope0";
+		descriptionShort="$STR_CfgVehicles_Rope1";
+		model="\dz\gear\crafting\bp_rope.p3d";
+		OnRestrainChange="RopeLocked";
+		RestrainTime=10;
+		rotationFlags=17;
+		inventorySlot[]=
+		{
+			"Rope",
+			"Material_FPole_Rope",
+			"Material_Shelter_Rope"
+		};
+		itemSize[]={1,3};
+		weight=280;
+		soundImpactType="textile";
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\bp_rope.rvmat"}},{0.5,{"DZ\gear\crafting\data\bp_rope_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\bp_rope_destruct.rvmat"}}};
+					hitpoints=200;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class rope_untie
+				{
+					soundSet="rope_untie_SoundSet";
+					id=202;
+				};
+				class rope_struggle
+				{
+					soundSet="rope_struggle_SoundSet";
+					id=203;
+				};
+				class pickUpItem_Light
+				{
+					soundSet="pickUpCourierBag_Light_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpCourierBag_SoundSet";
+					id=797;
+				};
+				class rope_tieup
+				{
+					soundSet="rope_tieup_SoundSet";
+					id=13338;
+				};
+				class rope_tieup_end
+				{
+					soundSet="rope_tieup_end_SoundSet";
+					id=13339;
+				};
+				class rope_tieup_back
+				{
+					soundSet="rope_tieup_back_SoundSet";
+					id=13340;
 				};
 			};
 		};
 	};
-	class ImprovisedRope: Inventory_Base
+	class RopeLocked: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_ImprovisedRope0";
-		descriptionShort = "$STR_CfgVehicles_ImprovisedRope1";
-		model = "\dz\gear\crafting\bp_rope.p3d";
-		ContinuousActions[] = {109};
-		isMeleeWeapon = 1;
-		rotationFlags = 17;
-		itemSize[] = {1,2};
-		weight = 280;
-		lootCategory = "Crafted";
+		scope=1;
+		displayName="$STR_CfgVehicles_RopeLocked0";
+		model="\dz\gear\crafting\bp_rope_tied.p3d";
+		OnRestrainChange="Rope";
+		StruggleLength=10;
+		rotationFlags=17;
+		CanBeUnrestrainedBy[]=
+		{
+			"Sickle",
+			3,
+			"BoneKnife",
+			3,
+			"Hacksaw",
+			3,
+			"KitchenKnife",
+			3,
+			"SteakKnife",
+			3,
+			"HayHook",
+			3,
+			"StoneKnife",
+			3,
+			"Cleaver",
+			3,
+			"CombatKnife",
+			3,
+			"HuntingKnife",
+			3,
+			"Machete",
+			3,
+			"Screwdriver",
+			3,
+			"Crowbar",
+			3,
+			"Pickaxe",
+			3,
+			"WoodAxe",
+			3,
+			"Hatchet",
+			3,
+			"FirefighterAxe",
+			3,
+			"Sword",
+			3,
+			"AK_Bayonet",
+			3,
+			"M9A1_Bayonet",
+			3,
+			"Mosin_Bayonet",
+			3,
+			"SKS_Bayonet",
+			3,
+			"HandSaw",
+			3,
+			"KukriKnife",
+			3,
+			"FangeKnife",
+			3,
+			"Iceaxe",
+			3
+		};
+		CanBeUnrestrainedByDMG[]={12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\bp_rope.rvmat"}},{0.5,{"DZ\gear\crafting\data\bp_rope_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\bp_rope_destruct.rvmat"}}};
+					hitpoints=200;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\bp_rope_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class rope_untie
+				{
+					soundSet="rope_untie_SoundSet";
+					id=202;
+				};
+				class rope_struggle
+				{
+					soundSet="rope_struggle_SoundSet";
+					id=203;
+				};
+				class pickUpItem_Light
+				{
+					soundSet="pickUpCourierBag_Light_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpCourierBag_SoundSet";
+					id=797;
 				};
 			};
 		};
 	};
 	class MetalWire: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_MetalWire0";
-		descriptionShort = "$STR_CfgVehicles_MetalWire1";
-		model = "\dz\gear\crafting\String_MetalWire.p3d";
-		rotationFlags = 17;
-		itemSize[] = {2,2};
-		weight = 170;
-		inventorySlot = "MetalWire";
-		ContinuousActions[] = {109};
-		SingleUseActions[] = {532};
-		hiddenSelections[] = {"att_battery_car","att_battery_car_plugged","att_battery_truck","att_battery_truck_plugged","att_battery_car_plug","att_battery_truck_plug","rolled"};
-		hiddenSelectionsTextures[] = {"dz\gear\crafting\data\string_metalwire_co.paa","dz\gear\crafting\data\string_metalwire_co.paa","dz\gear\crafting\data\string_metalwire_co.paa","dz\gear\crafting\data\string_metalwire_co.paa","","","dz\gear\crafting\data\string_metalwire_co.paa"};
-		hiddenSelectionsMaterials[] = {"dz\gear\crafting\data\String_MetalWire.rvmat","dz\gear\crafting\data\String_MetalWire.rvmat","dz\gear\crafting\data\String_MetalWire.rvmat","dz\gear\crafting\data\String_MetalWire.rvmat","","","dz\gear\crafting\data\String_MetalWire.rvmat"};
-		lootTag[] = {"Farm","Work","Forester","Hunting"};
-		lootCategory = "Materials";
+		scope=2;
+		displayName="$STR_CfgVehicles_MetalWire0";
+		descriptionShort="$STR_CfgVehicles_MetalWire1";
+		model="\dz\gear\crafting\String_MetalWire.p3d";
+		OnRestrainChange="MetalWireLocked";
+		rotationFlags=17;
+		itemSize[]={2,3};
+		weight=170;
+		inventorySlot[]=
+		{
+			"MetalWire",
+			"Material_MetalWire",
+			"Material_FPole_MetalWire"
+		};
+		hiddenSelections[]=
+		{
+			"att_battery_car",
+			"att_battery_car_plugged",
+			"att_battery_truck",
+			"att_battery_truck_plugged",
+			"att_battery_car_plug",
+			"att_battery_truck_plug",
+			"rolled"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\crafting\data\string_metalwire_co.paa",
+			"dz\gear\crafting\data\string_metalwire_co.paa",
+			"dz\gear\crafting\data\string_metalwire_co.paa",
+			"dz\gear\crafting\data\string_metalwire_co.paa",
+			"",
+			"",
+			"dz\gear\crafting\data\string_metalwire_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\gear\crafting\data\String_MetalWire.rvmat",
+			"dz\gear\crafting\data\String_MetalWire.rvmat",
+			"dz\gear\crafting\data\String_MetalWire.rvmat",
+			"dz\gear\crafting\data\String_MetalWire.rvmat",
+			"",
+			"",
+			"dz\gear\crafting\data\String_MetalWire.rvmat"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\String_MetalWire.rvmat"}},{0.5,{"DZ\gear\crafting\data\String_MetalWire_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\String_MetalWire_destruct.rvmat"}}};
+					hitpoints=500;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
+		repairableWithKits[]={5,7};
+		repairCosts[]={30,25};
 		class EnergyManager
 		{
-			switchOnAtSpawn = 1;
-			isPassiveDevice = 1;
-			powerSocketsCount = 1;
-			plugType = 8;
-			compatiblePlugTypes[] = {2};
+			switchOnAtSpawn=1;
+			isPassiveDevice=1;
+			powerSocketsCount=1;
+			plugType=8;
+			compatiblePlugTypes[]={2};
 		};
 		class AnimationSources
 		{
 			class Att_battery_car
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_car_plugged
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_truck
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_truck_plugged
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_car_plug
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_truck_plug
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Rolled
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 0;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=0;
+			};
+		};
+		soundImpactType="metal";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class rope_untie
+				{
+					soundSet="rope_untie_SoundSet";
+					id=202;
+				};
+				class rope_struggle
+				{
+					soundSet="rope_struggle_SoundSet";
+					id=203;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpBarbedWire_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="barbedwire_drop_SoundSet";
+					id=898;
+				};
 			};
 		};
 	};
-	class WoodenStick: Inventory_Base
+	class MetalWireLocked: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_WoodenStick0";
-		descriptionShort = "$STR_CfgVehicles_WoodenStick1";
-		model = "\dz\gear\crafting\bp_wooden_stick.p3d";
-		lootTag[] = {"Natural"};
-		lootCategory = "Crafted";
-		inventorySlot = "WoodenStick";
-		weight = 220;
-		itemSize[] = {1,5};
-		canBeSplit = 1;
-		varQuantityInit = 1.0;
-		varQuantityMin = 0.0;
-		varQuantityMax = 5.0;
-		varQuantityDestroyOnMin = 1;
-		isMeleeWeapon = 1;
+		scope=1;
+		displayName="$STR_CfgVehicles_MetalWireLocked0";
+		model="\dz\gear\crafting\String_MetalWire_tied.p3d";
+		OnRestrainChange="MetalWire";
+		StruggleLength=15;
+		rotationFlags=17;
+		CanBeUnrestrainedBy[]=
+		{
+			"Hacksaw",
+			"15",
+			"Pliers",
+			"25",
+			"HandSaw",
+			"15"
+		};
+		CanBeUnrestrainedByDMG[]={20,20,20};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\bp_wooden_stick.rvmat"}},{0.5,{"DZ\gear\crafting\data\bp_wooden_stick_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\bp_wooden_stick_destruct.rvmat"}}};
+					hitpoints=500;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\String_MetalWire_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class rope_untie
+				{
+					soundSet="rope_untie_SoundSet";
+					id=202;
+				};
+				class rope_struggle
+				{
+					soundSet="rope_struggle_SoundSet";
+					id=203;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpBarbedWire_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="barbedwire_drop_SoundSet";
+					id=898;
+				};
+			};
+		};
+	};
+	class WoodenStick: Inventory_Base
+	{
+		scope=2;
+		displayName="$STR_CfgVehicles_WoodenStick0";
+		descriptionShort="$STR_CfgVehicles_WoodenStick1";
+		model="\dz\gear\crafting\bp_wooden_stick.p3d";
+		inventorySlot[]=
+		{
+			"WoodenStick",
+			"Material_Shelter_Sticks"
+		};
+		absorbency=0.89999998;
+		weight=220;
+		itemSize[]={5,1};
+		canBeSplit=1;
+		varQuantityInit=1;
+		varQuantityMin=0;
+		varQuantityMax=50;
+		varQuantityDestroyOnMin=1;
+		varStackMax=5;
+		isMeleeWeapon=1;
+		soundImpactType="wood";
+		attachSoundSet[]=
+		{
+			"Shelter_Site_Attach_Wooden_Stick_SoundSet"
+		};
+		attachSoundSlot[]=
+		{
+			"Material_Shelter_Sticks"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=50;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\bp_wooden_stick.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\bp_wooden_stick.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\bp_wooden_stick_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\bp_wooden_stick_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\bp_wooden_stick_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
@@ -747,80 +720,18 @@ class CfgVehicles
 		{
 			class Default
 			{
-				ammo = "MeleeLightBlunt";
-				range = 1.2;
+				ammo="MeleeBluntStick";
+				range=1.2;
 			};
 			class Heavy
 			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 1.2;
+				ammo="MeleeBluntStick_Heavy";
+				range=1.2;
 			};
 			class Sprint
 			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 3.3;
-			};
-		};
-	};
-	class Torch: EnergyItem_Base
-	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Torch0";
-		descriptionShort = "$STR_CfgVehicles_Torch1";
-		model = "\dz\gear\crafting\Torch.p3d";
-		overrideDrawArea = "8.0";
-		SingleUseActions[] = {536};
-		ContinuousActions[] = {209};
-		rotationFlags = 17;
-		absorbency = 0.5;
-		weight = 240;
-		itemSize[] = {2,4};
-		lootCategory = "Crafted";
-		attachments[] = {"Rags"};
-		hiddenSelections[] = {"flame","zbytek"};
-		hiddenSelectionsTextures[] = {"","dz\gear\crafting\data\Torch_co.paa"};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\torch.rvmat"}},{0.5,{"DZ\gear\crafting\data\torch_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\torch_destruct.rvmat"}}};
-				};
-			};
-		};
-		class flame
-		{
-			sound = "Sound_FlareFlame";
-			texture = "dz\gear\consumables\data\flame_red_ca.paa";
-		};
-		class EnergyManager
-		{
-			autoSwitchOff = 1;
-			energyAtSpawn = 2;
-			energyStorageMax = 180;
-			energyUsagePerSecond = 1;
-			wetnessExposure = 0.5;
-		};
-		class PointLights
-		{
-			class PointLight
-			{
-				color[] = {1.0,0.45,0.25,1.0};
-				brightness = 1.0;
-				radius = 15;
-				dayLight = 1;
-				position = "light";
-				hitpoint = "bulb";
-				selection = "bulb";
-				heatHazeRadius = 0.1;
-				heatHazePower = 0.01;
-				fireEffect = 1;
-				fireEffectOctaves = 4;
-				fireEffectPersistence = 0.99;
-				fireEffectFract = 0.33;
+				ammo="MeleeBluntStick_Heavy";
+				range=3.3;
 			};
 		};
 		class AnimEvents
@@ -829,112 +740,608 @@ class CfgVehicles
 			{
 				class TorchKindle
 				{
-					soundSet = "Torch_kindle_SoundSet";
-					id = 201;
+					soundSet="Torch_kindle_SoundSet";
+					id=201;
+				};
+				class pickup
+				{
+					soundSet="hatchet_pickup_SoundSet";
+					id=797;
+				};
+				class woodenlog_drop
+				{
+					soundset="baseballbat_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
-	class ChickenFeather: Inventory_Base
+	class Torch: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_ChickenFeather0";
-		descriptionShort = "$STR_CfgVehicles_ChickenFeather1";
-		model = "\dz\gear\consumables\arrow_feather.p3d";
-		lootTag[] = {"Natural"};
-		lootCategory = "Crafted";
-		itemSize[] = {1,1};
-		weight = 1;
-		canBeSplit = 1;
-		varQuantityInit = 1.0;
-		varQuantityMin = 0.0;
-		varQuantityMax = 20.0;
-		isMeleeWeapon = 1;
+		scope=2;
+		displayName="$STR_CfgVehicles_Torch0";
+		descriptionShort="$STR_CfgVehicles_Torch1";
+		model="\dz\gear\crafting\Torch.p3d";
+		overrideDrawArea="8.0";
+		rotationFlags=17;
+		absorbency=0.5;
+		inventorySlot[]=
+		{
+			"Shoulder",
+			"Melee"
+		};
+		isMeleeWeapon=1;
+		burnTimePerRag=120;
+		burnTimePerFullLardDose=900;
+		burnTimePerFullFuelDose=600;
+		maxConsumableLardDose=200;
+		maxConsumableFuelDose=200;
+		canBeSplit=0;
+		stackedUnit="w";
+		quantityBar=1;
+		varQuantityInit=0;
+		varQuantityMin=0;
+		varQuantityMax=100;
+		varQuantityDestroyOnMin=0;
+		weight=240;
+		itemSize[]={1,5};
+		attachments[]=
+		{
+			"Rags"
+		};
+		hiddenSelections[]=
+		{
+			"flame",
+			"zbytek"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"",
+			"dz\gear\crafting\data\Torch_co.paa"
+		};
+		soundImpactType="wood";
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\weapons\projectiles\data\arrow_crafted_simple.rvmat"}},{0.5,{"DZ\weapons\projectiles\data\arrow_crafted_simple_damage.rvmat"}},{0.0,{"DZ\weapons\projectiles\data\arrow_crafted_simple_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\torch.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\torch.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\torch_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\torch_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\torch_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class EnergyManager
+		{
+			autoSwitchOff=1;
+			energyAtSpawn=0;
+			energyStorageMax=1440;
+			energyUsagePerSecond=1;
+			wetnessExposure=0.5;
+			updateInterval=5;
+		};
+		class MeleeModes
+		{
+			class Default
+			{
+				ammo="MeleeLightBlunt";
+				range=1.6;
+			};
+			class Heavy
+			{
+				ammo="MeleeLightBlunt_Heavy";
+				range=1.6;
+			};
+			class Sprint
+			{
+				ammo="MeleeLightBlunt_Heavy";
+				range=2.2;
+			};
+			class Default_SwitchedOn
+			{
+				ammo="MeleeLightBluntShock";
+				range=1.6;
+			};
+			class Heavy_SwitchedOn
+			{
+				ammo="MeleeLightBluntShock_Heavy";
+				range=1.6;
+			};
+			class Sprint_SwitchedOn
+			{
+				ammo="MeleeLightBluntShock_Heavy";
+				range=2.2;
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class TorchKindle
+				{
+					soundSet="Torch_kindle_SoundSet";
+					id=201;
+				};
+				class pickup
+				{
+					soundSet="hatchet_pickup_SoundSet";
+					id=797;
+				};
+				class woodenlog_drop
+				{
+					soundset="baseballbat_drop_SoundSet";
+					id=898;
+				};
+			};
+		};
+	};
+	class LongTorch: Torch
+	{
+		displayName="$STR_cfgvehicles_long_torch";
+		descriptionShort="$STR_cfgvehicles_long_torch_desc";
+		model="\dz\gear\crafting\LongTorch.p3d";
+		weight=500;
+		itemSize[]={1,8};
+	};
+	class Torch_Video: LongTorch
+	{
+	};
+	class ChickenFeather: Inventory_Base
+	{
+		scope=2;
+		displayName="$STR_CfgVehicles_ChickenFeathers0";
+		descriptionShort="$STR_CfgVehicles_ChickenFeathers1";
+		model="\dz\gear\consumables\arrow_feather.p3d";
+		itemSize[]={1,1};
+		weight=1;
+		canBeSplit=1;
+		varQuantityInit=1;
+		varQuantityMin=0;
+		varQuantityMax=20;
+		soundImpactType="textile";
+		isMeleeWeapon=1;
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=5;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\projectiles\data\arrow_crafted_simple.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\projectiles\data\arrow_crafted_simple.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\projectiles\data\arrow_crafted_simple_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\projectiles\data\arrow_crafted_simple_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\projectiles\data\arrow_crafted_simple_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
 	class LongWoodenStick: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_LongWoodenStick0";
-		descriptionShort = "$STR_CfgVehicles_LongWoodenStick1";
-		model = "\dz\gear\crafting\Wooden_stick.p3d";
-		ContinuousActions[] = {180};
-		rotationFlags = 17;
-		weight = 670;
-		itemSize[] = {1,8};
-		inventorySlot = "Melee";
-		suicideAnim = "spear";
-		attachments[] = {"Ingredient"};
-		lootTag[] = {"Natural"};
-		lootCategory = "Crafted";
+		scope=2;
+		displayName="$STR_CfgVehicles_LongWoodenStick0";
+		descriptionShort="$STR_CfgVehicles_LongWoodenStick1";
+		model="\dz\gear\crafting\Wooden_stick_blunt.p3d";
+		rotationFlags=17;
+		absorbency=0.89999998;
+		weight=670;
+		itemSize[]={1,8};
+		canBeSplit=1;
+		varQuantityInit=1;
+		varQuantityMin=0;
+		varQuantityMax=10;
+		varQuantityDestroyOnMin=1;
+		varStackMax=1;
+		inventorySlot[]=
+		{
+			"Shoulder",
+			"Melee",
+			"Material_Shelter_FrameSticks"
+		};
+		itemBehaviour=1;
+		soundImpactType="wood";
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\Wooden_stick.rvmat"}},{0.5,{"DZ\gear\crafting\data\Wooden_stick_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\Wooden_stick_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick_destruct.rvmat"
+							}
+						}
+					};
 				};
+			};
+		};
+		class MeleeModes
+		{
+			class Default
+			{
+				ammo="MeleeBluntStick";
+				range=1.2;
+			};
+			class Heavy
+			{
+				ammo="MeleeBluntStick_Heavy";
+				range=1.2;
+			};
+			class Sprint
+			{
+				ammo="MeleeBluntStick_Heavy";
+				range=3.3;
+			};
+		};
+	};
+	class SharpWoodenStick: Inventory_Base
+	{
+		scope=2;
+		displayName="$STR_CfgVehicles_SharpLongWoodenStick0";
+		descriptionShort="$STR_CfgVehicles_SharpLongWoodenStick1";
+		model="\dz\gear\crafting\Wooden_stick.p3d";
+		rotationFlags=17;
+		itemBehaviour=1;
+		attachments[]=
+		{
+			"Ingredient"
+		};
+		inventorySlot[]=
+		{
+			"Shoulder",
+			"Melee"
+		};
+		suicideAnim="spear";
+		absorbency=0.89999998;
+		weight=670;
+		itemSize[]={1,8};
+		canBeSplit=1;
+		varQuantityInit=1;
+		varQuantityMin=0;
+		varQuantityMax=1;
+		varQuantityDestroyOnMin=1;
+		soundImpactType="wood";
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\Wooden_stick_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class MeleeModes
+		{
+			class Default
+			{
+				ammo="MeleeSharpLight_1";
+				range=1.2;
+			};
+			class Heavy
+			{
+				ammo="MeleeSharpHeavy_1";
+				range=1.2;
+			};
+			class Sprint
+			{
+				ammo="MeleeSharpHeavy_1";
+				range=3.3;
+			};
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={0.02,0.30000001,0.0099999998};
+				orientation[]={0,0,0};
+			};
+			class Melee
+			{
+				position[]={0.02,0.30000001,-0.0099999998};
+				orientation[]={0,0,0};
 			};
 		};
 	};
 	class GorkaHelmetVisor: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_GorkaHelmetVisor0";
-		descriptionShort = "$STR_CfgVehicles_GorkaHelmetVisor1";
-		model = "\dz\characters\headgear\Maska_glass_g.p3d";
-		rotationFlags = 16;
-		itemSize[] = {3,2};
-		lootCategory = "Headgear";
-		lootTag[] = {"Police"};
+		scope=2;
+		displayName="$STR_CfgVehicles_GorkaHelmetVisor0";
+		descriptionShort="$STR_CfgVehicles_GorkaHelmetVisor1";
+		model="\dz\characters\headgear\Maska_glass_g.p3d";
+		hiddenSelections[]=
+		{
+			"camo01",
+			"camo02"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\characters\headgear\data\maska.rvmat",
+			"dz\characters\headgear\data\maska_glass.rvmat"
+		};
+		rotationFlags=16;
+		weight=350;
+		itemSize[]={3,2};
+		inventorySlot[]=
+		{
+			"Glass"
+		};
+		soundImpactType="glass";
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"dz\characters\headgear\data\maska.rvmat"}},{0.5,{"dz\characters\headgear\data\maska_damage.rvmat"}},{0.0,{"dz\characters\headgear\data\maska_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"dz\characters\headgear\data\maska.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"dz\characters\headgear\data\maska.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"dz\characters\headgear\data\maska_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"dz\characters\headgear\data\maska_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"dz\characters\headgear\data\maska_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
 	};
 	class HandDrillKit: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_HandDrillKit0";
-		descriptionShort = "$STR_CfgVehicles_HandDrillKit1";
-		model = "\dz\gear\crafting\hand_drill_kit.p3d";
-		ContinuousActions[] = {174};
-		weight = 210;
-		itemSize[] = {1,4};
-		lootTag[] = {"Natural"};
-		lootCategory = "Materials";
-		rotationFlags = 8;
+		scope=2;
+		displayName="$STR_CfgVehicles_HandDrillKit0";
+		descriptionShort="$STR_CfgVehicles_HandDrillKit1";
+		model="\dz\gear\crafting\hand_drill_kit.p3d";
+		weight=210;
+		itemSize[]={1,4};
+		rotationFlags=8;
+		soundImpactType="wood";
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\hand_drill_kit.rvmat"}},{0.5,{"DZ\gear\crafting\data\hand_drill_kit_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\hand_drill_kit_destruct.rvmat"}}};
+					hitpoints=20;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\hand_drill_kit.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\hand_drill_kit.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\hand_drill_kit_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\hand_drill_kit_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\hand_drill_kit_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
@@ -944,35 +1351,94 @@ class CfgVehicles
 			{
 				class MatchStrike
 				{
-					soundSet = "HandDrillIgnite_SoundSet";
-					id = 201;
+					soundSet="HandDrillIgnite_SoundSet";
+					id=201;
+				};
+				class pickup
+				{
+					soundSet="bark_pickup_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="bark_drop_SoundSet";
+					id=898;
 				};
 			};
 		};
 	};
 	class Spear: Inventory_Base
 	{
-		scope = 2;
-		displayName = "$STR_CfgVehicles_Spear0";
-		descriptionShort = "$STR_CfgVehicles_Spear1";
-		model = "\dz\gear\crafting\advanced_spear.p3d";
-		SingleUseActions[] = {560};
-		rotationFlags = 17;
-		weight = 700;
-		itemSize[] = {2,11};
-		inventorySlot = "Melee";
-		suicideAnim = "spear";
-		lootCategory = "Crafted";
-		openItemSpillRange[] = {20,40};
+		scope=0;
+		displayName="$STR_CfgVehicles_Improvised_Spear0";
+		descriptionShort="$STR_CfgVehicles_Improvised_Spear1";
+		model="\dz\gear\crafting\advanced_spear.p3d";
+		hiddenSelections[]=
+		{
+			"spike_stone"
+		};
+		rotationFlags=17;
+		weight=500;
+		itemSize[]={1,8};
+		inventorySlot[]=
+		{
+			"Shoulder",
+			"Melee"
+		};
+		suicideAnim="spear";
+		itemBehaviour=2;
+		soundImpactType="wood";
+		openItemSpillRange[]={30,60};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
-					healthLevels[] = {{1.0,{"DZ\gear\crafting\data\advanced_spear.rvmat"}},{0.5,{"DZ\gear\crafting\data\advanced_spear_damage.rvmat"}},{0.0,{"DZ\gear\crafting\data\advanced_spear_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\crafting\data\advanced_spear.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\crafting\data\advanced_spear.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\crafting\data\advanced_spear_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\crafting\data\advanced_spear_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\crafting\data\advanced_spear_destruct.rvmat"
+							}
+						}
+					};
 				};
 			};
 		};
@@ -980,18 +1446,125 @@ class CfgVehicles
 		{
 			class Default
 			{
-				ammo = "MeleeSpear";
-				range = 1.8;
+				ammo="MeleeSharpLight_2";
+				range=1.8;
 			};
 			class Heavy
 			{
-				ammo = "MeleeSpear_Heavy";
-				range = 1.8;
+				ammo="MeleeSharpHeavy_2";
+				range=1.8;
 			};
 			class Sprint
 			{
-				ammo = "MeleeSpear_Heavy";
-				range = 3.7;
+				ammo="MeleeSharpHeavy_2";
+				range=3.7;
+			};
+		};
+	};
+	class SpearBone: Spear
+	{
+		scope=2;
+		hiddenSelections[]=
+		{
+			"spike_stone"
+		};
+	};
+	class SpearStone: Spear
+	{
+		scope=2;
+		hiddenSelections[]=
+		{
+			"spike_bone"
+		};
+	};
+	class GasMask_Filter_Improvised: Inventory_Base
+	{
+		scope=2;
+		displayName="$STR_GasMask_FilterImprovised0";
+		descriptionShort="$STR_GasMask_FilterImprovised1";
+		model="\dz\gear\crafting\GasMask_filter_improvised.p3d";
+		inventorySlot[]=
+		{
+			"GasMaskFilter"
+		};
+		rotationFlags=2;
+		itemSize[]={1,2};
+		weight=100;
+		weightPerQuantityUnit=0.2;
+		varQuantityInit=100;
+		varQuantityMin=0;
+		varQuantityMax=100;
+		stackedUnit="ml";
+		quantityBar=1;
+		varQuantityDestroyOnMin=0;
+		varWetMax=0.249;
+		heatIsolation=0;
+		soundImpactType="plastic";
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\dz\gear\crafting\gasmask_filter_improvised_co.paa"
+		};
+		class Protection
+		{
+			biological=1;
+			chemical=1;
+			dust_particle_breath=1;
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=80;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"dz\gear\crafting\data\gasmask_filter_improvised.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"dz\gear\crafting\data\gasmask_filter_improvised.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"dz\gear\crafting\data\gasmask_filter_improvised_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"dz\gear\crafting\data\gasmask_filter_improvised_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"dz\gear\crafting\data\gasmask_filter_improvised_destruct.rvmat"
+							}
+						}
+					};
+				};
 			};
 		};
 	};
@@ -999,101 +1572,135 @@ class CfgVehicles
 class CfgNonAIVehicles
 {
 	class ProxyAttachment;
+	class ProxyMaska_glass_g: ProxyAttachment
+	{
+		scope=2;
+		inventorySlot[]=
+		{
+			"Glass"
+		};
+		model="\dz\characters\headgear\Maska_glass_g.p3d";
+	};
 	class ProxyMeat_steak: ProxyAttachment
 	{
-		scope = 2;
-		inventorySlot = "Ingredient";
-		model = "\dz\gear\food\meat_steak.p3d";
+		scope=2;
+		inventorySlot[]=
+		{
+			"Ingredient"
+		};
+		model="\dz\gear\food\meat_steak.p3d";
 		class AnimationSources
 		{
 			class CS_Raw
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class CS_Rotten
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class CS_Baked
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class CS_Boiled
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class CS_Dried
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class CS_Burned
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 		};
 	};
 	class ProxyString_MetalWire: ProxyAttachment
 	{
-		scope = 2;
-		model = "\dz\gear\crafting\String_MetalWire.p3d";
-		inventorySlot = "MetalWire";
+		scope=2;
+		model="\dz\gear\crafting\String_MetalWire.p3d";
+		inventorySlot[]=
+		{
+			"MetalWire",
+			"Material_FPole_MetalWire"
+		};
 		class AnimationSources
 		{
 			class Att_battery_car
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_car_plugged
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_truck
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_truck_plugged
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_car_plug
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Att_battery_truck_plug
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 1;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
 			};
 			class Rolled
 			{
-				source = "user";
-				animPeriod = 0.01;
-				initPhase = 0;
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=0;
 			};
 		};
 	};
+	class ProxyBp_rope: ProxyAttachment
+	{
+		scope=2;
+		model="\dz\gear\crafting\bp_rope.p3d";
+		inventorySlot[]=
+		{
+			"Rope",
+			"Material_FPole_Rope"
+		};
+	};
+	class ProxyWooden_stick: ProxyAttachment
+	{
+		scope=2;
+		model="\dz\gear\crafting\Wooden_stick.p3d";
+		inventorySlot[]=
+		{
+			"Material_FPole_MagicStick"
+		};
+	};
 };
-//};

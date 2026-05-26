@@ -1,36 +1,11 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:53:16 2018 : 'file' last modified on Wed Aug 22 22:06:59 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_projectiles\config.bin{
 class CfgPatches
 {
 	class DZ_Weapons_Projectiles
 	{
-		units[] = {};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {};
+		units[]={};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]={};
 	};
 };
 class CfgAmmo
@@ -40,167 +15,1674 @@ class CfgAmmo
 	class BulletCore;
 	class Bullet_Base: BulletCore
 	{
-		scope = 0;
-		hit = 8;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		model = "";
-		soundFly[] = {"",9.999997e-009,1};
-		soundDefault1[] = {"dz\sounds\weapons\hits\bullet\soft_ground_1",0.75,1,40};
-		soundDefault2[] = {"dz\sounds\weapons\hits\bullet\soft_ground_2",0.75,1,40};
-		soundDefault3[] = {"dz\sounds\weapons\hits\bullet\soft_ground_3",0.75,1,40};
-		soundDefault4[] = {"dz\sounds\weapons\hits\bullet\soft_ground_4",0.75,1,40};
-		soundDefault5[] = {"dz\sounds\weapons\hits\bullet\soft_ground_5",0.75,1,40};
-		soundDefault6[] = {"dz\sounds\weapons\hits\bullet\soft_ground_6",0.75,1,40};
-		soundDefault7[] = {"dz\sounds\weapons\hits\bullet\soft_ground_7",0.75,1,40};
-		soundDefault8[] = {"dz\sounds\weapons\hits\bullet\soft_ground_8",0.75,1,40};
-		soundGroundSoft1[] = {"dz\sounds\weapons\hits\bullet\soft_ground_1",0.75,1,40};
-		soundGroundSoft2[] = {"dz\sounds\weapons\hits\bullet\soft_ground_2",0.75,1,40};
-		soundGroundSoft3[] = {"dz\sounds\weapons\hits\bullet\soft_ground_3",0.75,1,40};
-		soundGroundSoft4[] = {"dz\sounds\weapons\hits\bullet\soft_ground_4",0.75,1,40};
-		soundGroundSoft5[] = {"dz\sounds\weapons\hits\bullet\soft_ground_5",0.75,1,40};
-		soundGroundSoft6[] = {"dz\sounds\weapons\hits\bullet\soft_ground_6",0.75,1,40};
-		soundGroundSoft7[] = {"dz\sounds\weapons\hits\bullet\soft_ground_7",0.75,1,40};
-		soundGroundSoft8[] = {"dz\sounds\weapons\hits\bullet\soft_ground_8",0.75,1,40};
-		soundGroundHard1[] = {"dz\sounds\weapons\hits\bullet\hard_ground_1",0.75,1,40};
-		soundGroundHard2[] = {"dz\sounds\weapons\hits\bullet\hard_ground_2",0.75,1,40};
-		soundGroundHard3[] = {"dz\sounds\weapons\hits\bullet\hard_ground_3",0.75,1,40};
-		soundGroundHard4[] = {"dz\sounds\weapons\hits\bullet\hard_ground_4",0.75,1,40};
-		soundGroundHard5[] = {"dz\sounds\weapons\hits\bullet\hard_ground_5",0.75,1,40};
-		soundGroundHard6[] = {"dz\sounds\weapons\hits\bullet\hard_ground_6",0.75,1,40};
-		soundGroundHard7[] = {"dz\sounds\weapons\hits\bullet\hard_ground_7",0.75,1,40};
-		soundGroundHard8[] = {"dz\sounds\weapons\hits\bullet\hard_ground_8",0.75,1,40};
-		soundMetal1[] = {"dz\sounds\weapons\hits\bullet\metal_1",0.75,1,40};
-		soundMetal2[] = {"dz\sounds\weapons\hits\bullet\metal_2",0.75,1,40};
-		soundMetal3[] = {"dz\sounds\weapons\hits\bullet\metal_3",0.75,1,40};
-		soundMetal4[] = {"dz\sounds\weapons\hits\bullet\metal_4",0.75,1,40};
-		soundMetal5[] = {"dz\sounds\weapons\hits\bullet\metal_5",0.75,1,40};
-		soundMetal6[] = {"dz\sounds\weapons\hits\bullet\metal_6",0.75,1,40};
-		soundMetal7[] = {"dz\sounds\weapons\hits\bullet\metal_7",0.75,1,40};
-		soundMetal8[] = {"dz\sounds\weapons\hits\bullet\metal_8",0.75,1,40};
-		soundGlass1[] = {"dz\sounds\weapons\hits\bullet\glass_1",0.75,1,40};
-		soundGlass2[] = {"dz\sounds\weapons\hits\bullet\glass_2",0.75,1,40};
-		soundGlass3[] = {"dz\sounds\weapons\hits\bullet\glass_3",0.75,1,40};
-		soundGlass4[] = {"dz\sounds\weapons\hits\bullet\glass_4",0.75,1,40};
-		soundGlass5[] = {"dz\sounds\weapons\hits\bullet\glass_5",0.75,1,40};
-		soundGlass6[] = {"dz\sounds\weapons\hits\bullet\glass_6",0.75,1,40};
-		soundGlass7[] = {"dz\sounds\weapons\hits\bullet\glass_7",0.75,1,40};
-		soundGlass8[] = {"dz\sounds\weapons\hits\bullet\glass_8",0.75,1,40};
-		soundGlassArmored1[] = {"dz\sounds\weapons\hits\bullet\glass_arm_1",0.75,1,40};
-		soundGlassArmored2[] = {"dz\sounds\weapons\hits\bullet\glass_arm_2",0.75,1,40};
-		soundGlassArmored3[] = {"dz\sounds\weapons\hits\bullet\glass_arm_3",0.75,1,40};
-		soundGlassArmored4[] = {"dz\sounds\weapons\hits\bullet\glass_arm_4",0.75,1,40};
-		soundGlassArmored5[] = {"dz\sounds\weapons\hits\bullet\glass_arm_5",0.75,1,40};
-		soundGlassArmored6[] = {"dz\sounds\weapons\hits\bullet\glass_arm_6",0.75,1,40};
-		soundGlassArmored7[] = {"dz\sounds\weapons\hits\bullet\glass_arm_7",0.75,1,40};
-		soundGlassArmored8[] = {"dz\sounds\weapons\hits\bullet\glass_arm_8",0.75,1,40};
-		soundVehiclePlate1[] = {"dz\sounds\weapons\hits\bullet\metal_plate_1",0.75,1,40};
-		soundVehiclePlate2[] = {"dz\sounds\weapons\hits\bullet\metal_plate_2",0.75,1,40};
-		soundVehiclePlate3[] = {"dz\sounds\weapons\hits\bullet\metal_plate_3",0.75,1,40};
-		soundVehiclePlate4[] = {"dz\sounds\weapons\hits\bullet\metal_plate_4",0.75,1,40};
-		soundVehiclePlate5[] = {"dz\sounds\weapons\hits\bullet\metal_plate_5",0.75,1,40};
-		soundVehiclePlate6[] = {"dz\sounds\weapons\hits\bullet\metal_plate_6",0.75,1,40};
-		soundVehiclePlate7[] = {"dz\sounds\weapons\hits\bullet\metal_plate_7",0.75,1,40};
-		soundVehiclePlate8[] = {"dz\sounds\weapons\hits\bullet\metal_plate_8",0.75,1,40};
-		soundWood1[] = {"dz\sounds\weapons\hits\bullet\wood_1",0.75,1,40};
-		soundWood2[] = {"dz\sounds\weapons\hits\bullet\wood_2",0.75,1,40};
-		soundWood3[] = {"dz\sounds\weapons\hits\bullet\wood_3",0.75,1,40};
-		soundWood4[] = {"dz\sounds\weapons\hits\bullet\wood_4",0.75,1,40};
-		soundWood5[] = {"dz\sounds\weapons\hits\bullet\wood_5",0.75,1,40};
-		soundWood6[] = {"dz\sounds\weapons\hits\bullet\wood_6",0.75,1,40};
-		soundWood7[] = {"dz\sounds\weapons\hits\bullet\wood_7",0.75,1,40};
-		soundWood8[] = {"dz\sounds\weapons\hits\bullet\wood_8",0.75,1,40};
-		soundHitBody1[] = {"dz\sounds\weapons\hits\bullet\body_1",1,1,20};
-		soundHitBody2[] = {"dz\sounds\weapons\hits\bullet\body_2",1,1,20};
-		soundHitBody3[] = {"dz\sounds\weapons\hits\bullet\body_3",1,1,20};
-		soundHitBody4[] = {"dz\sounds\weapons\hits\bullet\body_4",1,1,20};
-		soundHitBody5[] = {"dz\sounds\weapons\hits\bullet\body_5",1,1,20};
-		soundHitBody6[] = {"dz\sounds\weapons\hits\bullet\body_6",1,1,20};
-		soundHitBody7[] = {"dz\sounds\weapons\hits\bullet\body_7",1,1,20};
-		soundHitBody8[] = {"dz\sounds\weapons\hits\bullet\body_8",1,1,20};
-		soundHitBuilding1[] = {"dz\sounds\weapons\hits\bullet\building_1",0.75,1,40};
-		soundHitBuilding2[] = {"dz\sounds\weapons\hits\bullet\building_2",0.75,1,40};
-		soundHitBuilding3[] = {"dz\sounds\weapons\hits\bullet\building_3",0.75,1,40};
-		soundHitBuilding4[] = {"dz\sounds\weapons\hits\bullet\building_4",0.75,1,40};
-		soundHitBuilding5[] = {"dz\sounds\weapons\hits\bullet\building_5",0.75,1,40};
-		soundHitBuilding6[] = {"dz\sounds\weapons\hits\bullet\building_6",0.75,1,40};
-		soundHitBuilding7[] = {"dz\sounds\weapons\hits\bullet\building_7",0.75,1,40};
-		soundHitBuilding8[] = {"dz\sounds\weapons\hits\bullet\building_8",0.75,1,40};
-		soundHitFoliage1[] = {"dz\sounds\weapons\hits\bullet\foliage_1",1,1,20};
-		soundHitFoliage2[] = {"dz\sounds\weapons\hits\bullet\foliage_2",1,1,20};
-		soundHitFoliage3[] = {"dz\sounds\weapons\hits\bullet\foliage_3",1,1,20};
-		soundHitFoliage4[] = {"dz\sounds\weapons\hits\bullet\foliage_4",1,1,20};
-		soundHitFoliage5[] = {"dz\sounds\weapons\hits\bullet\foliage_5",1,1,20};
-		soundHitFoliage6[] = {"dz\sounds\weapons\hits\bullet\foliage_6",1,1,20};
-		soundHitFoliage7[] = {"dz\sounds\weapons\hits\bullet\foliage_7",1,1,20};
-		soundHitFoliage8[] = {"dz\sounds\weapons\hits\bullet\foliage_8",1,1,20};
-		soundPlastic1[] = {"dz\sounds\weapons\hits\bullet\plastic_1",0.75,1,40};
-		soundPlastic2[] = {"dz\sounds\weapons\hits\bullet\plastic_2",0.75,1,40};
-		soundPlastic3[] = {"dz\sounds\weapons\hits\bullet\plastic_3",0.75,1,40};
-		soundPlastic4[] = {"dz\sounds\weapons\hits\bullet\plastic_4",0.75,1,40};
-		soundPlastic5[] = {"dz\sounds\weapons\hits\bullet\plastic_5",0.75,1,40};
-		soundPlastic6[] = {"dz\sounds\weapons\hits\bullet\plastic_6",0.75,1,40};
-		soundPlastic7[] = {"dz\sounds\weapons\hits\bullet\plastic_7",0.75,1,40};
-		soundPlastic8[] = {"dz\sounds\weapons\hits\bullet\plastic_8",0.75,1,40};
-		soundConcrete1[] = {"dz\sounds\weapons\hits\bullet\concrete_1",0.75,1,40};
-		soundConcrete2[] = {"dz\sounds\weapons\hits\bullet\concrete_2",0.75,1,40};
-		soundConcrete3[] = {"dz\sounds\weapons\hits\bullet\concrete_3",0.75,1,40};
-		soundConcrete4[] = {"dz\sounds\weapons\hits\bullet\concrete_4",0.75,1,40};
-		soundConcrete5[] = {"dz\sounds\weapons\hits\bullet\concrete_5",0.75,1,40};
-		soundConcrete6[] = {"dz\sounds\weapons\hits\bullet\concrete_6",0.75,1,40};
-		soundConcrete7[] = {"dz\sounds\weapons\hits\bullet\concrete_7",0.75,1,40};
-		soundConcrete8[] = {"dz\sounds\weapons\hits\bullet\concrete_8",0.75,1,40};
-		soundRubber1[] = {"dz\sounds\weapons\hits\bullet\tyre_1",0.75,1,40};
-		soundRubber2[] = {"dz\sounds\weapons\hits\bullet\tyre_2",0.75,1,40};
-		soundRubber3[] = {"dz\sounds\weapons\hits\bullet\tyre_3",0.75,1,40};
-		soundRubber4[] = {"dz\sounds\weapons\hits\bullet\tyre_4",0.75,1,40};
-		soundRubber5[] = {"dz\sounds\weapons\hits\bullet\tyre_5",0.75,1,40};
-		soundRubber6[] = {"dz\sounds\weapons\hits\bullet\tyre_6",0.75,1,40};
-		soundRubber7[] = {"dz\sounds\weapons\hits\bullet\tyre_7",0.75,1,40};
-		soundRubber8[] = {"dz\sounds\weapons\hits\bullet\tyre_8",0.75,1,40};
-		soundWater1[] = {"dz\sounds\weapons\hits\bullet\water_1",0.75,1,40};
-		soundWater2[] = {"dz\sounds\weapons\hits\bullet\water_2",0.75,1,40};
-		soundWater3[] = {"dz\sounds\weapons\hits\bullet\water_3",0.75,1,40};
-		soundWater4[] = {"dz\sounds\weapons\hits\bullet\water_4",0.75,1,40};
-		soundWater5[] = {"dz\sounds\weapons\hits\bullet\water_5",0.75,1,40};
-		soundWater6[] = {"dz\sounds\weapons\hits\bullet\water_6",0.75,1,40};
-		soundWater7[] = {"dz\sounds\weapons\hits\bullet\water_7",0.75,1,40};
-		soundWater8[] = {"dz\sounds\weapons\hits\bullet\water_8",0.75,1,40};
-		hitGroundSoft[] = {"soundGroundSoft1",0.125,"soundGroundSoft2",0.125,"soundGroundSoft3",0.125,"soundGroundSoft4",0.125,"soundGroundSoft5",0.125,"soundGroundSoft6",0.125,"soundGroundSoft7",0.125,"soundGroundSoft8",0.125};
-		hitGroundHard[] = {"soundGroundHard1",0.125,"soundGroundHard2",0.125,"soundGroundHard3",0.125,"soundGroundHard4",0.125,"soundGroundHard5",0.125,"soundGroundHard6",0.125,"soundGroundHard7",0.125,"soundGroundHard8",0.125};
-		hitMan[] = {"soundHitBody1",0.125,"soundHitBody2",0.125,"soundHitBody3",0.125,"soundHitBody4",0.125,"soundHitBody5",0.125,"soundHitBody6",0.125,"soundHitBody7",0.125,"soundHitBody8",0.125};
-		hitArmor[] = {"soundVehiclePlate1",0.125,"soundVehiclePlate2",0.125,"soundVehiclePlate3",0.125,"soundVehiclePlate4",0.125,"soundVehiclePlate5",0.125,"soundVehiclePlate6",0.125,"soundVehiclePlate7",0.125,"soundVehiclePlate8",0.125};
-		hitBuilding[] = {"soundHitBuilding1",0.125,"soundHitBuilding2",0.125,"soundHitBuilding3",0.125,"soundHitBuilding4",0.125,"soundHitBuilding5",0.125,"soundHitBuilding6",0.125,"soundHitBuilding7",0.125,"soundHitBuilding8",0.125};
-		hitFoliage[] = {"soundHitFoliage1",0.125,"soundHitFoliage2",0.125,"soundHitFoliage3",0.125,"soundHitFoliage4",0.125,"soundHitFoliage5",0.125,"soundHitFoliage6",0.125,"soundHitFoliage7",0.125,"soundHitFoliage8",0.125};
-		hitWood[] = {"soundWood1",0.125,"soundWood2",0.125,"soundWood3",0.125,"soundWood4",0.125,"soundWood5",0.125,"soundWood6",0.125,"soundWood7",0.125,"soundWood8",0.125};
-		hitGlass[] = {"soundGlass1",0.125,"soundGlass2",0.125,"soundGlass3",0.125,"soundGlass4",0.125,"soundGlass5",0.125,"soundGlass6",0.125,"soundGlass7",0.125,"soundGlass8",0.125};
-		hitGlassArmored[] = {"soundGlassArmored1",0.125,"soundGlassArmored2",0.125,"soundGlassArmored3",0.125,"soundGlassArmored4",0.125,"soundGlassArmored5",0.125,"soundGlassArmored6",0.125,"soundGlassArmored7",0.125,"soundGlassArmored8",0.125};
-		hitConcrete[] = {"soundConcrete1",0.125,"soundConcrete2",0.125,"soundConcrete3",0.125,"soundConcrete4",0.125,"soundConcrete5",0.125,"soundConcrete6",0.125,"soundConcrete7",0.125,"soundConcrete8",0.125};
-		hitRubber[] = {"soundRubber1",0.25,"soundRubber2",0.25,"soundRubber3",0.25,"soundRubber4",0.25};
-		hitPlastic[] = {"soundPlastic1",0.125,"soundPlastic2",0.125,"soundPlastic3",0.125,"soundPlastic4",0.125,"soundPlastic5",0.125,"soundPlastic6",0.125,"soundPlastic7",0.125,"soundPlastic8",0.125};
-		hitDefault[] = {"soundDefault1",0.125,"soundDefault2",0.125,"soundDefault3",0.125,"soundDefault4",0.125,"soundDefault5",0.125,"soundDefault6",0.125,"soundDefault7",0.125,"soundDefault8",0.125};
-		hitMetal[] = {"soundMetal1",0.125,"soundMetal2",0.125,"soundMetal3",0.125,"soundMetal4",0.125,"soundMetal5",0.125,"soundMetal6",0.125,"soundMetal7",0.125,"soundMetal8",0.125};
-		hitMetalplate[] = {"soundVehiclePlate1",0.125,"soundVehiclePlate2",0.125,"soundVehiclePlate3",0.125,"soundVehiclePlate4",0.125,"soundVehiclePlate5",0.125,"soundVehiclePlate6",0.125,"soundVehiclePlate7",0.125,"soundVehiclePlate8",0.125};
-		hitWater[] = {"soundWater1",0.125,"soundWater2",0.125,"soundWater3",0.125,"soundWater4",0.125,"soundWater5",0.125,"soundWater6",0.125,"soundWater7",0.125,"soundWater8",0.125};
-		soundSetBulletFly[] = {"bulletFlyBy_SoundSet"};
-		soundSetSuperSonic[] = {"SuperSonicCrack_SoundSet","SuperSonicCrackTail_SoundSet"};
-		cartridge = "FxCartridge_556";
-		cost = 0.7;
-		timeToLive = 6;
-		deflecting = 10;
-		tracerStartTime = -1;
-		muzzleEffect = "BIS_Effects_Rifle";
-		maxLeadSpeed = 23;
-		typicalSpeed = 900;
-		initSpeed = 900;
+		scope=0;
+		hit=8;
+		indirectHit=0;
+		indirectHitRange=0;
+		model="\dz\weapons\projectiles\empty.p3d";
+		soundFly[]=
+		{
+			"",
+			9.9999973e-09,
+			1
+		};
+		soundSnow1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_01",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_02",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_03",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_04",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_05",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_06",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_07",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_08",
+			0.60000002,
+			1,
+			40
+		};
+		soundIce1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_01",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_02",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_03",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_04",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_05",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_06",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_07",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_08",
+			0.60000002,
+			1,
+			60
+		};
+		soundDefault1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_1",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_2",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_3",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_4",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_5",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_6",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_7",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_8",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_1",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_2",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_3",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_4",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_5",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_6",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_7",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_8",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundHard1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundMetal1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_1",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_2",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_3",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_4",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_5",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_6",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_7",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_8",
+			0.60000002,
+			1,
+			80
+		};
+		soundGlass1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_1",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_2",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_3",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_4",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_5",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_6",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_7",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_8",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_1",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_2",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_3",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_4",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_5",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_6",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_7",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_8",
+			0.60000002,
+			1,
+			70
+		};
+		soundVehiclePlate1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_1",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_2",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_3",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_4",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_5",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_6",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_7",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_8",
+			0.60000002,
+			1,
+			80
+		};
+		soundWood1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_1",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_2",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_3",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_4",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_5",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_6",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_7",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_8",
+			0.69999999,
+			1,
+			60
+		};
+		soundHitBody1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_1",
+			1,
+			1,
+			20
+		};
+		soundHitBody2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_2",
+			1,
+			1,
+			20
+		};
+		soundHitBody3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_3",
+			1,
+			1,
+			20
+		};
+		soundHitBody4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_4",
+			1,
+			1,
+			20
+		};
+		soundHitBody5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_5",
+			1,
+			1,
+			20
+		};
+		soundHitBody6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_6",
+			1,
+			1,
+			20
+		};
+		soundHitBody7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_7",
+			1,
+			1,
+			20
+		};
+		soundHitBody8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_8",
+			1,
+			1,
+			20
+		};
+		soundHitBuilding1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitFoliage1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_1",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_2",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_3",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_4",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_5",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_6",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_7",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_8",
+			1,
+			1,
+			40
+		};
+		soundPlastic1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundRubber1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_1",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_2",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_3",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_4",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_5",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_6",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_7",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_8",
+			0.60000002,
+			1,
+			40
+		};
+		soundWater1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_1",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_2",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_3",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_4",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_5",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_6",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_7",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_8",
+			0.60000002,
+			1,
+			50
+		};
+		hitSnow[]=
+		{
+			"soundSnow1",
+			0.125,
+			"soundSnow2",
+			0.125,
+			"soundSnow3",
+			0.125,
+			"soundSnow4",
+			0.125,
+			"soundSnow5",
+			0.125,
+			"soundSnow6",
+			0.125,
+			"soundSnow7",
+			0.125,
+			"soundSnow8",
+			0.125
+		};
+		hitIce[]=
+		{
+			"soundIce1",
+			0.125,
+			"soundIce2",
+			0.125,
+			"soundIce3",
+			0.125,
+			"soundIce4",
+			0.125,
+			"soundIce5",
+			0.125,
+			"soundIce6",
+			0.125,
+			"soundIce7",
+			0.125,
+			"soundIce8",
+			0.125
+		};
+		hitGroundSoft[]=
+		{
+			"soundGroundSoft1",
+			0.125,
+			"soundGroundSoft2",
+			0.125,
+			"soundGroundSoft3",
+			0.125,
+			"soundGroundSoft4",
+			0.125,
+			"soundGroundSoft5",
+			0.125,
+			"soundGroundSoft6",
+			0.125,
+			"soundGroundSoft7",
+			0.125,
+			"soundGroundSoft8",
+			0.125
+		};
+		hitGroundHard[]=
+		{
+			"soundGroundHard1",
+			0.125,
+			"soundGroundHard2",
+			0.125,
+			"soundGroundHard3",
+			0.125,
+			"soundGroundHard4",
+			0.125,
+			"soundGroundHard5",
+			0.125,
+			"soundGroundHard6",
+			0.125,
+			"soundGroundHard7",
+			0.125,
+			"soundGroundHard8",
+			0.125
+		};
+		hitMan[]=
+		{
+			"soundHitBody1",
+			0.125,
+			"soundHitBody2",
+			0.125,
+			"soundHitBody3",
+			0.125,
+			"soundHitBody4",
+			0.125,
+			"soundHitBody5",
+			0.125,
+			"soundHitBody6",
+			0.125,
+			"soundHitBody7",
+			0.125,
+			"soundHitBody8",
+			0.125
+		};
+		hitArmor[]=
+		{
+			"soundVehiclePlate1",
+			0.125,
+			"soundVehiclePlate2",
+			0.125,
+			"soundVehiclePlate3",
+			0.125,
+			"soundVehiclePlate4",
+			0.125,
+			"soundVehiclePlate5",
+			0.125,
+			"soundVehiclePlate6",
+			0.125,
+			"soundVehiclePlate7",
+			0.125,
+			"soundVehiclePlate8",
+			0.125
+		};
+		hitBuilding[]=
+		{
+			"soundHitBuilding1",
+			0.125,
+			"soundHitBuilding2",
+			0.125,
+			"soundHitBuilding3",
+			0.125,
+			"soundHitBuilding4",
+			0.125,
+			"soundHitBuilding5",
+			0.125,
+			"soundHitBuilding6",
+			0.125,
+			"soundHitBuilding7",
+			0.125,
+			"soundHitBuilding8",
+			0.125
+		};
+		hitFoliage[]=
+		{
+			"soundHitFoliage1",
+			0.125,
+			"soundHitFoliage2",
+			0.125,
+			"soundHitFoliage3",
+			0.125,
+			"soundHitFoliage4",
+			0.125,
+			"soundHitFoliage5",
+			0.125,
+			"soundHitFoliage6",
+			0.125,
+			"soundHitFoliage7",
+			0.125,
+			"soundHitFoliage8",
+			0.125
+		};
+		hitWood[]=
+		{
+			"soundWood1",
+			0.125,
+			"soundWood2",
+			0.125,
+			"soundWood3",
+			0.125,
+			"soundWood4",
+			0.125,
+			"soundWood5",
+			0.125,
+			"soundWood6",
+			0.125,
+			"soundWood7",
+			0.125,
+			"soundWood8",
+			0.125
+		};
+		hitGlass[]=
+		{
+			"soundGlass1",
+			0.125,
+			"soundGlass2",
+			0.125,
+			"soundGlass3",
+			0.125,
+			"soundGlass4",
+			0.125,
+			"soundGlass5",
+			0.125,
+			"soundGlass6",
+			0.125,
+			"soundGlass7",
+			0.125,
+			"soundGlass8",
+			0.125
+		};
+		hitGlassArmored[]=
+		{
+			"soundGlassArmored1",
+			0.125,
+			"soundGlassArmored2",
+			0.125,
+			"soundGlassArmored3",
+			0.125,
+			"soundGlassArmored4",
+			0.125,
+			"soundGlassArmored5",
+			0.125,
+			"soundGlassArmored6",
+			0.125,
+			"soundGlassArmored7",
+			0.125,
+			"soundGlassArmored8",
+			0.125
+		};
+		hitConcrete[]=
+		{
+			"soundConcrete1",
+			0.125,
+			"soundConcrete2",
+			0.125,
+			"soundConcrete3",
+			0.125,
+			"soundConcrete4",
+			0.125,
+			"soundConcrete5",
+			0.125,
+			"soundConcrete6",
+			0.125,
+			"soundConcrete7",
+			0.125,
+			"soundConcrete8",
+			0.125
+		};
+		hitRubber[]=
+		{
+			"soundRubber1",
+			0.25,
+			"soundRubber2",
+			0.25,
+			"soundRubber3",
+			0.25,
+			"soundRubber4",
+			0.25
+		};
+		hitPlastic[]=
+		{
+			"soundPlastic1",
+			0.125,
+			"soundPlastic2",
+			0.125,
+			"soundPlastic3",
+			0.125,
+			"soundPlastic4",
+			0.125,
+			"soundPlastic5",
+			0.125,
+			"soundPlastic6",
+			0.125,
+			"soundPlastic7",
+			0.125,
+			"soundPlastic8",
+			0.125
+		};
+		hitDefault[]=
+		{
+			"soundDefault1",
+			0.125,
+			"soundDefault2",
+			0.125,
+			"soundDefault3",
+			0.125,
+			"soundDefault4",
+			0.125,
+			"soundDefault5",
+			0.125,
+			"soundDefault6",
+			0.125,
+			"soundDefault7",
+			0.125,
+			"soundDefault8",
+			0.125
+		};
+		hitMetal[]=
+		{
+			"soundMetal1",
+			0.125,
+			"soundMetal2",
+			0.125,
+			"soundMetal3",
+			0.125,
+			"soundMetal4",
+			0.125,
+			"soundMetal5",
+			0.125,
+			"soundMetal6",
+			0.125,
+			"soundMetal7",
+			0.125,
+			"soundMetal8",
+			0.125
+		};
+		hitMetalplate[]=
+		{
+			"soundVehiclePlate1",
+			0.125,
+			"soundVehiclePlate2",
+			0.125,
+			"soundVehiclePlate3",
+			0.125,
+			"soundVehiclePlate4",
+			0.125,
+			"soundVehiclePlate5",
+			0.125,
+			"soundVehiclePlate6",
+			0.125,
+			"soundVehiclePlate7",
+			0.125,
+			"soundVehiclePlate8",
+			0.125
+		};
+		hitWater[]=
+		{
+			"soundWater1",
+			0.125,
+			"soundWater2",
+			0.125,
+			"soundWater3",
+			0.125,
+			"soundWater4",
+			0.125,
+			"soundWater5",
+			0.125,
+			"soundWater6",
+			0.125,
+			"soundWater7",
+			0.125,
+			"soundWater8",
+			0.125
+		};
+		soundSetBulletFly[]=
+		{
+			"bulletFlyBy_SoundSet"
+		};
+		soundSetSuperSonic[]=
+		{
+			"SuperSonicCrack_SoundSet",
+			"SuperSonicCrackTail_SoundSet"
+		};
+		class SoundSetsGroundHits
+		{
+			default[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			sakhal_snow[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			sakhal_snow_forest[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			sakhal_ice_sea[]=
+			{
+				"Shell_39mm_dirt_SoundSet"
+			};
+			sakhal_ice_lake[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			sakhal_grass_brown[]=
+			{
+				"Shell_39mm_grass_SoundSet"
+			};
+			sakhal_grass_green[]=
+			{
+				"Shell_39mm_grass_SoundSet"
+			};
+			sakhal_forest_birch[]=
+			{
+				"Shell_39mm_grass_SoundSet"
+			};
+			sakhal_forest_spruce[]=
+			{
+				"Shell_39mm_grass_SoundSet"
+			};
+			sakhal_volcanic_red[]=
+			{
+				"Shell_39mm_gravel_SoundSet"
+			};
+			sakhal_volcanic_yellow[]=
+			{
+				"Shell_39mm_gravel_SoundSet"
+			};
+			sakhal_beach[]=
+			{
+				"Shell_39mm_dirt_SoundSet"
+			};
+			sakhal_hotwater[]=
+			{
+				"Shell_39mm_water_SoundSet"
+			};
+			asphalt_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			asphalt_destroyed_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			asphalt_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			asphalt_destroyed_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			asphalt_felt[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			asphalt_felt_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			cp_broadleaf_dense1[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_broadleaf_dense2[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_broadleaf_sparse1[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_broadleaf_sparse2[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_conifer_common1[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_conifer_common2[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_conifer_moss1[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_conifer_moss2[]=
+			{
+				"Shell_39mm_leaves_SoundSet"
+			};
+			cp_concrete1[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			cp_concrete2[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			concrete_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			concrete_stairs_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			concrete_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			concrete_stairs[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			ceramic_tiles_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			ceramic_tiles_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			ceramic_tiles_roof_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			ceramic_tiles_roof_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			cp_dirt[]=
+			{
+				"Shell_39mm_dirt_SoundSet"
+			};
+			dirt_ext[]=
+			{
+				"Shell_39mm_dirt_SoundSet"
+			};
+			dirt_int[]=
+			{
+				"Shell_39mm_dirt_int_SoundSet"
+			};
+			cp_grass[]=
+			{
+				"Shell_39mm_grass_SoundSet"
+			};
+			grass_dry_ext[]=
+			{
+				"Shell_39mm_grass_SoundSet"
+			};
+			grass_dry_int[]=
+			{
+				"Shell_39mm_grass_int_SoundSet"
+			};
+			cp_grass_tall[]=
+			{
+				"Shell_39mm_grass_SoundSet"
+			};
+			cp_gravel[]=
+			{
+				"Shell_39mm_gravel_SoundSet"
+			};
+			gravel_small_ext[]=
+			{
+				"Shell_39mm_gravel_SoundSet"
+			};
+			gravel_small_int[]=
+			{
+				"Shell_39mm_gravel_int_SoundSet"
+			};
+			gravel_large_ext[]=
+			{
+				"Shell_39mm_gravel_SoundSet"
+			};
+			gravel_large_int[]=
+			{
+				"Shell_39mm_gravel_int_SoundSet"
+			};
+			lino_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			lino_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			metal_thick_ext[]=
+			{
+				"Shell_39mm_metal_SoundSet"
+			};
+			metal_stairs_ext[]=
+			{
+				"Shell_39mm_metal_SoundSet"
+			};
+			metal_thick_int[]=
+			{
+				"Shell_39mm_metal_int_SoundSet"
+			};
+			metal_thin_ext[]=
+			{
+				"Shell_39mm_metal_SoundSet"
+			};
+			metal_thin_int[]=
+			{
+				"Shell_39mm_metal_int_SoundSet"
+			};
+			metal_thin_mesh_ext[]=
+			{
+				"Shell_39mm_metal_SoundSet"
+			};
+			metal_thin_mesh_int[]=
+			{
+				"Shell_39mm_metal_int_SoundSet"
+			};
+			cp_rock[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			rubble_large_ext[]=
+			{
+				"Shell_39mm_gravel_SoundSet"
+			};
+			rubble_large_int[]=
+			{
+				"Shell_39mm_gravel_int_SoundSet"
+			};
+			rubble_small_ext[]=
+			{
+				"Shell_39mm_gravel_SoundSet"
+			};
+			rubble_small_int[]=
+			{
+				"Shell_39mm_gravel_int_SoundSet"
+			};
+			sand_ext[]=
+			{
+				"Shell_39mm_sand_SoundSet"
+			};
+			sand_int[]=
+			{
+				"Shell_39mm_sand_int_SoundSet"
+			};
+			stone_ext[]=
+			{
+				"Shell_39mm_sand_SoundSet"
+			};
+			stone_int[]=
+			{
+				"Shell_39mm_sand_int_SoundSet"
+			};
+			textile_carpet_ext[]=
+			{
+				"Shell_39mm_carpet_SoundSet"
+			};
+			textile_carpet_int[]=
+			{
+				"Shell_39mm_carpet_int_SoundSet"
+			};
+			trash_ext[]=
+			{
+				"Shell_39mm_default_SoundSet"
+			};
+			trash_int[]=
+			{
+				"Shell_39mm_default_int_SoundSet"
+			};
+			wood_parquet_ext[]=
+			{
+				"Shell_39mm_wood_SoundSet"
+			};
+			wood_parquet_int[]=
+			{
+				"Shell_39mm_wood_int_SoundSet"
+			};
+			wood_planks_ext[]=
+			{
+				"Shell_39mm_wood_SoundSet"
+			};
+			wood_planks_stairs_ext[]=
+			{
+				"Shell_39mm_wood_SoundSet"
+			};
+			wood_planks_int[]=
+			{
+				"Shell_39mm_wood_int_SoundSet"
+			};
+			wood_planks_stairs_int[]=
+			{
+				"Shell_39mm_wood_int_SoundSet"
+			};
+			fresh_water_ext[]=
+			{
+				"Shell_39mm_water_SoundSet"
+			};
+			fresh_water_int[]=
+			{
+				"Shell_39mm_water_int_SoundSet"
+			};
+			water[]=
+			{
+				"Shell_39mm_water_SoundSet"
+			};
+		};
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		unconRefillModifier=6;
+		casing="FxCartridge_556";
+		round="FxRound_556";
+		timeToLive=6;
+		deflecting=10;
+		tracerStartTime=-1;
+		muzzleEffect="BIS_Effects_Rifle";
+		maxLeadSpeed=23;
+		typicalSpeed=900;
+		initSpeed=900;
+		damageBarrel=100;
+		damageBarrelDestroyed=100;
+		weight=0.015;
+		impactBehaviour=0;
+		SimulationScriptClass="";
+		dmgPerUse=0;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 99;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=99;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 		class DamageSystem
 		{
@@ -208,161 +1690,1686 @@ class CfgAmmo
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							{}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							{}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							{}
+						}
+					};
 				};
 			};
 		};
 	};
 	class Shotgun_Base: ShotgunCore
 	{
-		scope = 0;
-		waterEffectOffset = -0.8;
-		soundDefault1[] = {"dz\sounds\weapons\hits\bullet\soft_ground_1",0.75,1,40};
-		soundDefault2[] = {"dz\sounds\weapons\hits\bullet\soft_ground_2",0.75,1,40};
-		soundDefault3[] = {"dz\sounds\weapons\hits\bullet\soft_ground_3",0.75,1,40};
-		soundDefault4[] = {"dz\sounds\weapons\hits\bullet\soft_ground_4",0.75,1,40};
-		soundDefault5[] = {"dz\sounds\weapons\hits\bullet\soft_ground_5",0.75,1,40};
-		soundDefault6[] = {"dz\sounds\weapons\hits\bullet\soft_ground_6",0.75,1,40};
-		soundDefault7[] = {"dz\sounds\weapons\hits\bullet\soft_ground_7",0.75,1,40};
-		soundDefault8[] = {"dz\sounds\weapons\hits\bullet\soft_ground_8",0.75,1,40};
-		soundGroundSoft1[] = {"dz\sounds\weapons\hits\bullet\soft_ground_1",0.75,1,40};
-		soundGroundSoft2[] = {"dz\sounds\weapons\hits\bullet\soft_ground_2",0.75,1,40};
-		soundGroundSoft3[] = {"dz\sounds\weapons\hits\bullet\soft_ground_3",0.75,1,40};
-		soundGroundSoft4[] = {"dz\sounds\weapons\hits\bullet\soft_ground_4",0.75,1,40};
-		soundGroundSoft5[] = {"dz\sounds\weapons\hits\bullet\soft_ground_5",0.75,1,40};
-		soundGroundSoft6[] = {"dz\sounds\weapons\hits\bullet\soft_ground_6",0.75,1,40};
-		soundGroundSoft7[] = {"dz\sounds\weapons\hits\bullet\soft_ground_7",0.75,1,40};
-		soundGroundSoft8[] = {"dz\sounds\weapons\hits\bullet\soft_ground_8",0.75,1,40};
-		soundGroundHard1[] = {"dz\sounds\weapons\hits\bullet\hard_ground_1",0.75,1,40};
-		soundGroundHard2[] = {"dz\sounds\weapons\hits\bullet\hard_ground_2",0.75,1,40};
-		soundGroundHard3[] = {"dz\sounds\weapons\hits\bullet\hard_ground_3",0.75,1,40};
-		soundGroundHard4[] = {"dz\sounds\weapons\hits\bullet\hard_ground_4",0.75,1,40};
-		soundGroundHard5[] = {"dz\sounds\weapons\hits\bullet\hard_ground_5",0.75,1,40};
-		soundGroundHard6[] = {"dz\sounds\weapons\hits\bullet\hard_ground_6",0.75,1,40};
-		soundGroundHard7[] = {"dz\sounds\weapons\hits\bullet\hard_ground_7",0.75,1,40};
-		soundGroundHard8[] = {"dz\sounds\weapons\hits\bullet\hard_ground_8",0.75,1,40};
-		soundMetal1[] = {"dz\sounds\weapons\hits\bullet\metal_1",0.75,1,40};
-		soundMetal2[] = {"dz\sounds\weapons\hits\bullet\metal_2",0.75,1,40};
-		soundMetal3[] = {"dz\sounds\weapons\hits\bullet\metal_3",0.75,1,40};
-		soundMetal4[] = {"dz\sounds\weapons\hits\bullet\metal_4",0.75,1,40};
-		soundMetal5[] = {"dz\sounds\weapons\hits\bullet\metal_5",0.75,1,40};
-		soundMetal6[] = {"dz\sounds\weapons\hits\bullet\metal_6",0.75,1,40};
-		soundMetal7[] = {"dz\sounds\weapons\hits\bullet\metal_7",0.75,1,40};
-		soundMetal8[] = {"dz\sounds\weapons\hits\bullet\metal_8",0.75,1,40};
-		soundGlass1[] = {"dz\sounds\weapons\hits\bullet\glass_1",0.75,1,40};
-		soundGlass2[] = {"dz\sounds\weapons\hits\bullet\glass_2",0.75,1,40};
-		soundGlass3[] = {"dz\sounds\weapons\hits\bullet\glass_3",0.75,1,40};
-		soundGlass4[] = {"dz\sounds\weapons\hits\bullet\glass_4",0.75,1,40};
-		soundGlass5[] = {"dz\sounds\weapons\hits\bullet\glass_5",0.75,1,40};
-		soundGlass6[] = {"dz\sounds\weapons\hits\bullet\glass_6",0.75,1,40};
-		soundGlass7[] = {"dz\sounds\weapons\hits\bullet\glass_7",0.75,1,40};
-		soundGlass8[] = {"dz\sounds\weapons\hits\bullet\glass_8",0.75,1,40};
-		soundGlassArmored1[] = {"dz\sounds\weapons\hits\bullet\glass_arm_1",0.75,1,40};
-		soundGlassArmored2[] = {"dz\sounds\weapons\hits\bullet\glass_arm_2",0.75,1,40};
-		soundGlassArmored3[] = {"dz\sounds\weapons\hits\bullet\glass_arm_3",0.75,1,40};
-		soundGlassArmored4[] = {"dz\sounds\weapons\hits\bullet\glass_arm_4",0.75,1,40};
-		soundGlassArmored5[] = {"dz\sounds\weapons\hits\bullet\glass_arm_5",0.75,1,40};
-		soundGlassArmored6[] = {"dz\sounds\weapons\hits\bullet\glass_arm_6",0.75,1,40};
-		soundGlassArmored7[] = {"dz\sounds\weapons\hits\bullet\glass_arm_7",0.75,1,40};
-		soundGlassArmored8[] = {"dz\sounds\weapons\hits\bullet\glass_arm_8",0.75,1,40};
-		soundVehiclePlate1[] = {"dz\sounds\weapons\hits\bullet\metal_plate_1",0.75,1,40};
-		soundVehiclePlate2[] = {"dz\sounds\weapons\hits\bullet\metal_plate_2",0.75,1,40};
-		soundVehiclePlate3[] = {"dz\sounds\weapons\hits\bullet\metal_plate_3",0.75,1,40};
-		soundVehiclePlate4[] = {"dz\sounds\weapons\hits\bullet\metal_plate_4",0.75,1,40};
-		soundVehiclePlate5[] = {"dz\sounds\weapons\hits\bullet\metal_plate_5",0.75,1,40};
-		soundVehiclePlate6[] = {"dz\sounds\weapons\hits\bullet\metal_plate_6",0.75,1,40};
-		soundVehiclePlate7[] = {"dz\sounds\weapons\hits\bullet\metal_plate_7",0.75,1,40};
-		soundVehiclePlate8[] = {"dz\sounds\weapons\hits\bullet\metal_plate_8",0.75,1,40};
-		soundWood1[] = {"dz\sounds\weapons\hits\bullet\wood_1",0.75,1,40};
-		soundWood2[] = {"dz\sounds\weapons\hits\bullet\wood_2",0.75,1,40};
-		soundWood3[] = {"dz\sounds\weapons\hits\bullet\wood_3",0.75,1,40};
-		soundWood4[] = {"dz\sounds\weapons\hits\bullet\wood_4",0.75,1,40};
-		soundWood5[] = {"dz\sounds\weapons\hits\bullet\wood_5",0.75,1,40};
-		soundWood6[] = {"dz\sounds\weapons\hits\bullet\wood_6",0.75,1,40};
-		soundWood7[] = {"dz\sounds\weapons\hits\bullet\wood_7",0.75,1,40};
-		soundWood8[] = {"dz\sounds\weapons\hits\bullet\wood_8",0.75,1,40};
-		soundHitBody1[] = {"dz\sounds\weapons\hits\bullet\body_1",1,1,20};
-		soundHitBody2[] = {"dz\sounds\weapons\hits\bullet\body_2",1,1,20};
-		soundHitBody3[] = {"dz\sounds\weapons\hits\bullet\body_3",1,1,20};
-		soundHitBody4[] = {"dz\sounds\weapons\hits\bullet\body_4",1,1,20};
-		soundHitBody5[] = {"dz\sounds\weapons\hits\bullet\body_5",1,1,20};
-		soundHitBody6[] = {"dz\sounds\weapons\hits\bullet\body_6",1,1,20};
-		soundHitBody7[] = {"dz\sounds\weapons\hits\bullet\body_7",1,1,20};
-		soundHitBody8[] = {"dz\sounds\weapons\hits\bullet\body_8",1,1,20};
-		soundHitBuilding1[] = {"dz\sounds\weapons\hits\bullet\building_1",0.75,1,40};
-		soundHitBuilding2[] = {"dz\sounds\weapons\hits\bullet\building_2",0.75,1,40};
-		soundHitBuilding3[] = {"dz\sounds\weapons\hits\bullet\building_3",0.75,1,40};
-		soundHitBuilding4[] = {"dz\sounds\weapons\hits\bullet\building_4",0.75,1,40};
-		soundHitBuilding5[] = {"dz\sounds\weapons\hits\bullet\building_5",0.75,1,40};
-		soundHitBuilding6[] = {"dz\sounds\weapons\hits\bullet\building_6",0.75,1,40};
-		soundHitBuilding7[] = {"dz\sounds\weapons\hits\bullet\building_7",0.75,1,40};
-		soundHitBuilding8[] = {"dz\sounds\weapons\hits\bullet\building_8",0.75,1,40};
-		soundHitFoliage1[] = {"dz\sounds\weapons\hits\bullet\foliage_1",1,1,20};
-		soundHitFoliage2[] = {"dz\sounds\weapons\hits\bullet\foliage_2",1,1,20};
-		soundHitFoliage3[] = {"dz\sounds\weapons\hits\bullet\foliage_3",1,1,20};
-		soundHitFoliage4[] = {"dz\sounds\weapons\hits\bullet\foliage_4",1,1,20};
-		soundHitFoliage5[] = {"dz\sounds\weapons\hits\bullet\foliage_5",1,1,20};
-		soundHitFoliage6[] = {"dz\sounds\weapons\hits\bullet\foliage_6",1,1,20};
-		soundHitFoliage7[] = {"dz\sounds\weapons\hits\bullet\foliage_7",1,1,20};
-		soundHitFoliage8[] = {"dz\sounds\weapons\hits\bullet\foliage_8",1,1,20};
-		soundPlastic1[] = {"dz\sounds\weapons\hits\bullet\plastic_1",0.75,1,40};
-		soundPlastic2[] = {"dz\sounds\weapons\hits\bullet\plastic_2",0.75,1,40};
-		soundPlastic3[] = {"dz\sounds\weapons\hits\bullet\plastic_3",0.75,1,40};
-		soundPlastic4[] = {"dz\sounds\weapons\hits\bullet\plastic_4",0.75,1,40};
-		soundPlastic5[] = {"dz\sounds\weapons\hits\bullet\plastic_5",0.75,1,40};
-		soundPlastic6[] = {"dz\sounds\weapons\hits\bullet\plastic_6",0.75,1,40};
-		soundPlastic7[] = {"dz\sounds\weapons\hits\bullet\plastic_7",0.75,1,40};
-		soundPlastic8[] = {"dz\sounds\weapons\hits\bullet\plastic_8",0.75,1,40};
-		soundConcrete1[] = {"dz\sounds\weapons\hits\bullet\concrete_1",0.75,1,40};
-		soundConcrete2[] = {"dz\sounds\weapons\hits\bullet\concrete_2",0.75,1,40};
-		soundConcrete3[] = {"dz\sounds\weapons\hits\bullet\concrete_3",0.75,1,40};
-		soundConcrete4[] = {"dz\sounds\weapons\hits\bullet\concrete_4",0.75,1,40};
-		soundConcrete5[] = {"dz\sounds\weapons\hits\bullet\concrete_5",0.75,1,40};
-		soundConcrete6[] = {"dz\sounds\weapons\hits\bullet\concrete_6",0.75,1,40};
-		soundConcrete7[] = {"dz\sounds\weapons\hits\bullet\concrete_7",0.75,1,40};
-		soundConcrete8[] = {"dz\sounds\weapons\hits\bullet\concrete_8",0.75,1,40};
-		soundRubber1[] = {"dz\sounds\weapons\hits\bullet\tyre_1",0.75,1,40};
-		soundRubber2[] = {"dz\sounds\weapons\hits\bullet\tyre_2",0.75,1,40};
-		soundRubber3[] = {"dz\sounds\weapons\hits\bullet\tyre_3",0.75,1,40};
-		soundRubber4[] = {"dz\sounds\weapons\hits\bullet\tyre_4",0.75,1,40};
-		soundRubber5[] = {"dz\sounds\weapons\hits\bullet\tyre_5",0.75,1,40};
-		soundRubber6[] = {"dz\sounds\weapons\hits\bullet\tyre_6",0.75,1,40};
-		soundRubber7[] = {"dz\sounds\weapons\hits\bullet\tyre_7",0.75,1,40};
-		soundRubber8[] = {"dz\sounds\weapons\hits\bullet\tyre_8",0.75,1,40};
-		soundWater1[] = {"dz\sounds\weapons\hits\bullet\water_1",0.75,1,40};
-		soundWater2[] = {"dz\sounds\weapons\hits\bullet\water_2",0.75,1,40};
-		soundWater3[] = {"dz\sounds\weapons\hits\bullet\water_3",0.75,1,40};
-		soundWater4[] = {"dz\sounds\weapons\hits\bullet\water_4",0.75,1,40};
-		soundWater5[] = {"dz\sounds\weapons\hits\bullet\water_5",0.75,1,40};
-		soundWater6[] = {"dz\sounds\weapons\hits\bullet\water_6",0.75,1,40};
-		soundWater7[] = {"dz\sounds\weapons\hits\bullet\water_7",0.75,1,40};
-		soundWater8[] = {"dz\sounds\weapons\hits\bullet\water_8",0.75,1,40};
-		hitGroundSoft[] = {"soundGroundSoft1",0.125,"soundGroundSoft2",0.125,"soundGroundSoft3",0.125,"soundGroundSoft4",0.125,"soundGroundSoft5",0.125,"soundGroundSoft6",0.125,"soundGroundSoft7",0.125,"soundGroundSoft8",0.125};
-		hitGroundHard[] = {"soundGroundHard1",0.125,"soundGroundHard2",0.125,"soundGroundHard3",0.125,"soundGroundHard4",0.125,"soundGroundHard5",0.125,"soundGroundHard6",0.125,"soundGroundHard7",0.125,"soundGroundHard8",0.125};
-		hitMan[] = {"soundHitBody1",0.125,"soundHitBody2",0.125,"soundHitBody3",0.125,"soundHitBody4",0.125,"soundHitBody5",0.125,"soundHitBody6",0.125,"soundHitBody7",0.125,"soundHitBody8",0.125};
-		hitArmor[] = {"soundVehiclePlate1",0.125,"soundVehiclePlate2",0.125,"soundVehiclePlate3",0.125,"soundVehiclePlate4",0.125,"soundVehiclePlate5",0.125,"soundVehiclePlate6",0.125,"soundVehiclePlate7",0.125,"soundVehiclePlate8",0.125};
-		hitBuilding[] = {"soundHitBuilding1",0.125,"soundHitBuilding2",0.125,"soundHitBuilding3",0.125,"soundHitBuilding4",0.125,"soundHitBuilding5",0.125,"soundHitBuilding6",0.125,"soundHitBuilding7",0.125,"soundHitBuilding8",0.125};
-		hitFoliage[] = {"soundHitFoliage1",0.125,"soundHitFoliage2",0.125,"soundHitFoliage3",0.125,"soundHitFoliage4",0.125,"soundHitFoliage5",0.125,"soundHitFoliage6",0.125,"soundHitFoliage7",0.125,"soundHitFoliage8",0.125};
-		hitWood[] = {"soundWood1",0.125,"soundWood2",0.125,"soundWood3",0.125,"soundWood4",0.125,"soundWood5",0.125,"soundWood6",0.125,"soundWood7",0.125,"soundWood8",0.125};
-		hitGlass[] = {"soundGlass1",0.125,"soundGlass2",0.125,"soundGlass3",0.125,"soundGlass4",0.125,"soundGlass5",0.125,"soundGlass6",0.125,"soundGlass7",0.125,"soundGlass8",0.125};
-		hitGlassArmored[] = {"soundGlassArmored1",0.125,"soundGlassArmored2",0.125,"soundGlassArmored3",0.125,"soundGlassArmored4",0.125,"soundGlassArmored5",0.125,"soundGlassArmored6",0.125,"soundGlassArmored7",0.125,"soundGlassArmored8",0.125};
-		hitConcrete[] = {"soundConcrete1",0.125,"soundConcrete2",0.125,"soundConcrete3",0.125,"soundConcrete4",0.125,"soundConcrete5",0.125,"soundConcrete6",0.125,"soundConcrete7",0.125,"soundConcrete8",0.125};
-		hitRubber[] = {"soundRubber1",0.25,"soundRubber2",0.25,"soundRubber3",0.25,"soundRubber4",0.25};
-		hitPlastic[] = {"soundPlastic1",0.125,"soundPlastic2",0.125,"soundPlastic3",0.125,"soundPlastic4",0.125,"soundPlastic5",0.125,"soundPlastic6",0.125,"soundPlastic7",0.125,"soundPlastic8",0.125};
-		hitDefault[] = {"soundDefault1",0.125,"soundDefault2",0.125,"soundDefault3",0.125,"soundDefault4",0.125,"soundDefault5",0.125,"soundDefault6",0.125,"soundDefault7",0.125,"soundDefault8",0.125};
-		hitMetal[] = {"soundMetal1",0.125,"soundMetal2",0.125,"soundMetal3",0.125,"soundMetal4",0.125,"soundMetal5",0.125,"soundMetal6",0.125,"soundMetal7",0.125,"soundMetal8",0.125};
-		hitMetalplate[] = {"soundVehiclePlate1",0.125,"soundVehiclePlate2",0.125,"soundVehiclePlate3",0.125,"soundVehiclePlate4",0.125,"soundVehiclePlate5",0.125,"soundVehiclePlate6",0.125,"soundVehiclePlate7",0.125,"soundVehiclePlate8",0.125};
-		hitWater[] = {"soundWater1",0.125,"soundWater2",0.125,"soundWater3",0.125,"soundWater4",0.125,"soundWater5",0.125,"soundWater6",0.125,"soundWater7",0.125,"soundWater8",0.125};
-		soundSetBulletFly[] = {"bulletFlyBy_SoundSet"};
+		scope=0;
+		model="\dz\weapons\projectiles\empty.p3d";
+		waterEffectOffset=-0.80000001;
+		soundSnow1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_01",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_02",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_03",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_04",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_05",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_06",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_07",
+			0.60000002,
+			1,
+			40
+		};
+		soundSnow8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Snow_08",
+			0.60000002,
+			1,
+			40
+		};
+		soundIce1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_01",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_02",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_03",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_04",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_05",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_06",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_07",
+			0.60000002,
+			1,
+			60
+		};
+		soundIce8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\Ice_08",
+			0.60000002,
+			1,
+			60
+		};
+		soundDefault1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_1",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_2",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_3",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_4",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_5",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_6",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_7",
+			0.60000002,
+			1,
+			50
+		};
+		soundDefault8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_8",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_1",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_2",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_3",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_4",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_5",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_6",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_7",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundSoft8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\soft_ground_8",
+			0.60000002,
+			1,
+			50
+		};
+		soundGroundHard1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundGroundHard8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\hard_ground_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundMetal1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_1",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_2",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_3",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_4",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_5",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_6",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_7",
+			0.60000002,
+			1,
+			80
+		};
+		soundMetal8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_8",
+			0.60000002,
+			1,
+			80
+		};
+		soundGlass1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_1",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_2",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_3",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_4",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_5",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_6",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_7",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlass8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_8",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_1",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_2",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_3",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_4",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_5",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_6",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_7",
+			0.60000002,
+			1,
+			70
+		};
+		soundGlassArmored8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\glass_arm_8",
+			0.60000002,
+			1,
+			70
+		};
+		soundVehiclePlate1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_1",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_2",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_3",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_4",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_5",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_6",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_7",
+			0.60000002,
+			1,
+			80
+		};
+		soundVehiclePlate8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\metal_plate_8",
+			0.60000002,
+			1,
+			80
+		};
+		soundWood1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_1",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_2",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_3",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_4",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_5",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_6",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_7",
+			0.69999999,
+			1,
+			60
+		};
+		soundWood8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\wood_8",
+			0.69999999,
+			1,
+			60
+		};
+		soundHitBody1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_1",
+			1,
+			1,
+			20
+		};
+		soundHitBody2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_2",
+			1,
+			1,
+			20
+		};
+		soundHitBody3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_3",
+			1,
+			1,
+			20
+		};
+		soundHitBody4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_4",
+			1,
+			1,
+			20
+		};
+		soundHitBody5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_5",
+			1,
+			1,
+			20
+		};
+		soundHitBody6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_6",
+			1,
+			1,
+			20
+		};
+		soundHitBody7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_7",
+			1,
+			1,
+			20
+		};
+		soundHitBody8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\body_8",
+			1,
+			1,
+			20
+		};
+		soundHitBuilding1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitBuilding8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\building_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundHitFoliage1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_1",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_2",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_3",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_4",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_5",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_6",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_7",
+			1,
+			1,
+			40
+		};
+		soundHitFoliage8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\foliage_8",
+			1,
+			1,
+			40
+		};
+		soundPlastic1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundPlastic8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\plastic_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_1",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_2",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_3",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_4",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_5",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_6",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_7",
+			0.60000002,
+			1,
+			60
+		};
+		soundConcrete8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\concrete_8",
+			0.60000002,
+			1,
+			60
+		};
+		soundRubber1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_1",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_2",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_3",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_4",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_5",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_6",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_7",
+			0.60000002,
+			1,
+			40
+		};
+		soundRubber8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\tyre_8",
+			0.60000002,
+			1,
+			40
+		};
+		soundWater1[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_1",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater2[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_2",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater3[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_3",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater4[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_4",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater5[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_5",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater6[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_6",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater7[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_7",
+			0.60000002,
+			1,
+			50
+		};
+		soundWater8[]=
+		{
+			"dz\sounds\weapons\hits\bullet\water_8",
+			0.60000002,
+			1,
+			50
+		};
+		hitSnow[]=
+		{
+			"soundSnow1",
+			0.125,
+			"soundSnow2",
+			0.125,
+			"soundSnow3",
+			0.125,
+			"soundSnow4",
+			0.125,
+			"soundSnow5",
+			0.125,
+			"soundSnow6",
+			0.125,
+			"soundSnow7",
+			0.125,
+			"soundSnow8",
+			0.125
+		};
+		hitIce[]=
+		{
+			"soundIce1",
+			0.125,
+			"soundIce2",
+			0.125,
+			"soundIce3",
+			0.125,
+			"soundIce4",
+			0.125,
+			"soundIce5",
+			0.125,
+			"soundIce6",
+			0.125,
+			"soundIce7",
+			0.125,
+			"soundIce8",
+			0.125
+		};
+		hitGroundSoft[]=
+		{
+			"soundGroundSoft1",
+			0.125,
+			"soundGroundSoft2",
+			0.125,
+			"soundGroundSoft3",
+			0.125,
+			"soundGroundSoft4",
+			0.125,
+			"soundGroundSoft5",
+			0.125,
+			"soundGroundSoft6",
+			0.125,
+			"soundGroundSoft7",
+			0.125,
+			"soundGroundSoft8",
+			0.125
+		};
+		hitGroundHard[]=
+		{
+			"soundGroundHard1",
+			0.125,
+			"soundGroundHard2",
+			0.125,
+			"soundGroundHard3",
+			0.125,
+			"soundGroundHard4",
+			0.125,
+			"soundGroundHard5",
+			0.125,
+			"soundGroundHard6",
+			0.125,
+			"soundGroundHard7",
+			0.125,
+			"soundGroundHard8",
+			0.125
+		};
+		hitMan[]=
+		{
+			"soundHitBody1",
+			0.125,
+			"soundHitBody2",
+			0.125,
+			"soundHitBody3",
+			0.125,
+			"soundHitBody4",
+			0.125,
+			"soundHitBody5",
+			0.125,
+			"soundHitBody6",
+			0.125,
+			"soundHitBody7",
+			0.125,
+			"soundHitBody8",
+			0.125
+		};
+		hitArmor[]=
+		{
+			"soundVehiclePlate1",
+			0.125,
+			"soundVehiclePlate2",
+			0.125,
+			"soundVehiclePlate3",
+			0.125,
+			"soundVehiclePlate4",
+			0.125,
+			"soundVehiclePlate5",
+			0.125,
+			"soundVehiclePlate6",
+			0.125,
+			"soundVehiclePlate7",
+			0.125,
+			"soundVehiclePlate8",
+			0.125
+		};
+		hitBuilding[]=
+		{
+			"soundHitBuilding1",
+			0.125,
+			"soundHitBuilding2",
+			0.125,
+			"soundHitBuilding3",
+			0.125,
+			"soundHitBuilding4",
+			0.125,
+			"soundHitBuilding5",
+			0.125,
+			"soundHitBuilding6",
+			0.125,
+			"soundHitBuilding7",
+			0.125,
+			"soundHitBuilding8",
+			0.125
+		};
+		hitFoliage[]=
+		{
+			"soundHitFoliage1",
+			0.125,
+			"soundHitFoliage2",
+			0.125,
+			"soundHitFoliage3",
+			0.125,
+			"soundHitFoliage4",
+			0.125,
+			"soundHitFoliage5",
+			0.125,
+			"soundHitFoliage6",
+			0.125,
+			"soundHitFoliage7",
+			0.125,
+			"soundHitFoliage8",
+			0.125
+		};
+		hitWood[]=
+		{
+			"soundWood1",
+			0.125,
+			"soundWood2",
+			0.125,
+			"soundWood3",
+			0.125,
+			"soundWood4",
+			0.125,
+			"soundWood5",
+			0.125,
+			"soundWood6",
+			0.125,
+			"soundWood7",
+			0.125,
+			"soundWood8",
+			0.125
+		};
+		hitGlass[]=
+		{
+			"soundGlass1",
+			0.125,
+			"soundGlass2",
+			0.125,
+			"soundGlass3",
+			0.125,
+			"soundGlass4",
+			0.125,
+			"soundGlass5",
+			0.125,
+			"soundGlass6",
+			0.125,
+			"soundGlass7",
+			0.125,
+			"soundGlass8",
+			0.125
+		};
+		hitGlassArmored[]=
+		{
+			"soundGlassArmored1",
+			0.125,
+			"soundGlassArmored2",
+			0.125,
+			"soundGlassArmored3",
+			0.125,
+			"soundGlassArmored4",
+			0.125,
+			"soundGlassArmored5",
+			0.125,
+			"soundGlassArmored6",
+			0.125,
+			"soundGlassArmored7",
+			0.125,
+			"soundGlassArmored8",
+			0.125
+		};
+		hitConcrete[]=
+		{
+			"soundConcrete1",
+			0.125,
+			"soundConcrete2",
+			0.125,
+			"soundConcrete3",
+			0.125,
+			"soundConcrete4",
+			0.125,
+			"soundConcrete5",
+			0.125,
+			"soundConcrete6",
+			0.125,
+			"soundConcrete7",
+			0.125,
+			"soundConcrete8",
+			0.125
+		};
+		hitRubber[]=
+		{
+			"soundRubber1",
+			0.25,
+			"soundRubber2",
+			0.25,
+			"soundRubber3",
+			0.25,
+			"soundRubber4",
+			0.25
+		};
+		hitPlastic[]=
+		{
+			"soundPlastic1",
+			0.125,
+			"soundPlastic2",
+			0.125,
+			"soundPlastic3",
+			0.125,
+			"soundPlastic4",
+			0.125,
+			"soundPlastic5",
+			0.125,
+			"soundPlastic6",
+			0.125,
+			"soundPlastic7",
+			0.125,
+			"soundPlastic8",
+			0.125
+		};
+		hitDefault[]=
+		{
+			"soundDefault1",
+			0.125,
+			"soundDefault2",
+			0.125,
+			"soundDefault3",
+			0.125,
+			"soundDefault4",
+			0.125,
+			"soundDefault5",
+			0.125,
+			"soundDefault6",
+			0.125,
+			"soundDefault7",
+			0.125,
+			"soundDefault8",
+			0.125
+		};
+		hitMetal[]=
+		{
+			"soundMetal1",
+			0.125,
+			"soundMetal2",
+			0.125,
+			"soundMetal3",
+			0.125,
+			"soundMetal4",
+			0.125,
+			"soundMetal5",
+			0.125,
+			"soundMetal6",
+			0.125,
+			"soundMetal7",
+			0.125,
+			"soundMetal8",
+			0.125
+		};
+		hitMetalplate[]=
+		{
+			"soundVehiclePlate1",
+			0.125,
+			"soundVehiclePlate2",
+			0.125,
+			"soundVehiclePlate3",
+			0.125,
+			"soundVehiclePlate4",
+			0.125,
+			"soundVehiclePlate5",
+			0.125,
+			"soundVehiclePlate6",
+			0.125,
+			"soundVehiclePlate7",
+			0.125,
+			"soundVehiclePlate8",
+			0.125
+		};
+		hitWater[]=
+		{
+			"soundWater1",
+			0.125,
+			"soundWater2",
+			0.125,
+			"soundWater3",
+			0.125,
+			"soundWater4",
+			0.125,
+			"soundWater5",
+			0.125,
+			"soundWater6",
+			0.125,
+			"soundWater7",
+			0.125,
+			"soundWater8",
+			0.125
+		};
+		soundSetBulletFly[]=
+		{
+			"bulletFlyBy_SoundSet"
+		};
+		impactBehaviour=1;
+		class SoundSetsGroundHits
+		{
+			default[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			sakhal_snow[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			sakhal_snow_forest[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			sakhal_ice_sea[]=
+			{
+				"Shell_12ga_dirt_SoundSet"
+			};
+			sakhal_ice_lake[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			sakhal_grass_brown[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_grass_green[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_forest_birch[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_forest_spruce[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_volcanic_red[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			sakhal_volcanic_yellow[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			sakhal_beach[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_hotwater[]=
+			{
+				"Shell_12ga_water_SoundSet"
+			};
+			asphalt_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			asphalt_destroyed_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			asphalt_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			asphalt_destroyed_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			asphalt_felt[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			asphalt_felt_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			cp_broadleaf_dense1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_broadleaf_dense2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_broadleaf_sparse1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_broadleaf_sparse2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_common1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_common2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_moss1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_moss2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_concrete1[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			cp_concrete2[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			concrete_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			concrete_stairs_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			concrete_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			concrete_stairs[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_roof_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_roof_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			cp_dirt[]=
+			{
+				"Shell_12ga_dirt_SoundSet"
+			};
+			dirt_ext[]=
+			{
+				"Shell_12ga_dirt_SoundSet"
+			};
+			dirt_int[]=
+			{
+				"Shell_12ga_dirt_int_SoundSet"
+			};
+			cp_grass[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			grass_dry_ext[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			grass_dry_int[]=
+			{
+				"Shell_12ga_grass_int_SoundSet"
+			};
+			cp_grass_tall[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			cp_gravel[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			gravel_small_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			gravel_small_int[]=
+			{
+				"Shell_12ga_gravel_int_SoundSet"
+			};
+			gravel_large_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			gravel_large_int[]=
+			{
+				"Shell_12ga_gravel_int_SoundSet"
+			};
+			lino_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			lino_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			metal_thick_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_stairs_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_thick_int[]=
+			{
+				"Shell_12ga_metal_int_SoundSet"
+			};
+			metal_thin_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_thin_int[]=
+			{
+				"Shell_12ga_metal_int_SoundSet"
+			};
+			metal_thin_mesh_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_thin_mesh_int[]=
+			{
+				"Shell_12ga_metal_int_SoundSet"
+			};
+			cp_rock[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			rubble_large_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			rubble_large_int[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			rubble_small_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			rubble_small_int[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			sand_ext[]=
+			{
+				"Shell_12ga_sand_SoundSet"
+			};
+			sand_int[]=
+			{
+				"Shell_12ga_sand_int_SoundSet"
+			};
+			stone_ext[]=
+			{
+				"Shell_12ga_sand_SoundSet"
+			};
+			stone_int[]=
+			{
+				"Shell_12ga_sand_int_SoundSet"
+			};
+			textile_carpet_ext[]=
+			{
+				"Shell_12ga_carpet_SoundSet"
+			};
+			textile_carpet_int[]=
+			{
+				"Shell_12ga_carpet_int_SoundSet"
+			};
+			trash_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			trash_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			wood_parquet_ext[]=
+			{
+				"Shell_12ga_wood_SoundSet"
+			};
+			wood_parquet_int[]=
+			{
+				"Shell_12ga_wood_int_SoundSet"
+			};
+			wood_planks_ext[]=
+			{
+				"Shell_12ga_wood_SoundSet"
+			};
+			wood_planks_stairs_ext[]=
+			{
+				"Shell_12ga_wood_SoundSet"
+			};
+			wood_planks_int[]=
+			{
+				"Shell_12ga_wood_int_SoundSet"
+			};
+			wood_planks_stairs_int[]=
+			{
+				"Shell_12ga_wood_int_SoundSet"
+			};
+			fresh_water_ext[]=
+			{
+				"Shell_12ga_water_SoundSet"
+			};
+			fresh_water_int[]=
+			{
+				"Shell_12ga_water_int_SoundSet"
+			};
+			water_int[]=
+			{
+				"Shell_12ga_water_int_SoundSet"
+			};
+			water[]=
+			{
+				"Shell_12ga_water_int_SoundSet"
+			};
+		};
+		damageBarrel=100;
+		damageBarrelDestroyed=100;
+		unconRefillModifier=2.75;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.2;
-			Health = 99;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=99;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 		class DamageSystem
 		{
@@ -370,968 +3377,3327 @@ class CfgAmmo
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLabels[] = {1.0,0.7,0.5,0.3,0.0};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							{}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							{}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							{}
+						}
+					};
 				};
 			};
 		};
 	};
 	class Bullet_12GaugePellets: Shotgun_Base
 	{
-		scope = 2;
-		proxyShape = "\dz\weapons\projectiles\shotgunshell_pellets.p3d";
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_12Pellet";
-		spawnPileType = "Ammo_12gaPellets";
-		hit = 6;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		hitShockHead = 20000;
-		hitShock = 400;
-		hitBlood = -200;
-		hitHealth = -200;
-		bleedChance = 2;
-		cost = 5;
-		typicalSpeed = 404;
-		visibleFire = 18;
-		audibleFire = 18;
-		airFriction = -0.00096;
-		caliber = 0.5;
-		initSpeed = 404;
+		scope=1;
+		proxyShape="\dz\weapons\projectiles\shotgunshell_pellets.p3d";
+		muzzleFlashParticle="weapon_shot_pellets";
+		casing="FxCartridge_12Pellet";
+		round="FxRound_12Pellet";
+		spawnPileType="Ammo_12gaPellets";
+		initSpeed=340;
+		typicalSpeed=420;
+		airFriction=-0.00575;
+		caliber=0.5;
+		deflecting=0;
+		dispersion=0.050000001;
+		projectilesCount=8;
+		damageBarrel=600;
+		damageBarrelDestroyed=600;
+		weight=0.0049999999;
+		impactBehaviour=0;
+		hitAnimation=0;
+		unconRefillModifier=1.75;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.2;
-			Health = 70;
-			Blood = 100;
-			Shock = 10;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.89999998,1}
+			};
+			class Health
+			{
+				damage=35;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=35;
+			};
+		};
+		class NoiseHit
+		{
+			strength=2;
+			type="sound";
 		};
 	};
 	class Bullet_12GaugeSlug: Bullet_Base
 	{
-		scope = 2;
-		proxyShape = "\dz\weapons\projectiles\shotgunshell_slug.p3d";
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_12Slug";
-		spawnPileType = "Ammo_12gaSlug";
-		hit = 11;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cost = 5;
-		typicalSpeed = 404;
-		visibleFire = 18;
-		audibleFire = 18;
-		airFriction = -0.005;
-		caliber = 0.5;
-		initSpeed = 404;
+		scope=1;
+		proxyShape="\dz\weapons\projectiles\shotgunshell_slug.p3d";
+		casing="FxCartridge_12Slug";
+		round="FxRound_12Slug";
+		spawnPileType="Ammo_12gaSlug";
+		hit=11;
+		indirectHit=0;
+		indirectHitRange=0;
+		initSpeed=380;
+		typicalSpeed=420;
+		airFriction=-0.0049999999;
+		caliber=1;
+		deflecting=0;
+		damageBarrel=600;
+		damageBarrelDestroyed=600;
+		weight=0.028000001;
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=1.75;
+		class SoundSetsGroundHits
+		{
+			default[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			sakhal_snow[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			sakhal_snow_forest[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			sakhal_ice_sea[]=
+			{
+				"Shell_12ga_dirt_SoundSet"
+			};
+			sakhal_ice_lake[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			sakhal_grass_brown[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_grass_green[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_forest_birch[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_forest_spruce[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_volcanic_red[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			sakhal_volcanic_yellow[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			sakhal_beach[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			sakhal_hotwater[]=
+			{
+				"Shell_12ga_water_SoundSet"
+			};
+			asphalt_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			asphalt_destroyed_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			asphalt_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			asphalt_destroyed_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			asphalt_felt[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			asphalt_felt_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			cp_broadleaf_dense1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_broadleaf_dense2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_broadleaf_sparse1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_broadleaf_sparse2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_common1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_common2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_moss1[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_conifer_moss2[]=
+			{
+				"Shell_12ga_leaves_SoundSet"
+			};
+			cp_concrete1[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			cp_concrete2[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			concrete_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			concrete_stairs_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			concrete_int[]=
+			{
+				"Shell_12ga_default_int_SoundSet"
+			};
+			concrete_stairs[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_roof_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			ceramic_tiles_roof_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			cp_dirt[]=
+			{
+				"Shell_12ga_dirt_SoundSet"
+			};
+			dirt_ext[]=
+			{
+				"Shell_12ga_dirt_SoundSet"
+			};
+			dirt_int[]=
+			{
+				"Shell_12ga_dirt_int_SoundSet"
+			};
+			cp_grass[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			grass_dry_ext[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			grass_dry_int[]=
+			{
+				"Shell_12ga_grass_int_SoundSet"
+			};
+			cp_grass_tall[]=
+			{
+				"Shell_12ga_grass_SoundSet"
+			};
+			cp_gravel[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			gravel_small_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			gravel_small_int[]=
+			{
+				"Shell_12ga_gravel_int_SoundSet"
+			};
+			gravel_large_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			gravel_large_int[]=
+			{
+				"Shell_12ga_gravel_int_SoundSet"
+			};
+			lino_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			lino_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			metal_thick_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_stairs_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_thick_int[]=
+			{
+				"Shell_12ga_metal_int_SoundSet"
+			};
+			metal_thin_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_thin_int[]=
+			{
+				"Shell_12ga_metal_int_SoundSet"
+			};
+			metal_thin_mesh_ext[]=
+			{
+				"Shell_12ga_metal_SoundSet"
+			};
+			metal_thin_mesh_int[]=
+			{
+				"Shell_12ga_metal_int_SoundSet"
+			};
+			cp_rock[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			rubble_large_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			rubble_large_int[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			rubble_small_ext[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			rubble_small_int[]=
+			{
+				"Shell_12ga_gravel_SoundSet"
+			};
+			sand_ext[]=
+			{
+				"Shell_12ga_sand_SoundSet"
+			};
+			sand_int[]=
+			{
+				"Shell_12ga_sand_int_SoundSet"
+			};
+			stone_ext[]=
+			{
+				"Shell_12ga_sand_SoundSet"
+			};
+			stone_int[]=
+			{
+				"Shell_12ga_sand_int_SoundSet"
+			};
+			textile_carpet_ext[]=
+			{
+				"Shell_12ga_carpet_SoundSet"
+			};
+			textile_carpet_int[]=
+			{
+				"Shell_12ga_carpet_int_SoundSet"
+			};
+			trash_ext[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			trash_int[]=
+			{
+				"Shell_12ga_default_SoundSet"
+			};
+			wood_parquet_ext[]=
+			{
+				"Shell_12ga_wood_SoundSet"
+			};
+			wood_parquet_int[]=
+			{
+				"Shell_12ga_wood_int_SoundSet"
+			};
+			wood_planks_ext[]=
+			{
+				"Shell_12ga_wood_SoundSet"
+			};
+			wood_planks_stairs_ext[]=
+			{
+				"Shell_12ga_wood_SoundSet"
+			};
+			wood_planks_int[]=
+			{
+				"Shell_12ga_wood_int_SoundSet"
+			};
+			wood_planks_stairs_int[]=
+			{
+				"Shell_12ga_wood_int_SoundSet"
+			};
+			fresh_water_ext[]=
+			{
+				"Shell_12ga_water_SoundSet"
+			};
+			fresh_water_int[]=
+			{
+				"Shell_12ga_water_int_SoundSet"
+			};
+			water_int[]=
+			{
+				"Shell_12ga_water_int_SoundSet"
+			};
+			water[]=
+			{
+				"Shell_12ga_water_int_SoundSet"
+			};
+		};
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.2;
-			Health = 70;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			class Health
+			{
+				damage=110;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=110;
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
+		};
+	};
+	class Bullet_12GaugeRubberSlug: Bullet_12GaugeSlug
+	{
+		scope=1;
+		proxyShape="\dz\weapons\projectiles\shotgunshell_rubber.p3d";
+		model="\dz\weapons\projectiles\tracer_rubberslug.p3d";
+		casing="FxCartridge_12RubberSlug";
+		round="FxRound_12RubberSlug";
+		spawnPileType="Ammo_12gaRubberSlug";
+		initSpeed=60;
+		typicalSpeed=80;
+		airFriction=-0.02;
+		caliber=0.1;
+		deflecting=30;
+		damageBarrel=480;
+		damageBarrelDestroyed=480;
+		weight=0.0049999999;
+		unconRefillModifier=1.75;
+		class DamageApplied
+		{
+			type="Projectile";
+			dispersion=0.050000001;
+			bleedThreshold=0;
+			transferShockToDamage=1;
+			class Health
+			{
+				damage=0;
+			};
+			class Blood
+			{
+				damage=0;
+			};
+			class Shock
+			{
+				damage=150;
+			};
+		};
+		class NoiseHit
+		{
+			strength=2;
+			type="sound";
+		};
+	};
+	class Bullet_12GaugeBeanbag: Bullet_12GaugeSlug
+	{
+		scope=1;
+		proxyShape="\dz\weapons\projectiles\shotgunshell_beanbag.p3d";
+		model="\dz\weapons\projectiles\tracer_beanbag.p3d";
+		casing="FxCartridge_12Beanbag";
+		round="FxRound_12Beanbag";
+		spawnPileType="Ammo_12gaBeanbag";
+		initSpeed=240;
+		typicalSpeed=240;
+		airFriction=-0.0060000001;
+		caliber=0.1;
+		deflecting=30;
+		dispersion=0.050000001;
+		damageBarrel=500;
+		damageBarrelDestroyed=500;
+		weight=0.0049999999;
+		class DamageApplied
+		{
+			type="Projectile";
+			dispersion=0.1;
+			bleedThreshold=0;
+			transferShockToDamage=1;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=0;
+			};
+			class Blood
+			{
+				damage=0;
+			};
+			class Shock
+			{
+				damage=100;
+			};
+		};
+		class NoiseHit
+		{
+			strength=2;
+			type="sound";
 		};
 	};
 	class Bullet_556x45: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_556x45";
-		hit = 8;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cost = 1;
-		airFriction = -0.00024;
-		caliber = 0.5;
-		audibleFire = 16;
-		visibleFire = 16;
-		visibleFireTime = 3;
-		deflecting = 10;
-		tracerScale = 1;
-		tracerStartTime = -1;
-		tracerEndTime = 1;
-		nvgOnly = 1;
-		damageBarrel = 3;
-		damageBarrelDestroyed = 30;
-		typicalSpeed = 960;
-		initSpeed = 960;
+		scope=1;
+		spawnPileType="Ammo_556x45";
+		casing="FxCartridge_556";
+		round="FxRound_556";
+		hit=8;
+		indirectHit=0;
+		indirectHitRange=0;
+		initSpeed=850;
+		typicalSpeed=1000;
+		airFriction=-0.00125;
+		caliber=1;
+		deflecting=10;
+		tracerScale=1;
+		tracerStartTime=-1;
+		tracerEndTime=1;
+		nvgOnly=1;
+		damageBarrel=250;
+		damageBarrelDestroyed=250;
+		weight=0.0040000002;
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=4;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.6;
-			Health = 90;
-			Blood = 100;
-			Shock = 15;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.87,1}
+			};
+			class Health
+			{
+				damage=110;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=110;
+			};
 		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
+		};
+	};
+	class Bullet_556x45Tracer: Bullet_556x45
+	{
+		scope=1;
+		model="\dz\weapons\projectiles\tracer_red.p3d";
+		spawnPileType="Ammo_556x45Tracer";
+		tracerScale=1;
+		tracerStartTime=0.075000003;
+		tracerEndTime=3;
 	};
 	class Bullet_545x39: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_545x39";
-		hit = 7.2;
-		airFriction = -0.00027;
-		typicalSpeed = 880;
-		initSpeed = 880;
+		scope=1;
+		spawnPileType="Ammo_545x39";
+		casing="FxCartridge_556";
+		round="FxRound_556";
+		hit=7.1999998;
+		airFriction=-0.00125;
+		typicalSpeed=880;
+		initSpeed=880;
+		caliber=0.89999998;
+		deflecting=10;
+		damageBarrel=214.28572;
+		damageBarrelDestroyed=214.28572;
+		weight=0.00343;
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=4;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.55;
-			Health = 85;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			class Health
+			{
+				damage=115;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=115;
+				damageOverride[]=
+				{
+					{0.89999998,1}
+				};
+			};
 		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
+		};
+	};
+	class Bullet_545x39Tracer: Bullet_545x39
+	{
+		scope=1;
+		model="\dz\weapons\projectiles\tracer_green.p3d";
+		spawnPileType="Ammo_545x39Tracer";
+		tracerScale=1.2;
+		tracerStartTime=0.075000003;
+		tracerEndTime=3;
 	};
 	class Bullet_762x54: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_762";
-		spawnPileType = "Ammo_762x54";
-		muzzleFlashParticle = "weapon_shot_mp5k_02_boris";
-		hit = 12;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		visibleFire = 22;
-		audibleFire = 22;
-		visibleFireTime = 3;
-		cost = 1.2;
-		airLock = 1;
-		typicalSpeed = 860;
-		caliber = 1;
-		airFriction = -0.0013;
-		damageBarrel = 6;
-		damageBarrelDestroyed = 60;
-		initSpeed = 860;
+		scope=1;
+		casing="FxCartridge_762";
+		round="FxRound_762";
+		spawnPileType="Ammo_762x54";
+		hit=12;
+		indirectHit=0;
+		indirectHitRange=0;
+		airLock=1;
+		initSpeed=785;
+		typicalSpeed=865;
+		airFriction=-0.001;
+		caliber=1;
+		deflecting=10;
+		damageBarrel=500;
+		damageBarrelDestroyed=500;
+		weight=0.012;
+		impactBehaviour=1;
+		hitAnimation=1;
+		unconRefillModifier=2.75;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.7;
-			Health = 100;
-			Blood = 100;
-			Shock = 25;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.94,1}
+			};
+			class Health
+			{
+				damage=150;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=150;
+				damageOverride[]=
+				{
+					{0.86000001,1}
+				};
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
 		};
 	};
-	class Bullet_762x54Tracer: Bullet_Base
+	class Bullet_762x54Tracer: Bullet_762x54
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\tracer_red.p3d";
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_762";
-		spawnPileType = "Ammo_762x54Tracer";
-		hit = 12;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		visibleFire = 22;
-		audibleFire = 22;
-		visibleFireTime = 3;
-		cost = 1.2;
-		airLock = 1;
-		typicalSpeed = 860;
-		caliber = 1;
-		airFriction = -0.0013;
-		damageBarrel = 6;
-		damageBarrelDestroyed = 60;
-		initSpeed = 860;
-		tracerScale = 1.2;
-		tracerStartTime = 0.075;
-		tracerEndTime = 1;
-		class DamageApplied
-		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.7;
-			Health = 100;
-			Blood = 100;
-			Shock = 0;
-		};
+		scope=1;
+		model="\dz\weapons\projectiles\tracer_green.p3d";
+		spawnPileType="Ammo_762x54Tracer";
+		tracerScale=1.2;
+		tracerStartTime=0.075000003;
+		tracerEndTime=3;
 	};
 	class Bullet_308Win: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_762";
-		spawnPileType = "Ammo_308Win";
-		hit = 12;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		visibleFire = 22;
-		audibleFire = 22;
-		visibleFireTime = 3;
-		cost = 1.2;
-		airLock = 1;
-		typicalSpeed = 860;
-		tracerScale = 1.2;
-		tracerStartTime = -1;
-		tracerEndTime = 1;
-		caliber = 1;
-		airFriction = -0.00018;
-		damageBarrel = 6;
-		damageBarrelDestroyed = 60;
-		initSpeed = 860;
+		scope=1;
+		casing="FxCartridge_762";
+		round="FxRound_308Win";
+		spawnPileType="Ammo_308Win";
+		hit=12;
+		indirectHit=0;
+		indirectHitRange=0;
+		airLock=1;
+		initSpeed=770;
+		typicalSpeed=940;
+		tracerScale=1.2;
+		tracerStartTime=-1;
+		tracerEndTime=1;
+		airFriction=-0.001;
+		caliber=1;
+		deflecting=10;
+		damageBarrel=500;
+		damageBarrelDestroyed=500;
+		weight=0.0099999998;
+		impactBehaviour=1;
+		hitAnimation=1;
+		unconRefillModifier=2.75;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.75;
-			Health = 100;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.89999998,1}
+			};
+			class Health
+			{
+				damage=150;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=150;
+			};
 		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
+		};
+	};
+	class Bullet_308WinTracer: Bullet_308Win
+	{
+		scope=1;
+		model="\dz\weapons\projectiles\tracer_red.p3d";
+		spawnPileType="Ammo_308WinTracer";
+		tracerScale=1.2;
+		tracerStartTime=0.075000003;
+		tracerEndTime=3;
 	};
 	class Bullet_762x39: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_762x39";
-		spawnPileType = "Ammo_762x39";
-		hit = 9.5;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		visibleFire = 18;
-		audibleFire = 18;
-		visibleFireTime = 3;
-		cost = 1;
-		airLock = 1;
-		typicalSpeed = 730;
-		tracerColor[] = {0.2,0.8,0.1,0.04};
-		tracerColorR[] = {0,0,0,0};
-		airFriction = -0.00163;
-		caliber = 0.83;
-		damageBarrel = 3;
-		damageBarrelDestroyed = 30;
-		initSpeed = 730;
-		muzzleFlashParticle = "weapon_shot_mp5k_02_boris";
+		scope=1;
+		casing="FxCartridge_762x39";
+		round="FxRound_762x39";
+		spawnPileType="Ammo_762x39";
+		hit=9.5;
+		indirectHit=0;
+		indirectHitRange=0;
+		airLock=1;
+		initSpeed=640;
+		typicalSpeed=740;
+		airFriction=-0.0015;
+		caliber=1;
+		deflecting=10;
+		damageBarrel=500;
+		damageBarrelDestroyed=500;
+		weight=0.0080000004;
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=4;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.65;
-			Health = 100;
-			Blood = 100;
-			Shock = 20;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.94999999,1}
+			};
+			class Health
+			{
+				damage=110;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=110;
+				damageOverride[]=
+				{
+					{0.80000001,1}
+				};
+			};
 		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
+		};
+	};
+	class Bullet_762x39Tracer: Bullet_762x39
+	{
+		scope=1;
+		model="\dz\weapons\projectiles\tracer_green.p3d";
+		spawnPileType="Ammo_762x39Tracer";
+		tracerScale=1.2;
+		tracerStartTime=0.075000003;
+		tracerEndTime=3;
 	};
 	class Bullet_45ACP: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_9mm";
-		spawnPileType = "Ammo_45ACP";
-		muzzleFlashParticle = "weapon_shot_mp5k_02_boris";
-		hit = 0;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		tracerScale = 1;
-		caliber = 0.85;
-		deflecting = 45;
-		visibleFire = 5;
-		audibleFire = 9;
-		typicalSpeed = 260;
-		airFriction = -0.00119;
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 260;
-		weight = 0.0149;
+		scope=1;
+		casing="FxCartridge_9mm";
+		round="FxRound_45acp";
+		spawnPileType="Ammo_45ACP";
+		hit=0;
+		indirectHit=0;
+		indirectHitRange=0;
+		tracerScale=1;
+		caliber=0.80000001;
+		deflecting=30;
+		initSpeed=260;
+		typicalSpeed=290;
+		airFriction=-0.001;
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		damageBarrel=187.5;
+		damageBarrelDestroyed=187.5;
+		weight=0.0149;
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=6;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.4;
-			Health = 75;
-			Blood = 100;
-			Shock = 20;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			class Health
+			{
+				damage=40;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=40;
+				damageOverride[]=
+				{
+					{0.89999998,1}
+				};
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
 		};
 	};
 	class Bullet_357: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_9mm";
-		spawnPileType = "Ammo_357";
-		hit = 9;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		tracerScale = 1;
-		caliber = 0.9;
-		deflecting = 45;
-		visibleFire = 20;
-		audibleFire = 13;
-		airFriction = -0.000599;
-		typicalSpeed = 440;
-		initSpeed = 440;
+		scope=1;
+		casing="FxCartridge_357";
+		round="FxRound_357";
+		spawnPileType="Ammo_357";
+		hit=9;
+		indirectHit=0;
+		indirectHitRange=0;
+		tracerScale=1;
+		caliber=1;
+		deflecting=30;
+		airFriction=-0.0024999999;
+		typicalSpeed=520;
+		initSpeed=440;
+		damageBarrel=187.5;
+		damageBarrelDestroyed=187.5;
+		weight=0.0102;
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=2.75;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.7;
-			Health = 80;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.85000002,1}
+			};
+			class Health
+			{
+				damage=65;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=90;
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
 		};
 	};
 	class Bullet_9x19: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_9mm";
-		spawnPileType = "Ammo_9x19";
-		hit = 7;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		tracerScale = 1;
-		caliber = 0.85;
-		deflecting = 35;
-		visibleFire = 4;
-		audibleFire = 7;
-		typicalSpeed = 350;
-		airFriction = -0.00155;
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 350;
-		muzzleFlashParticle = "weapon_shot_mp5k_01";
-		weight = 0.008;
+		scope=1;
+		casing="FxCartridge_9mm";
+		round="FxRound_9mm";
+		spawnPileType="Ammo_9x19";
+		hit=7;
+		indirectHit=0;
+		indirectHitRange=0;
+		tracerScale=1;
+		caliber=0.80000001;
+		deflecting=30;
+		initSpeed=350;
+		typicalSpeed=380;
+		airFriction=-0.0023000001;
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		damageBarrel=166.66667;
+		damageBarrelDestroyed=166.66667;
+		weight=0.0083999997;
+		impactBehaviour=0;
+		hitAnimation=0;
+		unconRefillModifier=6;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.3;
-			Health = 60;
-			Blood = 100;
-			Shock = 10;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.94999999,1}
+			};
+			class Health
+			{
+				damage=40;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=40;
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
 		};
 	};
 	class Bullet_380: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_9mm";
-		spawnPileType = "Ammo_380";
-		hit = 5.5;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		tracerScale = 1;
-		muzzleFlashParticle = "weapon_shot_mp5k_02_boris";
-		caliber = 0.75;
-		deflecting = 32;
-		visibleFire = 3.5;
-		audibleFire = 5;
-		typicalSpeed = 320;
-		airFriction = -0.0016;
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 320;
+		scope=1;
+		casing="FxCartridge_9mm";
+		round="FxRound_9mm";
+		spawnPileType="Ammo_380";
+		hit=5.5;
+		indirectHit=0;
+		indirectHitRange=0;
+		tracerScale=1;
+		caliber=0.80000001;
+		deflecting=30;
+		initSpeed=300;
+		typicalSpeed=345;
+		airFriction=-0.0015;
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		damageBarrel=150;
+		damageBarrelDestroyed=150;
+		weight=0.0060000001;
+		hitAnimation=0;
+		unconRefillModifier=6;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.3;
-			Health = 50;
-			Blood = 100;
-			Shock = 10;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			class Health
+			{
+				damage=35;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=35;
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
 		};
 	};
 	class Bullet_22: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_22";
-		spawnPileType = "Ammo_22";
-		hit = 4.5;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		visibleFire = 2;
-		audibleFire = 3.5;
-		visibleFireTime = 3;
-		cost = 1.0;
-		tracerScale = 0.6;
-		tracerStartTime = -1;
-		tracerEndTime = 1;
-		deflecting = 30;
-		caliber = 0.7;
-		airFriction = -0.000769;
-		typicalSpeed = 380;
-		initSpeed = 380;
-		soundFly[] = {"",9.999997e-009,1};
+		scope=1;
+		casing="FxCartridge_22";
+		round="FxRound_22";
+		spawnPileType="Ammo_22";
+		hit=4.5;
+		indirectHit=0;
+		indirectHitRange=0;
+		tracerScale=0.60000002;
+		tracerStartTime=-1;
+		tracerEndTime=1;
+		deflecting=30;
+		caliber=0.69999999;
+		airFriction=-0.0024999999;
+		typicalSpeed=440;
+		initSpeed=370;
+		damageBarrel=115.38461;
+		damageBarrelDestroyed=115.38461;
+		weight=0.0024999999;
+		soundFly[]={};
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		unconRefillModifier=6;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.2;
-			Health = 45;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.69999999,1}
+			};
+			class Health
+			{
+				damage=20;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=20;
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
+		};
+	};
+	class Bullet_9x39AP: Bullet_Base
+	{
+		scope=1;
+		casing="FxCartridge_762x39";
+		round="FxRound_762x39";
+		spawnPileType="Ammo_9x39AP";
+		hit=11;
+		indirectHit=0;
+		indirectHitRange=0;
+		tracerScale=1;
+		caliber=1.2;
+		deflecting=15;
+		typicalSpeed=320;
+		airFriction=-0.0015;
+		initSpeed=320;
+		damageBarrel=250;
+		damageBarrelDestroyed=250;
+		weight=0.017999999;
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=4;
+		class DamageApplied
+		{
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.94999999,1}
+			};
+			class Health
+			{
+				damage=75;
+				armorDamage=3;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=75;
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
 		};
 	};
 	class Bullet_9x39: Bullet_Base
 	{
-		scope = 2;
-		lootCategory = "Crafted";
-		cartridge = "FxCartridge_762x39";
-		spawnPileType = "Ammo_9x39";
-		hit = 11;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		tracerScale = 1;
-		deflecting = 45;
-		visibleFire = 5;
-		audibleFire = 7;
-		typicalSpeed = 300;
-		airFriction = -0.00015;
-		initSpeed = 300;
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
+		scope=1;
+		casing="FxCartridge_762x39";
+		round="FxRound_762x39";
+		spawnPileType="Ammo_9x39";
+		hit=11;
+		indirectHit=0;
+		indirectHitRange=0;
+		tracerScale=1;
+		caliber=0.89999998;
+		deflecting=20;
+		typicalSpeed=280;
+		airFriction=-0.0015;
+		initSpeed=280;
+		damageBarrel=250;
+		damageBarrelDestroyed=250;
+		weight=0.017000001;
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=4;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.7;
-			Health = 90;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			class Health
+			{
+				damage=75;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=75;
+				damageOverride[]=
+				{
+					{0.89999998,1}
+				};
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
 		};
 	};
-	class Arrow_Composite: Bullet_Base
+	class Bolt_Base: BulletCore
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\arrow_composite_flying.p3d";
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_ArrowComposite";
-		proxyShape = "\dz\weapons\projectiles\arrow_composite.p3d";
-		hit = 12;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 20;
-		caliber = 0.5;
-		airFriction = -0.00215;
-		typicalSpeed = 90;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 90;
-		tracerScale = 1;
-		tracerStartTime = 1e-005;
-		tracerEndTime = -1;
+		scope=0;
+		hit=8;
+		indirectHit=0;
+		indirectHitRange=0;
+		model="\dz\weapons\projectiles\empty.p3d";
+		soundFly[]=
+		{
+			"",
+			9.9999973e-09,
+			1
+		};
+		soundSnow1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_1",
+			1,
+			1,
+			40
+		};
+		soundSnow2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_2",
+			1,
+			1,
+			40
+		};
+		soundSnow3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_3",
+			1,
+			1,
+			40
+		};
+		soundSnow4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_4",
+			1,
+			1,
+			40
+		};
+		soundSnow5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_5",
+			1,
+			1,
+			40
+		};
+		soundSnow6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_6",
+			1,
+			1,
+			40
+		};
+		soundSnow7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_7",
+			1,
+			1,
+			40
+		};
+		soundSnow8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_8",
+			1,
+			1,
+			40
+		};
+		soundIce1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_1",
+			1,
+			1,
+			50
+		};
+		soundIce2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_2",
+			1,
+			1,
+			50
+		};
+		soundIce3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_3",
+			1,
+			1,
+			50
+		};
+		soundIce4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_4",
+			1,
+			1,
+			50
+		};
+		soundIce5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_5",
+			1,
+			1,
+			50
+		};
+		soundIce6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_6",
+			1,
+			1,
+			50
+		};
+		soundIce7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_7",
+			1,
+			1,
+			50
+		};
+		soundIce8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_8",
+			1,
+			1,
+			50
+		};
+		soundDefault1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_1",
+			10,
+			1,
+			40
+		};
+		soundDefault2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_2",
+			10,
+			1,
+			40
+		};
+		soundDefault3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_3",
+			10,
+			1,
+			40
+		};
+		soundDefault4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_4",
+			10,
+			1,
+			40
+		};
+		soundDefault5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_5",
+			10,
+			1,
+			40
+		};
+		soundDefault6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_6",
+			10,
+			1,
+			40
+		};
+		soundDefault7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_7",
+			10,
+			1,
+			40
+		};
+		soundDefault8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_8",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_1",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_2",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_3",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_4",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_5",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_6",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_7",
+			10,
+			1,
+			40
+		};
+		soundGroundSoft8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\soft_ground_8",
+			10,
+			1,
+			40
+		};
+		soundGroundHard1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_1",
+			10,
+			1,
+			50
+		};
+		soundGroundHard2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_2",
+			10,
+			1,
+			50
+		};
+		soundGroundHard3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_3",
+			10,
+			1,
+			50
+		};
+		soundGroundHard4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_4",
+			10,
+			1,
+			50
+		};
+		soundGroundHard5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_5",
+			10,
+			1,
+			50
+		};
+		soundGroundHard6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_6",
+			10,
+			1,
+			50
+		};
+		soundGroundHard7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_7",
+			10,
+			1,
+			50
+		};
+		soundGroundHard8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\hard_ground_8",
+			10,
+			1,
+			50
+		};
+		soundMetal1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_1",
+			7,
+			1,
+			80
+		};
+		soundMetal2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_2",
+			7,
+			1,
+			80
+		};
+		soundMetal3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_3",
+			7,
+			1,
+			80
+		};
+		soundMetal4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_4",
+			7,
+			1,
+			80
+		};
+		soundMetal5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_5",
+			7,
+			1,
+			80
+		};
+		soundMetal6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_6",
+			7,
+			1,
+			80
+		};
+		soundMetal7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_7",
+			7,
+			1,
+			80
+		};
+		soundMetal8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_8",
+			7,
+			1,
+			80
+		};
+		soundGlass1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_1",
+			10,
+			1,
+			70
+		};
+		soundGlass2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_2",
+			10,
+			1,
+			70
+		};
+		soundGlass3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_3",
+			10,
+			1,
+			70
+		};
+		soundGlass4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_4",
+			10,
+			1,
+			70
+		};
+		soundGlass5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_5",
+			10,
+			1,
+			70
+		};
+		soundGlass6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_6",
+			10,
+			1,
+			70
+		};
+		soundGlass7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_7",
+			10,
+			1,
+			70
+		};
+		soundGlass8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_8",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_1",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_2",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_3",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_4",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_5",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_6",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_7",
+			10,
+			1,
+			70
+		};
+		soundGlassArmored8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\glass_arm_8",
+			10,
+			1,
+			70
+		};
+		soundVehiclePlate1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_1",
+			7,
+			1,
+			80
+		};
+		soundVehiclePlate2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_2",
+			7,
+			1,
+			80
+		};
+		soundVehiclePlate3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_3",
+			7,
+			1,
+			80
+		};
+		soundVehiclePlate4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_4",
+			7,
+			1,
+			80
+		};
+		soundVehiclePlate5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_5",
+			7,
+			1,
+			80
+		};
+		soundVehiclePlate6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_6",
+			7,
+			1,
+			80
+		};
+		soundVehiclePlate7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_7",
+			7,
+			1,
+			80
+		};
+		soundVehiclePlate8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\metal_plate_8",
+			7,
+			1,
+			80
+		};
+		soundWood1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_1",
+			7,
+			1,
+			60
+		};
+		soundWood2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_2",
+			7,
+			1,
+			60
+		};
+		soundWood3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_3",
+			7,
+			1,
+			60
+		};
+		soundWood4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_4",
+			7,
+			1,
+			60
+		};
+		soundWood5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_5",
+			7,
+			1,
+			60
+		};
+		soundWood6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_6",
+			7,
+			1,
+			60
+		};
+		soundWood7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_7",
+			7,
+			1,
+			60
+		};
+		soundWood8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\wood_8",
+			7,
+			1,
+			60
+		};
+		soundHitBody1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_1",
+			8,
+			1,
+			20
+		};
+		soundHitBody2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_2",
+			8,
+			1,
+			20
+		};
+		soundHitBody3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_3",
+			8,
+			1,
+			20
+		};
+		soundHitBody4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_4",
+			8,
+			1,
+			20
+		};
+		soundHitBody5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_5",
+			8,
+			1,
+			20
+		};
+		soundHitBody6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_6",
+			8,
+			1,
+			20
+		};
+		soundHitBody7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_7",
+			8,
+			1,
+			20
+		};
+		soundHitBody8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\body_8",
+			8,
+			1,
+			20
+		};
+		soundHitBuilding1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_1",
+			10,
+			1,
+			50
+		};
+		soundHitBuilding2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_2",
+			10,
+			1,
+			50
+		};
+		soundHitBuilding3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_3",
+			10,
+			1,
+			50
+		};
+		soundHitBuilding4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_4",
+			10,
+			1,
+			50
+		};
+		soundHitBuilding5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_5",
+			10,
+			1,
+			50
+		};
+		soundHitBuilding6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_6",
+			10,
+			1,
+			50
+		};
+		soundHitBuilding7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_7",
+			10,
+			1,
+			50
+		};
+		soundHitBuilding8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\building_8",
+			10,
+			1,
+			50
+		};
+		soundHitFoliage1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_1",
+			10,
+			1,
+			40
+		};
+		soundHitFoliage2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_2",
+			10,
+			1,
+			40
+		};
+		soundHitFoliage3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_3",
+			10,
+			1,
+			40
+		};
+		soundHitFoliage4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_4",
+			10,
+			1,
+			40
+		};
+		soundHitFoliage5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_5",
+			10,
+			1,
+			40
+		};
+		soundHitFoliage6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_6",
+			10,
+			1,
+			40
+		};
+		soundHitFoliage7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_7",
+			10,
+			1,
+			40
+		};
+		soundHitFoliage8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\foliage_8",
+			10,
+			1,
+			40
+		};
+		soundPlastic1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_1",
+			10,
+			1,
+			40
+		};
+		soundPlastic2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_2",
+			10,
+			1,
+			40
+		};
+		soundPlastic3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_3",
+			10,
+			1,
+			40
+		};
+		soundPlastic4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_4",
+			10,
+			1,
+			40
+		};
+		soundPlastic5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_5",
+			10,
+			1,
+			40
+		};
+		soundPlastic6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_6",
+			10,
+			1,
+			40
+		};
+		soundPlastic7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_7",
+			10,
+			1,
+			40
+		};
+		soundPlastic8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\plastic_8",
+			10,
+			1,
+			40
+		};
+		soundConcrete1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_1",
+			10,
+			1,
+			50
+		};
+		soundConcrete2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_2",
+			10,
+			1,
+			50
+		};
+		soundConcrete3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_3",
+			10,
+			1,
+			50
+		};
+		soundConcrete4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_4",
+			10,
+			1,
+			50
+		};
+		soundConcrete5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_5",
+			10,
+			1,
+			50
+		};
+		soundConcrete6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_6",
+			10,
+			1,
+			50
+		};
+		soundConcrete7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_7",
+			10,
+			1,
+			50
+		};
+		soundConcrete8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\concrete_8",
+			10,
+			1,
+			50
+		};
+		soundRubber1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_1",
+			10,
+			1,
+			40
+		};
+		soundRubber2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_2",
+			10,
+			1,
+			40
+		};
+		soundRubber3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_3",
+			10,
+			1,
+			40
+		};
+		soundRubber4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_4",
+			10,
+			1,
+			40
+		};
+		soundRubber5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_5",
+			10,
+			1,
+			40
+		};
+		soundRubber6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_6",
+			10,
+			1,
+			40
+		};
+		soundRubber7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_7",
+			10,
+			1,
+			40
+		};
+		soundRubber8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\tyre_8",
+			10,
+			1,
+			40
+		};
+		soundWater1[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_1",
+			7,
+			1,
+			40
+		};
+		soundWater2[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_2",
+			7,
+			1,
+			40
+		};
+		soundWater3[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_3",
+			7,
+			1,
+			40
+		};
+		soundWater4[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_4",
+			7,
+			1,
+			40
+		};
+		soundWater5[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_5",
+			7,
+			1,
+			40
+		};
+		soundWater6[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_6",
+			7,
+			1,
+			40
+		};
+		soundWater7[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_7",
+			7,
+			1,
+			40
+		};
+		soundWater8[]=
+		{
+			"dz\sounds\weapons\hits\arrow\water_8",
+			7,
+			1,
+			40
+		};
+		hitSnow[]=
+		{
+			"soundSnow1",
+			0.125,
+			"soundSnow2",
+			0.125,
+			"soundSnow3",
+			0.125,
+			"soundSnow4",
+			0.125,
+			"soundSnow5",
+			0.125,
+			"soundSnow6",
+			0.125,
+			"soundSnow7",
+			0.125,
+			"soundSnow8",
+			0.125
+		};
+		hitIce[]=
+		{
+			"soundIce1",
+			0.125,
+			"soundIce2",
+			0.125,
+			"soundIce3",
+			0.125,
+			"soundIce4",
+			0.125,
+			"soundIce5",
+			0.125,
+			"soundIce6",
+			0.125,
+			"soundIce7",
+			0.125,
+			"soundIce8",
+			0.125
+		};
+		hitGroundSoft[]=
+		{
+			"soundGroundSoft1",
+			0.125,
+			"soundGroundSoft2",
+			0.125,
+			"soundGroundSoft3",
+			0.125,
+			"soundGroundSoft4",
+			0.125,
+			"soundGroundSoft5",
+			0.125,
+			"soundGroundSoft6",
+			0.125,
+			"soundGroundSoft7",
+			0.125,
+			"soundGroundSoft8",
+			0.125
+		};
+		hitGroundHard[]=
+		{
+			"soundGroundHard1",
+			0.125,
+			"soundGroundHard2",
+			0.125,
+			"soundGroundHard3",
+			0.125,
+			"soundGroundHard4",
+			0.125,
+			"soundGroundHard5",
+			0.125,
+			"soundGroundHard6",
+			0.125,
+			"soundGroundHard7",
+			0.125,
+			"soundGroundHard8",
+			0.125
+		};
+		hitMan[]=
+		{
+			"soundHitBody1",
+			0.125,
+			"soundHitBody2",
+			0.125,
+			"soundHitBody3",
+			0.125,
+			"soundHitBody4",
+			0.125,
+			"soundHitBody5",
+			0.125,
+			"soundHitBody6",
+			0.125,
+			"soundHitBody7",
+			0.125,
+			"soundHitBody8",
+			0.125
+		};
+		hitArmor[]=
+		{
+			"soundVehiclePlate1",
+			0.125,
+			"soundVehiclePlate2",
+			0.125,
+			"soundVehiclePlate3",
+			0.125,
+			"soundVehiclePlate4",
+			0.125,
+			"soundVehiclePlate5",
+			0.125,
+			"soundVehiclePlate6",
+			0.125,
+			"soundVehiclePlate7",
+			0.125,
+			"soundVehiclePlate8",
+			0.125
+		};
+		hitBuilding[]=
+		{
+			"soundHitBuilding1",
+			0.125,
+			"soundHitBuilding2",
+			0.125,
+			"soundHitBuilding3",
+			0.125,
+			"soundHitBuilding4",
+			0.125,
+			"soundHitBuilding5",
+			0.125,
+			"soundHitBuilding6",
+			0.125,
+			"soundHitBuilding7",
+			0.125,
+			"soundHitBuilding8",
+			0.125
+		};
+		hitFoliage[]=
+		{
+			"soundHitFoliage1",
+			0.125,
+			"soundHitFoliage2",
+			0.125,
+			"soundHitFoliage3",
+			0.125,
+			"soundHitFoliage4",
+			0.125,
+			"soundHitFoliage5",
+			0.125,
+			"soundHitFoliage6",
+			0.125,
+			"soundHitFoliage7",
+			0.125,
+			"soundHitFoliage8",
+			0.125
+		};
+		hitWood[]=
+		{
+			"soundWood1",
+			0.125,
+			"soundWood2",
+			0.125,
+			"soundWood3",
+			0.125,
+			"soundWood4",
+			0.125,
+			"soundWood5",
+			0.125,
+			"soundWood6",
+			0.125,
+			"soundWood7",
+			0.125,
+			"soundWood8",
+			0.125
+		};
+		hitGlass[]=
+		{
+			"soundGlass1",
+			0.125,
+			"soundGlass2",
+			0.125,
+			"soundGlass3",
+			0.125,
+			"soundGlass4",
+			0.125,
+			"soundGlass5",
+			0.125,
+			"soundGlass6",
+			0.125,
+			"soundGlass7",
+			0.125,
+			"soundGlass8",
+			0.125
+		};
+		hitGlassArmored[]=
+		{
+			"soundGlassArmored1",
+			0.125,
+			"soundGlassArmored2",
+			0.125,
+			"soundGlassArmored3",
+			0.125,
+			"soundGlassArmored4",
+			0.125,
+			"soundGlassArmored5",
+			0.125,
+			"soundGlassArmored6",
+			0.125,
+			"soundGlassArmored7",
+			0.125,
+			"soundGlassArmored8",
+			0.125
+		};
+		hitConcrete[]=
+		{
+			"soundConcrete1",
+			0.125,
+			"soundConcrete2",
+			0.125,
+			"soundConcrete3",
+			0.125,
+			"soundConcrete4",
+			0.125,
+			"soundConcrete5",
+			0.125,
+			"soundConcrete6",
+			0.125,
+			"soundConcrete7",
+			0.125,
+			"soundConcrete8",
+			0.125
+		};
+		hitRubber[]=
+		{
+			"soundRubber1",
+			0.25,
+			"soundRubber2",
+			0.25,
+			"soundRubber3",
+			0.25,
+			"soundRubber4",
+			0.25
+		};
+		hitPlastic[]=
+		{
+			"soundPlastic1",
+			0.125,
+			"soundPlastic2",
+			0.125,
+			"soundPlastic3",
+			0.125,
+			"soundPlastic4",
+			0.125,
+			"soundPlastic5",
+			0.125,
+			"soundPlastic6",
+			0.125,
+			"soundPlastic7",
+			0.125,
+			"soundPlastic8",
+			0.125
+		};
+		hitDefault[]=
+		{
+			"soundDefault1",
+			0.125,
+			"soundDefault2",
+			0.125,
+			"soundDefault3",
+			0.125,
+			"soundDefault4",
+			0.125,
+			"soundDefault5",
+			0.125,
+			"soundDefault6",
+			0.125,
+			"soundDefault7",
+			0.125,
+			"soundDefault8",
+			0.125
+		};
+		hitMetal[]=
+		{
+			"soundMetal1",
+			0.125,
+			"soundMetal2",
+			0.125,
+			"soundMetal3",
+			0.125,
+			"soundMetal4",
+			0.125,
+			"soundMetal5",
+			0.125,
+			"soundMetal6",
+			0.125,
+			"soundMetal7",
+			0.125,
+			"soundMetal8",
+			0.125
+		};
+		hitMetalplate[]=
+		{
+			"soundVehiclePlate1",
+			0.125,
+			"soundVehiclePlate2",
+			0.125,
+			"soundVehiclePlate3",
+			0.125,
+			"soundVehiclePlate4",
+			0.125,
+			"soundVehiclePlate5",
+			0.125,
+			"soundVehiclePlate6",
+			0.125,
+			"soundVehiclePlate7",
+			0.125,
+			"soundVehiclePlate8",
+			0.125
+		};
+		hitWater[]=
+		{
+			"soundWater1",
+			0.125,
+			"soundWater2",
+			0.125,
+			"soundWater3",
+			0.125,
+			"soundWater4",
+			0.125,
+			"soundWater5",
+			0.125,
+			"soundWater6",
+			0.125,
+			"soundWater7",
+			0.125,
+			"soundWater8",
+			0.125
+		};
+		soundSetBulletFly[]=
+		{
+			"bulletFlyBy_SoundSet"
+		};
+		soundSetSuperSonic[]=
+		{
+			"SuperSonicCrack_SoundSet",
+			"SuperSonicCrackTail_SoundSet"
+		};
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		unconRefillModifier=6;
+		casing="FxCartridge_556";
+		round="FxRound_556";
+		timeToLive=20;
+		tracerStartTime=-1;
+		muzzleEffect="BIS_Effects_Rifle";
+		damageBarrel=300;
+		damageBarrelDestroyed=300;
+		SimulationScriptClass="";
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 50;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=99;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=100;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							{}
+						},
+						
+						{
+							0.69999999,
+							{}
+						},
+						
+						{
+							0.5,
+							{}
+						},
+						
+						{
+							0.30000001,
+							{}
+						},
+						
+						{
+							0,
+							{}
+						}
+					};
+				};
+			};
 		};
 	};
-	class Arrow_Target: Bullet_Base
+	class Bullet_HuntingBolt: Bolt_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\arrow_target.p3d";
-		lootCategory = "Crafted";
-		proxyShape = "\dz\weapons\projectiles\arrow_target.p3d";
-		hit = 7;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 20;
-		caliber = 0.5;
-		airFriction = -0.00215;
-		typicalSpeed = 100;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 30;
-		tracerScale = 1;
-		tracerStartTime = 1e-005;
-		tracerEndTime = -1;
+		scope=1;
+		model="\dz\weapons\projectiles\bolt_flying.p3d";
+		proxyShape="\dz\weapons\projectiles\bolt_biggame.p3d";
+		simulation="shotArrow";
+		hit=12;
+		indirectHit=0;
+		indirectHitRange=0;
+		casing="";
+		round="FxRound_HuntingBolt";
+		deflecting=25;
+		dispersion=0.0015;
+		initSpeed=105;
+		typicalSpeed=105;
+		caliber=3.0999999;
+		airFriction=-0.0013;
+		weight=0.029999999;
+		impactBehaviour=1;
+		hitAnimation=1;
+		unconRefillModifier=4;
+		spawnPileType="Ammo_HuntingBolt";
+		dmgPerUse=0.090000004;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 50;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0;
+			defaultDamageOverride[]=
+			{
+				{0.98000002,0.95999998},
+				{0.96100003,0.95999998},
+				{0.935,0.92500001},
+				{0.90499997,0.70999998},
+				{0.87,0.56}
+			};
+			class Health
+			{
+				damage=125;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=95;
+			};
 		};
 	};
-	class Arrow_Hunting: Bullet_Base
+	class Bullet_ImprovisedBolt_1: Bolt_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\arrow_hunting.p3d";
-		lootCategory = "Crafted";
-		proxyShape = "\dz\weapons\projectiles\arrow_hunting.p3d";
-		hit = 7;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 20;
-		caliber = 0.5;
-		airFriction = -0.00215;
-		typicalSpeed = 100;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 30;
-		tracerScale = 1;
-		tracerStartTime = 1e-005;
-		tracerEndTime = -1;
+		scope=1;
+		model="\dz\weapons\projectiles\bolt_flying.p3d";
+		proxyShape="\dz\weapons\projectiles\bolt_crude.p3d";
+		simulation="shotArrow";
+		hit=10;
+		indirectHit=0;
+		indirectHitRange=0;
+		round="FxRound_ImprovisedBolt_1";
+		deflecting=35;
+		dispersion=0.037999999;
+		initSpeed=85;
+		typicalSpeed=85;
+		caliber=1.1900001;
+		airFriction=-0.0099999998;
+		weight=0.045000002;
+		impactBehaviour=1;
+		hitAnimation=1;
+		unconRefillModifier=4;
+		spawnPileType="Ammo_ImprovisedBolt_1";
+		dmgPerUse=0.2;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 50;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0;
+			defaultDamageOverride[]=
+			{
+				{0.89999998,0.95999998},
+				{0.77999997,0.80000001},
+				{0.61000001,0.51999998},
+				{0.5,0.1},
+				{0.40000001,0}
+			};
+			class Health
+			{
+				damage=125;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=85;
+			};
 		};
 	};
-	class Arrow_Bolt: Bullet_Base
+	class Bullet_ImprovisedBolt_2: Bolt_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\arrow_hunting_flying.p3d";
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_ArrowBolt";
-		proxyShape = "\dz\weapons\projectiles\arrow_hunting.p3d";
-		hit = 14;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 0;
-		caliber = 0.55;
-		airFriction = -0.00215;
-		typicalSpeed = 100;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 100;
-		tracerScale = 1;
-		tracerStartTime = 1e-005;
-		tracerEndTime = -1;
+		scope=1;
+		model="\dz\weapons\projectiles\bolt_flying.p3d";
+		proxyShape="\dz\weapons\projectiles\bolt_crafted.p3d";
+		simulation="shotArrow";
+		hit=10;
+		indirectHit=0;
+		indirectHitRange=0;
+		round="FxRound_ImprovisedBolt_2";
+		deflecting=35;
+		dispersion=0.0065000001;
+		initSpeed=90;
+		typicalSpeed=90;
+		caliber=1.1900001;
+		airFriction=-0.0040000002;
+		weight=0.029999999;
+		impactBehaviour=1;
+		hitAnimation=1;
+		unconRefillModifier=4;
+		spawnPileType="Ammo_ImprovisedBolt_2";
+		dmgPerUse=0.25;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 50;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0;
+			defaultDamageOverride[]=
+			{
+				{0.96499997,0.95999998},
+				{0.90499997,0.81},
+				{0.80000001,0.64999998},
+				{0.74599999,0.60000002},
+				{0.67000002,0.36000001}
+			};
+			class Health
+			{
+				damage=125;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=85;
+			};
 		};
 	};
-	class Arrow_Boned: Bullet_Base
+	class Bullet_CupidsBolt: Bolt_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\arrow_hunting_flying.p3d";
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_ArrowBoned";
-		proxyShape = "\dz\weapons\projectiles\arrow_crafted_advanced.p3d";
-		hit = 11;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 20;
-		caliber = 0.5;
-		airFriction = -0.00215;
-		typicalSpeed = 80;
-		initSpeed = 80;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
+		scope=1;
+		model="\dz\weapons\projectiles\bolt_flying.p3d";
+		proxyShape="\dz\weapons\projectiles\bolt_cupids.p3d";
+		simulation="shotIlluminating";
+		hit=10;
+		indirectHit=0;
+		indirectHitRange=0;
+		round="FxRound_CupidsBolt";
+		deflecting=35;
+		dispersion=0.0065000001;
+		initSpeed=90;
+		typicalSpeed=90;
+		caliber=1.1900001;
+		airFriction=-0.0040000002;
+		SimulationScriptClass="CupidsBoltSimulation";
+		weight=0.029999999;
+		impactBehaviour=1;
+		hitAnimation=0;
+		unconRefillModifier=4;
+		spawnPileType="Ammo_CupidsBolt";
+		dmgPerUse=1;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 50;
-			Blood = 100;
-			Shock = 0;
-		};
-	};
-	class Arrow_Primitive: Bullet_Base
-	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\arrow_hunting_flying.p3d";
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_ArrowPrimitive";
-		proxyShape = "\dz\weapons\projectiles\arrow_crafted_simple.p3d";
-		hit = 10;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 20;
-		caliber = 0.5;
-		airFriction = -0.00215;
-		typicalSpeed = 70;
-		initSpeed = 70;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		class DamageApplied
-		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 50;
-			Blood = 100;
-			Shock = 0;
-		};
-	};
-	class Arrow_Crude: Bullet_Base
-	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\arrow_hunting_flying.p3d";
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_SharpStick";
-		proxyShape = "\dz\weapons\projectiles\arrow_crude_simple.p3d";
-		hit = 8;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 20;
-		caliber = 0.5;
-		airFriction = -0.00255;
-		typicalSpeed = 50;
-		initSpeed = 50;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		class DamageApplied
-		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.5;
-			Health = 50;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0;
+			class Health
+			{
+				damage=0;
+			};
+			class Blood
+			{
+				damage=0;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 	};
 	class Dart_Syringe: Bullet_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\dart_syringe.p3d";
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_DartSyringe";
-		hit = 9;
-		indirectHit = 0;
-		indirectHitRange = 0;
-		cartridge = "";
-		visibleFire = 1;
-		audibleFire = 1;
-		visibleFireTime = 3;
-		cost = 1.0;
-		deflecting = 20;
-		caliber = 0.5;
-		airFriction = -0.00215;
-		typicalSpeed = 100;
-		soundFly[] = {};
-		supersonicCrackNear[] = {};
-		supersonicCrackFar[] = {};
-		initSpeed = 30;
+		scope=1;
+		model="\dz\weapons\projectiles\dart_syringe.p3d";
+		spawnPileType="Ammo_DartSyringe";
+		hit=9;
+		indirectHit=0;
+		indirectHitRange=0;
+		casing="";
+		round="";
+		deflecting=20;
+		caliber=0.5;
+		airFriction=-0.0021500001;
+		typicalSpeed=100;
+		weight=0.025;
+		soundFly[]={};
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		initSpeed=30;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.9;
-			Health = 35;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=35;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 	};
 	class Bullet_Flare: Bullet_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\projectiles\tracer_red.p3d";
-		lootCategory = "Crafted";
-		spawnPileType = "Ammo_Flare";
-		cartridge = "-";
-		visibleFire = 15;
-		audibleFire = 15;
-		visibleFireTime = 3;
-		cost = 1.0;
-		caliber = 1;
-		airFriction = -0.00215;
-		typicalSpeed = 180;
-		initSpeed = 180;
-		soundFly[] = {"dz\sounds\weapons\effects\bullet_crack_mid",9.999997e-009,1};
-		supersonicCrackNear[] = {"-",1,1,150};
-		supersonicCrackFar[] = {"-",1,1,250};
-		hit = 5;
-		indirectHit = 2;
-		indirectHitRange = 0.2;
-		simulation = "shotIlluminating";
-		simulationStep = 0.05;
-		explosive = 0;
-		soundHit[] = {"",0,1};
-		deflecting = 90;
-		timeToLive = 40;
-		explosionTime = 40;
-		radius = 300;
-		soundEngine[] = {"dz\sounds\effects\crafting\fire\flare_1",0.099999994,1,100};
-		class PointLight
+		scope=1;
+		model="\dz\weapons\projectiles\Flare_Projectile.p3d";
+		proxyShape="\dz\weapons\projectiles\Flare_SingleRound.p3d";
+		casing="FxCartridge_Flare";
+		round="FxRound_Flare";
+		spawnPileType="Ammo_Flare";
+		caliber=0;
+		airFriction=-0.059999999;
+		airFrictionChangeOnActivation=-0.2;
+		typicalSpeed=80;
+		initSpeed=80;
+		weight=0.0049999999;
+		coefGravity=0.1;
+		soundFly[]={};
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		hit=5;
+		indirectHit=2;
+		indirectHitRange=0.2;
+		simulation="shotIlluminating";
+		simulationStep=0.050000001;
+		explosive=0;
+		soundHit[]=
 		{
-			color[] = {1,0.4,0.3,1.0};
-			brightness = 1.0;
-			radius = 100;
-			dayLight = 1;
-			position = "";
-			hitpoint = "";
-			selection = "";
-			heatHazeRadius = 0.2;
-			heatHazePower = 0.01;
-			fireEffect = 1;
-			fireEffectOctaves = 4;
-			fireEffectPersistence = 0.99;
-			fireEffectFract = 0.33;
+			"",
+			0,
+			1
+		};
+		SimulationScriptClass="FlareSimulation";
+		deflecting=30;
+		timeToLive=40;
+		explosionTime=40;
+		radius=300;
+		soundEngine[]=
+		{
+			"dz\sounds\effects\crafting\fire\flare_1",
+			0.099999994,
+			1,
+			100
 		};
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0;
-			Health = 10;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=10;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
+	};
+	class Bullet_FlareRed: Bullet_Flare
+	{
+		SimulationScriptClass="FlareSimulation_Red";
+		spawnPileType="Ammo_FlareRed";
+		casing="FxCartridge_Flare_Red";
+		round="FxRound_Flare_Red";
+		proxyShape="\dz\weapons\projectiles\Flare_SingleRound_Red.p3d";
+	};
+	class Bullet_FlareGreen: Bullet_Flare
+	{
+		SimulationScriptClass="FlareSimulation_Green";
+		spawnPileType="Ammo_FlareGreen";
+		casing="FxCartridge_Flare_Green";
+		round="FxRound_Flare_Green";
+		proxyShape="\dz\weapons\projectiles\Flare_SingleRound_Green.p3d";
+	};
+	class Bullet_FlareBlue: Bullet_Flare
+	{
+		SimulationScriptClass="FlareSimulation_Blue";
+		spawnPileType="Ammo_FlareBlue";
+		casing="FxCartridge_Flare_Blue";
+		round="FxRound_Flare_Blue";
+		proxyShape="\dz\weapons\projectiles\Flare_SingleRound_Blue.p3d";
 	};
 	class GrenadeM4: Bullet_Base
 	{
-		scope = 2;
-		simulation = "shotShell";
-		simulationStep = 0.05;
-		soundFly[] = {"dz\sounds\weapons\effects\bullet_crack_mid",9.999997e-009,1};
-		model = "\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
-		proxyShape = "\dz\weapons\projectiles\rocket_rpg7_inflight.p3d";
-		spawnPileType = "Ammo_GrenadeM4";
-		hit = 60;
-		indirectHit = 28;
-		indirectHitRange = 7;
-		explosive = 1;
-		typicalSpeed = 3;
-		initSpeed = 3;
-		fuseDistance = 5;
-		whistleDist = 4;
-		soundHit[] = {"",10.0,1};
-		soundEngine[] = {"",9.999998e-005,4};
-		visibleFire = 2;
-		audibleFire = 0.25;
-		visibleFireTime = 0;
-		timeToLive = 20;
-		deflecting = 60;
+		scope=1;
+		simulation="shotShell";
+		simulationStep=0.050000001;
+		soundFly[]=
+		{
+			"dz\sounds\weapons\effects\bullet_crack_mid",
+			9.9999973e-09,
+			1
+		};
+		model="\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
+		proxyShape="\dz\weapons\projectiles\rocket_rpg7_inflight.p3d";
+		spawnPileType="Ammo_GrenadeM4";
+		hit=60;
+		indirectHit=28;
+		indirectHitRange=7;
+		explosive=1;
+		typicalSpeed=3;
+		initSpeed=3;
+		weight=0.2;
+		fuseDistance=5;
+		soundHit[]=
+		{
+			"",
+			10,
+			1
+		};
+		soundEngine[]=
+		{
+			"",
+			9.9999983e-05,
+			4
+		};
+		timeToLive=20;
+		deflecting=60;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.75;
-			Health = 99;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0.75;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=99;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 	};
 	class Rocket_RPG7_Base: Bullet_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
-		proxyShape = "\dz\weapons\projectiles\rocket_rpg7_inflight.p3d";
-		lootCategory = "Crafted";
-		cartridge = "-";
-		caliber = 0.2;
-		airFriction = -0.00215;
-		typicalSpeed = 180;
-		initSpeed = 180;
-		soundFly[] = {"dz\sounds\weapons\effects\bullet_crack_mid",9.999997e-009,1};
-		supersonicCrackNear[] = {"-",1,1,150};
-		supersonicCrackFar[] = {"-",1,1,250};
-		simulationStep = 0.05;
-		soundHit[] = {"",0,1};
-		soundEngine[] = {"dz\sounds\effects\crafting\fire\flare_1",0.099999994,1,100};
-		explosive = 1;
-		hit = 500;
-		indirectHit = 150;
-		indirectHitRange = 2;
-		maxSpeed = 1;
-		initTime = 0;
-		thrustTime = 0.2;
-		thrust = 2000;
-		timeToLive = 20;
-		explosionTime = 20;
-		maneuvrability = 0;
-		maxControlRange = 0;
-		visibleFire = 32;
-		audibleFire = 32;
-		visibleFireTime = 20;
-		cost = 2000;
-		deflecting = 5;
+		scope=1;
+		model="\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
+		proxyShape="\dz\weapons\projectiles\rocket_rpg7_inflight.p3d";
+		casing="-";
+		round="-";
+		caliber=0.2;
+		airFriction=-0.0021500001;
+		typicalSpeed=180;
+		initSpeed=180;
+		soundFly[]={};
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		simulationStep=0.050000001;
+		soundHit[]=
+		{
+			"",
+			0,
+			1
+		};
+		soundEngine[]=
+		{
+			"dz\sounds\effects\crafting\fire\flare_1",
+			0.099999994,
+			1,
+			100
+		};
+		explosive=1;
+		hit=500;
+		indirectHit=150;
+		indirectHitRange=2;
+		maxSpeed=1;
+		initTime=0;
+		thrustTime=0.2;
+		thrust=2000;
+		timeToLive=20;
+		explosionTime=20;
+		maneuvrability=0;
+		maxControlRange=0;
+		deflecting=5;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.8;
-			Health = 150;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0.80000001;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=150;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 	};
 	class Rocket_RPG7_HE: Rocket_RPG7_Base
 	{
-		hit = 208;
-		indirectHit = 20;
-		indirectHitRange = 2;
-		model = "\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
-		spawnPileType = "Ammo_RPG7_HE";
-		cost = 100;
-		initTime = 0.1;
-		thrust = 280;
-		thrustTime = 1;
-		maxSpeed = 295;
-		sideAirFriction = 0.5;
-		timeToLive = 4.5;
-		fuseDistance = 5;
-		visibleFire = 28;
-		audibleFire = 16;
-		whistleDist = 4;
+		hit=208;
+		indirectHit=20;
+		indirectHitRange=2;
+		model="\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
+		spawnPileType="Ammo_RPG7_HE";
+		initTime=0.1;
+		thrust=280;
+		thrustTime=1;
+		maxSpeed=295;
+		sideAirFriction=0.5;
+		timeToLive=4.5;
+		fuseDistance=5;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.8;
-			Health = 150;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0.80000001;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=150;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 	};
 	class Rocket_RPG7_AP: Rocket_RPG7_Base
 	{
-		hit = 128;
-		indirectHit = 80;
-		indirectHitRange = 30;
-		model = "\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
-		spawnPileType = "Ammo_RPG7_AP";
-		cost = 100;
-		initTime = 0.1;
-		thrust = 280;
-		thrustTime = 1;
-		maxSpeed = 295;
-		sideAirFriction = 0.5;
-		timeToLive = 4.5;
-		fuseDistance = 5;
-		visibleFire = 28;
-		audibleFire = 16;
-		whistleDist = 4;
+		hit=128;
+		indirectHit=80;
+		indirectHitRange=30;
+		model="\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
+		spawnPileType="Ammo_RPG7_AP";
+		initTime=0.1;
+		thrust=280;
+		thrustTime=1;
+		maxSpeed=295;
+		sideAirFriction=0.5;
+		timeToLive=4.5;
+		fuseDistance=5;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.8;
-			Health = 150;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0.80000001;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=150;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 	};
 	class Rocket_LAW_Base: Bullet_Base
 	{
-		scope = 2;
-		model = "\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
-		proxyShape = "\dz\weapons\projectiles\rocket_rpg7_inflight.p3d";
-		lootCategory = "Crafted";
-		cartridge = "-";
-		caliber = 0.2;
-		airFriction = -0.00215;
-		typicalSpeed = 145;
-		initSpeed = 145;
-		soundFly[] = {"dz\sounds\weapons\effects\bullet_crack_mid",9.999997e-009,1};
-		supersonicCrackNear[] = {"-",1,1,150};
-		supersonicCrackFar[] = {"-",1,1,250};
-		simulationStep = 0.05;
-		soundHit[] = {"",0,1};
-		soundEngine[] = {"dz\sounds\effects\crafting\fire\flare_1",0.099999994,1,100};
-		explosive = 1;
-		hit = 500;
-		indirectHit = 150;
-		indirectHitRange = 2;
-		maxSpeed = 1;
-		initTime = 0;
-		thrustTime = 0.2;
-		thrust = 2000;
-		timeToLive = 20;
-		explosionTime = 20;
-		maneuvrability = 0;
-		maxControlRange = 0;
-		visibleFire = 32;
-		audibleFire = 32;
-		visibleFireTime = 20;
-		cost = 2000;
-		deflecting = 5;
-		explosionEffects = "VehicleExplosionEffects";
+		scope=1;
+		model="\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
+		proxyShape="\dz\weapons\projectiles\rocket_rpg7_inflight.p3d";
+		casing="-";
+		round="-";
+		caliber=0.2;
+		airFriction=-0.0021500001;
+		typicalSpeed=145;
+		initSpeed=145;
+		soundFly[]={};
+		supersonicCrackNear[]={};
+		supersonicCrackFar[]={};
+		simulationStep=0.050000001;
+		soundHit[]=
+		{
+			"",
+			0,
+			1
+		};
+		soundEngine[]=
+		{
+			"dz\sounds\effects\crafting\fire\flare_1",
+			0.099999994,
+			1,
+			100
+		};
+		explosive=1;
+		hit=500;
+		indirectHit=150;
+		indirectHitRange=2;
+		maxSpeed=1;
+		initTime=0;
+		thrustTime=0.2;
+		thrust=2000;
+		timeToLive=20;
+		explosionTime=20;
+		maneuvrability=0;
+		maxControlRange=0;
+		deflecting=5;
+		explosionEffects="VehicleExplosionEffects";
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.8;
-			Health = 150;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0.80000001;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=150;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
 	};
 	class Rocket_LAW_HE: Rocket_LAW_Base
 	{
-		hit = 208;
-		indirectHit = 20;
-		indirectHitRange = 2;
-		model = "\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
-		spawnPileType = "Ammo_LAW_HE";
-		cost = 100;
-		initTime = 0.1;
-		thrust = 280;
-		thrustTime = 1;
-		maxSpeed = 295;
-		sideAirFriction = 0.5;
-		timeToLive = 4.5;
-		fuseDistance = 5;
-		visibleFire = 28;
-		audibleFire = 16;
-		whistleDist = 4;
+		hit=208;
+		indirectHit=20;
+		indirectHitRange=2;
+		model="\dz\weapons\ammunition\rocket_rpg7_inflight.p3d";
+		spawnPileType="Ammo_LAW_HE";
+		initTime=0.1;
+		thrust=280;
+		thrustTime=1;
+		maxSpeed=295;
+		sideAirFriction=0.5;
+		timeToLive=4.5;
+		fuseDistance=5;
 		class DamageApplied
 		{
-			type = "Projectile";
-			dispersion = 0.0;
-			bleedThreshold = 0.8;
-			Health = 150;
-			Blood = 100;
-			Shock = 0;
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=0.80000001;
+			defaultDamageOverride[]=
+			{
+				{0.5,1}
+			};
+			class Health
+			{
+				damage=150;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=0;
+			};
 		};
+	};
+	class Bullet_40mm_Base: Bullet_Base
+	{
+		scope=1;
+		model="\dz\weapons\projectiles\tracer_40mm_grenade.p3d";
+		proxyShape="\dz\weapons\projectiles\40mm_grenade_SingleRound.p3d";
+		casing="FxCartridge_40mm";
+		round="FxRound_40mm";
+		hit=9.5;
+		indirectHit=0;
+		indirectHitRange=0;
+		timeToLive=20;
+		airLock=0;
+		initSpeed=76;
+		typicalSpeed=76;
+		airFriction=-0.0013;
+		airFrictionChangeOnActivation=-0.0013;
+		tracerScale=1.2;
+		tracerStartTime=9.9999997e-06;
+		tracerEndTime=3;
+		caliber=0;
+		deflecting=90;
+		deflectingMultiplier="3f";
+		deflectionSlowDown="0.45f";
+		damageBarrel=500;
+		damageBarrelDestroyed=500;
+		weight=0.23;
+		impactBehaviour=0;
+		hitAnimation=1;
+		unconRefillModifier=4;
+		spawnPileType="Ammo_40mm_Base";
+		class DamageApplied
+		{
+			type="Projectile";
+			dispersion=0;
+			bleedThreshold=1;
+			defaultDamageOverride[]=
+			{
+				{0.94999999,1}
+			};
+			class Health
+			{
+				damage=110;
+			};
+			class Blood
+			{
+				damage=100;
+			};
+			class Shock
+			{
+				damage=110;
+				damageOverride[]=
+				{
+					{0.80000001,1}
+				};
+			};
+		};
+		class NoiseHit
+		{
+			strength=10;
+			type="sound";
+		};
+	};
+	class Bullet_40mm_Explosive: Bullet_40mm_Base
+	{
+		hit=5;
+		indirectHit=1;
+		indirectHitRange=10;
+		indirectHitRangeMultiplier=1;
+		explosive=1;
+		caliber=1;
+		deflecting=0;
+		spawnPileType="Ammo_40mm_Explosive";
+		soundSetExplosion[]={};
+	};
+	class Bullet_40mm_ChemGas: Bullet_40mm_Base
+	{
+		caliber=1;
+		deflecting=0;
+		spawnPileType="Ammo_40mm_ChemGas";
+		model="\dz\weapons\projectiles\tracer_40mm_grenade_ChemGas.p3d";
+		proxyShape="\dz\weapons\projectiles\40mm_grenade_ChemGas_SingleRound.p3d";
+		round="FxRound_40mmChemGas";
+	};
+	class Bullet_40mm_Smoke_Red: Bullet_40mm_Base
+	{
+		timeToLive=40;
+		explosionTime=40;
+		simulation="shotIlluminating";
+		spawnPileType="Ammo_40mm_Smoke_Red";
+		SimulationScriptClass="SmokeSimulation_Red";
+		model="\dz\weapons\projectiles\tracer_40mm_grenade.p3d";
+		proxyShape="\dz\weapons\projectiles\tracer_40mm_grenade_smoke_r.p3d";
+		round="FxRound_40mmRed";
+	};
+	class Bullet_40mm_Smoke_Green: Bullet_40mm_Base
+	{
+		timeToLive=40;
+		explosionTime=40;
+		simulation="shotIlluminating";
+		spawnPileType="Ammo_40mm_Smoke_Green";
+		SimulationScriptClass="SmokeSimulation_Green";
+		model="\dz\weapons\projectiles\tracer_40mm_grenade.p3d";
+		proxyShape="\dz\weapons\projectiles\tracer_40mm_grenade_smoke_g.p3d";
+		round="FxRound_40mmGreen";
+	};
+	class Bullet_40mm_Smoke_White: Bullet_40mm_Base
+	{
+		timeToLive=40;
+		explosionTime=40;
+		simulation="shotIlluminating";
+		spawnPileType="Ammo_40mm_Smoke_White";
+		SimulationScriptClass="SmokeSimulation_White";
+		model="\dz\weapons\projectiles\tracer_40mm_grenade.p3d";
+		proxyShape="\dz\weapons\projectiles\tracer_40mm_grenade_smoke_w.p3d";
+		round="FxRound_40mmWhite";
+	};
+	class Bullet_40mm_Smoke_Black: Bullet_40mm_Base
+	{
+		timeToLive=40;
+		explosionTime=40;
+		simulation="shotIlluminating";
+		spawnPileType="Ammo_40mm_Smoke_Black";
+		SimulationScriptClass="SmokeSimulation_Black";
+		model="\dz\weapons\projectiles\tracer_40mm_grenade_smoke_b.p3d";
+		proxyShape="\dz\weapons\projectiles\40mm_grenade_smoke_b_SingleRound.p3d";
+		round="FxRound_40mmBlack";
 	};
 };
 class CfgVehicles
@@ -1341,45 +6707,194 @@ class CfgVehicles
 	class ThingEffect;
 	class FxCartridge: ThingEffect
 	{
-		model = "\dz\weapons\projectiles\nabojnice_556.p3d";
-		displayName = "$STR_DN_FX_CARTRIDGE";
-		submerged = 0;
-		submergeSpeed = 0;
-		timeToLive = 5;
-		disappearAtContact = 1;
-		airRotation = 1.5;
+		model="\dz\weapons\projectiles\nabojnice_556.p3d";
+		displayName="";
+		submerged=0;
+		submergeSpeed=0;
+		timeToLive=5;
+		disappearAtContact=1;
+		airRotation=1.5;
 	};
 	class FxCartridge_Small: ThingEffect
 	{
-		model = "\dz\weapons\projectiles\nabojnice_small.p3d";
-		displayName = "$STR_DN_FX_CARTRIDGE";
-		submerged = 0;
-		submergeSpeed = 0;
-		timeToLive = 5;
-		disappearAtContact = 1;
-		airRotation = 1.5;
+		model="\dz\weapons\projectiles\nabojnice_small.p3d";
+		displayName="";
+		submerged=0;
+		submergeSpeed=0;
+		timeToLive=5;
+		disappearAtContact=1;
+		airRotation=1.5;
 	};
-	class FxCartridge_9mm: FxCartridge_Small{};
-	class FxCartridge_556: FxCartridge{};
+	class FxCartridge_9mm: FxCartridge_Small
+	{
+	};
+	class FxCartridge_556: FxCartridge
+	{
+	};
+	class FxCartridge_357: FxCartridge
+	{
+		model="\dz\weapons\projectiles\nabojnice_357.p3d";
+	};
 	class FxCartridge_762: FxCartridge
 	{
-		model = "\dz\weapons\projectiles\nabojnice_762.p3d";
+		model="\dz\weapons\projectiles\nabojnice_762.p3d";
 	};
 	class FxCartridge_762x39: FxCartridge
 	{
-		model = "\dz\weapons\projectiles\nabojnice_762x39.p3d";
+		model="\dz\weapons\projectiles\nabojnice_762x39.p3d";
 	};
 	class FxCartridge_12Pellet: FxCartridge
 	{
-		model = "\dz\weapons\projectiles\shotgunshell_pellets.p3d";
+		model="\dz\weapons\projectiles\shotgunshell_pellets.p3d";
 	};
 	class FxCartridge_12Slug: FxCartridge
 	{
-		model = "\dz\weapons\projectiles\shotgunshell_slug.p3d";
+		model="\dz\weapons\projectiles\shotgunshell_slug.p3d";
+	};
+	class FxCartridge_12RubberSlug: FxCartridge
+	{
+		model="\dz\weapons\projectiles\shotgunshell_rubber.p3d";
+	};
+	class FxCartridge_12Beanbag: FxCartridge
+	{
+		model="\dz\weapons\projectiles\shotgunshell_beanbag.p3d";
 	};
 	class FxCartridge_22: FxCartridge
 	{
-		model = "\dz\weapons\projectiles\nabojnice_22.p3d";
+		model="\dz\weapons\projectiles\nabojnice_22.p3d";
+	};
+	class FxCartridge_Flare: FxCartridge
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound.p3d";
+	};
+	class FxCartridge_Flare_Red: FxCartridge
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound_Red.p3d";
+	};
+	class FxCartridge_Flare_Green: FxCartridge
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound_Green.p3d";
+	};
+	class FxCartridge_Flare_Blue: FxCartridge
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound_Blue.p3d";
+	};
+	class FxCartridge_40mm: FxCartridge
+	{
+		model="\dz\weapons\projectiles\40mm_grenade_shell.p3d";
+	};
+	class FxRound: FxCartridge
+	{
+		model="\dz\weapons\projectiles\556_SingleRound.p3d";
+		displayName="";
+		submerged=0;
+		submergeSpeed=0;
+		timeToLive=5;
+		disappearAtContact=1;
+		airRotation=1;
+	};
+	class FxRound_9mm: FxRound
+	{
+		model="\dz\weapons\projectiles\9mm_SingleRound.p3d";
+	};
+	class FxRound_45acp: FxRound
+	{
+		model="\dz\weapons\projectiles\45acp_SingleRound.p3d";
+	};
+	class FxRound_357: FxRound
+	{
+		model="\dz\weapons\projectiles\357_SingleRound.p3d";
+	};
+	class FxRound_556: FxRound
+	{
+		model="\dz\weapons\projectiles\556_SingleRound.p3d";
+	};
+	class FxRound_762: FxRound
+	{
+		model="\dz\weapons\projectiles\762_SingleRound.p3d";
+	};
+	class FxRound_762x39: FxRound
+	{
+		model="\dz\weapons\projectiles\762x39_SingleRound.p3d";
+	};
+	class FxRound_12Pellet: FxRound
+	{
+		model="\dz\weapons\projectiles\shotgunshell_pellets.p3d";
+	};
+	class FxRound_12Slug: FxRound
+	{
+		model="\dz\weapons\projectiles\shotgunshell_slug.p3d";
+	};
+	class FxRound_12RubberSlug: FxRound
+	{
+		model="\dz\weapons\projectiles\shotgunshell_rubber.p3d";
+	};
+	class FxRound_12Beanbag: FxRound
+	{
+		model="\dz\weapons\projectiles\shotgunshell_beanbag.p3d";
+	};
+	class FxRound_22: FxRound
+	{
+		model="\dz\weapons\projectiles\22_SingleRound.p3d";
+	};
+	class FxRound_308Win: FxRound
+	{
+		model="\dz\weapons\projectiles\308Win_SingleRound.p3d";
+	};
+	class FxRound_HuntingBolt: FxRound
+	{
+		model="\dz\weapons\projectiles\bolt_biggame.p3d";
+	};
+	class FxRound_ImprovisedBolt_1: FxRound
+	{
+		model="\dz\weapons\projectiles\bolt_crude.p3d";
+	};
+	class FxRound_ImprovisedBolt_2: FxRound
+	{
+		model="\dz\weapons\projectiles\bolt_crafted.p3d";
+	};
+	class FxRound_CupidsBolt: FxRound
+	{
+		model="\dz\weapons\projectiles\bolt_cupids.p3d";
+	};
+	class FxRound_Flare: FxRound
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound.p3d";
+	};
+	class FxRound_Flare_Red: FxRound
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound_Red.p3d";
+	};
+	class FxRound_Flare_Green: FxRound
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound_Green.p3d";
+	};
+	class FxRound_Flare_Blue: FxRound
+	{
+		model="\dz\weapons\projectiles\Flare_SingleRound_Blue.p3d";
+	};
+	class FxRound_40mm: FxRound
+	{
+		model="\dz\weapons\projectiles\40mm_grenade_SingleRound.p3d";
+	};
+	class FxRound_40mmChemGas: FxCartridge
+	{
+		model="\dz\weapons\projectiles\40mm_grenade_ChemGas_SingleRound.p3d";
+	};
+	class FxRound_40mmRed: FxCartridge
+	{
+		model="\dz\weapons\projectiles\40mm_grenade_smoke_r_SingleRound.p3d";
+	};
+	class FxRound_40mmGreen: FxCartridge
+	{
+		model="\dz\weapons\projectiles\40mm_grenade_smoke_g_SingleRound.p3d";
+	};
+	class FxRound_40mmWhite: FxCartridge
+	{
+		model="\dz\weapons\projectiles\40mm_grenade_smoke_w_SingleRound.p3d";
+	};
+	class FxRound_40mmBlack: FxCartridge
+	{
+		model="\dz\weapons\projectiles\40mm_grenade_smoke_b_SingleRound.p3d";
 	};
 };
-//};

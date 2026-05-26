@@ -1,131 +1,263 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:51:37 2018 : 'file' last modified on Wed Aug 22 22:02:37 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_pistols\derringer\config.bin{
 class CfgPatches
 {
 	class DZ_Pistols_Derringer
 	{
-		units[] = {"Derringer_Black","Derringer_Grey","Derringer_Pink"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Pistols"};
+		units[]=
+		{
+			"Derringer_Black",
+			"Derringer_Grey",
+			"Derringer_Pink"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Pistols"
+		};
 	};
 };
-class Mode_Safe;
-class Mode_SemiAuto;
-class Mode_Burst;
-class Mode_FullAuto;
+class Mode_Single;
+class Mode_Double;
+class Muzzle_Base;
+class OpticsInfoPistol;
 class cfgWeapons
 {
 	class Pistol_Base;
 	class Derringer_Base: Pistol_Base
 	{
-		scope = 0;
-		displayName = "$STR_cfgWeapons_Derringer_Base0";
-		descriptionShort = "$STR_cfgWeapons_Derringer_Base1";
-		model = "\dz\weapons\pistols\derringer\derringer.p3d";
-		animName = "Derringer";
-		lootTag[] = {"Civilian"};
-		weight = 800;
-		itemSize[] = {2,1};
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		dexterity = 4;
-		attachments[] = {};
-		baseAttachments[] = {};
-		modelOptics = "-";
-		distanceZoomMin = 100;
-		distanceZoomMax = 100;
-		optics = 1;
-		value = 0;
-		chamberSize = 2;
-		chamberedRound = "";
-		magazines[] = {};
-		chamberableFrom[] = {"Ammo_45ACP"};
-		barrelArmor = 240;
-		ejectType = 3;
-		recoilModifier[] = {1,1,1};
-		drySound[] = {"dz\sounds\weapons\firearms\FNX45\FNX_dry",0.5,1,20};
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\derringer\deringer_reload_full",0.8,1,20};
-		reloadSound[] = {"dz\sounds\weapons\firearms\derringer\deringer_reload_short",0.8,1,20};
-		shotAction = "reloadDerringer";
-		reloadAction = "reloadDerringerFull";
-		hiddenSelections[] = {"camoGround"};
-		hiddenSelectionsMaterials[] = {"dz\weapons\pistols\derringer\data\derringer.rvmat"};
-		modes[] = {"Single"};
-		class Single: Mode_SemiAuto
+		scope=0;
+		displayName="$STR_cfgweapons_derringer_base0";
+		descriptionShort="$STR_cfgWeapons_Derringer_Base1";
+		model="\dz\weapons\pistols\derringer\derringer.p3d";
+		weight=350;
+		itemSize[]={2,1};
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		attachments[]={};
+		modelOptics="-";
+		PPDOFProperties[]={1,1,10,200,10,1};
+		WeaponLength=0.15000001;
+		ShoulderDistance=0.41999999;
+		ObstructionDistance=0.39500001;
+		barrelArmor=1.3329999;
+		initSpeedMultiplier=0.80000001;
+		muzzles[]=
 		{
-			soundSetShot[] = {"Derringer_Shot_SoundSet","Derringer_Tail_SoundSet","Derringer_InteriorTail_SoundSet"};
-			begin1[] = {"dz\sounds\weapons\firearms\derringer\deringer_single_0",1,1,600};
-			begin2[] = {"dz\sounds\weapons\firearms\derringer\deringer_single_1",1,1,600};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin2",0.33333};
-			reloadTime = 0.5;
-			recoil = "recoil_derringer";
-			recoilProne = "recoil_derringer_prone";
-			dispersion = 0.008;
-			magazineSlot = "magazine";
+			"this",
+			"SecondMuzzle"
 		};
-		class Damage
+		chamberSize=1;
+		chamberedRound="";
+		magazines[]={};
+		chamberableFrom[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\pistols\derringer\data\derringer.rvmat","DZ\weapons\pistols\derringer\data\derringer_damage.rvmat","DZ\weapons\pistols\derringer\data\derringer_destruct.rvmat"};
+			"Ammo_357"
+		};
+		DisplayMagazine=0;
+		ejectType=2;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={0.64999998,0.64999998,0.40000001};
+		hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\pistols\derringer\data\derringer_1.rvmat"
+		};
+		class NoiseShoot
+		{
+			strength=80;
+			type="shot";
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=200;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\pistols\derringer\data\derringer_1.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\pistols\derringer\data\derringer_1.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\pistols\derringer\data\derringer_1_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\pistols\derringer\data\derringer_1_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\pistols\derringer\data\derringer_1_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		modes[]=
+		{
+			"Single"
+		};
+		class Single: Mode_Single
+		{
+			soundSetShot[]=
+			{
+				"derringer_Shot_SoundSet",
+				"derringer_Tail_2D_SoundSet",
+				"derringer_Shot_iterior_SoundSet",
+				"derringer_Tail_SoundSet",
+				"derringer_InteriorTail_SoundSet"
+			};
+			recoil="recoil_derringer";
+			recoilProne="recoil_derringer_prone";
+			dispersion=0.0060000001;
+			magazineSlot="magazine";
+		};
+		class SecondMuzzle: Muzzle_Base
+		{
+			chamberSize=1;
+			muzzlePos="usti hlavne";
+			muzzleEnd="konec hlavne";
+			modes[]=
+			{
+				"Single"
+			};
+			magazines[]={};
+			chamberableFrom[]=
+			{
+				"Ammo_357"
+			};
+			barrelArmor=1.3329999;
+			initSpeedMultiplier=0.80000001;
+			class Single: Mode_Single
+			{
+				soundSetShot[]=
+				{
+					"derringer_Shot_SoundSet",
+					"derringer_Tail_2D_SoundSet",
+					"derringer_Shot_iterior_SoundSet",
+					"derringer_Tail_SoundSet",
+					"derringer_InteriorTail_SoundSet"
+				};
+				reloadTime=1;
+				dispersion=0.0060000001;
+				magazineSlot="magazine";
+			};
+			class OpticsInfo: OpticsInfoPistol
+			{
+				memoryPointCamera="eye";
+				modelOptics="-";
+				distanceZoomMin=25;
+				distanceZoomMax=25;
+				discreteDistance[]={25};
+				discreteDistanceInitIndex=0;
+			};
+		};
+		class OpticsInfo: OpticsInfoPistol
+		{
+			memoryPointCamera="eye";
+			modelOptics="-";
+			distanceZoomMin=25;
+			distanceZoomMax=25;
+			discreteDistance[]={25};
+			discreteDistanceInitIndex=0;
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
+				};
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_cz75_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={0,0,0};
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\Derringer\w_derringer_states.anm";
+		boneRemap[]=
+		{
+			"release",
+			"Weapon_Bone_02",
+			"barrel",
+			"Weapon_Bone_01",
+			"trigger",
+			"Weapon_Trigger",
+			"hammer",
+			"Weapon_Bone_03",
+			"bullet",
+			"Weapon_Bullet",
+			"bullet2",
+			"Weapon_Bone_04",
+			"snaploader",
+			"Weapon_Bone_05"
 		};
 	};
 	class Derringer_Black: Derringer_Base
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_Derringer_Black0";
-		hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.15,0.15,0.15,1.0,CO)"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\pistols\derringer\data\derringer_black_co.paa"
+		};
 	};
 	class Derringer_Pink: Derringer_Base
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_Derringer_Pink0";
-		hiddenSelectionsTextures[] = {"dz\weapons\pistols\derringer\data\derringer_pink_co.paa"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\pistols\derringer\data\derringer_pink_co.paa"
+		};
 	};
 	class Derringer_Grey: Derringer_Base
 	{
-		scope = 2;
-		descriptionShort = "$STR_cfgWeapons_Derringer_Grey0";
-		hiddenSelectionsTextures[] = {"dz\weapons\pistols\derringer\data\derringer_grey_co.paa"};
+		scope=2;
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\pistols\derringer\data\derringer_grey_co.paa"
+		};
 	};
 };
-class cfgRecoils
-{
-	recoil_derringer[] = {0,0,0,0.04,"0.036943*(1)","0.0134348*(3)",0.08,"0.019755*(1)","0.003056*(3)",0.09,0,0,0.14,"-0.003138*(1)","-0.0005*(3)",0.08,"-0.001177*(1)","-0.000188*(3)",0.12,0,0};
-	recoil_derringer_prone[] = {0,0,0,0.04,"0.036943*(0.5)","0.0134348*(1)",0.08,"0.019755*(0.5)","0.003056*(1)",0.09,0,0,0.14,"-0.003138*(0.5)","-0.0005*(1)",0.08,"-0.001177*(0.5)","-0.000188*(1)",0.12,0,0};
-};
-class CfgNonAIVehicles
-{
-	class ProxyAttachment;
-	class ProxyFNP45: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "pistol";
-		model = "\dz\weapons\pistols\fnx45\fnp45.p3d";
-	};
-};
-//};

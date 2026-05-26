@@ -1,166 +1,83 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 20:02:38 2018 : 'file' last modified on Wed Aug 22 14:53:40 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\animals\config.bin{
 class CfgPatches
 {
 	class DZ_Animals
 	{
-		units[] = {};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data"};
+		units[]={};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data"
+		};
 	};
-};
-class CfgMovesAnimal
-{
-	skeletonName = "";
-	class ManActions{};
-	class States{};
-	class Interpolations{};
-	transitionsInterpolated[] = {};
-	transitionsSimple[] = {};
-	transitionsDisabled[] = {};
 };
 class CfgVehicles
 {
 	class DZ_LightAI;
 	class AnimalBase: DZ_LightAI
 	{
-		class SoundEnvironExt
+		scope=0;
+		vehicleClass="Animals";
+		simulation="animal";
+		storageCategory=2;
+		icon="\dz\animals\data\mapicon_animals_ca.paa";
+		displayName="$STR_DN_ANIMAL";
+		nameSound="veh_animal";
+		accuracy=0.25;
+		faceType="Default";
+		memoryPointHeadAxis="head_axis";
+		memoryPointAim="aimPoint";
+		memoryPointCameraTarget="camera";
+		agentTasks[]=
 		{
-			normalExt[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			normal[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			road[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			rock[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			water[] = {{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\water\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\water\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\water\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\water\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\water\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			gravel[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			gravel2[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			sand[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			drygrass[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			grass[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			forest[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			mud[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			wood[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			wood_int[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			carpet[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			concrete_int[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			concrete_ext[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			metal[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			steel[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			hallway[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			dirt[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			parkety[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			wave_plate[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			lepenka[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
-			tasky[] = {{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50},{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_8",0.7,1,50},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_1",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_2",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_3",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_4",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_5",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_7",0.7,1,50}},{"hs_stepr",{"\dz\sounds\effects\animals\movement\hoof_medium\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_1",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_2",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_3",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_4",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_5",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_7",0.7,1,50}},{"hs_stepl",{"\dz\sounds\effects\animals\movement\hoof_small\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_1",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_2",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_3",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_4",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_5",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_7",0.7,1,50}},{"runPawBig",{"\dz\sounds\effects\animals\movement\paw_big\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_1",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_2",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_3",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_4",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_5",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_7",0.7,1,50}},{"runPawMed",{"\dz\sounds\effects\animals\movement\paw_medium\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_1",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_2",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_3",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_4",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_5",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_7",0.7,1,50}},{"runPawSmall",{"\dz\sounds\effects\animals\movement\paw_small\default\step_6",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_0",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_1",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_2",0.7,1,50}},{"reddeerdeath",{"\dz\sounds\effects\animals\deer\roar\roar_3",0.7,1,50}},{"stand2rest",{"\dz\sounds\effects\animals\cow\stand2rest_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_0",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_1",0.7,1,50}},{"stand2grazing",{"\dz\sounds\effects\animals\cow\stand_2_grazing_2",0.7,1,50}},{"rest2stand",{"\dz\sounds\effects\animals\cow\rest2stand_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_0",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_1",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_2",0.7,1,50}},{"restidle1",{"\dz\sounds\effects\animals\cow\rest_idle_1_3",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_0",0.7,1,50}},{"restidle2",{"\dz\sounds\effects\animals\cow\rest_idle_2_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_0",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_1",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_2",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_3",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_4",0.7,1,50}},{"rest",{"\dz\sounds\effects\animals\cow\rest_5",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_0",0.7,1,50}},{"restdeath",{"\dz\sounds\effects\animals\cow\rest_death_1",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_0",0.7,1,50}},{"grazingwalk",{"\dz\sounds\effects\animals\cow\grazing_walk_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_0",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_1",0.7,1,50}},{"grazingidle",{"\dz\sounds\effects\animals\cow\grazing_idle_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_0",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_1",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_2",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_3",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_4",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_5",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_6",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_7",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_8",0.7,1,50}},{"grazingstand",{"\dz\sounds\effects\animals\cow\grazing_stand_9",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_0",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_1",0.7,1,50}},{"grazing2stand",{"\dz\sounds\effects\animals\cow\grazing_2_stand_2",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_0",0.7,1,50}},{"death",{"\dz\sounds\effects\animals\cattle\roar\roar_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_0",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_1",0.7,1,50}},{"pigidle1",{"\dz\sounds\effects\animals\hog\grunt_i\grunt_i_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_0",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_1",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_2",0.7,1,50}},{"pigidle2",{"\dz\sounds\effects\animals\hog\grunt_c\grunt_c_3",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"pigdeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitattacked",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_0",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_1",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_2",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_3",0.7,1,50}},{"rabbitdeath",{"\dz\sounds\effects\animals\hare\scream\scream_4",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_0",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_1",0.7,1,50}},{"wildboaridle1",{"\dz\sounds\effects\animals\hog\grunt_d\grunt_d_2",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboaridle2",{"\dz\sounds\effects\animals\hog\grunt_b\grunt_b_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_0",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_1",0.7,1,50}},{"wildboardeath",{"\dz\sounds\effects\animals\hog\grunt_a_squeal\grunt_a_squeal_2",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_0",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_1",0.7,1,50}},{"goatdeath",{"\dz\sounds\effects\animals\goat\bleat_c\bleat_c_2",0.7,1,50}}};
+			"AnimalMainTask"
 		};
-		scope = 0;
-		vehicleClass = "Animals";
-		simulation = "animal";
-		storageCategory = 2;
-		isMan = 0;
-		woman = 0;
-		armor = 1.5;
-		sensitivity = 5;
-		sensitivityEar = 8;
-		icon = "\dz\animals\data\mapicon_animals_ca.paa";
-		displayName = "$STR_DN_ANIMAL";
-		nameSound = "veh_animal";
-		accuracy = 0.25;
-		camouflage = 0.4;
-		boneHead = "head";
-		bonePrimaryWeapon = "head";
-		triggerAnim = "";
-		moves = "CfgMovesAnimal";
-		faceType = "Default";
-		memoryPointHeadAxis = "head_axis";
-		boneLEye = "l_eye";
-		boneREye = "r_eye";
-		boneLEyelidUp = "eye_upl";
-		boneREyelidUp = "eye_upr";
-		boneLEyelidDown = "eye_lwl";
-		boneREyelidDown = "eye_lwr";
-		boneLPupil = "l_pupila";
-		boneRPupil = "r_pupila";
-		memoryPointAim = "aimPoint";
-		memoryPointCameraTarget = "camera";
-		agentTasks[] = {"AnimalMainTask"};
-		attackSounds = "";
-		spottedSounds = "";
-		chaseSounds = "";
-		idleSounds = "";
+		attackSounds="";
+		spottedSounds="";
+		chaseSounds="";
+		idleSounds="";
+		varTemperatureInit=38;
+		varTemperatureMin=-100;
+		varTemperatureMax=1000;
+		varTemperatureFreezePoint=-2;
+		varTemperatureThawPoint=-2;
+		varTemperatureFreezeTime=7920;
+		varTemperatureThawTime=7920;
 		class VariablesScalar
 		{
-			_threatMaxRadius = 50;
-			_runDistanceMax = 100;
-			_movePrefer = 0.7;
-			_formationPrefer = 0.1;
-			_scareLimit = 0.2;
-			_dangerLimit = 1;
+			_threatMaxRadius=50;
+			_runDistanceMax=100;
+			_movePrefer=0.69999999;
+			_formationPrefer=0.1;
+			_scareLimit=0.2;
+			_dangerLimit=1;
 		};
 		class VariablesString
 		{
-			_expSafe = "(0.5 * meadow) * (0.5 * trees) * (1 - forest) * (1 - houses) * (1 - sea)";
-			_expDanger = "(trees) * (forest) * (1 - meadow)";
+			_expSafe="(0.5 * meadow) * (0.5 * trees) * (1 - forest) * (1 - houses) * (1 - sea)";
+			_expDanger="(trees) * (forest) * (1 - meadow)";
 		};
-		htMin = 60;
-		htMax = 1800;
-		afMax = 30;
-		mfMax = 0;
-		mFact = 1;
-		tBody = 37;
+		htMin=60;
+		htMax=1800;
+		afMax=30;
+		mfMax=0;
+		mFact=1;
+		tBody=37;
 	};
-	class AnimalsHoofsMedium: AnimalBase{};
-};
-class PreloadVehicles
-{
-	class Animal_BosTaurus_Brown;
-	class Animal_BosTaurusF_Brown;
-	class Animal_CanisLupus_Grey;
-	class Animal_CapraHircus_Brown;
-	class Animal_CapraHircusF;
-	class Animal_CapreolusCapreolus;
-	class Animal_CapreolusCapreolusF;
-	class Animal_CervusElaphus;
-	class Animal_CervusElaphusF;
-	class Animal_GallusGallusDomesticus;
-	class Animal_GallusGallusDomesticusF_Brown;
-	class Animal_OvisAries;
-	class Animal_OvisAriesF;
-	class Animal_SusDomesticus;
+	class AnimalsHoofsMedium: AnimalBase
+	{
+	};
 };
 class CfgTasks
 {
 	class AnimalMainTask
 	{
-		name = "Animal Main Task";
-		fsm = "\dz\animals\Data\scripts\main.fsm";
-		condition = "\dz\animals\Data\scripts\createSingleTask.sqf";
-		description = "Animal master task";
-		destination = "";
-		resources[] = {};
+		name="Animal Main Task";
+		fsm="\dz\animals\Data\scripts\main.fsm";
+		condition="\dz\animals\Data\scripts\createSingleTask.sqf";
+		description="Animal master task";
+		destination="";
+		resources[]={};
 	};
 };
 class CfgFSMs
@@ -171,392 +88,404 @@ class CfgFSMs
 		{
 			class Random_Move
 			{
-				name = "Random_Move";
+				name="Random_Move";
 				class Init
 				{
-					function = "randomMove";
-					parameters[] = {1,-0.1,1.2,5};
-					thresholds[] = {};
+					function="randomMove";
+					parameters[]={1,-0.1,1.2,5};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class MoveCompleted
 					{
-						priority = 1;
-						to = "SetRandom3";
+						priority=1;
+						to="SetRandom3";
 						class Condition
 						{
-							function = "moveCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="moveCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "SetRandom2";
+						priority=0;
+						to="SetRandom2";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class LongerWait
 			{
-				name = "LongerWait";
+				name="LongerWait";
 				class Init
 				{
-					function = "wait";
-					parameters[] = {0.8,2};
-					thresholds[] = {};
+					function="wait";
+					parameters[]={0.80000001,2};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class WaitCompleted
 					{
-						priority = 0;
-						to = "SetTimerRandom";
+						priority=0;
+						to="SetTimerRandom";
 						class Condition
 						{
-							function = "waitCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="waitCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class Init
 			{
-				name = "Init";
+				name="Init";
 				class Init
 				{
-					function = "setNoBackwards";
-					parameters[] = {1};
-					thresholds[] = {{0,0.5,0.5}};
+					function="setNoBackwards";
+					parameters[]={1};
+					thresholds[]=
+					{
+						{0,0.5,0.5}
+					};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "SetTimerRandom";
+						priority=0;
+						to="SetTimerRandom";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetTimerRandom
 			{
-				name = "SetTimerRandom";
+				name="SetTimerRandom";
 				class Init
 				{
-					function = "setTimer";
-					parameters[] = {0.5,2};
-					thresholds[] = {};
+					function="setTimer";
+					parameters[]={0.5,2};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "SetRandom";
+						priority=0;
+						to="SetRandom";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class ShortWait
 			{
-				name = "ShortWait";
+				name="ShortWait";
 				class Init
 				{
-					function = "wait";
-					parameters[] = {0.6,1.5};
-					thresholds[] = {};
+					function="wait";
+					parameters[]={0.60000002,1.5};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class WaitCompleted
 					{
-						priority = 0;
-						to = "SetTimerRandom";
+						priority=0;
+						to="SetTimerRandom";
 						class Condition
 						{
-							function = "waitCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="waitCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetRandom2
 			{
-				name = "SetRandom2";
+				name="SetRandom2";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {{1,0,1}};
+					function="nothing";
+					parameters[]={};
+					thresholds[]=
+					{
+						{1,0,1}
+					};
 				};
 				class Links
 				{
 					class constProbability
 					{
-						priority = 1;
-						to = "LongWait";
+						priority=1;
+						to="LongWait";
 						class Condition
 						{
-							function = "const";
-							parameters[] = {0.1};
-							threshold = 1;
+							function="const";
+							parameters[]={0.1};
+							threshold=1;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class Always
 					{
-						priority = 0;
-						to = "LongerWait";
+						priority=0;
+						to="LongerWait";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetRandom3
 			{
-				name = "SetRandom3";
+				name="SetRandom3";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {{1,0,1}};
+					function="nothing";
+					parameters[]={};
+					thresholds[]=
+					{
+						{1,0,1}
+					};
 				};
 				class Links
 				{
 					class constProbability
 					{
-						priority = 1;
-						to = "LongWait";
+						priority=1;
+						to="LongWait";
 						class Condition
 						{
-							function = "const";
-							parameters[] = {0.15};
-							threshold = 1;
+							function="const";
+							parameters[]={0.15000001};
+							threshold=1;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class Always
 					{
-						priority = 0;
-						to = "ShortWait";
+						priority=0;
+						to="ShortWait";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class LongWait
 			{
-				name = "LongWait";
+				name="LongWait";
 				class Init
 				{
-					function = "wait";
-					parameters[] = {4,8};
-					thresholds[] = {};
+					function="wait";
+					parameters[]={4,8};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class WaitCompleted
 					{
-						priority = 0;
-						to = "SetTimerRandom";
+						priority=0;
+						to="SetTimerRandom";
 						class Condition
 						{
-							function = "waitCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="waitCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetRandom
 			{
-				name = "SetRandom";
+				name="SetRandom";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {{1,0,1}};
+					function="nothing";
+					parameters[]={};
+					thresholds[]=
+					{
+						{1,0,1}
+					};
 				};
 				class Links
 				{
 					class constProbability
 					{
-						priority = 1;
-						to = "LongMove";
+						priority=1;
+						to="LongMove";
 						class Condition
 						{
-							function = "const";
-							parameters[] = {0.1};
-							threshold = 1;
+							function="const";
+							parameters[]={0.1};
+							threshold=1;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class Always
 					{
-						priority = 0;
-						to = "Random_Move";
+						priority=0;
+						to="Random_Move";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class LongMove
 			{
-				name = "LongMove";
+				name="LongMove";
 				class Init
 				{
-					function = "randomMove";
-					parameters[] = {2.5,-0.1,1.2,5};
-					thresholds[] = {};
+					function="randomMove";
+					parameters[]={2.5,-0.1,1.2,5};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class MoveCompleted
 					{
-						priority = 1;
-						to = "SetRandom3";
+						priority=1;
+						to="SetRandom3";
 						class Condition
 						{
-							function = "moveCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="moveCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "SetRandom2";
+						priority=0;
+						to="SetRandom2";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 		};
-		initState = "Init";
-		finalStates[] = {};
+		initState="Init";
+		finalStates[]={};
 	};
 	class Butterfly
 	{
@@ -564,358 +493,361 @@ class CfgFSMs
 		{
 			class Init
 			{
-				name = "Init";
+				name="Init";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {{0,0.5,0.5}};
+					function="nothing";
+					parameters[]={};
+					thresholds[]=
+					{
+						{0,0.5,0.5}
+					};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "SetTimer";
+						priority=0;
+						to="SetTimer";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class MoveLand
 			{
-				name = "MoveLand";
+				name="MoveLand";
 				class Init
 				{
-					function = "randomMoveLand";
-					parameters[] = {2};
-					thresholds[] = {};
+					function="randomMoveLand";
+					parameters[]={2};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class MoveCompleted
 					{
-						priority = 1;
-						to = "SetTimer3";
+						priority=1;
+						to="SetTimer3";
 						class Condition
 						{
-							function = "moveCompletedVertical";
-							parameters[] = {};
-							threshold = 0;
+							function="moveCompletedVertical";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "wait";
-							parameters[] = {5,15};
-							thresholds[] = {};
+							function="wait";
+							parameters[]={5,15};
+							thresholds[]={};
 						};
 					};
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "Land";
+						priority=0;
+						to="Land";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetTimer3
 			{
-				name = "SetTimer3";
+				name="SetTimer3";
 				class Init
 				{
-					function = "setTimer";
-					parameters[] = {4,6};
-					thresholds[] = {};
+					function="setTimer";
+					parameters[]={4,6};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "checkWait";
+						priority=0;
+						to="checkWait";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "switchAction";
-							parameters[] = {1};
-							thresholds[] = {};
+							function="switchAction";
+							parameters[]={1};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class checkWait
 			{
-				name = "checkWait";
+				name="checkWait";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {};
+					function="nothing";
+					parameters[]={};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class WaitCompleted
 					{
-						priority = 1;
-						to = "SetTimer";
+						priority=1;
+						to="SetTimer";
 						class Condition
 						{
-							function = "waitCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="waitCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "switchAction";
-							parameters[] = {0};
-							thresholds[] = {};
+							function="switchAction";
+							parameters[]={0};
+							thresholds[]={};
 						};
 					};
 					class Always
 					{
-						priority = 0;
-						to = "SetTimer3";
+						priority=0;
+						to="SetTimer3";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetTimer
 			{
-				name = "SetTimer";
+				name="SetTimer";
 				class Init
 				{
-					function = "setTimer";
-					parameters[] = {10,25};
-					thresholds[] = {};
+					function="setTimer";
+					parameters[]={10,25};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "Move";
+						priority=0;
+						to="Move";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class Land
 			{
-				name = "Land";
+				name="Land";
 				class Init
 				{
-					function = "Land";
-					parameters[] = {};
-					thresholds[] = {};
+					function="Land";
+					parameters[]={};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "Wait";
+						priority=0;
+						to="Wait";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class Wait
 			{
-				name = "Wait";
+				name="Wait";
 				class Init
 				{
-					function = "wait";
-					parameters[] = {3,10};
-					thresholds[] = {};
+					function="wait";
+					parameters[]={3,10};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "SetTimer3";
+						priority=0;
+						to="SetTimer3";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class Move
 			{
-				name = "Move";
+				name="Move";
 				class Init
 				{
-					function = "randomMove";
-					parameters[] = {3};
-					thresholds[] = {};
+					function="randomMove";
+					parameters[]={3};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class MoveCompleted
 					{
-						priority = 1;
-						to = "Continue";
+						priority=1;
+						to="Continue";
 						class Condition
 						{
-							function = "moveCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="moveCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "SetTimer2";
+						priority=0;
+						to="SetTimer2";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetTimer2
 			{
-				name = "SetTimer2";
+				name="SetTimer2";
 				class Init
 				{
-					function = "setTimer";
-					parameters[] = {3,6};
-					thresholds[] = {};
+					function="setTimer";
+					parameters[]={3,6};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "MoveLand";
+						priority=0;
+						to="MoveLand";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class Continue
 			{
-				name = "Continue";
+				name="Continue";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {};
+					function="nothing";
+					parameters[]={};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "Move";
+						priority=0;
+						to="Move";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 		};
-		initState = "Init";
-		finalStates[] = {};
+		initState="Init";
+		finalStates[]={};
 	};
 	class HoneyBee
 	{
@@ -923,315 +855,323 @@ class CfgFSMs
 		{
 			class ShortMove
 			{
-				name = "ShortMove";
+				name="ShortMove";
 				class Init
 				{
-					function = "randomMove";
-					parameters[] = {0.2};
-					thresholds[] = {};
+					function="randomMove";
+					parameters[]={0.2};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class MoveCompleted
 					{
-						priority = 1;
-						to = "SetRandom";
+						priority=1;
+						to="SetRandom";
 						class Condition
 						{
-							function = "moveCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="moveCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "SetRandom";
+						priority=0;
+						to="SetRandom";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class Break
 			{
-				name = "Break";
+				name="Break";
 				class Init
 				{
-					function = "break";
-					parameters[] = {50};
-					thresholds[] = {};
+					function="break";
+					parameters[]={50};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "SetTimer";
+						priority=0;
+						to="SetTimer";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class Init
 			{
-				name = "Init";
+				name="Init";
 				class Init
 				{
-					function = "setNoBackwards";
-					parameters[] = {0};
-					thresholds[] = {{0,0.5,0.5}};
+					function="setNoBackwards";
+					parameters[]={0};
+					thresholds[]=
+					{
+						{0,0.5,0.5}
+					};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "SetTimerRandom";
+						priority=0;
+						to="SetTimerRandom";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetTimerRandom
 			{
-				name = "SetTimerRandom";
+				name="SetTimerRandom";
 				class Init
 				{
-					function = "setTimer";
-					parameters[] = {0.5,2};
-					thresholds[] = {};
+					function="setTimer";
+					parameters[]={0.5,2};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class Always
 					{
-						priority = 0;
-						to = "SetRandom_1";
+						priority=0;
+						to="SetRandom_1";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetTimer
 			{
-				name = "SetTimer";
+				name="SetTimer";
 				class Init
 				{
-					function = "setTimer";
-					parameters[] = {0.1,0.3};
-					thresholds[] = {};
+					function="setTimer";
+					parameters[]={0.1,0.30000001};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "SetTimerRandom";
+						priority=0;
+						to="SetTimerRandom";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetRandom
 			{
-				name = "SetRandom";
+				name="SetRandom";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {{1,0,1}};
+					function="nothing";
+					parameters[]={};
+					thresholds[]=
+					{
+						{1,0,1}
+					};
 				};
 				class Links
 				{
 					class constProbability
 					{
-						priority = 1;
-						to = "SetRandom_1";
+						priority=1;
+						to="SetRandom_1";
 						class Condition
 						{
-							function = "const";
-							parameters[] = {0.5};
-							threshold = 1;
+							function="const";
+							parameters[]={0.5};
+							threshold=1;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class Always
 					{
-						priority = 0;
-						to = "Break";
+						priority=0;
+						to="Break";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class SetRandom_1
 			{
-				name = "SetRandom_1";
+				name="SetRandom_1";
 				class Init
 				{
-					function = "nothing";
-					parameters[] = {};
-					thresholds[] = {{1,0,1}};
+					function="nothing";
+					parameters[]={};
+					thresholds[]=
+					{
+						{1,0,1}
+					};
 				};
 				class Links
 				{
 					class constProbability
 					{
-						priority = 1;
-						to = "LongMove";
+						priority=1;
+						to="LongMove";
 						class Condition
 						{
-							function = "const";
-							parameters[] = {0.1};
-							threshold = 1;
+							function="const";
+							parameters[]={0.1};
+							threshold=1;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class Always
 					{
-						priority = 0;
-						to = "ShortMove";
+						priority=0;
+						to="ShortMove";
 						class Condition
 						{
-							function = "true";
-							parameters[] = {};
-							threshold = 0;
+							function="true";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 			class LongMove
 			{
-				name = "LongMove";
+				name="LongMove";
 				class Init
 				{
-					function = "randomMove";
-					parameters[] = {1.5};
-					thresholds[] = {};
+					function="randomMove";
+					parameters[]={1.5};
+					thresholds[]={};
 				};
 				class Links
 				{
 					class MoveCompleted
 					{
-						priority = 1;
-						to = "SetRandom";
+						priority=1;
+						to="SetRandom";
 						class Condition
 						{
-							function = "moveCompleted";
-							parameters[] = {};
-							threshold = 0;
+							function="moveCompleted";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 					class TimeElapsed
 					{
-						priority = 0;
-						to = "SetRandom";
+						priority=0;
+						to="SetRandom";
 						class Condition
 						{
-							function = "timeElapsed";
-							parameters[] = {};
-							threshold = 0;
+							function="timeElapsed";
+							parameters[]={};
+							threshold=0;
 						};
 						class Action
 						{
-							function = "nothing";
-							parameters[] = {};
-							thresholds[] = {};
+							function="nothing";
+							parameters[]={};
+							thresholds[]={};
 						};
 					};
 				};
 			};
 		};
-		initState = "Init";
-		finalStates[] = {};
+		initState="Init";
+		finalStates[]={};
 	};
 };
-//};

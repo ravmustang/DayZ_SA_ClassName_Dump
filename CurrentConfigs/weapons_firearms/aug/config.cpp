@@ -1,128 +1,745 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 5.69
-//'now' is Tue Nov 06 19:45:20 2018 : 'file' last modified on Wed Aug 22 21:51:35 2018
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
-//ndefs=12
-enum {
-	destructengine = 2,
-	destructdefault = 6,
-	destructwreck = 7,
-	destructtree = 3,
-	destructtent = 4,
-	stabilizedinaxisx = 1,
-	stabilizedinaxisy = 2,
-	destructno = 0,
-	stabilizedinaxesboth = 3,
-	stabilizedinaxesnone = 0,
-	destructman = 5,
-	destructbuilding = 1
-};
-
-//Class E:\SteamLibrary\steamapps\common\DayZ\Addons\weapons_firearms\aug\config.bin{
 class CfgPatches
 {
 	class DZ_Weapons_Firearms_aug
 	{
-		units[] = {"AugSteyr"};
-		weapons[] = {};
-		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data","DZ_Weapons_Firearms"};
+		units[]=
+		{
+			"AugSteyr"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Weapons_Firearms"
+		};
 	};
 };
 class Mode_Safe;
 class Mode_SemiAuto;
 class Mode_Burst;
 class Mode_FullAuto;
+class OpticsInfoRifle;
 class cfgWeapons
 {
 	class Rifle_Base;
-	class AugSteyr_Base: Rifle_Base
+	class Aug_Base: Rifle_Base
 	{
-		scope = 0;
-		lootTag[] = {"Military_west"};
-		weight = 3600;
-		absorbency = 0.1;
-		repairableWithKits[] = {5,1};
-		repairCosts[] = {30.0,25.0};
-		modelOptics = "-";
-		opticsZoomMin = 0.28;
-		opticsZoomMax = 0.28;
-		opticsZoomInit = 0.28;
-		opticsPPEffects[] = {"-"};
-		optics = 1;
-		opticsFlare = 1;
-		distanceZoomMin = 300;
-		distanceZoomMax = 300;
-		value = 0;
-		chamberSize = 1;
-		chamberedRound = "";
-		chamberableFrom[] = {"Ammo_556x45"};
-		magazines[] = {"Mag_STANAG_30Rnd","Mag_STANAGCoupled_30Rnd","Mag_CMAG_10Rnd","Mag_CMAG_20Rnd","Mag_CMAG_30Rnd","Mag_CMAG_40Rnd","Mag_CMAG_10Rnd_Green","Mag_CMAG_20Rnd_Green","Mag_CMAG_30Rnd_Green","Mag_CMAG_40Rnd_Green","Mag_CMAG_10Rnd_Black","Mag_CMAG_20Rnd_Black","Mag_CMAG_30Rnd_Black","Mag_CMAG_40Rnd_Black"};
-		magazineSwitchTime = 0.38;
-		barrelArmor = 2390;
-		ejectType = 1;
-		drySound[] = {"dz\sounds\weapons\firearms\m4a1\m4_dry",0.5,1,20};
-		discreteDistance[] = {300};
-		discreteDistanceInitIndex = 1;
-		reloadAction = "ReloadAug";
-		reloadMagazineSound[] = {"dz\sounds\weapons\firearms\steyraug\steyraug_reload",0.8,1,20};
-		hiddenSelections[] = {"camo","camo1","camo2","camo3","camo4"};
-		modes[] = {"FullAuto","Single"};
-		class Single: Mode_SemiAuto
+		scope=0;
+		weight=3600;
+		repairableWithKits[]={1};
+		repairCosts[]={25};
+		chamberSize=1;
+		chamberedRound="";
+		chamberableFrom[]=
 		{
-			soundSetShot[] = {"AUG_Shot_SoundSet","AUG_Tail_SoundSet","AUG_InteriorTail_SoundSet"};
-			soundSetShotExt[] = {{"AUG_silencer_SoundSet","AUG_silencerTail_SoundSet","AUG_silencerInteriorTail_SoundSet"},{"AUG_silencerHomeMade_SoundSet","AUG_silencerHomeMadeTail_SoundSet","AUG_silencerInteriorHomeMadeTail_SoundSet"}};
-			begin1[] = {"dz\sounds\weapons\firearms\steyraug\steyraug_shot_0",1,1,1000};
-			begin2[] = {"dz\sounds\weapons\firearms\steyraug\steyraug_shot_1",1,1,1000};
-			begin3[] = {"dz\sounds\weapons\firearms\steyraug\steyraug_shot_2",1,1,1000};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin3",0.33333};
-			reloadTime = 0.085;
-			recoil = "recoil_single_primary_5outof10";
-			recoilProne = "recoil_single_primary_prone_5outof10";
-			dispersion = 0.0015;
-			magazineSlot = "magazine";
-			beginSilenced_Pro[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,75};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,100};
-			soundBeginExt[] = {{"beginSilenced_Pro",1},{"beginSilenced_HomeMade",1}};
+			"Ammo_556x45",
+			"Ammo_556x45Tracer"
+		};
+		magazineSwitchTime=0.38;
+		initSpeedMultiplier=1;
+		ejectType=1;
+		recoilModifier[]={1,1,1};
+		swayModifier[]={1.1,1.1,0.69999999};
+		PPDOFProperties[]={1,0.1,20,200,10,10};
+		WeaponLength=0.80000001;
+		barrelArmor=2.3;
+		class NoiseShoot
+		{
+			strength=80;
+			type="shot";
+		};
+		modes[]=
+		{
+			"SemiAuto",
+			"Burst",
+			"FullAuto"
+		};
+		class SemiAuto: Mode_SemiAuto
+		{
+			soundSetShot[]=
+			{
+				"AUG_Shot_1st_SoundSet",
+				"AUG_Shot_1st_iterior_SoundSet",
+				"AUG_Tail_SoundSet",
+				"AUG_InteriorTail_SoundSet",
+				"AUG_Slapback_SoundSet",
+				"AUG_Tail_2D_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AUG_1st_silencer_SoundSet",
+					"AUG_silencerTail_SoundSet",
+					"AUG_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AUG_1st_silencerHomeMade_SoundSet",
+					"AUG_silencerHomeMadeTail_SoundSet",
+					"AUG_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=0.085000001;
+			dispersion=0.0015;
+			magazineSlot="magazine";
+		};
+		class Burst: Mode_Burst
+		{
+			soundSetShot[]=
+			{
+				"AUG_Shot_1st_SoundSet",
+				"AUG_Shot_1st_iterior_SoundSet",
+				"AUG_Tail_SoundSet",
+				"AUG_InteriorTail_SoundSet",
+				"AUG_Slapback_SoundSet",
+				"AUG_Tail_2D_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AUG_1st_silencer_SoundSet",
+					"AUG_silencerTail_SoundSet",
+					"AUG_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AUG_1st_silencerHomeMade_SoundSet",
+					"AUG_silencerHomeMadeTail_SoundSet",
+					"AUG_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			burst=3;
+			reloadTime=0.097999997;
+			dispersion=0.0015;
+			magazineSlot="magazine";
 		};
 		class FullAuto: Mode_FullAuto
 		{
-			soundSetShot[] = {"AUG_Shot_SoundSet","AUG_Tail_SoundSet","AUG_InteriorTail_SoundSet"};
-			soundSetShotExt[] = {{"AUG_silencer_SoundSet","AUG_silencerTail_SoundSet","AUG_silencerInteriorTail_SoundSet"},{"AUG_silencerHomeMade_SoundSet","AUG_silencerHomeMadeTail_SoundSet","AUG_silencerInteriorHomeMadeTail_SoundSet"}};
-			begin1[] = {"dz\sounds\weapons\firearms\steyraug\steyraug_shot_0",1,1,1000};
-			begin2[] = {"dz\sounds\weapons\firearms\steyraug\steyraug_shot_1",1,1,1000};
-			begin3[] = {"dz\sounds\weapons\firearms\steyraug\steyraug_shot_2",1,1,1000};
-			soundBegin[] = {"begin1",0.33333,"begin2",0.33333,"begin3",0.33333};
-			beginSilenced_Pro[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,75};
-			beginSilenced_HomeMade[] = {"dz\sounds\weapons\firearms\m4a1\m4Silenced",1,1,100};
-			soundBeginExt[] = {{"beginSilenced_Pro",1},{"beginSilenced_HomeMade",1}};
-			reloadTime = 0.09;
-			recoil = "recoil_auto_primary_5outof10";
-			recoilProne = "recoil_auto_primary_prone_5outof10";
-			dispersion = 0.0015;
-			magazineSlot = "magazine";
+			soundSetShot1st[]=
+			{
+				"AUG_Shot_1st_SoundSet",
+				"AUG_Shot_1st_iterior_SoundSet"
+			};
+			soundSetShot[]=
+			{
+				"AUG_Shot_SoundSet",
+				"AUG_Shot_iterior_SoundSet",
+				"AUG_Tail_SoundSet",
+				"AUG_InteriorTail_SoundSet",
+				"AUG_Slapback_SoundSet",
+				"AUG_Tail_2D_SoundSet"
+			};
+			soundSetShotExt1st[]=
+			{
+				
+				{
+					"AUG_1st_silencer_SoundSet"
+				},
+				
+				{
+					"AUG_1st_silencerHomeMade_SoundSet"
+				}
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AUG_silencer_SoundSet",
+					"AUG_silencerTail_SoundSet",
+					"AUG_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AUG_silencerHomeMade_SoundSet",
+					"AUG_silencerHomeMadeTail_SoundSet",
+					"AUG_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=0.090000004;
+			dispersion=0.0015;
+			magazineSlot="magazine";
+		};
+		class OpticsInfo: OpticsInfoRifle
+		{
+			modelOptics="-";
+			opticsZoomMin=0.28;
+			opticsZoomMax=0.28;
+			opticsZoomInit=0.28;
+			discreteDistance[]={50,100,200};
+			discreteDistanceInitIndex=1;
+			distanceZoomMin=300;
+			distanceZoomMax=300;
+		};
+		class InventorySlotsOffsets
+		{
+			class Shoulder
+			{
+				position[]={-0.2,0,0};
+				orientation[]={0,0,0};
+			};
+			class Melee
+			{
+				position[]={-0.15000001,0,-0.02};
+				orientation[]={0,0,0};
+			};
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
+				};
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_ump45_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={0.31999999,0,0};
+				};
+				class ChamberSmoke
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+					overrideDirectionPoint="Nabojniceend";
+				};
+			};
+			class OnOverheating
+			{
+				maxOverheatingValue=12;
+				shotsToStartOverheating=4;
+				overheatingDecayInterval=0.69999999;
+				class SmokingBarrel1
+				{
+					overrideParticle="smoking_barrel_small";
+					onlyWithinOverheatLimits[]={0,0.5};
+					positionOffset[]={0.43000001,0,0};
+					onlyWithinRainLimits[]={0,0.2};
+				};
+				class SmokingBarrel2
+				{
+					overrideParticle="smoking_barrel";
+					onlyWithinOverheatLimits[]={0.5,0.69999999};
+					positionOffset[]={0.43000001,0,0};
+					onlyWithinRainLimits[]={0,0.2};
+				};
+				class SmokingBarrel3
+				{
+					overrideParticle="smoking_barrel_heavy";
+					onlyWithinOverheatLimits[]={0.69999999,1};
+					positionOffset[]={0.43000001,0,0};
+					onlyWithinRainLimits[]={0,0.2};
+				};
+				class SmokingBarrelHotSteamSmall
+				{
+					overrideParticle="smoking_barrel_steam_small";
+					positionOffset[]={0.43000001,0,0};
+					onlyWithinRainLimits[]={0.2,0.60000002};
+				};
+				class SmokingBarrelHotSteam
+				{
+					overrideParticle="smoking_barrel_steam";
+					positionOffset[]={0.43000001,0,0};
+					onlyWithinRainLimits[]={0.60000002,1};
+				};
+				class OpenChamberSmoke
+				{
+					onlyIfBoltIsOpen=1;
+					overrideParticle="smoking_barrel_small";
+					overridePoint="Nabojnicestart";
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		weaponStateAnim="dz\anims\anm\player\reloads\AUG\w_aug_states.anm";
+	};
+	class Aug: Aug_Base
+	{
+		scope=2;
+		displayName="$STR_cfgWeapons_AugSteyr0";
+		descriptionShort="$STR_cfgWeapons_AugSteyr1";
+		model="\dz\weapons\firearms\aug\aug.p3d";
+		ObstructionDistance=0.51200002;
+		weight=3600;
+		magazines[]=
+		{
+			"Mag_Aug_30Rnd",
+			"Mag_STANAG_30Rnd",
+			"Mag_STANAGCoupled_30Rnd",
+			"Mag_STANAG_60Rnd",
+			"Mag_CMAG_10Rnd",
+			"Mag_CMAG_20Rnd",
+			"Mag_CMAG_30Rnd",
+			"Mag_CMAG_40Rnd",
+			"Mag_CMAG_10Rnd_Green",
+			"Mag_CMAG_20Rnd_Green",
+			"Mag_CMAG_30Rnd_Green",
+			"Mag_CMAG_40Rnd_Green",
+			"Mag_CMAG_10Rnd_Black",
+			"Mag_CMAG_20Rnd_Black",
+			"Mag_CMAG_30Rnd_Black",
+			"Mag_CMAG_40Rnd_Black"
+		};
+		attachments[]=
+		{
+			"weaponWrap",
+			"weaponMuzzleM4",
+			"weaponOptics",
+			"weaponFlashlight"
+		};
+		hiddenSelections[]=
+		{
+			"camo_stock",
+			"camo_rails",
+			"camo_barrel"
+		};
+		simpleHiddenSelections[]=
+		{
+			"hide_barrel"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\firearms\aug\data\aug_stock_co.paa",
+			"dz\weapons\firearms\aug\data\rail_co.paa",
+			"dz\weapons\firearms\aug\data\aug_barrel_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\aug\data\aug_stock.rvmat",
+			"dz\weapons\firearms\aug\data\rail.rvmat",
+			"dz\weapons\firearms\aug\data\aug_barrel.rvmat"
+		};
+		itemSize[]={8,3};
+		spawnDamageRange[]={0,0.60000002};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=300;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock.rvmat",
+								"DZ\weapons\firearms\aug\data\rail.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock.rvmat",
+								"DZ\weapons\firearms\aug\data\rail.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\rail_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\rail_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel_destruct.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock_destruct.rvmat",
+								"DZ\weapons\firearms\aug\data\rail_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
 		};
 	};
-	class AugSteyr: AugSteyr_Base
+	class AugShort: Aug_Base
 	{
-		scope = 2;
-		displayName = "$STR_cfgWeapons_AugSteyr0";
-		descriptionShort = "$STR_cfgWeapons_AugSteyr1";
-		model = "\dz\weapons\firearms\aug\aug.p3d";
-		attachments[] = {"weaponMuzzleM4","suppressorImpro","weaponBarrelAug"};
-		randomAttachments[] = {{"M4_Suppressor","","","","","","","","",""},{"Mag_STANAG_30Rnd","Mag_CMAG_10Rnd","Mag_CMAG_20Rnd","Mag_CMAG_30Rnd","Mag_CMAG_40Rnd","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""}};
-		itemSize[] = {9,6};
-		dexterity = 3.0;
-		spawnDamageRange[] = {0.0,0.6};
-		class Damage
+		scope=2;
+		displayName="$STR_cfgWeapons_AugSteyr_Short0";
+		descriptionShort="$STR_cfgWeapons_AugSteyr_Short1";
+		model="\dz\weapons\firearms\aug\aug_short.p3d";
+		weight=3200;
+		WeaponLength=0.73000002;
+		ObstructionDistance=0.40900001;
+		magazines[]=
 		{
-			tex[] = {};
-			mat[] = {"DZ\weapons\firearms\aug\data\aug_barrel_base.rvmat","DZ\weapons\firearms\aug\data\aug_barrel_base_damage.rvmat","DZ\weapons\firearms\aug\data\aug_barrel_base_destruct.rvmat","DZ\weapons\firearms\aug\data\aug_barrel_short.rvmat","DZ\weapons\firearms\aug\data\aug_barrel_short_damage.rvmat","DZ\weapons\firearms\aug\data\aug_barrel_short_destruct.rvmat","DZ\weapons\firearms\aug\data\aug_stock.rvmat","DZ\weapons\firearms\aug\data\aug_stock_damage.rvmat","DZ\weapons\firearms\aug\data\aug_stock_destruct.rvmat","DZ\weapons\firearms\aug\data\scope.rvmat","DZ\weapons\firearms\aug\data\scope_damage.rvmat","DZ\weapons\firearms\aug\data\scope_destruct.rvmat"};
+			"Mag_Aug_30Rnd"
+		};
+		attachments[]=
+		{
+			"weaponWrap",
+			"weaponOpticsAug",
+			"suppressorImpro"
+		};
+		simpleHiddenSelections[]=
+		{
+			"hide_barrel"
+		};
+		initSpeedMultiplier=0.85000002;
+		hiddenSelections[]=
+		{
+			"camo_stock",
+			"camo_scope",
+			"camo_scope2",
+			"camo_barrel"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\weapons\firearms\aug\data\aug_stock_tan_co.paa",
+			"dz\weapons\firearms\aug\data\scope_co.paa",
+			"dz\weapons\firearms\aug\data\scope_ca.paa",
+			"dz\weapons\firearms\aug\data\aug_barrel_co.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\weapons\firearms\aug\data\aug_stock.rvmat",
+			"dz\weapons\firearms\aug\data\scope.rvmat",
+			"dz\weapons\firearms\aug\data\scope.rvmat",
+			"dz\weapons\firearms\aug\data\aug_barrel.rvmat"
+		};
+		itemSize[]={6,3};
+		spawnDamageRange[]={0,0.60000002};
+		modes[]=
+		{
+			"SemiAuto",
+			"Burst",
+			"FullAuto"
+		};
+		class SemiAuto: Mode_SemiAuto
+		{
+			soundSetShot[]=
+			{
+				"AUG_Shot_1st_BarrelShort_SoundSet",
+				"AUG_Shot_1st_iterior_BarrelShort_SoundSet",
+				"AUG_Tail_BarrelShort_SoundSet",
+				"AUG_InteriorTail_BarrelShort_SoundSet",
+				"AUG_Slapback_SoundSet",
+				"AUG_Tail_2D_BarrelShort_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AUG_1st_silencer_SoundSet",
+					"AUG_silencerTail_SoundSet",
+					"AUG_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AUG_1st_silencerHomeMade_SoundSet",
+					"AUG_silencerHomeMadeTail_SoundSet",
+					"AUG_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=0.085000001;
+			dispersion=0.0015;
+			magazineSlot="magazine";
+		};
+		class Burst: Mode_Burst
+		{
+			soundSetShot[]=
+			{
+				"AUG_Shot_1st_BarrelShort_SoundSet",
+				"AUG_Shot_1st_iterior_BarrelShort_SoundSet",
+				"AUG_Tail_BarrelShort_SoundSet",
+				"AUG_InteriorTail_BarrelShort_SoundSet",
+				"AUG_Slapback_SoundSet",
+				"AUG_Tail_2D_BarrelShort_SoundSet"
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AUG_1st_silencer_SoundSet",
+					"AUG_silencerTail_SoundSet",
+					"AUG_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AUG_1st_silencerHomeMade_SoundSet",
+					"AUG_silencerHomeMadeTail_SoundSet",
+					"AUG_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			burst=3;
+			reloadTime=0.097999997;
+			dispersion=0.0015;
+			magazineSlot="magazine";
+		};
+		class FullAuto: Mode_FullAuto
+		{
+			soundSetShot1st[]=
+			{
+				"AUG_Shot_1st_BarrelShort_SoundSet",
+				"AUG_Shot_1st_iterior_BarrelShort_SoundSet"
+			};
+			soundSetShot[]=
+			{
+				"AUG_Shot_BarrelShort_SoundSet",
+				"AUG_Shot_iterior_BarrelShort_SoundSet",
+				"AUG_Tail_BarrelShort_SoundSet",
+				"AUG_InteriorTail_BarrelShort_SoundSet",
+				"AUG_Slapback_SoundSet",
+				"AUG_Tail_2D_BarrelShort_SoundSet"
+			};
+			soundSetShotExt1st[]=
+			{
+				
+				{
+					"AUG_1st_silencer_SoundSet"
+				},
+				
+				{
+					"AUG_1st_silencerHomeMade_SoundSet"
+				}
+			};
+			soundSetShotExt[]=
+			{
+				
+				{
+					"AUG_silencer_SoundSet",
+					"AUG_silencerTail_SoundSet",
+					"AUG_silencerInteriorTail_SoundSet"
+				},
+				
+				{
+					"AUG_silencerHomeMade_SoundSet",
+					"AUG_silencerHomeMadeTail_SoundSet",
+					"AUG_silencerInteriorHomeMadeTail_SoundSet"
+				}
+			};
+			reloadTime=0.090000004;
+			dispersion=0.0015;
+			magazineSlot="magazine";
+		};
+		class Particles
+		{
+			class OnFire
+			{
+				class SmokeCloud
+				{
+					overrideParticle="weapon_shot_winded_smoke";
+				};
+				class MuzzleFlash
+				{
+					overrideParticle="weapon_shot_ump45_01";
+					ignoreIfSuppressed=1;
+					illuminateWorld=1;
+					positionOffset[]={0.0015,0,0};
+				};
+				class ChamberSmoke
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+					overrideDirectionPoint="Nabojniceend";
+				};
+			};
+			class OnOverheating
+			{
+				maxOverheatingValue=8;
+				shotsToStartOverheating=4;
+				overheatingDecayInterval=0.69999999;
+				class SmokingBarrel1
+				{
+					overrideParticle="smoking_barrel_small";
+					onlyWithinOverheatLimits[]={0,0.69999999};
+					positionOffset[]={0.2,0,0};
+					onlyWithinRainLimits[]={0,0.2};
+				};
+				class SmokingBarrelHotSteamSmall
+				{
+					overrideParticle="smoking_barrel_steam_small";
+					positionOffset[]={0.2,0,0};
+					onlyWithinRainLimits[]={0.30000001,1};
+				};
+				class OpenChamberSmoke
+				{
+					onlyIfBoltIsOpen=1;
+					overrideParticle="smoking_barrel_small";
+					overridePoint="Nabojnicestart";
+				};
+			};
+			class OnBulletCasingEject
+			{
+				class ChamberSmokeRaise
+				{
+					overrideParticle="weapon_shot_chamber_smoke";
+					overridePoint="Nabojnicestart";
+				};
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=300;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock.rvmat",
+								"DZ\weapons\firearms\aug\data\scope.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock.rvmat",
+								"DZ\weapons\firearms\aug\data\scope.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\scope_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock_damage.rvmat",
+								"DZ\weapons\firearms\aug\data\scope_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\weapons\firearms\aug\data\aug_barrel_destruct.rvmat",
+								"DZ\weapons\firearms\aug\data\aug_stock_destruct.rvmat",
+								"DZ\weapons\firearms\aug\data\scope_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
 		};
 	};
 };
-//};
+class cfgVehicles
+{
+	class Inventory_Base;
+	class ItemOptics: Inventory_Base
+	{
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickup
+				{
+					soundSet="PSO11Optic_pickup_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="PSO11Optic_drop_SoundSet";
+					id=898;
+				};
+			};
+		};
+	};
+	class AugOptic: ItemOptics
+	{
+		scope=2;
+		model="\dz\weapons\firearms\aug\proxy\scope.p3d";
+		weight=1;
+		inventorySlot[]=
+		{
+			"weaponOpticsAug"
+		};
+		reversed=0;
+		class OpticsInfo
+		{
+			memoryPointCamera="eyeScope";
+			cameraDir="cameraDir";
+			modelOptics="-";
+			opticsDisablePeripherialVision=0.67000002;
+			opticsFlare=1;
+			opticsPPEffects[]={};
+			opticsZoomMin="0.5236/1.5";
+			opticsZoomMax="0.5236/1.5";
+			opticsZoomInit="0.5236/1.5";
+			distanceZoomMin=50;
+			distanceZoomMax=400;
+			discreteDistance[]={50,100,150,200,300,400};
+			discreteDistanceInitIndex=1;
+			PPMaskProperties[]={0.5,0.5,0.185,0.0099999998};
+			PPLensProperties[]={0.5,0.15000001,0,0};
+			PPBlurProperties=0.1;
+		};
+		class OpticsInfoWeaponOverride
+		{
+			memoryPointCamera="eyeIronsights";
+			cameraDir="cameraDirIronsights";
+			opticsZoomMin=0.52359998;
+			opticsZoomMax=0.52359998;
+			opticsZoomInit=0.52359998;
+			distanceZoomMin=50;
+			distanceZoomMax=400;
+			discreteDistance[]={50,100,150,200,300,400};
+			discreteDistanceInitIndex=1;
+			PPDOFProperties[]={1,0.1,20,200,4,10};
+		};
+	};
+};
+class CfgNonAIVehicles
+{
+	class ProxyAttachment;
+	class Proxyscope: ProxyAttachment
+	{
+		scope=2;
+		inventorySlot="weaponOpticsAug";
+		model="\dz\weapons\firearms\aug\proxy\scope.p3d";
+	};
+};
