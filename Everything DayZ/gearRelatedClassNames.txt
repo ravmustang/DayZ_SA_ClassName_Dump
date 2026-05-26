@@ -372,9 +372,12 @@
 "CharcoalTablets",
 "PainkillerTablets",
 "VitaminBottle",
+"ChelatingTablets",
+"IodineTincture",
 "TetracyclineAntibiotics",
 "Epinephrine",
 "Morphine",
+"AntiChemInjector",
 "Syringe",
 "ClearSyringe",
 "BloodSyringe",
@@ -386,6 +389,7 @@
 "BloodBagFull",
 "BloodBagIV",
 "BloodTestKit",
+"Splint_Applied",
 "Splint",
 "Thermometer",
 "Defibrillator",
@@ -394,10 +398,15 @@
 "CigarettePack_Partyzanka"
 
 **Navigation**
+"ItemMap",
+"ItemCompass",
+"ItemGPS",
 "ChernarusMap",
 "ChernarusMap_Open",
+"ChernarusMap_Open_Test",
 "Compass",
-"OrienteeringCompass"
+"OrienteeringCompass",
+"GPSReceiver"
 
 **Optics**
 "Rangefinder",
