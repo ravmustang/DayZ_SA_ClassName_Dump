@@ -1,0 +1,42 @@
+FrameWidgetClass OnlineInfo {
+ ignorepointer 1
+ size 1 1
+ halign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ scriptclass ""
+ {
+  TextWidgetClass OnlineTextWidget {
+   clipchildren 0
+   ignorepointer 1
+   position 100 80
+   size 0.5 50
+   halign right_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   style Normal
+   text "#layout_xbox_ingame_menu_online"
+   font "gui/fonts/sdf_MetronBook72"
+   "text color" 0.8157 0.1255 0.7843 1
+   "exact text" 0
+   "text halign" right
+   "text valign" center
+  }
+  FrameWidgetClass ServerInfoPanel {
+   clipchildren 1
+   ignorepointer 1
+   position 100 150
+   size 600 600
+   halign right_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+  }
+ }
+}

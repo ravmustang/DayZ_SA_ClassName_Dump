@@ -1,0 +1,48 @@
+WindowWidgetClass connectionWarningWindowWidget {
+ visible 1
+ clipchildren 1
+ color 0 0 0 1
+ size 288 128
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  PanelWidgetClass BackgroundWidget {
+   inheritalpha 1
+   color 0 0 0 0.502
+   position 0 0
+   size 1 1
+   style rover_sim_colorable
+  }
+  MultilineTextWidgetClass NotificationMultilineTextWidget {
+   inheritalpha 1
+   position 19.5 49
+   size 256 64
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "Some Server Issue Occured and This is Just a Sample Text"
+   "text halign" center
+   "text valign" center
+   wrap 1
+  }
+  TextWidgetClass NoticiationLabellTextWidget {
+   inheritalpha 1
+   position 19.5 17
+   size 256 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "#layout_notification_info_warning"
+   "text offset" 0 0
+   "exact text" 1
+   "text halign" center
+   "text valign" center
+  }
+ }
+}

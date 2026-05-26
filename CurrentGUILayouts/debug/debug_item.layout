@@ -1,0 +1,453 @@
+FrameWidgetClass FrameWidget0 {
+ clipchildren 0
+ inheritalpha 0
+ keepsafezone 0
+ position 1016.78003 50
+ size 350 900
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ scaled 1
+ priority 5
+ draggable 1
+ {
+  GridSpacerWidgetClass ContentGrid {
+   ignorepointer 1
+   size 1 1
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   Padding 0
+   Margin 0
+   "Size To Content H" 1
+   "Size To Content V" 1
+   Columns 1
+   {
+    PanelWidgetClass Header {
+     clipchildren 0
+     ignorepointer 0
+     keepsafezone 0
+     color 0.1608 0.1725 0.1608 1
+     size 350 52
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style rover_sim_colorable
+     {
+      ItemPreviewWidgetClass ItemPreview {
+       ignorepointer 1
+       keepsafezone 0
+       size 48 48
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+      }
+      TextWidgetClass ClassName {
+       ignorepointer 1
+       keepsafezone 0
+       position 47 0
+       size 0.85 26
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "ClassName"
+       font "gui/fonts/sdf_MetronBook24"
+       "exact text" 1
+       "exact text size" 24
+       "size to text h" 0
+      }
+      ButtonWidgetClass CloseButton {
+       keepsafezone 0
+       color 1 0.2863 0.2863 1
+       position 0 0
+       size 24 24
+       halign right_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 11
+       style Editor
+       text "X"
+       font "gui/fonts/sdf_MetronBook24"
+      }
+      TextWidgetClass Distance {
+       ignorepointer 1
+       keepsafezone 0
+       position 47 26
+       size 0.9 26
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       priority 10
+       style Normal
+       font "gui/fonts/sdf_MetronBook24"
+       "exact text" 1
+       "exact text size" 24
+      }
+     }
+    }
+    GridSpacerWidgetClass InfosPanel {
+     ignorepointer 1
+     color 0.1608 0.1725 0.1608 1
+     position 10 10
+     size 1 60
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     Padding 0
+     Margin 0
+     Columns 1
+     Rows 2
+     {
+      TextWidgetClass Info1 {
+       ignorepointer 1
+       keepsafezone 0
+       color 0.5647 0.698 0.749 1
+       position 47 0
+       size 0.99 24
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "Press CTRL + NUM_DEL to close"
+       font "gui/fonts/sdf_MetronBook24"
+       "exact text" 1
+       "exact text size" 16
+       "size to text h" 0
+       "text halign" right
+       "text valign" center
+      }
+      TextWidgetClass Info2 {
+       ignorepointer 1
+       keepsafezone 0
+       color 0.5647 0.698 0.749 1
+       position 47 0
+       size 0.99 24
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "CTRL + NUM_9 for focus and dragging"
+       font "gui/fonts/sdf_MetronBook24"
+       "exact text" 1
+       "exact text size" 16
+       "size to text h" 0
+       "text halign" right
+       "text valign" center
+      }
+     }
+    }
+    ScrollWidgetClass ScrollWidget0 {
+     clipchildren 1
+     ignorepointer 0
+     keepsafezone 0
+     color 0.2118 0.3647 0.4314 1
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style Colorable
+     "Scrollbar V" 1
+     {
+      WrapSpacerWidgetClass Content {
+       ignorepointer 1
+       color 0.1608 0.1725 0.1608 1
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       Padding 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       {
+        WrapSpacerWidgetClass VariablesPanel {
+         ignorepointer 0
+         keepsafezone 0
+         color 0.1608 0.1725 0.1608 1
+         position 0 630
+         size 0.99 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style Colorable
+         Padding 0
+         Margin 0
+         "Size To Content V" 1
+         {
+          PanelWidgetClass VariablesLabelPanel {
+           ignorepointer 1
+           keepsafezone 0
+           color 0 0 0 1
+           size 1 24
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           style rover_sim_colorable
+           {
+            TextWidgetClass VariablesLabel {
+             ignorepointer 1
+             keepsafezone 0
+             size 1 24
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 1
+             text "Variables Final"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 16
+             "size to text v" 0
+             "text valign" center
+            }
+           }
+          }
+          TextListboxWidgetClass FloatsProperList {
+           keepsafezone 0
+           color 0.2118 0.3647 0.4314 1
+           position 0 24
+           size 1 250
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           fixaspect fixwidth
+           priority 10
+           style NoScrollBar
+           "title visible" 1
+           colums "Name;45;ValueServer;30;ValueClient;30;"
+           lines 15
+           font "gui/fonts/etelkatextpro"
+          }
+         }
+        }
+        WrapSpacerWidgetClass DebugServerPanel {
+         ignorepointer 0
+         keepsafezone 0
+         color 0.1608 0.1725 0.1608 1
+         position 0 274
+         size 0.99 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style Colorable
+         Padding 0
+         Margin 0
+         "Size To Content V" 1
+         {
+          PanelWidgetClass DebugServerLabelPanel {
+           ignorepointer 1
+           keepsafezone 0
+           color 0 0 0 1
+           size 1 24
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           style rover_sim_colorable
+           {
+            TextWidgetClass DebugServerLabel {
+             ignorepointer 1
+             keepsafezone 0
+             size 1 24
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 1
+             text "Debug Server"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 16
+             "size to text v" 0
+             "text valign" center
+            }
+           }
+          }
+          ScrollWidgetClass DebugServerScroller {
+           ignorepointer 0
+           keepsafezone 0
+           color 0.2118 0.3647 0.4314 1
+           position 0 24
+           size 1 150
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           "Scrollbar V" 1
+           {
+            TextWidgetClass DebugOutputServer {
+             ignorepointer 1
+             keepsafezone 0
+             position 0 0
+             size 1 220
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 1
+             text "test"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 16
+            }
+           }
+          }
+         }
+        }
+        WrapSpacerWidgetClass DebugClientPanel {
+         ignorepointer 0
+         keepsafezone 0
+         color 0.1608 0.1725 0.1608 1
+         position 0 452
+         size 0.99 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style Colorable
+         Padding 0
+         Margin 0
+         "Size To Content V" 1
+         {
+          PanelWidgetClass DebugClientLabelPanel {
+           ignorepointer 1
+           keepsafezone 0
+           color 0 0 0 1
+           size 1 24
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           style rover_sim_colorable
+           {
+            TextWidgetClass DebugClientLabel {
+             ignorepointer 1
+             keepsafezone 0
+             size 1 24
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 1
+             text "Debug Client"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 16
+             "size to text v" 0
+             "text valign" center
+            }
+           }
+          }
+          ScrollWidgetClass DebugClientScroller {
+           ignorepointer 0
+           keepsafezone 0
+           color 0.2118 0.3647 0.4314 1
+           position 0 24
+           size 1 150
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           "Scrollbar V" 1
+           {
+            TextWidgetClass DebugOutputClient {
+             ignorepointer 1
+             keepsafezone 0
+             size 1 220
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 1
+             text "test"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 16
+            }
+           }
+          }
+         }
+        }
+        WrapSpacerWidgetClass AgentsPanel {
+         ignorepointer 0
+         keepsafezone 0
+         color 0.1608 0.1725 0.1608 1
+         position 0 48
+         size 0.99 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style Colorable
+         Padding 0
+         Margin 0
+         "Size To Content V" 1
+         {
+          PanelWidgetClass AgentsLabelPanel {
+           ignorepointer 1
+           keepsafezone 0
+           color 0 0 0 1
+           size 1 24
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           style rover_sim_colorable
+           {
+            TextWidgetClass AgentsLabel {
+             ignorepointer 1
+             keepsafezone 0
+             size 1 24
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 1
+             text "Agents List"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 16
+             "size to text v" 0
+             "text valign" center
+            }
+           }
+          }
+          TextListboxWidgetClass AgentsList {
+           clipchildren 1
+           keepsafezone 0
+           color 0.2118 0.3647 0.4314 1
+           position 0 24
+           size 1 200
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           fixaspect fixwidth
+           priority 10
+           style NoScrollBar
+           "title visible" 1
+           colums "Name"
+           lines 10
+           font "gui/fonts/etelkatextpro"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

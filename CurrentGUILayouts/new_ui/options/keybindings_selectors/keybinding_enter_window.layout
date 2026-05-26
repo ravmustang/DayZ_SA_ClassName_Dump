@@ -1,0 +1,198 @@
+PanelWidgetClass rootFrame {
+ color 0 0 0 0.7843
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ priority 999
+ style rover_sim_colorable
+ {
+  WindowWidgetClass DialogBox {
+   visible 1
+   clipchildren 1
+   inheritalpha 0
+   ignorepointer 1
+   color 0.0824 0.0824 0.0824 0.9216
+   position 0 0
+   size 540 256.5
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   priority 1000
+   style Colorable
+   {
+    PanelWidgetClass DialogBoxPanel {
+     visible 1
+     ignorepointer 1
+     color 0.0824 0.0824 0.0824 0.9216
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     style blank
+     {
+      TextWidgetClass Caption {
+       visible 1
+       clipchildren 0
+       ignorepointer 1
+       position 0 20
+       size 512 30
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Bold
+       text "#layout_dialog_title"
+       font "gui/fonts/sdf_MetronBook72"
+       "text color" 1 1 1 1
+       "exact text" 0
+       "text halign" center
+       "text valign" center
+      }
+      PanelWidgetClass SeparatorPanel {
+       ignorepointer 1
+       color 0.7569 0.0941 0.0941 0.7843
+       position 0 60
+       size 0.85 2.5
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       scaled 1
+       priority 10
+       style rover_sim_colorable
+      }
+      TextListboxWidgetClass KeybindList {
+       visible 1
+       clipchildren 1
+       color 1 1 1 1
+       position 0 72.5
+       size 512 120
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Default
+       "highlight row" 1
+       font "gui/fonts/sdf_MetronLight24"
+      }
+      TextWidgetClass KeybindEntry {
+       visible 0
+       clipchildren 1
+       color 1 1 1 1
+       position 0 72.5
+       size 512 120
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Normal
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 1
+       "exact text size" 30
+       "text halign" center
+       "text valign" center
+      }
+      GridSpacerWidgetClass ButtonGrid {
+       visible 1
+       position 0 14
+       size 512 40
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       "Ignore invisible" 0
+       Padding 10
+       Margin 0
+       Columns 4
+       Rows 1
+       {
+        ButtonWidgetClass Confirm {
+         visible 1
+         inheritalpha 0
+         color 0.1569 0.1569 0.1569 1
+         position 0 0
+         size 0.26 1
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style EmptyHighlight
+         text "#dialog_confirm"
+         text_proportion 0.5
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        ButtonWidgetClass Add {
+         visible 0
+         inheritalpha 0
+         color 0.1569 0.1569 0.1569 1
+         position 0 0
+         size 0.26 1
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style EmptyHighlight
+         text "#dialog_add"
+         text_proportion 0.5
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        ButtonWidgetClass Delete {
+         visible 0
+         inheritalpha 0
+         color 0.1569 0.1569 0.1569 1
+         position 0 0
+         size 0.26 1
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style EmptyHighlight
+         text "#dialog_change"
+         text_proportion 0.45
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        ButtonWidgetClass Cancel {
+         visible 1
+         inheritalpha 0
+         color 0.1569 0.1569 0.1569 1
+         position 0 0
+         size 0.26 1
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style EmptyHighlight
+         text "#dialog_cancel"
+         text_proportion 0.45
+         font "gui/fonts/sdf_MetronBook24"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

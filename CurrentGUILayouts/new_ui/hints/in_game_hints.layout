@@ -1,0 +1,232 @@
+GridSpacerWidgetClass rootFrame {
+ size 400 400
+ halign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ Padding 0
+ Margin 0
+ "Size To Content V" 1
+ Columns 1
+ {
+  ImageWidgetClass HeadlinePanel {
+   ignorepointer 1
+   color 0 0 0 0.7843
+   position 0 0
+   size 1 40
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   image0 "set:dayz_gui image:inv_header_1"
+   mode blend
+   "src alpha" 1
+   {
+    GridSpacerWidgetClass HeadlineGrid {
+     ignorepointer 1
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     Padding 0
+     Margin 0
+     "Size To Content H" 1
+     Rows 1
+     {
+      FrameWidgetClass LeftButtonFrame {
+       ignorepointer 1
+       position 10 10
+       size 32 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       {
+        ButtonWidgetClass LeftButton {
+         color 0.3922 0.3922 0.3922 0.3922
+         position 0 0
+         size 0.8 0.8
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style EmptyHighlight
+         "no focus" 1
+         {
+          ImageWidgetClass LeftImage {
+           ignorepointer 1
+           color 1 1 1 0.3922
+           size 0.28 0.44
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           fixaspect inside
+           image0 "set:dayz_gui image:arrow_left"
+           mode blend
+           "src alpha" 1
+           "no wrap" 1
+           stretch 1
+           filter 1
+           nocache 0
+          }
+         }
+        }
+       }
+      }
+      FrameWidgetClass HintHeadlineLabel {
+       ignorepointer 1
+       position 10 10
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass HeadlineLabel {
+         clipchildren 0
+         ignorepointer 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "HINT HEADLINE"
+         font "gui/fonts/sdf_MetronLight36"
+         "exact text" 1
+         "exact text size" 24
+         "size to text h" 0
+         "size to text v" 0
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      FrameWidgetClass RightButtonFrame {
+       ignorepointer 1
+       position 10 10
+       size 32 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       {
+        ButtonWidgetClass RightButton {
+         clipchildren 1
+         color 0.3922 0.3922 0.3922 0.3922
+         position 0 0
+         size 0.8 0.8
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style EmptyHighlight
+         "no focus" 1
+         {
+          ImageWidgetClass RightImage {
+           clipchildren 1
+           ignorepointer 1
+           color 1 1 1 0.3922
+           size 0.28 0.44
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           fixaspect inside
+           image0 "set:dayz_gui image:arrow_right"
+           mode blend
+           "src alpha" 1
+           "no wrap" 0
+           stretch 1
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  GridSpacerWidgetClass GridSpacerWidget1 {
+   visible 1
+   ignorepointer 1
+   color 0 0 0 0.7059
+   size 1 1
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   Padding 10
+   Margin 12
+   "Size To Content V" 1
+   content_halign center
+   Columns 1
+   Rows 2
+   {
+    ImageWidgetClass HintImage {
+     visible 1
+     ignorepointer 1
+     position 10 10
+     size 384 216
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect inside
+     mode blend
+     "src alpha" 1
+     stretch 1
+    }
+    RichTextWidgetClass HintDescLabel {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     size 1 0
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+     font "gui/fonts/sdf_MetronLight72"
+     "text offset" 5 0
+     "italic text" 0
+     "exact text" 1
+     "exact text size" 16
+     "size to text h" 0
+     "size to text v" 1
+     wrap 1
+    }
+    TextWidgetClass PageInfoLabel {
+     ignorepointer 1
+     size 1 16
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "13 / 54"
+     font "gui/fonts/sdf_MetronLight72"
+     "size to text v" 0
+     "text halign" right
+    }
+   }
+  }
+ }
+}

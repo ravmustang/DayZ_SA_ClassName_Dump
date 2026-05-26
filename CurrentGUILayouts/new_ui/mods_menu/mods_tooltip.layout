@@ -1,0 +1,38 @@
+GridSpacerWidgetClass TooltipFrame {
+ visible 0
+ ignorepointer 1
+ color 0 0 0 1
+ position 0 0
+ size 200 40
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ priority 999
+ style DayZDefaultPanel
+ Padding 0
+ Margin 8
+ "Size To Content H" 1
+ "Size To Content V" 1
+ Columns 1
+ Rows 1
+ {
+  RichTextWidgetClass TooltipText {
+   ignorepointer 1
+   position 0 0
+   size 200 40
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   font "gui/fonts/sdf_MetronBook24"
+   "exact text" 1
+   "exact text size" 20
+   "size to text h" 1
+   "size to text v" 1
+   "text halign" center
+   "text valign" center
+   wrap 1
+  }
+ }
+}

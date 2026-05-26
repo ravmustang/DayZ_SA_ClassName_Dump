@@ -1,0 +1,56 @@
+FrameWidgetClass rootFrame {
+ position 10 10
+ size 1063.44006 1012.94
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ scriptclass ""
+ {
+  EmbededWidgetClass EmbededWidget0 {
+   position 38 30
+   size 350.48499 87.74539
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scriptclass "EmbededButtonScript"
+   layout "{B10E12F621E0AB2F}Gui/layouts/examples/ButtonTemplate.layout"
+   {
+    ScriptParamsClass {
+     Caption "One"
+    }
+   }
+  }
+  EmbededWidgetClass EmbededWidget1 {
+   position 38 134
+   size 350.48499 87.74539
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scriptclass "EmbededButtonScript"
+   layout "{B10E12F621E0AB2F}Gui/layouts/examples/ButtonTemplate.layout"
+   {
+    ScriptParamsClass {
+     Caption "Two"
+    }
+   }
+  }
+  EmbededWidgetClass EmbededWidget2 {
+   position 38 238
+   size 350.48499 87.74539
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scriptclass "EmbededButtonScript"
+   layout "{B10E12F621E0AB2F}Gui/layouts/examples/ButtonTemplate.layout"
+   {
+    ScriptParamsClass {
+     Caption "Three"
+    }
+   }
+  }
+ }
+}

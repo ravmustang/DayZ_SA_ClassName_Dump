@@ -1,0 +1,329 @@
+FrameWidgetClass rootFrame {
+ position 0.04779 0.05
+ size 0.91655 0.90566
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  GridSpacerWidgetClass GridSpacerWidget0 {
+   position 0.013 0.009
+   size 0.38506 0.49342
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   {
+    ButtonWidgetClass ButtonWidget0 {
+     position 356.98499 24.998
+     size 200 60.22
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Jedna"
+    }
+    ButtonWidgetClass ButtonWidget1 {
+     position 300.46399 364.121
+     size 150 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Dva"
+    }
+    ButtonWidgetClass ButtonWidget2 {
+     position 0.176 1.277
+     size 0.19187 0.32024
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style MenuDefault
+     text "Tri"
+    }
+    ButtonWidgetClass ButtonWidget3 {
+     position 129.37502 248.02501
+     size 177.845 69.3858
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Styri"
+    }
+    ButtonWidgetClass ButtonWidget4 {
+     position 228.668 171.646
+     size 177.845 80
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Pat"
+    }
+    ButtonWidgetClass ButtonWidget5 {
+     position 103.406 215.94598
+     size 234.366 139.65501
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Sest"
+    }
+    ButtonWidgetClass ButtonWidget6 {
+     position 48.4132 179.284
+     size 182.42799 60.2205
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Sedem"
+    }
+    GridSpacerWidgetClass GridSpacerWidget1 {
+     position 231.51399 280.798
+     size 182.427 161.041
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     Margin 0
+     Columns 2
+     Rows 5
+     {
+      ButtonWidgetClass ButtonWidget7 {
+       position 356.98499 24.998
+       size 200 60.22
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Jedna"
+      }
+      ButtonWidgetClass ButtonWidget8 {
+       position 300.46399 364.121
+       size 150 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Dva"
+      }
+      ButtonWidgetClass ButtonWidget9 {
+       position 0.176 1.277
+       size 0.19187 0.32024
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style MenuDefault
+       text "Tri"
+      }
+      ButtonWidgetClass ButtonWidget10 {
+       position 129.37502 248.02501
+       size 177.845 69.3858
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Styri"
+      }
+      ButtonWidgetClass ButtonWidget11 {
+       position 228.668 171.646
+       size 177.845 80
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Pat"
+      }
+      ButtonWidgetClass ButtonWidget12 {
+       position 164.509 183.867
+       size 234.366 139.65501
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Sest"
+      }
+      ButtonWidgetClass ButtonWidget13 {
+       position 48.4132 179.284
+       size 182.42799 60.2205
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Sedem"
+      }
+     }
+    }
+   }
+  }
+  GridSpacerWidgetClass GridSpacerWidget2 {
+   position 0.54823 0.04514
+   size 0.37544 0.69137
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   "Size To Content V" 1
+   Columns 1
+   {
+    WrapSpacerWidgetClass WrapSpacerWidget0 {
+     position 667.79102 343.319
+     size 234.22101 350.44998
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     "Size To Content V" 1
+     {
+      ButtonWidgetClass ButtonWidget14 {
+       position 356.98499 24.998
+       size 119.038 101.465
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Jedna"
+      }
+      ButtonWidgetClass ButtonWidget15 {
+       inheritalpha 1
+       position 356.98499 24.998
+       size 114.455 43.4166
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Dva"
+      }
+      ButtonWidgetClass ButtonWidget17 {
+       position 356.98499 24.998
+       size 131.259 77.0238
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Tri"
+      }
+      ButtonWidgetClass ButtonWidget16 {
+       position 356.98499 24.998
+       size 83.9039 60.22
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Styri"
+      }
+      ButtonWidgetClass ButtonWidget18 {
+       position 356.98499 24.998
+       size 134.314 60.22
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Pat"
+      }
+      ButtonWidgetClass ButtonWidget19 {
+       position 356.98499 24.998
+       size 82.3762 60.22
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Sest"
+      }
+      ButtonWidgetClass ButtonWidget20 {
+       position 356.98499 24.998
+       size 90.0142 60.22
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "Sedem"
+      }
+     }
+    }
+    ButtonWidgetClass ButtonWidget24 {
+     position 300.46399 364.121
+     size 150 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     style MenuDefault
+     text "Jadna"
+    }
+    ButtonWidgetClass ButtonWidget25 {
+     position 300.46399 364.121
+     size 150 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Jadna"
+    }
+   }
+  }
+  GridSpacerWidgetClass GridSpacerWidget3 {
+   position 0.14478 0.52932
+   size 0.32349 0.40746
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   "Size To Content V" 1
+   Columns 1
+   {
+    ButtonWidgetClass ButtonWidget22 {
+     position 300.46399 364.121
+     size 150 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Jadna"
+    }
+    ButtonWidgetClass ButtonWidget21 {
+     position 300.46399 364.121
+     size 150 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     style MenuDefault
+     text "Dva"
+    }
+    ButtonWidgetClass ButtonWidget23 {
+     position 300.46399 364.121
+     size 150 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Trie"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,959 @@
+FrameWidgetClass ContextMenuWidget {
+ clipchildren 0
+ position 440 50
+ size 0.22 945.43103
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ priority 500
+ userID -1
+ scriptclass ""
+ {
+  PanelWidgetClass PanelWidget {
+   clipchildren 0
+   ignorepointer 0
+   position 0 9.93729
+   size 1 332.91299
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   scaled 1
+   priority 501
+   userID -1
+   scriptclass "AutoHeightSpacer"
+   style rover_sim_black
+   {
+    PanelWidgetClass TopOffset {
+     position 1.4099 0
+     size 0.9 10
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     scaled 1
+     userID -1
+    }
+    ButtonWidgetClass Button1 {
+     visible 1
+     inheritalpha 0
+     position 0 0.05
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     scriptclass ""
+     style InventoryActionMenu
+     text "ACTION1"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button2 {
+     visible 1
+     inheritalpha 0
+     position 0 0.14
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 1
+     scriptclass ""
+     style InventoryActionMenu
+     text "ACTION2"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button3 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 2
+     style InventoryActionMenu
+     text "ACTION3"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button4 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 3
+     style InventoryActionMenu
+     text "ACTION4"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button5 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 4
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button6 {
+     visible 1
+     inheritalpha 0
+     position 0 0.14
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 5
+     scriptclass ""
+     style InventoryActionMenu
+     text "ACTION2"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button7 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 6
+     style InventoryActionMenu
+     text "ACTION3"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button8 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 7
+     style InventoryActionMenu
+     text "ACTION4"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button9 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 8
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button10 {
+     visible 1
+     inheritalpha 0
+     position 0 0.05
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 9
+     scriptclass ""
+     style InventoryActionMenu
+     text "ACTION1"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button11 {
+     visible 1
+     inheritalpha 0
+     position 0 0.14
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 10
+     scriptclass ""
+     style InventoryActionMenu
+     text "ACTION2"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button12 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 11
+     style InventoryActionMenu
+     text "ACTION3"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button13 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 12
+     style InventoryActionMenu
+     text "ACTION4"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button14 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 13
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button15 {
+     visible 1
+     inheritalpha 0
+     position 0 0.05
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 14
+     scriptclass ""
+     style InventoryActionMenu
+     text "ACTION1"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button16 {
+     visible 1
+     inheritalpha 0
+     position 0 0.14
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 15
+     scriptclass ""
+     style InventoryActionMenu
+     text "ACTION2"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button17 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 16
+     style InventoryActionMenu
+     text "ACTION3"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button18 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 17
+     style InventoryActionMenu
+     text "ACTION4"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button19 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 18
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button20 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 19
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button21 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 20
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button22 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 21
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button23 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 22
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button24 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 23
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button25 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 24
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button26 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 25
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button27 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 26
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button28 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 27
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button29 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 28
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button30 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 29
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button31 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 30
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button32 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 31
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button33 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 32
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button34 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 33
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button35 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 34
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button36 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 35
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button37 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 36
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button38 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 37
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button39 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 38
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button40 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 39
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button41 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 40
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button42 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 41
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button43 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 42
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass Button44 {
+     visible 1
+     inheritalpha 0
+     position 0 0.23
+     size 0.9 20
+     halign center_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 43
+     style InventoryActionMenu
+     text "ACTION5"
+     text_offset 20 0
+     text_proportion 0.8
+     text_halign left
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    PanelWidgetClass BottomOffset {
+     size 0.9 10
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     priority 502
+     userID 3
+    }
+   }
+   {
+    ScriptParamsClass {
+     AlignChilds 1
+     MinHeight 5
+    }
+   }
+  }
+  ImageWidgetClass BackdropImageWidget {
+   visible 0
+   ignorepointer 1
+   color 0.7176 0.7176 0.7176 1
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+ }
+}

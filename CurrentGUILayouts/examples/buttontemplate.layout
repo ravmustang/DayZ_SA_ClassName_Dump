@@ -1,0 +1,13 @@
+ButtonWidgetClass ButtonTemp {
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ style MenuDefault
+ text "Tralala"
+ font "gui/fonts/sdf_MetronBook72"
+ "italic text" 1
+ "bold text" 1
+}

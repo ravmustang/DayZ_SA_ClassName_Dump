@@ -1,0 +1,178 @@
+PanelWidgetClass GridCell {
+ clipchildren 1
+ inheritalpha 0
+ ignorepointer 0
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ style blank
+ {
+  PanelWidgetClass GridItemBck {
+   clipchildren 0
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   {
+    PanelWidgetClass GridItem {
+     clipchildren 0
+     inheritalpha 0
+     color 0 0 0 1
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     draggable 1
+     style rover_sim_colorable
+     {
+      ItemPreviewWidgetClass Preview {
+       visible 1
+       clipchildren 0
+       inheritalpha 0
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       priority 151
+       draggable 0
+       "force flip enable" 1
+      }
+      FrameWidgetClass QuantityPanel {
+       visible 0
+       clipchildren 1
+       inheritalpha 1
+       ignorepointer 1
+       size 1 1
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       priority 606
+       draggable 0
+       {
+        ProgressBarWidgetClass QuantityBar {
+         visible 1
+         ignorepointer 1
+         position 0 2
+         size 0.9 3
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Quantity
+         current 70
+         vertical 0
+         flipped 0
+        }
+        PanelWidgetClass QuantityStackPanel {
+         clipchildren 1
+         inheritalpha 0
+         ignorepointer 1
+         position 1 1
+         size 29 18
+         halign right_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 600
+         draggable 0
+         style blank
+         {
+          ImageWidgetClass Background {
+           visible 1
+           ignorepointer 1
+           color 0 0 0 0.7843
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           image0 ""
+           mode blend
+           "src alpha" 1
+           "no wrap" 1
+           stretch 1
+           filter 1
+           nocache 0
+          }
+          TextWidgetClass Quantity {
+           inheritalpha 0
+           ignorepointer 1
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           priority 500
+           style Light
+           text "99"
+           font "gui/fonts/sdf_MetronLight24"
+           "exact text" 0
+           text_proportion 0.9
+           "text halign" center
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass GridGhost {
+   visible 0
+   clipchildren 0
+   inheritalpha 0
+   ignorepointer 0
+   color 0.2235 0.2235 0.2235 0
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style blank
+   {
+    ImageWidgetClass GhostIcon {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 1
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     image0 "set:dayz_inventory image:missing"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     filter 1
+     nocache 0
+    }
+   }
+  }
+ }
+}

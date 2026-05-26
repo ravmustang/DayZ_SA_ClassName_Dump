@@ -1,0 +1,296 @@
+WrapSpacerWidgetClass closable_header_root {
+ clipchildren 0
+ ignorepointer 0
+ position 0 0
+ size 1 48
+ halign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ userID -1
+ draggable 1
+ scriptclass ""
+ style Empty
+ Padding 0
+ Margin 0
+ "Size To Content V" 1
+ content_halign center
+ {
+  ImageWidgetClass PanelWidget {
+   clipchildren 1
+   ignorepointer 1
+   color 0 0 0 0.8
+   position 0 0
+   size 1 48
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   priority 8
+   scriptclass ""
+   image0 "set:dayz_gui image:inv_header_1"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   {
+    FrameWidgetClass LeftSpacer {
+     ignorepointer 1
+     position 10 0
+     size 1 1
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     {
+      PanelWidgetClass MovePanel {
+       visible 0
+       ignorepointer 1
+       color 0 0 0 0.7843
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       fixaspect fixwidth
+       priority 200
+       style rover_sim_colorable
+       {
+        ButtonWidgetClass MoveUp {
+         visible 1
+         ignorepointer 0
+         position 0 0
+         size 1 0.5
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style Empty
+         {
+          ImageWidgetClass LTArrow {
+           ignorepointer 1
+           size 0.3 0.24
+           halign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           fixaspect inside
+           image0 "set:dayz_gui image:icon_plus"
+           mode blend
+           "src alpha" 1
+           "flip v" 1
+          }
+         }
+        }
+        ButtonWidgetClass MoveDown {
+         visible 1
+         ignorepointer 0
+         position 0 0
+         size 1 0.5
+         halign center_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style Empty
+         {
+          ImageWidgetClass RTArrow {
+           ignorepointer 1
+           size 0.3 0.24
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           fixaspect inside
+           image0 "set:dayz_gui image:icon_plus"
+           mode blend
+           "src alpha" 1
+          }
+         }
+        }
+       }
+      }
+      ItemPreviewWidgetClass Render {
+       clipchildren 1
+       ignorepointer 1
+       color 0.702 0.702 0.702 1
+       size 1 1
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       fixaspect fixwidth
+       priority 150
+       draggable 0
+       "force flip enable" 1
+      }
+     }
+    }
+    TextWidgetClass TextWidget0 {
+     clipchildren 1
+     ignorepointer 1
+     position 0 0
+     size 0.9 46
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Normal
+     text "CLOSABLE HEADER"
+     font "gui/fonts/sdf_MetronLight24"
+     "exact text" 1
+     "exact text size" 20
+     "size to text h" 0
+     "size to text v" 1
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass Dropzone {
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style blank
+    }
+    GridSpacerWidgetClass RightSpacer {
+     ignorepointer 1
+     position 10 0
+     size 1 1
+     halign right_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     Padding 0
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     content_halign right
+     content_valign center
+     Columns 2
+     Rows 1
+     {
+      ImageWidgetClass electricity {
+       visible 0
+       clipchildren 0
+       ignorepointer 1
+       color 0.6235 0.6235 0.6235 1
+       position 0 0
+       size 29 29
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       draggable 0
+       image0 "set:dayz_gui image:battery"
+       mode additive
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       {
+        ImageWidgetClass electricity_can_work {
+         visible 0
+         clipchildren 0
+         ignorepointer 1
+         color 0.9569 0.898 0.1451 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 500
+         image0 "set:dayz_gui image:battery"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+      ImageWidgetClass collapse_button {
+       visible 1
+       clipchildren 0
+       position 0 0
+       size 29 29
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 500
+       image0 "set:dayz_gui image:icon_x"
+       mode additive
+       "src alpha" 1
+       filter 1
+      }
+     }
+    }
+   }
+  }
+  ItemPreviewWidgetClass Drag_Render {
+   visible 0
+   clipchildren 1
+   ignorepointer 1
+   position 0 0
+   size 0 0
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   draggable 0
+   {
+    ImageWidgetClass Color {
+     clipchildren 0
+     ignorepointer 1
+     color 1 1 1 0.0392
+     position 0 0
+     size 1 1
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     mode additive
+     "src alpha" 1
+    }
+    PanelWidgetClass Cursor {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 999
+     draggable 0
+     style Outline
+    }
+   }
+  }
+ }
+}

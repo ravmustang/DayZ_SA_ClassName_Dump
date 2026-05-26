@@ -1,0 +1,75 @@
+GridSpacerWidgetClass keybinds_tab_root {
+ ignorepointer 1
+ position 0 0
+ size 0.92 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ Padding 4
+ Margin 0
+ Columns 4
+ Rows 1
+ {
+  GridSpacerWidgetClass container0 {
+   ignorepointer 1
+   position 0 0
+   size 0.25 0.01
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style Colorable
+   Padding 4
+   Margin 0
+   "Size To Content V" 1
+   Columns 1
+   Rows 21
+  }
+  GridSpacerWidgetClass container1 {
+   ignorepointer 1
+   position 0 0
+   size 0.25 0.01
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style Colorable
+   Padding 4
+   Margin 0
+   "Size To Content V" 1
+   Columns 1
+   Rows 21
+  }
+  GridSpacerWidgetClass container2 {
+   ignorepointer 1
+   position 0 0
+   size 0.25 0.01
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style Colorable
+   Padding 4
+   Margin 0
+   "Size To Content V" 1
+   Columns 1
+   Rows 21
+  }
+  GridSpacerWidgetClass container3 {
+   ignorepointer 1
+   position 0 0
+   size 0.25 0.01
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style Colorable
+   Padding 4
+   Margin 0
+   "Size To Content V" 1
+   Columns 1
+   Rows 21
+  }
+ }
+}

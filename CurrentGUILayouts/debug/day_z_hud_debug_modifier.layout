@@ -1,0 +1,51 @@
+PanelWidgetClass PanelModifier {
+ position 0 1.40992
+ size 277.78101 13.5482
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  ButtonWidgetClass TextModifierName {
+   position 0 -0.07317
+   size 0.69454 1.13634
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Modifier name"
+   text_halign left
+  }
+  ButtonWidgetClass ButtonModifierActivate {
+   position 0.69938 0
+   size 0.1 1
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "+"
+  }
+  CheckBoxWidgetClass CheckBoxLock {
+   position 0.9277 0.00319
+   size 0.05257 0.9281
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   checked 0
+  }
+  ButtonWidgetClass ButtonModifierDeactivate {
+   position 0.80422 0
+   size 0.1 1
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "-"
+  }
+ }
+}

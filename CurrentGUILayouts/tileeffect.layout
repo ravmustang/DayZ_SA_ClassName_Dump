@@ -1,0 +1,37 @@
+FrameWidgetClass TileFrame {
+ position 0 0
+ size 1 1
+ priority 950
+ {
+  PanelWidgetClass BackgroundWidget {
+   disabled 0
+   clipchildren 1
+   inheritalpha 1
+   color 0 0 0 1
+   position 0 0
+   size 1 1
+   style rover_sim_colorable
+  }
+  TextWidgetClass TextWidget {
+   clipchildren 0
+   inheritalpha 1
+   position 0 0
+   size 0.95 0.02
+   halign center_ref
+   valign center_ref
+   hexactsize 0
+   vexactsize 0
+   style None
+   text "#STR_TileFrame_TextWidget0"
+   font "gui/fonts/sdf_MetronLight72"
+   "shadow size" 2
+   "shadow color" 0.2196 0.2196 0.2196 0
+   "shadow offset" 1 1
+   "exact text" 0
+   "size to text h" 0
+   "size to text v" 1
+   "text halign" center
+   "text valign" center
+  }
+ }
+}

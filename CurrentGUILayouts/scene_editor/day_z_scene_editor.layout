@@ -1,0 +1,3239 @@
+FrameWidgetClass hud_se_frame_root {
+ visible 1
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ priority 10
+ {
+  PanelWidgetClass hud_se_pnl_editor {
+   visible 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   {
+    PanelWidgetClass pnl_top {
+     visible 1
+     disabled 0
+     position 0 0
+     size 1 0.05
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style EditorPanel
+     {
+      ButtonWidgetClass btn_top_scene_manager {
+       position 10 0
+       size 100 20
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Scene Manager"
+       text_proportion 0.75
+       font "gui/fonts/Metron"
+       switch normal
+      }
+      ButtonWidgetClass btn_top_settings {
+       visible 0
+       position 100 0
+       size 80 20
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Enviroment"
+       text_proportion 0.75
+       font "gui/fonts/Metron"
+      }
+      ButtonWidgetClass btn_top_save_scene {
+       visible 0
+       position 190 0
+       size 80 20
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Save Scene"
+       text_proportion 0.75
+       font "gui/fonts/Metron"
+      }
+      ButtonWidgetClass btn_top_editor_settings {
+       position 10 0
+       size 120 20
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Editor Settings"
+       text_proportion 0.75
+       font "gui/fonts/Metron"
+      }
+      PanelWidgetClass pnl_top_flags {
+       size 405 21
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+      }
+      ButtonWidgetClass btn_delete_ruler {
+       position 135 0
+       size 120 20
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Delete Ruler"
+       text_proportion 0.75
+       font "gui/fonts/Metron"
+      }
+      PanelWidgetClass pnl_top_time {
+       visible 0
+       position 10 0
+       size 80 20
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style editor_quad_dark
+       {
+        TextWidgetClass txt_top_time {
+         size 1 0.8
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "00:00"
+         font "gui/fonts/Metron"
+         "exact text" 1
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      ButtonWidgetClass btn_top_position_manager {
+       position 115 0
+       size 120 20
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Position Manager"
+       text_proportion 0.75
+       font "gui/fonts/Metron"
+       switch normal
+      }
+      ButtonWidgetClass btn_top_configs {
+       position 263 0
+       size 120 20
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Configs"
+       text_proportion 0.75
+       font "gui/fonts/Metron"
+      }
+     }
+    }
+    PanelWidgetClass pnl_left {
+     position 0 0.05
+     size 0.2 0.95
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_left_loaded_scene {
+       position 0 0
+       size 1 0.5
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style EditorPanel
+       {
+        PanelWidgetClass pnl_left_label_loaded_scene {
+         color 0 0 0 0.7843
+         position 0 0
+         size 1 0.07
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          TextWidgetClass txt_left_label_loaded_scene {
+           position 0 0.25
+           size 1 0.5
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "Loaded Scene: MyAwsomeV3S"
+           font "gui/fonts/Metron"
+           "text offset" 15 0
+           "exact text" 1
+           "text valign" center
+          }
+         }
+        }
+        EditBoxWidgetClass edit_left_search_item {
+         position 0.05 0.09
+         size 0.4 0.04
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Editor
+         font "gui/fonts/Metron"
+        }
+        TextListboxWidgetClass txtlist_left_items {
+         position 0.05 0.15
+         size 0.9 0.76
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Editor
+         lines 1
+         font "gui/fonts/Metron12"
+        }
+        PanelWidgetClass pnl_left_ls_buttons {
+         position 0.05 0.025
+         size 0.9 0.041
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          ButtonWidgetClass btn_left_select {
+           position 0 0
+           size 0.49 1
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Editor
+           font "gui/fonts/Metron"
+           {
+            TextWidgetClass txt_left_ls_btn_select {
+             ignorepointer 1
+             position 0 0
+             size 1 0.8
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Select"
+             font "gui/fonts/Metron"
+             "exact text" 1
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+          ButtonWidgetClass btn_left_focus {
+           position 0 0
+           size 0.49 1
+           halign right_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Editor
+           font "gui/fonts/Metron"
+           {
+            TextWidgetClass txt_left_ls_btn_focus {
+             ignorepointer 1
+             size 1 0.8
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Focus"
+             font "gui/fonts/Metron"
+             "exact text" 1
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass pnl_left_config_list {
+       position 0 0.5
+       size 1 0.5
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style EditorPanel
+       {
+        PanelWidgetClass pnl_left_config_label {
+         color 0 0 0 0.7843
+         position 0 0
+         size 1 0.07
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          TextWidgetClass txt_left_config_label {
+           position 0 0.25
+           size 1 0.5
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "Config Class List"
+           font "gui/fonts/Metron"
+           "text offset" 15 0
+           "exact text" 1
+           "text valign" center
+          }
+         }
+        }
+        EditBoxWidgetClass edit_left_search_class {
+         position 0.05 0.09
+         size 0.45 0.04
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Editor
+         font "gui/fonts/Metron"
+        }
+        TextListboxWidgetClass txtlist_left_classes {
+         disabled 0
+         position 0.05 0.15
+         size 0.9 0.83
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Editor
+         lines 1
+         font "gui/fonts/Metron12"
+        }
+        ButtonWidgetClass btn_left_presets {
+         position 0.52 0.09
+         size 0.43 0.04
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Editor
+         text "Presets >>"
+         font "gui/fonts/Metron14"
+        }
+       }
+      }
+     }
+    }
+    PanelWidgetClass pnl_right {
+     inheritalpha 0
+     position 0 0.05
+     size 0.2 0.95
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_right_obj_inspector {
+       position 0 0
+       size 1 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style EditorPanel
+       {
+        PanelWidgetClass pnl_right_inspector_title {
+         color 0 0 0 0.7843
+         position 0 0
+         size 1 0.03
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          TextWidgetClass txt_right_inspect_label {
+           position 0 0
+           size 1 0.7
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "Object Properties"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+          }
+         }
+        }
+        PanelWidgetClass pnl_properties {
+         position 0 0.035
+         size 1 0.25
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          PanelWidgetClass pnl_right_prop_header {
+           position 0 0
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_header_name {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style editor_quad_dark
+             {
+              TextWidgetClass txt_right_prop_header_name {
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Property"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_header_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style editor_quad_dark
+             {
+              TextWidgetClass txt_right_prop_header_value {
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Value"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass pnl_right_prop_class {
+           position 0 0.125
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_class_name {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_class_name {
+               color 0.3098 0.3098 0.3098 1
+               position 0 0
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Class:"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_class_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_class_value {
+               color 0.3098 0.3098 0.3098 1
+               position 0.03 0
+               size 0.94 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "V3S"
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass pnl_right_prop_pos_x {
+           position 0 0.25
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_pos_x_name {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_pos_x_name {
+               color 0.3098 0.3098 0.3098 1
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Position X:"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_pos_x_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              EditBoxWidgetClass ebx_right_prop_pos_x_value {
+               position 0.03 0
+               size 0.94 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               style Default
+               text "5673.5564"
+               "text color" 0.3098 0.3098 0.3098 1
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass pnl_right_prop_pos_y {
+           position 0 0.375
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_pos_y_name {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_pos_y_name {
+               color 0.3098 0.3098 0.3098 1
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Position Y:"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_pos_y_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              EditBoxWidgetClass ebx_right_prop_pos_y_value {
+               position 0.03 0
+               size 0.94 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               style Default
+               text "-4561.3654"
+               "Default text color" 0.6784 0.6784 0.6784 1
+               "text color" 0.3098 0.3098 0.3098 1
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass pnl_right_prop_pos_z {
+           position 0 0.5
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_pos_z_name {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_pos_z_name {
+               color 0.3098 0.3098 0.3098 1
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Position Z:"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_pos_z_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              EditBoxWidgetClass ebx_right_prop_pos_z_value {
+               ignorepointer 0
+               position 0.03 0
+               size 0.94 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               style Default
+               "no focus" 0
+               text "5564.12"
+               "text color" 0.3098 0.3098 0.3098 1
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass pnl_right_prop_pos_dir {
+           position 0 0.625
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_pos_dir_name {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_pos_dir_name {
+               color 0.3098 0.3098 0.3098 1
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Direction:"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_pos_dir_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              EditBoxWidgetClass ebx_right_prop_pos_dir_value {
+               position 0.03 0
+               size 0.94 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               style Default
+               text "90"
+               "text color" 0.3098 0.3098 0.3098 1
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass pnl_right_prop_pos_hlt {
+           position 0 0.75
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_pos_hlt_name {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_pos_hlt_name {
+               color 0.3098 0.3098 0.3098 1
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Health:"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_pos_hlt_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              EditBoxWidgetClass ebx_right_prop_pos_hlt_value {
+               position 0.03 0
+               size 0.94 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               style Default
+               text "0.35"
+               "text color" 0.3098 0.3098 0.3098 1
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass pnl_right_prop_pos_iscr {
+           position 0 0.875
+           size 1 0.125
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           {
+            PanelWidgetClass pnl_right_prop_pos_hlt_name0 {
+             position 0 0
+             size 0.4 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              TextWidgetClass txt_right_prop_pos_iscr_name {
+               color 0.3098 0.3098 0.3098 1
+               size 1 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               text "Init Script:"
+               "text offset" 5 0
+               "exact text" 1
+               "text valign" center
+              }
+             }
+            }
+            PanelWidgetClass pnl_right_prop_pos_iscr_value {
+             position 0.4 0
+             size 0.6 1
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style EditorPanel
+             {
+              ButtonWidgetClass btn_right_prop_pos_iscr_value {
+               visible 1
+               position 0.03 0
+               size 0.94 0.7
+               valign center_ref
+               hexactpos 0
+               vexactpos 0
+               hexactsize 0
+               vexactsize 0
+               style Editor
+               text "Edit"
+               font "gui/fonts/Metron16"
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass pnl_right_inspector_attachments {
+         position 0 0.31
+         size 1 0.06
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          PanelWidgetClass pnl_att_title {
+           color 0 0 0 0.7843
+           position 0 0
+           size 1 0.5
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style rover_sim_colorable
+           {
+            TextWidgetClass txt_att_title {
+             position 0 0
+             size 1 0.7
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Attachments"
+             font "gui/fonts/Metron"
+             "exact text" 1
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    PanelWidgetClass pnl_SceneControl {
+     position 0.2 0.05
+     size 0.6 0.95
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 1
+    }
+    PanelWidgetClass pnl_notify {
+     inheritalpha 0
+     position 0 0.1
+     size 0.15 0.047
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style EditorPanel
+     {
+      TextWidgetClass txt_notify_save {
+       inheritalpha 1
+       color 0.3098 0.3098 0.3098 1
+       position 0 0
+       size 1 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Saved"
+       "text color" 0.3725 0.3725 0.3725 1
+       "exact text" 1
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    PanelWidgetClass pnl_presets_wrapper_outer {
+     visible 0
+     position 0.1995 0.558
+     size 500 0.95
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     priority 1
+     {
+      PanelWidgetClass pnl_presets_wrapper {
+       visible 1
+       position 0 0
+       size 500 0.5
+       hexactpos 1
+       vexactpos 0
+       hexactsize 1
+       vexactsize 0
+       style EditorPanel
+       {
+        TextListboxWidgetClass pnl_presets {
+         position 0.02 0.025
+         size 0.96 0.34
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Editor
+         font "gui/fonts/Metron12"
+        }
+        TextListboxWidgetClass pnl_preset_items {
+         position 0.296 0.44
+         size 0.684 0.3
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Editor
+         font "gui/fonts/Metron12"
+        }
+        ButtonWidgetClass btn_add_to_preset {
+         disabled 0
+         position 0.02 0.44
+         size 0.266 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text " >>"
+        }
+        ButtonWidgetClass btn_remove_from_preset {
+         disabled 0
+         position 0.02 0.49
+         size 0.266 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "<<"
+        }
+        ButtonWidgetClass btn_up {
+         position 0.02 0.54
+         size 0.266 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Up"
+        }
+        ButtonWidgetClass btn_down {
+         position 0.02 0.59
+         size 0.266 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Down"
+        }
+        TextWidgetClass txt_damage {
+         color 0 0 0 1
+         position 0.02 0.638
+         size 0.266 0.045
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Normal
+         text "Damage:"
+         font "gui/fonts/Metron58"
+         "text color" 0 0 0 1
+         "exact text" 0
+        }
+        TextWidgetClass txt_quantity {
+         color 0 0 0 1
+         position 0.02 0.688
+         size 0.266 0.045
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "Quantity:"
+         font "gui/fonts/Metron58"
+        }
+        EditBoxWidgetClass txt_damage_value {
+         color 0 0 0 1
+         position 0.19 0.638
+         size 0.096 0.045
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         "text color" 0 0 0 1
+        }
+        EditBoxWidgetClass txt_quantity_value {
+         color 0 0 0 1
+         position 0.19 0.688
+         size 0.096 0.045
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         "text color" 0 0 0 1
+        }
+        ButtonWidgetClass btn_spawn_on_ground {
+         position 0.02 0.85
+         size 0.3165 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Spawn On Ground"
+        }
+        ButtonWidgetClass btn_spawn_in_inventory {
+         position 0.347 0.85
+         size 0.3165 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Spawn In Inventory"
+        }
+        ButtonWidgetClass btn_spawn_as_attachment {
+         position 0.673 0.85
+         size 0.3065 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Spawn As Attachment"
+        }
+        TextWidgetClass txt_distance {
+         color 0 0 0 1
+         position 0.02 0.788
+         size 0.286 0.045
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Normal
+         text "Spawn distance:"
+         font "gui/fonts/Metron58"
+         "text color" 0 0 0 1
+         "exact text" 0
+        }
+        EditBoxWidgetClass txt_distance_value {
+         color 0 0 0 1
+         position 0.32 0.788
+         size 0.096 0.045
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         "text color" 0 0 0 1
+        }
+        ButtonWidgetClass btn_new {
+         position 0.42 0.38
+         size 0.136 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "New"
+        }
+        ButtonWidgetClass btn_default {
+         position 0.56 0.38
+         size 0.136 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Default"
+        }
+        ButtonWidgetClass btn_delete {
+         position 0.7 0.38
+         size 0.136 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Delete"
+        }
+        ButtonWidgetClass btn_rename {
+         disabled 0
+         position 0.84 0.38
+         size 0.136 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Rename"
+        }
+        ButtonWidgetClass btn_copy_to_clipboard {
+         position 0.02 0.38
+         size 0.266 0.041
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style Editor
+         text "Copy To Clipboard"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass pnl_popups {
+   visible 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   {
+    PanelWidgetClass pnl_popup_bg {
+     visible 1
+     color 0 0 0 0.8627
+     position 1 -4
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_colorable
+    }
+    PanelWidgetClass pnl_popup_position_manager {
+     visible 0
+     color 1 1 1 0.7843
+     position -0.00093 0.00114
+     size 500 450
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_pm_title {
+       visible 1
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_pm_title_text {
+         position 0 0
+         size 1 0.6
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Normal
+         text "Position Manager"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      TextListboxWidgetClass tls_ppp_pm_positions_list {
+       visible 1
+       position 5 30
+       size 490 235
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       lines 20
+       font "gui/fonts/Metron14"
+      }
+      TextWidgetClass txt_ppp_pm_selected_position {
+       position 6.0025 274.99689
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Selected position:"
+      }
+      TextWidgetClass txt_ppp_pm_current_position {
+       position 6.0025 358.99689
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Current position:"
+      }
+      TextWidgetClass pnl_ppp_pm_selected_x {
+       position 14.0025 298.99689
+       size 16 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "X:"
+      }
+      TextWidgetClass pnl_ppp_pm_selected_y {
+       position 14.0025 322.99689
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Y:"
+      }
+      TextWidgetClass pnl_ppp_pm_current_x {
+       position 14.0025 382.99689
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "X:"
+      }
+      TextWidgetClass pnl_ppp_pm_current_y {
+       position 14.0025 406.99689
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Y:"
+      }
+      ButtonWidgetClass btn_ppp_pm_teleport {
+       position 93 6
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Teleport"
+      }
+      TextWidgetClass pnl_ppp_pm_current_x_value {
+       disabled 1
+       position 30.0025 383
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+      }
+      TextWidgetClass pnl_ppp_pm_current_y_value {
+       disabled 1
+       position 30.0025 407
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+      }
+      EditBoxWidgetClass pnl_ppp_pm_selected_x_value {
+       position 30 299
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+      }
+      EditBoxWidgetClass pnl_ppp_pm_selected_y_value {
+       position 30 323
+       size 267 17
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+      }
+      ButtonWidgetClass btn_ppp_pm_cancel {
+       position 5 6
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Cancel"
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_scene_manager {
+     visible 0
+     color 1 1 1 0.7843
+     position -0.00093 0.00114
+     size 500 550
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_st_title {
+       visible 0
+       color 0 0 0 0.7843
+       position 0 0
+       size 500 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_st_title_text {
+         position 0 0
+         size 500 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "Scene Settings"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      PanelWidgetClass pnl_ppp_st_content {
+       visible 1
+       position 10 300
+       size 0.96 203
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       {
+        PanelWidgetClass pnl_ppp_st_info {
+         position 0 0
+         size 1 40
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         {
+          TextWidgetClass txt_ppp_st_w_time {
+           position 0 0
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Time:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            TextWidgetClass txt_ppp_st_w_time_value {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "153"
+             "exact text" 1
+             "text valign" center
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_w_air_temp {
+           position 0 20
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Air Temperature:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            TextWidgetClass txt_ppp_st_w_air_temp_value {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "18"
+             "exact text" 1
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass pnl_ppp_st_sliders {
+         position 0 50
+         size 1 150
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         {
+          TextWidgetClass txt_ppp_st_start_time {
+           position 0 0
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Start Time:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_start_time {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_start_time_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_start_day {
+           position 0 25
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Start Day:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_start_day {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_start_day_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_overcast {
+           position 0 50
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Overcast:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_overcast {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_overcast_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_rain {
+           position 0 75
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Rain:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_rain {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_rain_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_fog {
+           position 0 100
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Fog:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_fog {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_fog_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_wind_force {
+           position 0 125
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Wind Force:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_wind_force {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_wind_force_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_st_cancel {
+       visible 0
+       disabled 1
+       position 10 6
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      PanelWidgetClass pnl_ppp_sm_title {
+       visible 1
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_sb_title_text {
+         position 0 0
+         size 1 0.6
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style Normal
+         text "Scene Manager"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      PanelWidgetClass pnl_pp_sm_right_buttons {
+       visible 1
+       position 310 30
+       size 184 235
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        ButtonWidgetClass btn_ppp_sm_mission_new {
+         position 0 0
+         size 80 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Editor
+         text "New"
+         font "gui/fonts/Metron16"
+        }
+        ButtonWidgetClass btn_ppp_sm_mission_load {
+         position 0 25
+         size 80 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Editor
+         text "Load"
+         font "gui/fonts/Metron16"
+        }
+        ButtonWidgetClass btn_ppp_sm_mission_rename {
+         position 0 50
+         size 80 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Editor
+         text "Rename"
+         font "gui/fonts/Metron16"
+        }
+        ButtonWidgetClass btn_ppp_sm_mission_delete {
+         position 0 100
+         size 80 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Editor
+         text "Delete"
+         font "gui/fonts/Metron16"
+        }
+        ButtonWidgetClass btn_ppp_sm_mission_duplicate {
+         position 0 75
+         size 80 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Editor
+         text "Duplicate"
+         font "gui/fonts/Metron16"
+        }
+        ButtonWidgetClass btn_ppp_st_save {
+         visible 1
+         position 0 125
+         size 80 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scriptclass ""
+         style Editor
+         text "Save"
+         font "gui/fonts/Metron16"
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_sm_cancel {
+       position 5 6
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      TextListboxWidgetClass tls_ppp_sm_scene_list {
+       visible 1
+       position 5 30
+       size 300 235
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       lines 20
+       font "gui/fonts/AmorSerifPro14"
+      }
+      TextWidgetClass txt_ppp_sm_environment_settings {
+       position 10 275
+       size 347 22
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Loaded scene environment settings:"
+       font "gui/fonts/Metron"
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_scene_new {
+     visible 0
+     color 1 1 1 0.7843
+     size 400 55
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_sn_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_sn_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Create New Scene"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_sn_cancel {
+       position 5 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_sn_ok {
+       position 90 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Ok"
+       font "gui/fonts/Metron16"
+      }
+      EditBoxWidgetClass fld_ppp_sn_new_name {
+       position 5 5
+       size 220 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "NewSceneName"
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_scene_rename {
+     visible 0
+     color 1 1 1 0.7843
+     size 400 55
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_sn_rnm_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_sn_rnm_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Rename Scene"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_sn_rnm_cancel {
+       position 5 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_sn_rnm_ok {
+       position 90 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Ok"
+       font "gui/fonts/Metron16"
+      }
+      EditBoxWidgetClass fld_ppp_sn_rnm_new_name {
+       position 5 5
+       size 220 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_scene_delete {
+     visible 0
+     color 1 1 1 0.7843
+     position 0 0
+     size 300 80
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_sn_dlt_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_sn_dlt_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Delete Scene"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_sn_dlt_no {
+       position 5 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "No"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_sn_dlt_yes {
+       position 5 5
+       size 80 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Yes"
+       font "gui/fonts/Metron16"
+      }
+      TextWidgetClass txt_ppp_sn_dlt_label {
+       size 1 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "Delete NewScene.scene ?"
+       "exact text" 1
+       "text halign" center
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_notify {
+     visible 0
+     color 1 1 1 0.7843
+     position 0 0
+     size 300 80
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_notify_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_notify_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Notify"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_notify_ok {
+       position 0 5
+       size 80 20
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "OK"
+       font "gui/fonts/Metron16"
+      }
+      TextWidgetClass txt_ppp_notify_label {
+       position 0 0
+       size 1 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "Some notify message"
+       "exact text" 1
+       "text halign" center
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_settings {
+     visible 0
+     color 1 1 1 0.7843
+     position 0 -0.03734
+     size 500 268
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_st_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 500 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_st_title_text {
+         position 0 0
+         size 500 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "Scene Settings"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      PanelWidgetClass pnl_ppp_st_content {
+       position 10 32
+       size 0.96 203
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       {
+        PanelWidgetClass pnl_ppp_st_info {
+         position 0 0
+         size 1 40
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         {
+          TextWidgetClass txt_ppp_st_w_time {
+           position 0 0
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Time:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            TextWidgetClass txt_ppp_st_w_time_value {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "153"
+             "exact text" 1
+             "text valign" center
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_w_air_temp {
+           position 0 20
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Air Temperature:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            TextWidgetClass txt_ppp_st_w_air_temp_value {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "18"
+             "exact text" 1
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass pnl_ppp_st_sliders {
+         position 0 50
+         size 1 150
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         {
+          TextWidgetClass txt_ppp_st_start_time {
+           position 0 0
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Start Time:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_start_time {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_start_time_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_start_day {
+           position 0 25
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Start Day:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_start_day {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_start_day_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_overcast {
+           position 0 50
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Overcast:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_overcast {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_overcast_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_rain {
+           position 0 75
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Rain:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_rain {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_rain_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_fog {
+           position 0 100
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Fog:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_fog {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_fog_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_st_wind_force {
+           position 0 125
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Weather Wind Force:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            SliderWidgetClass sld_ppp_st_wind_force {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             {
+              TextWidgetClass txt_ppp_st_wind_force_value {
+               size 1 1
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 0
+               text "50.5%"
+               font "gui/fonts/Metron"
+               "exact text" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_st_cancel {
+       position 10 6
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_st_save {
+       position 100 6
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Save"
+       font "gui/fonts/Metron16"
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_editor_settings {
+     visible 0
+     color 1 1 1 0.7843
+     position 0 -0.03734
+     size 500 155
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_est_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 500 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_est_title_text {
+         position 0 0
+         size 500 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Normal
+         text "Editor Settings"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      PanelWidgetClass pnl_ppp_est_content {
+       position 10 32
+       size 0.96 70
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       {
+        PanelWidgetClass pnl_ppp_est_general {
+         position 0 0
+         size 1 70
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         {
+          TextWidgetClass txt_ppp_est_flag_selection {
+           position 0 0
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Draw Selection"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            CheckBoxWidgetClass cbx_ppp_est_flag_selection {
+             position 0.3 0
+             size 0.01 0.01
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             fixaspect inside
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_est_flag_load_player_pos {
+           position 0 25
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Load player position"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            CheckBoxWidgetClass cbx_ppp_est_flag_load_player_pos {
+             position 0.3 0
+             size 0.01 0.01
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             fixaspect inside
+             checked 0
+            }
+           }
+          }
+          TextWidgetClass txt_ppp_est_rotation_delta {
+           position 0 50
+           size 1 20
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           text "Rotation delta:"
+           font "gui/fonts/Metron"
+           "exact text" 1
+           "text valign" center
+           {
+            EditBoxWidgetClass ebx_ppp_est_rotation_delta_value {
+             position 0.3 0
+             size 0.7 1
+             hexactpos 0
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Editor
+             text "15"
+             font "gui/fonts/Metron"
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_est_cancel {
+       position 10 6
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_init_script {
+     visible 0
+     color 1 1 1 0.7843
+     position 0 -0.03734
+     size 550 268
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_is_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_is_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Init Script"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      PanelWidgetClass pnl_ppp_is_content {
+       position 10 32
+       size 0.96 203
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       {
+        MultilineEditBoxWidgetClass pnl_ppp_is_init_script_value {
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZNormal
+         text ""
+         lines 10
+        }
+       }
+      }
+      TextWidgetClass txt_ppp_is_info {
+       color 0 0 0 1
+       position 0.02 0.02
+       size 0.45 0.05
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Normal
+       text "Use this_obj or this_eai. Dont use ^ and $."
+      }
+      ButtonWidgetClass btn_ppp_is_cancel {
+       position 0.02 0.02
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_is_save {
+       visible 1
+       position 0.182 0.02
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Save"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_is_run {
+       visible 1
+       position 0.35 0.02
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Run"
+       font "gui/fonts/Metron16"
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_preset_new {
+     visible 0
+     color 1 1 1 0.7843
+     size 400 55
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_pn_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_pn_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Create New Preset"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_pn_cancel {
+       position 5 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_pn_ok {
+       position 90 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Ok"
+       font "gui/fonts/Metron16"
+      }
+      EditBoxWidgetClass fld_ppp_pn_new_name {
+       position 5 5
+       size 220 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_preset_rename {
+     visible 0
+     color 1 1 1 0.7843
+     size 400 55
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_pr_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_pr_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Rename Preset"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_pr_cancel {
+       position 5 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_pr_ok {
+       position 90 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Ok"
+       font "gui/fonts/Metron16"
+      }
+      EditBoxWidgetClass fld_ppp_pr_new_name {
+       position 5 5
+       size 220 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_sqf_watchers {
+     visible 0
+     color 1 1 1 0.7843
+     position 0 0
+     size 656 215
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_sw_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_sw_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "SQF"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_sw_cancel {
+       position 10 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       style Editor
+       text "Cancel"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_sw_ok {
+       position 98 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Ok"
+       font "gui/fonts/Metron16"
+      }
+      PanelWidgetClass txt_ppp_sw_editbox_background {
+       color 0 0 0 0.7843
+       position 10 49
+       size 636 137
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style rover_sim_colorable
+      }
+      PanelWidgetClass txt_ppp_sw_editbox_edge {
+       position 10 49
+       size 636 137
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style editor_quad
+      }
+      MultilineEditBoxWidgetClass txt_ppp_sw_editbox {
+       position 10 49
+       size 636 137
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style DayZNormal
+      }
+      ButtonWidgetClass btn_ppp_sw_add_watch {
+       position 10 5
+       size 130 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Add watch"
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_sw_remove_watch {
+       position 150 5
+       size 130 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Remove watch"
+       font "gui/fonts/Metron16"
+      }
+     }
+    }
+    PanelWidgetClass pnl_popup_configs {
+     visible 0
+     color 1 1 1 0.7843
+     position 0 -0.0011
+     size 800 600
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style EditorPanel
+     {
+      PanelWidgetClass pnl_ppp_pc_title {
+       color 0 0 0 0.7843
+       position 0 0
+       size 1 25
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       {
+        TextWidgetClass txt_ppp_pc_title_text {
+         position 0 0
+         size 1 15
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Normal
+         text "Configs"
+         font "gui/fonts/Metron-Bold58"
+         "text offset" 30 0
+        }
+       }
+      }
+      ButtonWidgetClass btn_ppp_pc_ok {
+       position 5 5
+       size 80 20
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Ok"
+       font "gui/fonts/Metron16"
+      }
+      TextListboxWidgetClass ConfigHierarchy {
+       position 5 55
+       size 160 516
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       lines 20
+       font "gui/fonts/Metron16"
+      }
+      TextListboxWidgetClass ConfigVariables {
+       position 169 30
+       size 626 541
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       lines 20
+       font "gui/fonts/Metron16"
+      }
+      ButtonWidgetClass btn_ppp_pc_copy {
+       position 5 5
+       size 160 20
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       text "Copy To Clipboard"
+       font "gui/fonts/Metron16"
+      }
+      EditBoxWidgetClass ObjectConfigFilter {
+       position 5 29.97
+       size 160 21
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       font "gui/fonts/Metron14"
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,485 @@
+PanelWidgetClass rootFrame {
+ clipchildren 0
+ inheritalpha 0
+ ignorepointer 0
+ keepsafezone 0
+ color 0 0 0 0.549
+ position 0 0
+ size 480 306
+ valign bottom_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 1
+ vexactsize 1
+ style rover_sim_colorable
+ {
+  PanelWidgetClass nf_title_panel {
+   clipchildren 0
+   ignorepointer 1
+   color 0 0 0 0.1961
+   position 0 0
+   size 1 36
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   style DayZDefaultPanelTop
+   {
+    PanelWidgetClass nf_line {
+     visible 1
+     ignorepointer 1
+     color 1 0 0 1
+     position 0.02 0
+     size 4 24
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     style rover_sim_colorable
+    }
+    TextWidgetClass nf_label {
+     visible 0
+     ignorepointer 1
+     position 0.03 0
+     size 0.44 1
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     style Normal
+     text "#news_whats_new"
+     font "gui/fonts/sdf_MetronBook72"
+     "text offset" 20 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 0
+     "size to text v" 0
+     "text valign" center
+    }
+    TextWidgetClass nf_title {
+     ignorepointer 1
+     position 0.04 0
+     size 0.95 1
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     style Normal
+     font "gui/fonts/sdf_MetronBook72"
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 0
+     "size to text v" 0
+     "text valign" center
+    }
+   }
+  }
+  PanelWidgetClass nf_body {
+   visible 1
+   clipchildren 1
+   ignorepointer 1
+   size 454 232
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   style blank
+   {
+    GridSpacerWidgetClass nf_grid {
+     clipchildren 0
+     ignorepointer 1
+     keepsafezone 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     Padding 0
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     content_halign center
+     content_valign center
+     {
+      WrapSpacerWidgetClass nf_body_content0 {
+       visible 1
+       disabled 0
+       ignorepointer 1
+       ignoregloballv 1
+       keepsafezone 0
+       color 0 0 0 1
+       size 454 232
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       style DayZDefaultPanel
+       Padding 0
+       Margin 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       content_halign center
+       content_valign center
+       {
+        ImageWidgetClass nf_image0 {
+         visible 1
+         inheritalpha 0
+         ignorepointer 1
+         ignoregloballv 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         mode additive
+         "src alpha" 1
+         "clamp mode" invalid
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+      WrapSpacerWidgetClass nf_body_content1 {
+       visible 1
+       disabled 0
+       ignorepointer 1
+       ignoregloballv 1
+       color 0 0 0 1
+       size 454 232
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       style DayZDefaultPanel
+       Padding 0
+       Margin 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       content_halign center
+       content_valign center
+       {
+        ImageWidgetClass nf_image1 {
+         visible 1
+         inheritalpha 0
+         ignorepointer 1
+         ignoregloballv 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         mode additive
+         "src alpha" 1
+         "clamp mode" invalid
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+      WrapSpacerWidgetClass nf_body_content2 {
+       visible 1
+       disabled 0
+       ignorepointer 1
+       ignoregloballv 1
+       color 0 0 0 1
+       size 454 232
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       style DayZDefaultPanel
+       Padding 0
+       Margin 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       content_halign center
+       content_valign center
+       {
+        ImageWidgetClass nf_image2 {
+         visible 1
+         inheritalpha 0
+         ignorepointer 1
+         ignoregloballv 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         mode additive
+         "src alpha" 1
+         "clamp mode" invalid
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  ButtonWidgetClass next_button {
+   clipchildren 0
+   position 0.03 0
+   size 32 0.8
+   halign right_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   priority 1
+   style Empty
+   {
+    ImageWidgetClass next_icon_pc {
+     visible 1
+     ignorepointer 1
+     size 0.6 32
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     image0 "set:dayz_gui image:arrow_right"
+     mode blend
+     "src alpha" 1
+     "stretch mode" stretch_w_h
+    }
+    ImageWidgetClass next_icon_console {
+     visible 0
+     ignorepointer 1
+     position -10 0
+     size 40 40
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:xbox_buttons image:DPAD_right"
+     mode blend
+     "src alpha" 1
+     "clamp mode" wrap
+     "stretch mode" stretch_w_h
+     filter 1
+    }
+   }
+  }
+  ButtonWidgetClass prev_button {
+   clipchildren 0
+   color 0 0 0 1
+   position 0.03 0
+   size 32 0.8
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   priority 1
+   style Empty
+   {
+    ImageWidgetClass prev_icon_pc {
+     visible 1
+     ignorepointer 1
+     size 0.6 32
+     halign right_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     image0 "set:dayz_gui image:arrow_left"
+     mode blend
+     "src alpha" 1
+     "stretch mode" stretch_w_h
+    }
+    ImageWidgetClass prev_icon_console {
+     visible 0
+     ignorepointer 1
+     position -10 0
+     size 40 40
+     halign right_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:xbox_buttons image:DPAD_left"
+     mode blend
+     "src alpha" 1
+     "clamp mode" wrap
+     "stretch mode" stretch_w_h
+     filter 1
+    }
+   }
+  }
+  PanelWidgetClass nf_button_panel {
+   clipchildren 1
+   ignorepointer 1
+   color 0 0 0 0.1961
+   position 0 0
+   size 1 34
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   priority 1
+   style DayZDefaultPanelBottom
+   {
+    ButtonWidgetClass nf_hotlink_button {
+     visible 1
+     clipchildren 1
+     ignorepointer 0
+     color 1 0 0 1
+     size 1 1
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     {
+      RichTextWidgetClass nf_hotlink_label {
+       ignorepointer 1
+       size 1 1
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       font "gui/fonts/sdf_MetronBook72"
+       "text offset" 62 0
+       "exact text" 1
+       "exact text size" 18
+       "size to text h" 0
+       "size to text v" 1
+       "text halign" center
+       "text valign" center
+      }
+      TextWidgetClass nf_hotlink_text {
+       ignorepointer 1
+       size 1 1
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       font "gui/fonts/sdf_MetronBook72"
+       "text offset" 62 0
+       "exact text" 1
+       "exact text size" 18
+       "size to text h" 0
+       "size to text v" 1
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass nf_pages {
+   clipchildren 0
+   ignorepointer 1
+   position 0 -0.06
+   size 1 36
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   priority 1
+   style blank
+   "no focus" 0
+   "next left" ""
+   "next right" ""
+   "next up" ""
+   "next down" ""
+   {
+    PanelWidgetClass nf_pages_panel {
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style blank
+     {
+      GridSpacerWidgetClass page_indicators {
+       ignorepointer 1
+       position 0 0.1
+       size 0.3 1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       content_halign center
+       content_valign center
+       Rows 1
+       {
+        PanelWidgetClass page1 {
+         ignorepointer 1
+         color 1 0 0 1
+         position 10 10
+         size 24 4
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style rover_sim_colorable
+        }
+        PanelWidgetClass page2 {
+         visible 1
+         ignorepointer 1
+         color 0 0 0 0.549
+         position 10 10
+         size 24 4
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style rover_sim_colorable
+        }
+        PanelWidgetClass page3 {
+         ignorepointer 1
+         color 0 0 0 0.549
+         position 10 10
+         size 24 4
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style rover_sim_colorable
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

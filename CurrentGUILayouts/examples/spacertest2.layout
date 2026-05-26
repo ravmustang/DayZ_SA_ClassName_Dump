@@ -1,0 +1,113 @@
+FrameWidgetClass rootFrame {
+ position 0.05 0.05
+ size 0.89227 0.9
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  GridSpacerWidgetClass GridSpacerWidget3 {
+   inheritalpha 0
+   position 409.513 158.62302
+   size 454.336 611.67798
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   "Size To Content H" 1
+   "Size To Content V" 1
+   {
+    ButtonWidgetClass ButtonWidget22 {
+     position 300.46399 60
+     size 60 60
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Jadna"
+    }
+    ButtonWidgetClass ButtonWidget24 {
+     position 300.46399 364.121
+     size 1 60
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style MenuDefault
+     text "Jadna"
+    }
+    ButtonWidgetClass ButtonWidget25 {
+     position 300.46399 364.121
+     size 60 60
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Jadna"
+    }
+    ButtonWidgetClass ButtonWidget23 {
+     position 300.46399 350.37201
+     size 60 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     style MenuDefault
+     text "Trie"
+    }
+    ButtonWidgetClass ButtonWidget20 {
+     position 300.46399 350.37201
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style MenuDefault
+     text "Trie"
+    }
+    ButtonWidgetClass ButtonWidget21 {
+     position 300.46399 350.37201
+     size 60 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     style MenuDefault
+     text "Trie"
+    }
+    ButtonWidgetClass ButtonWidget26 {
+     position 300.46399 350.37201
+     size 60 60
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Trie"
+    }
+    ButtonWidgetClass ButtonWidget27 {
+     position 300.46399 350.37201
+     size 1 60
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style MenuDefault
+     text "Trie"
+    }
+    ButtonWidgetClass ButtonWidget28 {
+     position 300.46399 350.37201
+     size 60 60
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "Trie"
+    }
+   }
+  }
+ }
+}

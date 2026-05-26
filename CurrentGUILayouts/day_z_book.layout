@@ -1,0 +1,183 @@
+FrameWidgetClass ContainerWidget {
+ clipchildren 0
+ color 0.7843 0.7843 0.7843 1
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 50
+ {
+  WindowWidgetClass WindowWidget {
+   color 1 0.7843 1 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_black
+   {
+    PanelWidgetClass Background {
+     clipchildren 0
+     color 0.4471 0.4471 0.4471 0.7843
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     draggable 0
+     style rover_sim_colorable
+    }
+    PanelWidgetClass BackPanelWidget {
+     visible 1
+     color 0.4706 0.4706 0.4706 0.4706
+     position 0 0
+     size 0.475 0.9
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_black
+     {
+      PanelWidgetClass PanelWidget0 {
+       color 1 0.9882 0.7725 0.7843
+       position 0 0.022
+       size 0.868 0.911
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style rover_sim_colorable
+       {
+        HtmlWidgetClass HtmlWidget {
+         clipchildren 0
+         color 0.2235 0.2235 0.2235 1
+         position 0.016 0.062
+         size 0.966 0.85
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         "exact text" 1
+         wrap 1
+        }
+        TextWidgetClass Page {
+         color 0.2235 0.2235 0.2235 1
+         position 0 0.012
+         size 0.159 0.035
+         halign center_ref
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "- 0 -"
+         "exact text" 1
+         "text halign" center
+        }
+        TextWidgetClass Title {
+         clipchildren 0
+         color 0.2235 0.2235 0.2235 1
+         position 0.014 0.012
+         size 0.478 0.035
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "Title"
+         "exact text" 1
+        }
+        TextWidgetClass Author {
+         color 0.2235 0.2235 0.2235 1
+         position 0.507 0.012
+         size 0.478 0.035
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "Author"
+         "exact text" 1
+         "text halign" right
+        }
+       }
+      }
+      ButtonWidgetClass BackBtn1 {
+       visible 1
+       position 0 0
+       size 0.04 0.04
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       fixaspect fixwidth
+       userID 2
+       style Default
+       text_offset 1 1
+       text_halign center
+       "text color" 1 1 1 1
+       "disabled text color" 0.3373 0.3373 0.3373 1
+       {
+        ImageWidgetClass IconClose {
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign right_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         image0 "set:dayz_gui image:Close"
+         mode blend
+         "src alpha" 1
+         "no wrap" 1
+         filter 1
+         nocache 0
+        }
+       }
+      }
+     }
+    }
+    ButtonWidgetClass PrevButton {
+     visible 1
+     position -0.156 0.06
+     size 0.075 0.04
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     userID 102
+     style Default
+     text "#layout_day_z_book_next"
+    }
+    ButtonWidgetClass NextButton {
+     visible 1
+     position 0.156 0.06
+     size 0.075 0.04
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     userID 103
+     style Default
+     text "#layout_day_z_book_next"
+    }
+   }
+  }
+ }
+}

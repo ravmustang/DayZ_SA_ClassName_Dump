@@ -1,0 +1,119 @@
+PanelWidgetClass widget {
+ visible 1
+ clipchildren 0
+ ignorepointer 1
+ color 0 0 0 0.7059
+ size 1 105
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ priority 8
+ scriptclass ""
+ style ToolbarWidget
+ {
+  ImageWidgetClass SpacerTop {
+   ignorepointer 1
+   color 1 1 1 0
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   scaled 0
+   scriptclass ""
+   mode blend
+   "src alpha" 1
+   filter 0
+  }
+  GridSpacerWidgetClass spacer {
+   visible 1
+   ignorepointer 1
+   position 0 1
+   size 1 104
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   scriptclass ""
+   style Colorable
+   Padding 0
+   Margin 0
+   Columns 5
+   Rows 1
+   {
+    PanelWidgetClass Icon0 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     size 1 102
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     scaled 1
+     fixaspect fixwidth
+     draggable 0
+     style blank
+    }
+    PanelWidgetClass Icon1 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     size 1 102
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     scaled 1
+     fixaspect fixwidth
+     draggable 0
+     style blank
+    }
+    PanelWidgetClass Icon2 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     size 1 102
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     scaled 1
+     fixaspect fixwidth
+     draggable 0
+     style blank
+    }
+    PanelWidgetClass Icon3 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     size 1 102
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     scaled 1
+     fixaspect fixwidth
+     draggable 0
+     style blank
+    }
+    PanelWidgetClass Icon4 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     size 1 102
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     scaled 1
+     fixaspect fixwidth
+     draggable 0
+     style blank
+    }
+   }
+  }
+ }
+}

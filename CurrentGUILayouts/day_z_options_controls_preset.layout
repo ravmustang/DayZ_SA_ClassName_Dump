@@ -1,0 +1,101 @@
+FrameWidgetClass FrameWidget1 {
+ position 0.0125 0.01111
+ size 0.96875 0.96667
+ priority 995
+ {
+  WindowWidgetClass MainWindowWidget {
+   visible 1
+   disabled 0
+   clipchildren 1
+   color 1 1 1 1
+   position 0 -0.02011
+   size 384 484
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   fixaspect none
+   priority 0
+   style rover_sim_black
+   "title visible" 0
+   "text color" 1 1 0 1
+   {
+    PanelWidgetClass ControlsPanelWidget1 {
+     visible 1
+     position 16 52
+     size 352 384
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style rover_sim_black
+     {
+      TextListboxWidgetClass PresetListboxWidget {
+       clipchildren 1
+       position 8 8
+       size 336 368
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Default
+       "title visible" 0
+       lines 20
+      }
+     }
+    }
+    ButtonWidgetClass BackBtn2 {
+     visible 1
+     position 312 444
+     size 64 32
+     halign left
+     valign top
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     userID 2
+     style Default
+     text "#menu_back"
+     text_offset 1 1
+     text_proportion 0.8
+     text_halign center
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    TextWidgetClass TextWidget1 {
+     position 16 8
+     size 280 40
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "#options_default_preset_label"
+     "exact text" 1
+     "text halign" left
+    }
+    ButtonWidgetClass BackBtn1 {
+     visible 1
+     position 236 444
+     size 64 32
+     halign left
+     valign top
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     userID 1
+     style Default
+     text "#options_overall_set_button"
+     text_offset 1 1
+     text_proportion 0.8
+     text_halign center
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,132 @@
+PanelWidgetClass dropdown_selector {
+ clipchildren 0
+ inheritalpha 0
+ ignorepointer 1
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ style blank
+ {
+  FrameWidgetClass holder {
+   clipchildren 0
+   ignorepointer 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   {
+    TextWidgetClass dropdown_text {
+     clipchildren 0
+     ignorepointer 0
+     size 0.5 0.5
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     text "text"
+     font "gui/fonts/sdf_MetronLight72"
+     "text offset" 10 0
+     text_proportion 0.55
+     "size to text h" 1
+     "text valign" center
+    }
+    FrameWidgetClass dropdown_selector_button {
+     clipchildren 0
+     ignorepointer 0
+     position 0 0
+     size 0.5 0.5
+     halign right_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     priority 5
+     {
+      ImageWidgetClass expand_image {
+       visible 1
+       clipchildren 0
+       inheritalpha 1
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       image0 "set:dayz_gui image:icon_collapse"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+      ImageWidgetClass collapse_image {
+       visible 0
+       clipchildren 0
+       inheritalpha 1
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       image0 "set:dayz_gui image:icon_expand"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+     }
+    }
+   }
+  }
+  ScrollWidgetClass dropdown_container {
+   visible 0
+   clipchildren 0
+   ignorepointer 0
+   color 1 1 1 0
+   position 0 1
+   size 1 2400
+   halign center_ref
+   hexactpos 1
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   style blank
+   "Scrollbar V" 1
+   {
+    GridSpacerWidgetClass dropdown_content {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     ignorepointer 1
+     color 0.3137 0.3137 0.3137 1
+     position 0 0
+     size 1 5
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     Padding 0
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     Columns 1
+     Rows 50
+    }
+   }
+  }
+ }
+}

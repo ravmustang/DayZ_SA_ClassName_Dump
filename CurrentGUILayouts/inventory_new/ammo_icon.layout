@@ -1,0 +1,30 @@
+FrameWidgetClass rootFrame {
+ ignorepointer 1
+ position 10 10
+ size 33.0855 42.4535
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ priority 300
+ {
+  ImageWidgetClass AmmoIcon {
+   visible 1
+   clipchildren 1
+   ignorepointer 1
+   position 8.35316 3
+   size 17 35
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   priority 999
+   draggable 0
+   image0 "set:dayz_gui image:cartridge_fp"
+   mode blend
+   "src alpha" 1
+   "no wrap" 1
+   stretch 1
+  }
+ }
+}

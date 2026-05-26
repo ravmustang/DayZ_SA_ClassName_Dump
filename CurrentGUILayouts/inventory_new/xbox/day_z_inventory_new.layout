@@ -1,0 +1,720 @@
+FrameWidgetClass inventory_root {
+ clipchildren 0
+ color 0 0 0 0
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 1
+ {
+  FrameWidgetClass InventoryFrameWidget {
+   clipchildren 0
+   ignorepointer 0
+   size 0.9 0.9
+   halign center_ref
+   valign center_ref
+   priority 1
+   {
+    FrameWidgetClass InventoryFrameWidgetInside {
+     clipchildren 0
+     ignorepointer 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     priority 1
+     {
+      WindowWidgetClass InventoryWindow {
+       visible 1
+       clipchildren 0
+       inheritalpha 1
+       ignorepointer 0
+       position 0 0
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       fixaspect none
+       priority 1
+       style Default
+       "no focus" 0
+       "title visible" 0
+       font "gui/fonts/AmorSerifPro16"
+       "text color" 1 1 0 1
+       {
+        PanelWidgetClass LeftPanel {
+         clipchildren 1
+         ignorepointer 1
+         position -0.35 50
+         size 538 0.81
+         halign center_ref
+         hexactpos 0
+         vexactpos 1
+         hexactsize 1
+         vexactsize 0
+         priority 101
+         scriptclass ""
+         style blank
+         "no focus" 1
+        }
+        PanelWidgetClass LeftBackground {
+         visible 1
+         clipchildren 0
+         ignorepointer 0
+         color 0 0 0 0.098
+         position -0.67 0
+         size 1 1.2
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         scaled 1
+         priority 100
+         draggable 0
+         style rover_sim_colorable
+        }
+        PanelWidgetClass RightPanel {
+         clipchildren 1
+         ignorepointer 1
+         position 0.35 50
+         size 538 0.81
+         halign center_ref
+         hexactpos 0
+         vexactpos 1
+         hexactsize 1
+         vexactsize 0
+         priority 101
+         style blank
+        }
+        PanelWidgetClass RightBackground {
+         visible 1
+         clipchildren 0
+         ignorepointer 0
+         color 0 0 0 0.098
+         position 0.67 0
+         size 1 1.2
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 100
+         draggable 0
+         style rover_sim_colorable
+         "no focus" 0
+        }
+        PanelWidgetClass CenterPanel {
+         visible 1
+         clipchildren 0
+         ignorepointer 1
+         color 1 1 1 0
+         position 0 50
+         size 0.05 0.81
+         halign center_ref
+         hexactpos 0
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         priority 2
+         style blank
+         {
+          FrameWidgetClass CharacterPanel {
+           visible 1
+           disabled 0
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 0
+           position 0 0
+           size 1 660
+           halign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           fixaspect none
+           priority 0
+           {
+            FrameWidgetClass CursorCharacter {
+             visible 0
+             position 0 0
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             priority 100
+            }
+           }
+          }
+          ScrollWidgetClass HandsPanel {
+           visible 1
+           disabled 0
+           clipchildren 1
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           color 0.1961 0.1961 0.1961 0.3922
+           size 530 0
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           fixaspect none
+           priority 100
+           scriptclass "SizeToChild"
+           "Scrollbar V" 1
+           {
+            FrameWidgetClass DropzoneX {
+             visible 0
+             clipchildren 0
+             ignorepointer 1
+             position 0 0
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+            }
+            GridSpacerWidgetClass LBRB_Hands {
+             visible 1
+             clipchildren 0
+             color 0 0 0 0.7059
+             position 0 -50
+             size 150 29
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             priority 999
+             style Colorable
+             Padding 0
+             Margin 0
+             "Size To Content H" 1
+             "Size To Content V" 1
+             content_halign center
+             content_valign center
+             Columns 4
+             Rows 1
+             {
+              ImageWidgetClass LBRB_Hands_LBArrow {
+               ignorepointer 1
+               size 29 29
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               image0 "set:dayz_gui image:arrow_left"
+               mode blend
+               "src alpha" 1
+              }
+              RichTextWidgetClass LBRB_Hands_LBIcon {
+               clipchildren 1
+               ignorepointer 1
+               size 40 32
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               text "LBRB_Hands_LBIconData"
+               font "gui/fonts/sdf_MetronBook24"
+               "exact text" 1
+               "exact text size" 24
+               "size to text h" 1
+               "size to text v" 1
+               "text valign" center
+              }
+              RichTextWidgetClass LBRB_Hands_RBIcon {
+               ignorepointer 1
+               size 40 32
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               text "LBRB_Hands_RBIconData"
+               font "gui/fonts/sdf_MetronBook24"
+               "exact text" 1
+               "exact text size" 24
+               "size to text h" 1
+               "size to text v" 1
+               "text valign" center
+              }
+              ImageWidgetClass LBRB_Hands_RBArrow {
+               ignorepointer 1
+               size 29 29
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               image0 "set:dayz_gui image:arrow_right"
+               mode blend
+               "src alpha" 1
+               "flip u" 0
+               "flip v" 0
+              }
+             }
+            }
+           }
+           {
+            ScriptParamsClass {
+             m_ChildName "Content"
+             m_ResizeVertical 1
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass CenterBackground {
+         visible 1
+         clipchildren 0
+         ignorepointer 0
+         color 0.1961 0 0 0
+         position 0 0
+         size 550 1.2
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 0
+         draggable 0
+         style rover_sim_colorable
+         "no focus" 0
+        }
+        PanelWidgetClass VicinityPanelHeader {
+         clipchildren 1
+         ignorepointer 1
+         position 215 0
+         size 150 29
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          GridSpacerWidgetClass LBRB_Vicinity {
+           visible 1
+           clipchildren 0
+           keepsafezone 0
+           color 0 0 0 0.7059
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           priority 999
+           scriptclass ""
+           style Colorable
+           Padding 0
+           Margin 0
+           content_halign center
+           content_valign center
+           Columns 4
+           Rows 1
+           {
+            ImageWidgetClass LBRB_Vicinity_LBArrow {
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             image0 "set:dayz_gui image:arrow_left"
+             mode blend
+             "src alpha" 1
+            }
+            RichTextWidgetClass LBRB_Vicinity_LBIcon {
+             clipchildren 1
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "LBRB_Vicinity_LBIconData"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+             wrap 0
+            }
+            RichTextWidgetClass LBRB_Vicinity_RBIcon {
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "LBRB_Vicinity_RBIconData"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+            }
+            ImageWidgetClass LBRB_Vicinity_RBArrow {
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             image0 "set:dayz_gui image:arrow_right"
+             mode blend
+             "src alpha" 1
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass EquipmentPanelHeader {
+         ignorepointer 1
+         position 215 0
+         size 150 29
+         halign right_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          GridSpacerWidgetClass LBRB_Equipment {
+           visible 1
+           clipchildren 0
+           color 0 0 0 0.7059
+           position 0 0
+           size 1 1
+           halign right_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           priority 999
+           scriptclass ""
+           style Colorable
+           Padding 0
+           Margin 0
+           content_halign center
+           content_valign center
+           Columns 4
+           Rows 1
+           {
+            ImageWidgetClass LBRB_Equipment_LBArrow {
+             ignorepointer 1
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             image0 "set:dayz_gui image:arrow_left"
+             mode blend
+             "src alpha" 1
+            }
+            RichTextWidgetClass LBRB_Equipment_LBIcon {
+             ignorepointer 1
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             scaled 1
+             text "LBRB_Equipment_LBIconData"
+             font "gui/fonts/sdf_MetronBook24"
+             "italic text" 0
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+            }
+            RichTextWidgetClass LBRB_Equipment_RBIcon {
+             ignorepointer 1
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "LBRB_Equipment_RBIconData"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+            }
+            ImageWidgetClass LBRB_Equipment_RBArrow {
+             ignorepointer 1
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             image0 "set:dayz_gui image:arrow_right"
+             mode blend
+             "src alpha" 1
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    PlayerPreviewWidgetClass CharacterPanelWidget {
+     disabled 0
+     clipchildren 0
+     ignorepointer 1
+     keepsafezone 0
+     position 0.00093 0
+     size 1 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 1
+    }
+    FrameWidgetClass SpecializationPanelPanel {
+     visible 0
+     ignorepointer 1
+     position 0 32
+     size 292 32
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      PanelWidgetClass SpecializationPanel {
+       visible 1
+       clipchildren 0
+       size 260 32
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       priority 1
+       style blank
+       {
+        ImageWidgetClass SpecializationIconNeedle {
+         visible 1
+         size 1 1
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_needle"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+        }
+        ImageWidgetClass SpecializationIconHammer {
+         visible 1
+         size 1 1
+         halign right_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_hammer"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass SpecializationBar {
+         visible 1
+         clipchildren 0
+         position 0 0
+         size 180 8
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_bar_specialisation"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 0
+         {
+          ImageWidgetClass SpecializationIcon {
+           visible 1
+           clipchildren 0
+           position 0 -0.75
+           size 17 11
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           fixaspect fixwidth
+           priority 999
+           image0 "set:dayz_gui image:specialization_arrow"
+           mode additive
+           "src alpha" 1
+           "clamp mode" clamp
+           "flip u" 0
+           "flip v" 0
+           filter 1
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    WrapSpacerWidgetClass QuickbarGrid {
+     visible 1
+     disabled 0
+     position 0 0.05
+     size 1 66
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     priority 100
+     scriptclass "InventoryGrid"
+     Margin 0
+     "Size To Content H" 1
+     content_halign center
+     content_valign bottom
+     {
+      ScriptParamsClass {
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass vignette {
+   visible 1
+   ignorepointer 0
+   color 0 0 0 0.7843
+   position 0 0
+   size 2.2 1.3
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{E6B3EF816E067499}Gui/textures/inventory_bgvignette.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   filter 0
+   nocache 1
+  }
+  PanelWidgetClass BottomConsoleToolbar {
+   visible 1
+   clipchildren 1
+   color 1 1 1 0.7059
+   position 0 0
+   size 1 100
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   priority 200
+   style ToolbarWidget
+   "no focus" 0
+   {
+    PanelWidgetClass ContextToolbar {
+     clipchildren 0
+     position 0.03 0.15
+     size 0.94 36
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     {
+      RichTextWidgetClass ContextToolbarText {
+       clipchildren 0
+       position 0 0
+       size 1 36
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#layout_console_inventory_toolbar_context"
+       font "gui/fonts/sdf_MetronLight42"
+       "italic text" 0
+       "exact text" 1
+       "exact text size" 22
+       "size to text h" 1
+       "size to text v" 0
+       "text halign" right
+       "text valign" center
+       wrap 1
+      }
+     }
+    }
+   }
+  }
+ }
+}

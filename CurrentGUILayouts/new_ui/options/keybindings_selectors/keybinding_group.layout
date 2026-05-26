@@ -1,0 +1,116 @@
+WrapSpacerWidgetClass group_root {
+ clipchildren 0
+ inheritalpha 0
+ ignorepointer 0
+ position 0 0
+ size 0.6 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ Padding 0
+ Margin 0
+ "Size To Content V" 1
+ content_valign bottom
+ {
+  PanelWidgetClass group_header {
+   clipchildren 0
+   inheritalpha 0
+   ignorepointer 1
+   color 0 0 0 0.9412
+   position 0 0
+   size 1 90
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   priority 10
+   style rover_sim_colorable
+   "no focus" 1
+   {
+    PanelWidgetClass keyboard_preset {
+     clipchildren 0
+     inheritalpha 0
+     ignorepointer 1
+     position 0 0
+     size 0.5 1
+     halign right_ref
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 1
+     "no focus" 1
+     {
+      TextWidgetClass keyboard_image {
+       clipchildren 0
+       inheritalpha 0
+       ignorepointer 1
+       position 0 10
+       size 150 30
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#keybinding_profile"
+       font "gui/fonts/sdf_MetronBook24"
+       "text halign" center
+       "text valign" center
+      }
+      PanelWidgetClass keyboard_dropown {
+       clipchildren 0
+       inheritalpha 0
+       ignorepointer 1
+       color 0.1176 0.1176 0.1176 1
+       position 0 5
+       size 0.85 40
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       fixaspect outside
+       priority 10
+       style rover_sim_colorable
+       "no focus" 1
+      }
+     }
+    }
+   }
+  }
+  ScrollWidgetClass group_scroll {
+   position 0 94
+   size 1 0.9
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   "Scrollbar V" 1
+   {
+    GridSpacerWidgetClass group_content {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     ignorepointer 1
+     position 0 0
+     size 1 0
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     priority 3
+     style Colorable
+     "no focus" 1
+     Padding 8
+     Margin 8
+     "Size To Content V" 1
+     content_valign bottom
+     Columns 1
+     Rows 10
+    }
+   }
+  }
+ }
+}

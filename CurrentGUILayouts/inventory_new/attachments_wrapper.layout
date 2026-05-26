@@ -1,0 +1,18 @@
+GridSpacerWidgetClass AttachmentsWrapper {
+ visible 1
+ disabled 0
+ ignorepointer 1
+ color 0 0 0 0.7059
+ position 0 0
+ size 1 66
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ style Colorable
+ Padding 0
+ Margin 0
+ "Size To Content V" 1
+ Columns 1
+ Rows 100
+}

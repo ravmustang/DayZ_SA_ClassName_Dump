@@ -1,0 +1,67 @@
+PanelWidgetClass PlayerInfoPanel {
+ color 0.5647 0.5647 0.5647 0.7843
+ position 240 136
+ size 248 128
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ style rover_sim_colorable
+ {
+  TextWidgetClass PlayerNameText {
+   position 0.032 0.063
+   size 0.934 0.188
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style Bold
+   text "Mojimir"
+  }
+  TextWidgetClass InfoText0 {
+   position 0.032 0.313
+   size 0.934 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Hp 5000 Bld 5000"
+  }
+  TextWidgetClass InfoText1 {
+   position 0.032 0.438
+   size 0.934 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Hp 5000 Bld 5000"
+  }
+  TextWidgetClass InfoText2 {
+   position 0.032 0.563
+   size 0.934 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Hp 5000 Bld 5000"
+  }
+  TextWidgetClass InfoText3 {
+   position 0.032 0.688
+   size 0.934 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Hp 5000 Bld 5000"
+  }
+  TextWidgetClass InfoText4 {
+   position 0.032 0.813
+   size 0.934 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Hp 5000 Bld 5000"
+  }
+ }
+}

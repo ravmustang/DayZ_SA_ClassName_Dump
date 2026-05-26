@@ -1,0 +1,343 @@
+FrameWidgetClass Icon {
+ visible 1
+ clipchildren 1
+ ignorepointer 0
+ size 34 34
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ draggable 1
+ {
+  ItemPreviewWidgetClass Render {
+   visible 0
+   clipchildren 1
+   ignorepointer 1
+   color 0.702 0.702 0.702 1
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   scaled 1
+   priority 151
+   draggable 0
+  }
+  PanelWidgetClass Color {
+   clipchildren 0
+   ignorepointer 1
+   color 0.8824 0.8824 0.8824 0.0392
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   draggable 0
+   style rover_sim_colorable
+  }
+  GridSpacerWidgetClass TemperaturePanel {
+   visible 1
+   clipchildren 0
+   ignorepointer 1
+   color 0.8824 0.8824 0.8824 0.0392
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   draggable 0
+   scriptclass ""
+   Padding 0
+   Margin 3
+   content_halign center
+   content_valign center
+   Columns 1
+   Rows 1
+   {
+    PanelWidgetClass Temperature {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     color 0.8824 0.8824 0.8824 0
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     draggable 0
+     style rover_sim_colorable
+    }
+   }
+  }
+  PanelWidgetClass Combine {
+   visible 0
+   clipchildren 0
+   ignorepointer 0
+   color 1 1 1 0.3922
+   position 0 0
+   size 0.5 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 999
+   draggable 0
+   style dashed
+   {
+    TextWidgetClass TextWidget0 {
+     visible 1
+     ignorepointer 1
+     size 1 0.2
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "#layout_icon_combine"
+     "exact text" 1
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass CombineCursor {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 999
+     draggable 0
+     style editor_quad
+    }
+   }
+  }
+  PanelWidgetClass Swap {
+   visible 0
+   clipchildren 0
+   ignorepointer 0
+   color 1 1 1 0.3922
+   position 0.5 0
+   size 0.5 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 999
+   draggable 0
+   style dashed
+   {
+    TextWidgetClass TextWidget1 {
+     visible 1
+     ignorepointer 1
+     size 1 0.2
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "#layout_icon_swap"
+     "exact text" 1
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass SwapCursor {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 999
+     draggable 0
+     style editor_quad
+    }
+   }
+  }
+  FrameWidgetClass QuantityPanel {
+   visible 0
+   clipchildren 1
+   inheritalpha 1
+   ignorepointer 1
+   size 1 1
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 606
+   draggable 0
+   {
+    ProgressBarWidgetClass QuantityBar {
+     visible 1
+     ignorepointer 1
+     position 0 2
+     size 0.9 3
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Quantity
+     current 70
+     vertical 0
+     flipped 0
+    }
+    GridSpacerWidgetClass QuantityStackPanel {
+     clipchildren 0
+     inheritalpha 0
+     ignorepointer 1
+     color 0 0 0 0.7843
+     position 1 1
+     size 29 18
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 600
+     draggable 0
+     style Colorable
+     Padding 0
+     Margin 3
+     "Size To Content H" 1
+     "Size To Content V" 1
+     content_halign right
+     content_valign center
+     Columns 1
+     Rows 1
+     {
+      TextWidgetClass Quantity {
+       clipchildren 1
+       inheritalpha 0
+       ignorepointer 1
+       size 1 1
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       priority 500
+       style Light
+       text "100"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 1
+       "exact text size" 15
+       "size to text h" 1
+       "size to text v" 0
+       "text halign" right
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass Selected {
+   visible 0
+   clipchildren 0
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 999
+   draggable 0
+   style Outline
+  }
+  ImageWidgetClass AmmoTypeIcon {
+   visible 0
+   clipchildren 1
+   ignorepointer 1
+   position 3 3
+   size 10 10
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   priority 999
+   draggable 0
+   image0 "set:dayz_gui image:tracer"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+  }
+  ImageWidgetClass Reserved {
+   visible 0
+   ignorepointer 1
+   color 0.7059 0.7059 0.7059 0.6275
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 300
+   image0 ""
+   mode blend
+   "src alpha" 1
+   {
+    ImageWidgetClass ReservedIcon {
+     visible 1
+     ignorepointer 1
+     size 17 17
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     priority 300
+     image0 "set:dayz_inventory image:hands"
+     mode additive
+     "src alpha" 1
+    }
+   }
+  }
+  PanelWidgetClass Cursor {
+   visible 0
+   clipchildren 0
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 999
+   draggable 0
+   style Outline
+  }
+ }
+}

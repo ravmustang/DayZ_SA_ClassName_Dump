@@ -1,0 +1,587 @@
+FrameWidgetClass MainFrameWidget {
+ position -0.01609 -0.00088
+ size 0.9 0.9
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 50
+ {
+  WindowWidgetClass WindowWidget {
+   clipchildren 0
+   position 0 0
+   size 0.98 0.95
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_black
+   {
+    PanelWidgetClass PanelWidget2 {
+     clipchildren 0
+     position 0 0.08
+     size 0.98 0.9
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_black
+     {
+      FrameWidgetClass HeaderFrameWidget {
+       clipchildren 0
+       position 0 0.00048
+       size 0.70715 0.05
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        ButtonWidgetClass HostColumnBtn {
+         position 0 0
+         size 0.75 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 112
+         style Default
+         text "#server_browser_column_host"
+         text_offset 5 0
+         text_proportion 0.6
+         text_halign left
+         font "gui/fonts/sdf_MetronBook24"
+         switch once
+        }
+        ButtonWidgetClass PingColumnBtn {
+         position 0.95 0
+         size 0.05 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 120
+         text "#server_browser_column_ping"
+         text_offset 0 0
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronBook24"
+         switch once
+        }
+        ButtonWidgetClass PlayersColumnBtn {
+         position 0.81 0
+         size 0.08 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 118
+         style Default
+         text "#server_browser_column_popularity"
+         text_offset 5 0
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronBook24"
+         switch once
+        }
+        ButtonWidgetClass TimeColumnBtn {
+         position 0.75 0
+         size 0.06 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 172
+         text "#server_browser_column_time"
+         text_offset 0 0
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronBook24"
+         switch once
+        }
+        ButtonWidgetClass SlotsColumnBtn {
+         position 0.89 0
+         size 0.06 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 202
+         text "#server_browser_column_slots"
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronBook24"
+         switch once
+        }
+       }
+      }
+      ServerBrowserWidgetClass ServerListListboxNewWidget {
+       visible 1
+       disabled 0
+       clipchildren 1
+       position 0.00046 0.05048
+       size 0.7192 0.94
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       draggable 0
+       "title visible" 0
+       colums ""
+       lines 16
+       font "gui/fonts/sdf_MetronBook24"
+      }
+      PanelWidgetClass PanelWidget3 {
+       visible 1
+       position 0.735 0
+       size 0.26 1
+       {
+        EditBoxWidgetClass EB_Password {
+         position 0 0.87
+         size 1 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style ServerBrowser
+         text "#server_browser_password_default"
+         "limit visible" 0
+         "Default text color" 0.4902 0.4902 0.4902 1
+         "Use default text" 1
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        EditBoxWidgetClass EB_IPSearch {
+         clipchildren 1
+         position 0 0.565
+         size 0.79 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style ServerBrowser
+         text "#server_browser_remote_default"
+         "limit visible" 0
+         "Default text color" 0.4902 0.4902 0.4902 1
+         "Use default text" 1
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        CheckBoxWidgetClass CB_CharacterRestrict {
+         position 0 0.035
+         size 1 0.035
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 198
+         text "#server_browser_char_restrict"
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        ButtonWidgetClass BackBtn {
+         visible 1
+         position 0.033 0.94
+         size 0.45 0.05
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 2
+         style MenuDefault
+         text "#menu_back"
+         text_offset 0 0
+         text_proportion 0.45
+         text_halign center
+         font "gui/fonts/sdf_MetronBook24"
+         "text color" 1 1 1 1
+         "disabled text color" 0.3373 0.3373 0.3373 1
+        }
+        ButtonWidgetClass RefreshBtn {
+         position 0.034 0.67
+         size 0.45 0.05
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 123
+         style MenuDefault
+         text "#server_browser_refresh"
+         text_proportion 0.45
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        ButtonWidgetClass ConnectBtn {
+         visible 1
+         position 0.516 0.94
+         size 0.45 0.05
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 1
+         style MenuDefault
+         text "#server_browser_connect"
+         text_proportion 0.45
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        TextWidgetClass ServerCountText {
+         position 0 0.6267
+         size 0.75 0.0213
+         valign bottom
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#servers_count"
+         "exact text" 1
+         "text valign" center
+        }
+        ThreeStateCheckboxWidgetClass CB_FavoritedFilter {
+         position 0 0.2156
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 185
+         text "#server_browser_favorite_filter"
+        }
+        ThreeStateCheckboxWidgetClass CB_FriendsFilter {
+         position 0 0.2476
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 186
+         text "#server_browser_friend_filter"
+        }
+        ThreeStateCheckboxWidgetClass CB_BattleyeFilter {
+         position 0 0.2796
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 187
+         text "#server_browser_battleye_filter"
+        }
+        ThreeStateCheckboxWidgetClass CB_PassFilter {
+         position 0 0.3116
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 188
+         text "#server_browser_password_filter"
+        }
+        ThreeStateCheckboxWidgetClass CB_PrevPlayedFilter {
+         position 0 0.3436
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 189
+         text "#server_browser_prev_play_filter"
+        }
+        ThreeStateCheckboxWidgetClass CB_VersionFilter {
+         position 0 0.3756
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 190
+         text "#server_browser_version_filter"
+        }
+        XComboBoxWidgetClass XCB_CharacterSelect {
+         visible 1
+         ignorepointer 0
+         position 0 0.07
+         size 1 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 196
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        EditBoxWidgetClass EB_ServerSearch {
+         position 0 0.119
+         size 0.794 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style ServerBrowser
+         text "#server_browser_name_filter_default"
+         "limit visible" 0
+         "Default text color" 0.4902 0.4902 0.4902 1
+         "Use default text" 1
+         "exact text" 0
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        ButtonWidgetClass BT_ResetFilter {
+         position 0.5173 0.67
+         size 0.45 0.05
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 201
+         style MenuDefault
+         text "#server_browser_filter_reset"
+         text_proportion 0.45
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        SliderWidgetClass SL_PingFilter {
+         position 0.35627 0.18383
+         size 0.6 0.03
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         maximum 500
+         current 80
+         {
+          TextWidgetClass TX_PingFilter {
+           size 0.2 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           font "gui/fonts/sdf_MetronBook24"
+           "exact text" 0
+           "text halign" center
+           "text valign" center
+          }
+         }
+        }
+        CheckBoxWidgetClass CB_PingFilter {
+         position 0 0.1836
+         size 0.3 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 184
+         text "#server_browser_ping_filter"
+         font "gui/fonts/sdf_MetronBook24"
+        }
+        ThreeStateCheckboxWidgetClass CB_FullServersFilter {
+         position 0 0.4076
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 191
+         text "#server_browser_full_servers_filter"
+        }
+        ButtonWidgetClass BT_ExpandAll {
+         position 0 0.76
+         size 1 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 182
+         style ServerBrowserCollapse
+         text "#server_browser_expand"
+         text_offset 0 0
+         text_proportion 0.5
+         font "gui/fonts/sdf_MetronBook24"
+         {
+          ImageWidgetClass IMG_ExpandAll {
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           fixaspect inside
+           userID 182
+           image0 "set:dayz_gui image:icon_collapse"
+           mode blend
+           "src alpha" 1
+           "no wrap" 1
+          }
+         }
+        }
+        ButtonWidgetClass BT_CollapseAll {
+         position 0 0.805
+         size 1 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 183
+         style ServerBrowserCollapse
+         text "#server_browser_collapse"
+         text_offset 0 0
+         text_proportion 0.5
+         font "gui/fonts/sdf_MetronBook24"
+         {
+          ImageWidgetClass IMG_CollapseAll {
+           position 0 0
+           size 1 1
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           fixaspect inside
+           userID 183
+           image0 "set:dayz_gui image:icon_expand"
+           mode blend
+           "src alpha" 1
+           "no wrap" 1
+          }
+         }
+        }
+        ThreeStateCheckboxWidgetClass CB_ThirdPersonFilter {
+         position 0 0.4396
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 192
+         text "#server_browser_third_person_filter"
+        }
+        ThreeStateCheckboxWidgetClass CB_PublicFilter {
+         position 0 0.4716
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 193
+         text "#server_browser_public_filter"
+        }
+        ImageWidgetClass IMG_Loading {
+         position 0.84 0.6059
+         size 0.034 0.034
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         image0 "set:dayz_gui image:icon_refresh"
+         mode blend
+         "src alpha" 1
+         "no wrap" 0
+         "flip u" 0
+         rotation 0 0 15
+        }
+        ThreeStateCheckboxWidgetClass CB_AccTimeFilter {
+         position 0 0.5036
+         size 1 0.032
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 194
+         text "#server_browser_acc_time_filter"
+        }
+        ButtonWidgetClass BT_IPSearch {
+         clipchildren 1
+         position 0.794 0.565
+         size 0.2022 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 199
+         style MenuDefault
+         text "#layout_server_browser_ip_serarch"
+         font "gui/fonts/MetronBook22"
+        }
+        ButtonWidgetClass EB_ServerSearchButton {
+         position 0.794 0.119
+         size 0.2022 0.037
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         userID 200
+         style MenuDefault
+         text "#layout_server_browser_server_serarch"
+         text_proportion 0.8
+         font "gui/fonts/Metron22"
+        }
+       }
+      }
+     }
+    }
+    PanelWidgetClass TabsWindowWidget {
+     clipchildren 0
+     color 0 0 0 1
+     position 0 0.03
+     size 0.98 0.05
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_colorable
+     {
+      ButtonWidgetClass InternetButtonWidget {
+       position -0.00001 0
+       size 0.14 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       userID 158
+       style Default
+       text "#server_browser_tab_official"
+       text_proportion 0.75
+       font "gui/fonts/sdf_MetronBook24"
+       switch normal
+      }
+      ButtonWidgetClass LanButtonWidget {
+       position 0.28 0
+       size 0.14 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       userID 162
+       style Default
+       text "#server_browser_tab_lan"
+       text_proportion 0.75
+       font "gui/fonts/sdf_MetronBook24"
+       switch normal
+      }
+      ButtonWidgetClass CommunityButtonWidget {
+       position 0.14 0
+       size 0.14 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       userID 159
+       text "#server_browser_tab_community"
+       text_proportion 0.75
+       font "gui/fonts/sdf_MetronBook24"
+      }
+      TextWidgetClass TitleText {
+       position 0.74 0
+       size 0.25 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "#server_browser_servers"
+       font "gui/fonts/sdf_MetronBook24"
+       "exact text" 0
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+ }
+}

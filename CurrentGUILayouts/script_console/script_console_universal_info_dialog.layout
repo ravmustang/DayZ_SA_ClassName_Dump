@@ -1,0 +1,96 @@
+WindowWidgetClass TextInputDialogRoot {
+ clipchildren 0
+ position -57 -42
+ size 700 700
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ priority 3001
+ style rover_sim_black_2
+ "text color" 1 1 0 1
+ {
+  GridSpacerWidgetClass GridSpacerWidget0 {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   "Size To Content V" 1
+   Columns 1
+   {
+    TextWidgetClass Label {
+     disabled 0
+     color 1 1 1 1
+     position 0 0
+     size 1 50
+     halign left
+     valign top
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "LABEL"
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 1
+     "exact text size" 18
+     "text halign" center
+     "text valign" center
+    }
+    ScrollWidgetClass ContentScroll {
+     clipchildren 1
+     ignorepointer 0
+     position 284.22699 170.367
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     "no focus" 1
+     "Scrollbar V" 1
+     {
+      MultilineEditBoxWidgetClass Content {
+       clipchildren 1
+       inheritalpha 0
+       position 0 0
+       size 1 500
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       scaled 1
+       font "gui/fonts/sdf_MetronBook24"
+       "italic text" 0
+       "bold text" 0
+       "exact text" 1
+       "exact text size" 16
+       "size to text v" 1
+       lines 10
+       "limit visible" 1
+      }
+     }
+    }
+    ButtonWidgetClass OKButton {
+     visible 1
+     position 0 0
+     size 1 50
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     userID 1
+     style Default
+     text "#menu_ok"
+     text_proportion 0.8
+     "disabled text color" 0.3412 0.3412 0.3412 1
+    }
+   }
+  }
+ }
+}

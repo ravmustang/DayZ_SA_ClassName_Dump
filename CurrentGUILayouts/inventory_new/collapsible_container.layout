@@ -1,0 +1,54 @@
+GridSpacerWidgetClass collapsible_container_root {
+ clipchildren 0
+ ignorepointer 1
+ position 0 0
+ size 1 0
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ priority 8
+ scriptclass ""
+ style Colorable
+ Padding 8
+ Margin 0
+ "Size To Content V" 1
+ Columns 1
+ Rows 2
+ {
+  WrapSpacerWidgetClass header {
+   ignorepointer 1
+   position 0 0
+   size 1 48
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   style Empty
+   Padding 0
+   Margin 0
+   "Size To Content V" 1
+  }
+  GridSpacerWidgetClass body {
+   visible 1
+   clipchildren 0
+   ignorepointer 1
+   position 0 0
+   size 1 0
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   priority 90
+   scriptclass ""
+   style Colorable
+   Padding 8
+   Margin 0
+   "Size To Content H" 1
+   "Size To Content V" 1
+   Columns 1
+   Rows 100
+  }
+ }
+}

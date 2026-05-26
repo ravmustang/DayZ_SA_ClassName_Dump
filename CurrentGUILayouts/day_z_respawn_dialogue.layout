@@ -1,0 +1,357 @@
+WindowWidgetClass WindowWidget {
+ ignorepointer 1
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 960
+ style Default
+ font "gui/fonts/sdf_MetronBook24"
+ {
+  PanelWidgetClass container {
+   visible 1
+   ignorepointer 1
+   color 0.0588 0.0588 0.0588 1
+   position 0 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style DayZDefaultPanel
+   {
+    PanelWidgetClass Panel {
+     clipchildren 1
+     inheritalpha 0
+     ignorepointer 1
+     color 0.1176 0.1176 0.1176 0.9804
+     position 0 0
+     size 0.32 0.23
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style DayZDefaultPanel
+     {
+      TextWidgetClass Caption {
+       clipchildren 0
+       ignorepointer 1
+       position 0 10
+       size 0.85 40
+       halign center_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style Normal
+       text "#main_menu_respawn"
+       font "gui/fonts/MetronBook58"
+       "text color" 1 1 1 1
+       "italic text" 0
+       "bold text" 1
+       "exact text" 1
+       "exact text size" 36
+       "size to text h" 0
+       "size to text v" 0
+       "text halign" center
+       "text valign" center
+      }
+      PanelWidgetClass SeparatorPanel {
+       ignorepointer 1
+       color 0.7569 0.0941 0.0941 1
+       position 0 0.25
+       size 0.85 2
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+      }
+      ButtonWidgetClass respawn_button_custom {
+       visible 1
+       ignorepointer 0
+       color 0 0 0 0
+       position 0 0.35
+       size 0.5 0.1
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       userID 101
+       style Default
+       {
+        PanelWidgetClass respawn_button_custom_panel {
+         visible 1
+         ignorepointer 1
+         color 0 0 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZDefaultPanel
+        }
+        TextWidgetClass respawn_button_custom_label {
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         scaled 1
+         text "#main_menu_respawn_custom"
+         font "gui/fonts/sdf_MetronLight72"
+         "exact text" 1
+         "exact text size" 20
+         "size to text h" 0
+         "size to text v" 0
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      ButtonWidgetClass respawn_button_random {
+       visible 1
+       ignorepointer 0
+       color 0 0 0 0
+       position 0 0.5
+       size 0.5 0.1
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       userID 102
+       style Default
+       {
+        PanelWidgetClass respawn_button_random_panel {
+         visible 1
+         ignorepointer 1
+         color 0 0 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZDefaultPanel
+        }
+        TextWidgetClass respawn_button_random_label {
+         ignorepointer 1
+         position 1.49659 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         scaled 1
+         text "#main_menu_respawn_random"
+         font "gui/fonts/sdf_MetronLight72"
+         "exact text" 1
+         "exact text size" 20
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      PanelWidgetClass separator_red0 {
+       ignorepointer 1
+       color 0.7843 0 0 1
+       position 0 0.25
+       size 0.55 2
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+      }
+      ButtonWidgetClass bCancel {
+       visible 1
+       clipchildren 1
+       color 0 0 0 0
+       position 0 0.08
+       size 0.5 0.1
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       userID 2
+       style Default
+       text_proportion 0.75
+       font "gui/fonts/sdf_MetronBook24"
+       {
+        PanelWidgetClass bCancel_panel {
+         visible 1
+         ignorepointer 1
+         color 0 0 0 0
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style DayZDefaultPanel
+        }
+        TextWidgetClass bCancel_label {
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         scaled 1
+         text "#menu_cancel"
+         font "gui/fonts/sdf_MetronLight72"
+         "exact text" 1
+         "exact text size" 20
+         "size to text h" 0
+         "size to text v" 0
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      WrapSpacerWidgetClass buttonWrap {
+       clipchildren 1
+       inheritalpha 0
+       ignorepointer 1
+       keepsafezone 0
+       position 0 58
+       size 0.85 171
+       halign center_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       scaled 1
+       "no focus" 0
+       content_halign center
+       content_valign center
+      }
+     }
+    }
+    GridSpacerWidgetClass menu_details_tooltip {
+     visible 1
+     clipchildren 1
+     ignorepointer 1
+     color 0.1961 0.1961 0.1961 0.5882
+     position 0.12 0
+     size 0.2 1
+     halign right_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 10
+     style DayZDefaultPanel
+     "no focus" 1
+     Padding 0
+     Margin 0
+     "Size To Content V" 1
+     Columns 1
+     Rows 2
+     {
+      PanelWidgetClass menu_details_tooltip_header {
+       ignorepointer 1
+       color 0 0 0 0
+       size 0.08 36
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style DayZDefaultPanel
+       {
+        TextWidgetClass menu_details_label {
+         clipchildren 0
+         ignorepointer 1
+         position 0 0
+         size 0.95 0.5
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "This is Sparta"
+         font "gui/fonts/sdf_MetronLight72"
+         text_proportion 0.9
+        }
+       }
+      }
+      PanelWidgetClass separator_red1 {
+       ignorepointer 1
+       color 0.7843 0 0 1
+       position 0.02 0
+       size 1 2
+       halign right_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+      }
+      GridSpacerWidgetClass menu_details_tooltip_body {
+       ignorepointer 1
+       position 0 0
+       size 0.9 0.571
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       Padding 0
+       Margin 15
+       "Size To Content V" 1
+       Columns 1
+       Rows 1
+       {
+        RichTextWidgetClass menu_details_tooltip_content {
+         clipchildren 0
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         text "this is details"
+         font "gui/fonts/sdf_MetronLight24"
+         "exact text" 1
+         "exact text size" 16
+         "size to text h" 0
+         "size to text v" 1
+         wrap 1
+         "condense whitespace" 1
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

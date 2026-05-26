@@ -1,0 +1,195 @@
+FrameWidgetClass RangeRoot {
+ visible 1
+ clipchildren 0
+ inheritalpha 0
+ ignorepointer 1
+ position 0 0
+ size 300 300
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  ImageWidgetClass RangeReticle {
+   visible 1
+   ignorepointer 1
+   color 1 0.1882 0 1
+   position 0 0
+   size 256 256
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   imageTexture "{140AB63FA23E666F}Gui/textures/Rangefinder_reticle_e_ca.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+  }
+  TextWidgetClass RangeText {
+   clipchildren 0
+   ignorepointer 1
+   ignoregloballv 1
+   color 1 0.1882 0 1
+   position -5.01231 131.74399
+   size 145 80
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style Normal
+   text "888"
+   font "gui/fonts/7segment96"
+   "exact text" 1
+   "size to text h" 0
+   "size to text v" 0
+   "text halign" right
+   "text valign" center
+  }
+  TextWidgetClass RangeHint {
+   clipchildren 0
+   ignorepointer 1
+   ignoregloballv 1
+   color 1 0.1882 0 1
+   position -1.04433 80.452
+   size 180 96
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style Normal
+   text "DIST"
+   font "gui/fonts/Metron-BoldItalic22"
+   "exact text" 1
+   "size to text h" 1
+   "size to text v" 1
+   "text halign" right
+   "text valign" center
+  }
+  TextWidgetClass RangeHDText {
+   clipchildren 0
+   ignorepointer 1
+   ignoregloballv 1
+   color 1 0.1882 0 1
+   position 169.30301 225.44099
+   size 88 64
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style Normal
+   text "888"
+   font "gui/fonts/7segment48"
+   "exact text" 1
+   "size to text h" 0
+   "size to text v" 0
+   "text halign" right
+   "text valign" center
+  }
+  TextWidgetClass HDHint {
+   clipchildren 0
+   ignorepointer 1
+   ignoregloballv 1
+   color 1 0.1882 0 1
+   position 177.12001 192.533
+   size 180 96
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style Normal
+   text "H DIST"
+   font "gui/fonts/Metron-BoldItalic22"
+   "exact text" 1
+   "size to text h" 1
+   "size to text v" 1
+   "text halign" right
+   "text valign" center
+  }
+  TextWidgetClass AngleText {
+   clipchildren 0
+   ignorepointer 1
+   ignoregloballv 1
+   color 1 0.1882 0 1
+   position 172.65001 281.23102
+   size 72.8549 39.429
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style Normal
+   text "888"
+   font "gui/fonts/7segment48"
+   "exact text" 1
+   "size to text h" 0
+   "size to text v" 0
+   "text halign" right
+   "text valign" center
+  }
+  TextWidgetClass AngleHint {
+   clipchildren 0
+   ignorepointer 1
+   ignoregloballv 1
+   color 1 0.1882 0 1
+   position 176.258 252.87601
+   size 180 96
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style Normal
+   text "ANGLE"
+   font "gui/fonts/Metron-BoldItalic22"
+   "exact text" 1
+   "size to text h" 1
+   "size to text v" 1
+   "text halign" right
+   "text valign" center
+  }
+  TextWidgetClass AngleUnit {
+   clipchildren 0
+   ignorepointer 1
+   ignoregloballv 1
+   color 1 0.1882 0 1
+   position 215.256 274.49698
+   size 16 32
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style Normal
+   text "°"
+   font "gui/fonts/Metron28"
+   "exact text" 1
+   "size to text h" 0
+   "size to text v" 0
+   "text halign" right
+   "text valign" center
+  }
+ }
+}

@@ -1,0 +1,109 @@
+WindowWidgetClass LicenseDialogRoot {
+ clipchildren 0
+ color 0.1176 0.1176 0.1176 0.9804
+ position 0 0
+ size 540 248.5
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ priority 4000
+ style Colorable
+ {
+  TextWidgetClass Caption {
+   clipchildren 0
+   position 0 20
+   size 512 30
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "#layout_license_dialog_cation"
+   font "gui/fonts/sdf_MetronBook72"
+   "text color" 1 1 1 1
+   "exact text" 0
+   "text halign" center
+   "text valign" center
+  }
+  MultilineTextWidgetClass Text {
+   color 1 1 1 1
+   position 0 72.5
+   size 512 112
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "#layout_license_dialog_text"
+   "exact text" 1
+   "text halign" center
+   "text valign" center
+   wrap 1
+  }
+  ButtonWidgetClass bAgree {
+   visible 1
+   color 1 0 0 1
+   position 14 14
+   size 120.5 40
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   userID 1
+   style EmptyHighlight
+   text "#server_browser_agree"
+   text_proportion 0.5
+   font "gui/fonts/sdf_MetronBook24"
+  }
+  ButtonWidgetClass bDisagree {
+   visible 1
+   color 1 0 0 1
+   position 144.5 14
+   size 120.5 40
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   userID 2
+   style EmptyHighlight
+   text "#server_browser_disagree"
+   text_proportion 0.5
+   font "gui/fonts/sdf_MetronBook24"
+  }
+  ButtonWidgetClass bLicense {
+   visible 1
+   color 1 0 0 1
+   position 14 14
+   size 120.5 40
+   halign right_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   userID 6
+   style EmptyHighlight
+   text "#server_browser_license"
+   text_proportion 0.5
+   font "gui/fonts/sdf_MetronBook24"
+  }
+  PanelWidgetClass SeparatorPanel {
+   color 0.7569 0.0941 0.0941 0.7843
+   position 0 60
+   size 0.85 2.5
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   scaled 1
+   priority 10
+   style rover_sim_colorable
+  }
+ }
+}

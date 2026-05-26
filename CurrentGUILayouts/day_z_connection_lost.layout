@@ -1,0 +1,28 @@
+FrameWidgetClass rootFrame {
+ size 270 20
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  TextWidgetClass TextWidget {
+   color 1 0 0.0157 1
+   position 0.00001 0.50001
+   size 0.972 0.7892
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style Normal
+   font "gui/fonts/Metron"
+   "text color" 1 0 0.0157 1
+   "exact text" 1
+   "text halign" center
+   "text valign" center
+  }
+ }
+}

@@ -1,0 +1,511 @@
+WindowWidgetClass TextInputDialogRoot {
+ clipchildren 0
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ priority 1001
+ {
+  PanelWidgetClass toolbar_bg {
+   visible 0
+   inheritalpha 0
+   color 0 0 0 0.549
+   position 0 0
+   size 1 0.1
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 1
+   style ToolbarWidget
+   {
+    WrapSpacerWidgetClass ConsoleToolbar {
+     visible 1
+     clipchildren 0
+     position 0.05 0.1
+     size 800 48
+     halign right_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     priority 100
+     "no focus" 1
+     Padding 20
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     content_halign right
+     content_valign center
+     {
+      GridSpacerWidgetClass Back {
+       clipchildren 0
+       size 0 48
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 1
+       Padding 5
+       Margin 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       content_valign center
+       Columns 2
+       Rows 1
+       {
+        RichTextWidgetClass BackIcon {
+         clipchildren 0
+         inheritalpha 0
+         position 40 0
+         size 48 48
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         text "BackIconData"
+         font "gui/fonts/sdf_MetronBook24"
+         "exact text" 1
+         "exact text size" 24
+         "size to text h" 1
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass BackText {
+         clipchildren 0
+         size 80 48
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "#str_textinputdialogroot_buttonleave0"
+         font "gui/fonts/sdf_MetronLight42"
+         "exact text" 1
+         "exact text size" 22
+         "size to text h" 1
+         "size to text v" 0
+         "text valign" center
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass Background {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{0DBE2630AF5047FD}Gui/textures/loading_screens/loading_screen_3_co.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   {
+    TextWidgetClass dbg_Layout_name {
+     visible 0
+     position 150 500
+     size 300 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "dialog_login_time.layout"
+     font "gui/fonts/sdf_MetronLight24"
+     "exact text" 1
+    }
+   }
+  }
+  PanelWidgetClass BottomPanel {
+   visible 1
+   clipchildren 0
+   ignorepointer 1
+   color 0 0 0 0.7647
+   position 0 0
+   size 1 0.23
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_colorable
+   {
+    TextWidgetClass HintTestLongText {
+     visible 0
+     ignorepointer 1
+     position 0 0.45
+     size 0.8 0.4
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     text "Bad blood: When giving your friend a blood transfusion, be sure to provide him with a compatible blood type, else he will risk a hemolytic reaction."
+     font "gui/fonts/Metron"
+     "exact text" 0
+     text_proportion 0.3
+     "text halign" center
+     "text valign" center
+    }
+    TextWidgetClass HintTestShortText {
+     visible 0
+     ignorepointer 1
+     position 0 0.45
+     size 0.8 0.4
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     text "Go inland: The inland holds better loot than the coastal villages."
+     font "gui/fonts/Metron"
+     "exact text" 0
+     text_proportion 0.3
+     "text halign" center
+     "text valign" center
+    }
+    FrameWidgetClass hint_frame0 {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position 0 0.38
+     size 0.8 0.5
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+    }
+   }
+  }
+  ImageWidgetClass LinesImageLeft {
+   visible 1
+   clipchildren 0
+   ignorepointer 1
+   position -0.1586 0.18
+   size 0.28 2
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+  }
+  ImageWidgetClass LinesRightImage {
+   visible 1
+   clipchildren 0
+   ignorepointer 1
+   position 0.1585 0.18
+   size 0.28 2
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+  }
+  ImageWidgetClass hintIcon {
+   visible 1
+   disabled 0
+   clipchildren 0
+   inheritalpha 0
+   ignorepointer 1
+   keepsafezone 0
+   position 0 0.17
+   size 48 48
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   image0 "set:dayz_gui image:loading_screen_bulb"
+   imageTexture "{534691EE0479871C}Gui/imagesets/dayz_gui.edds"
+   mode blend
+   "src alpha" 1
+   "flip u" 0
+   "flip v" 0
+   nocache 0
+   "Transition width" 0.074
+  }
+  FrameWidgetClass hint_frame {
+   visible 1
+   ignorepointer 1
+   position -5 145
+   size 1050 40
+   halign center_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  GridSpacerWidgetClass TextInputDialog {
+   clipchildren 0
+   color 0.1176 0.1176 0.1176 0.9804
+   position 0 0
+   size 0.45 0.3
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scriptclass ""
+   style Colorable
+   Padding 10
+   Margin 10
+   "Size To Content V" 1
+   content_halign center
+   Columns 1
+   Rows 5
+   {
+    TextWidgetClass txtLabel {
+     disabled 0
+     position 0 0
+     size 1 0.22
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Normal
+     text "Loading timer"
+     font "gui/fonts/sdf_MetronBook72"
+     "exact text" 1
+     "exact text size" 32
+     "size to text h" 0
+     "size to text v" 1
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass SeparatorPanel {
+     color 0.7569 0.0941 0.0941 0.7843
+     position 0 0
+     size 0.85 0.015
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     priority 5
+     style rover_sim_colorable
+    }
+    PanelWidgetClass MidFillerTop {
+     ignorepointer 1
+     position 0 0
+     size 1 10
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     priority 6
+    }
+    MultilineTextWidgetClass txtDescription {
+     clipchildren 1
+     color 1 1 1 1
+     position 0 0
+     size 0.95 0.46
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     priority 10
+     text " "
+     font "gui/fonts/sdf_MetronLight24"
+     "exact text" 1
+     "exact text size" 20
+     "size to text h" 0
+     "size to text v" 1
+     "text halign" center
+     wrap 1
+     "condense whitespace" 1
+    }
+    PanelWidgetClass MidFillerBottom {
+     ignorepointer 1
+     size 1 10
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     priority 11
+    }
+    PanelWidgetClass PanelWidget0 {
+     clipchildren 0
+     ignorepointer 1
+     position 10 10
+     size 48 36
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 15
+     {
+      ButtonWidgetClass btnLeave {
+       visible 1
+       color 1 0 0 1
+       size 0.25 0.85
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       userID 1
+       style EmptyHighlight
+       text "#STR_TextInputDialogRoot_ButtonLeave0"
+       text_proportion 0.55
+       font "gui/fonts/sdf_MetronBook24"
+       "disabled text color" 0.3412 0.3412 0.3412 1
+      }
+     }
+    }
+   }
+  }
+  WrapSpacerWidgetClass notification_root {
+   visible 1
+   clipchildren 1
+   ignorepointer 1
+   color 0 0 0 0.9294
+   position 0 0
+   size 900 30
+   halign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   userID 100
+   scriptclass ""
+   style DayZDefaultPanel
+   "no focus" 1
+   "Size To Content H" 1
+   "Size To Content V" 1
+   content_halign center
+   {
+    RichTextWidgetClass notification_part_1_text {
+     clipchildren 1
+     ignorepointer 1
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     text "#dayz_game_exp_disclaimer_part1"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+    RichTextWidgetClass notification_part_2_text {
+     visible 1
+     ignorepointer 1
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     text "#dayz_game_exp_disclaimer_part2"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+    RichTextWidgetClass notification_part_3_text {
+     ignorepointer 1
+     keepsafezone 0
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     text "#dayz_game_exp_disclaimer_part3"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+    RichTextWidgetClass notification_part_4_text {
+     visible 1
+     ignorepointer 1
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     text "#dayz_game_exp_disclaimer_part4"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+   }
+  }
+ }
+}

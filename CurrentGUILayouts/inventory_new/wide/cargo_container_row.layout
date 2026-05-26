@@ -1,0 +1,361 @@
+PanelWidgetClass widget {
+ visible 1
+ clipchildren 0
+ ignorepointer 1
+ keepsafezone 1
+ size 521 52
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ priority 8
+ scriptclass "SizeToChild"
+ style blank
+ {
+  ImageWidgetClass SpacerTop {
+   ignorepointer 1
+   color 1 1 1 0.0314
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   scaled 0
+   scriptclass "SizeToParent"
+   mode blend
+   "src alpha" 1
+   filter 0
+   {
+    ScriptParamsClass {
+     m_ResizeHorizontal 1
+     m_ResizeVertical 0
+    }
+   }
+  }
+  GridSpacerWidgetClass spacer {
+   visible 1
+   ignorepointer 1
+   position 0 1
+   size 1 51
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   style Colorable
+   Padding 0
+   Margin 0
+   "Size To Content H" 1
+   "Size To Content V" 1
+   Columns 21
+   Rows 1
+   {
+    ImageWidgetClass Spacer0 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon0 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     fixaspect fixwidth
+     draggable 0
+     style blank
+    }
+    ImageWidgetClass Spacer1 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon1 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer2 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon2 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer3 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon3 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer4 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon4 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer5 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon5 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer6 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon6 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer7 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon7 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer8 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon8 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer9 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+    PanelWidgetClass Icon9 {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     position 0 0
+     size 51 51
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     style blank
+    }
+    ImageWidgetClass Spacer10 {
+     visible 1
+     ignorepointer 1
+     color 1 1 1 0.0314
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     scaled 0
+     mode blend
+     "src alpha" 1
+     filter 0
+    }
+   }
+  }
+ }
+ {
+  ScriptParamsClass {
+   m_ChildName "spacer"
+   m_VerticalOffset 1
+   m_ResizeHorizontal 1
+   m_ResizeVertical 1
+  }
+ }
+}

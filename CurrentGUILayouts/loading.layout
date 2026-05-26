@@ -1,0 +1,427 @@
+FrameWidgetClass LoadingFrame {
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 1000
+ {
+  PanelWidgetClass PanelWidget1 {
+   clipchildren 0
+   color 0 0 0 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_colorable
+   {
+    TextWidgetClass TextWidget {
+     visible 0
+     position 0 0.05
+     size 0.7438 0.06
+     halign center_ref
+     valign bottom_ref
+     text "#layout_loading_loadingtext"
+     "exact text" 1
+     "text halign" center
+     "text valign" center
+    }
+    ImageWidgetClass ImageBackground {
+     visible 1
+     position 0 0
+     size 0.16 0.09
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect outside
+     image0 ""
+     imageTexture "{0DBE2630AF5047FD}Gui/textures/loading_screens/loading_screen_3_co.edds"
+     mode blend
+     "src alpha" 0
+     "stretch mode" stretch_w_h
+     Mask "{F2CEA7E35B785FB7}Gui/textures/loading_screens/loading_screen_3_mask.edds"
+     "Transition width" 1
+     Progress 0
+    }
+    TextWidgetClass StatusText {
+     position 0 0.024
+     size 0.7438 0.03
+     halign center_ref
+     valign bottom_ref
+     "exact text" 1
+     "text halign" center
+     "text valign" center
+    }
+    ImageWidgetClass ImageLogoMid {
+     visible 1
+     inheritalpha 1
+     position 100 78
+     size 444 208
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect outside
+     image0 "set:dayz_gui image:DayZLogo"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+    }
+    ImageWidgetClass ImageLogoCorner {
+     visible 1
+     inheritalpha 1
+     position 100 78
+     size 444 208
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect outside
+     image0 "set:dayz_gui image:DayZLogo"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+    }
+    ImageWidgetClass ImageLoadingIcon {
+     visible 0
+     inheritalpha 0
+     ignorepointer 0
+     keepsafezone 0
+     position 80 80
+     size 64 64
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     scriptclass ""
+     image0 "set:dayz_gui image:icon_refresh"
+     mode additive
+     "src alpha" 1
+     filter 1
+     nocache 0
+    }
+    TextWidgetClass ProgressText {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     position 0 200
+     size 100 30
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "100%"
+     font "gui/fonts/sdf_MetronLight24"
+     "text halign" center
+    }
+    PanelWidgetClass BottomPanel {
+     clipchildren 0
+     ignorepointer 1
+     color 0 0 0 0.7647
+     position 0 0
+     size 1 0.23
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_colorable
+     {
+      ProgressBarWidgetClass LoadingBar {
+       ignorepointer 1
+       position 0 0.66
+       size 600 3
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       style Loading
+       current 0
+       vertical 0
+      }
+      TextWidgetClass HintTestLongText {
+       visible 0
+       ignorepointer 1
+       position 0 0.45
+       size 0.8 0.4
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scaled 1
+       text "Bad blood: When giving your friend a blood transfusion, be sure to provide him with a compatible blood type, else he will risk a hemolytic reaction."
+       font "gui/fonts/Metron"
+       "exact text" 0
+       text_proportion 0.3
+       "text halign" center
+       "text valign" center
+      }
+      TextWidgetClass HintTestShortText {
+       visible 0
+       ignorepointer 1
+       position 0 0.45
+       size 0.8 0.4
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scaled 1
+       text "Go inland: The inland holds better loot than the coastal villages."
+       font "gui/fonts/Metron"
+       "exact text" 0
+       text_proportion 0.3
+       "text halign" center
+       "text valign" center
+      }
+      FrameWidgetClass hint_frame {
+       visible 1
+       clipchildren 0
+       ignorepointer 1
+       position 0 0.38
+       size 0.8 0.5
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scaled 1
+      }
+     }
+    }
+    MultilineTextWidgetClass ModdedWarning {
+     visible 0
+     inheritalpha 1
+     position 100 286
+     size 444 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect outside
+     text "#str_modded_version_warning0"
+     font "gui/fonts/sdf_MetronLight24"
+     "exact text" 1
+     "exact text size" 20
+     "size to text h" 1
+     "size to text v" 1
+     wrap 1
+    }
+    ImageWidgetClass LinesImageLeft {
+     clipchildren 0
+     ignorepointer 1
+     position -0.1586 0.18
+     size 0.28 2
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+    }
+    ImageWidgetClass LinesRightImage {
+     clipchildren 0
+     ignorepointer 1
+     position 0.1585 0.18
+     size 0.28 2
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+    }
+    ImageWidgetClass hintIcon {
+     visible 1
+     disabled 0
+     clipchildren 0
+     inheritalpha 0
+     ignorepointer 1
+     keepsafezone 0
+     position 0 0.17
+     size 48 48
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     image0 "set:dayz_gui image:loading_screen_bulb"
+     imageTexture "{534691EE0479871C}Gui/imagesets/dayz_gui.edds"
+     mode blend
+     "src alpha" 1
+     "flip u" 0
+     "flip v" 0
+     nocache 0
+     "Transition width" 0.074
+    }
+   }
+  }
+  FrameWidgetClass hint_frame {
+   ignorepointer 1
+   position -5 145
+   size 1050 40
+   halign center_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass dbg_Layout_name {
+   visible 0
+   position 150 500
+   size 300 50
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "loading.layout"
+   font "gui/fonts/sdf_MetronLight24"
+   "exact text" 1
+  }
+  WrapSpacerWidgetClass notification_root {
+   visible 1
+   clipchildren 1
+   ignorepointer 1
+   color 0 0 0 0.9294
+   position 0 0
+   size 900 30
+   halign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   userID 100
+   scriptclass ""
+   style DayZDefaultPanel
+   "no focus" 1
+   "Size To Content H" 1
+   "Size To Content V" 1
+   content_halign center
+   {
+    RichTextWidgetClass notification_part_1_text {
+     clipchildren 1
+     ignorepointer 1
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     text "#dayz_game_exp_disclaimer_part1"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+    RichTextWidgetClass notification_part_2_text {
+     visible 1
+     ignorepointer 1
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     text "#dayz_game_exp_disclaimer_part2"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+    RichTextWidgetClass notification_part_3_text {
+     ignorepointer 1
+     keepsafezone 0
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     scaled 1
+     scriptclass ""
+     text "#dayz_game_exp_disclaimer_part3"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+    RichTextWidgetClass notification_part_4_text {
+     visible 1
+     ignorepointer 1
+     position 0 0
+     size 673 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     text "#dayz_game_exp_disclaimer_part4"
+     font "gui/fonts/sdf_MetronLight24"
+     "text offset" 18 0
+     "exact text" 1
+     "exact text size" 22
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+     wrap 1
+     "condense whitespace" 1
+     "strip newlines" 1
+    }
+   }
+  }
+ }
+}

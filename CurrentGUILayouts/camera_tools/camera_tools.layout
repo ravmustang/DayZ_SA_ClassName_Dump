@@ -1,0 +1,980 @@
+FrameWidgetClass camera_tools {
+ ignorepointer 0
+ position -1.38 -1.34
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ priority 10
+ {
+  GridSpacerWidgetClass left_panel_spacer {
+   ignorepointer 1
+   position 40 0
+   size 0.2 0.92
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 2
+   "no focus" 1
+   Padding 10
+   Margin 0
+   "Size To Content V" 1
+   content_halign center
+   Columns 1
+   Rows 2
+   {
+    GridSpacerWidgetClass keyframe_list_root {
+     ignorepointer 1
+     color 0 0 0 0.8627
+     position 0 0
+     size 1 0.5
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     "no focus" 1
+     Padding 0
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     Columns 1
+     {
+      WrapSpacerWidgetClass keyframe_list_header {
+       ignorepointer 1
+       color 0 0 0 0.9608
+       position 0 0
+       size 1 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style Colorable
+       "no focus" 1
+       Padding 0
+       Margin 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       {
+        TextWidgetClass keyframe_list_header_text {
+         ignorepointer 1
+         size 1 0.5
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "KEYFRAMES"
+         font "gui/fonts/sdf_MetronLight24"
+         "exact text" 0
+         "exact text size" 24
+         "text halign" center
+         "text valign" center
+        }
+        TextWidgetClass keyframe_header_speed_type {
+         ignorepointer 1
+         position 0 0
+         size 0.5 0.5
+         hexactpos 0
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "SPEED TYPE:"
+         font "gui/fonts/sdf_MetronLight24"
+         "exact text" 0
+         "exact text size" 24
+         "text halign" center
+         "text valign" center
+        }
+        XComboBoxWidgetClass interp_speed_type {
+         size 0.5 0.5
+         halign right_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         font "gui/fonts/sdf_MetronLight24"
+         items "TIME;SPEED"
+        }
+        TextWidgetClass keyframe_header_interp_type {
+         ignorepointer 1
+         position 0 0
+         size 0.5 0.5
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "INTERP TYPE:"
+         font "gui/fonts/sdf_MetronLight24"
+         "exact text" 0
+         "exact text size" 24
+         "text halign" center
+         "text valign" center
+        }
+        XComboBoxWidgetClass interp_type {
+         size 0.5 0.5
+         halign right_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         font "gui/fonts/sdf_MetronLight24"
+         items "LINEAR;ACC<>DEC;ACC<LIN>DEC;SMOOTH"
+        }
+        TextWidgetClass keyframe_header_blur_value {
+         ignorepointer 1
+         position 0 0
+         size 0.5 0.5
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "BLUR VALUE:"
+         font "gui/fonts/sdf_MetronLight24"
+         "exact text" 0
+         "exact text size" 24
+         "text halign" center
+         "text valign" center
+        }
+        EditBoxWidgetClass blur_value {
+         size 0.5 0.5
+         halign right_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         font "gui/fonts/sdf_MetronLight24"
+        }
+       }
+      }
+      GridSpacerWidgetClass keyframe_list_content_root {
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       "no focus" 1
+       Padding 0
+       Margin 8
+       "Size To Content H" 1
+       "Size To Content V" 1
+       Columns 1
+       Rows 2
+       {
+        FrameWidgetClass keyframe_info {
+         ignorepointer 1
+         color 0.1569 0.1569 0.1569 0.6275
+         position 0 0
+         size 1 14
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         {
+          GridSpacerWidgetClass keyframe_info_spacer {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           "no focus" 1
+           Padding 0
+           Margin 0
+           "Size To Content H" 1
+           Columns 6
+           Rows 1
+           {
+            TextWidgetClass k_id {
+             ignorepointer 1
+             position 0 0
+             size 30 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 0
+             text "ID"
+             font "gui/fonts/sdf_MetronBook24"
+             "text offset" 8 0
+             "text valign" center
+            }
+            TextWidgetClass k_time {
+             ignorepointer 1
+             position 0 0
+             size 0.2 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "Time"
+             font "gui/fonts/sdf_MetronBook24"
+            }
+            TextWidgetClass k_time_edit {
+             ignorepointer 1
+             position 0 0
+             size 0.2 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "Interp"
+             font "gui/fonts/sdf_MetronBook24"
+            }
+            TextWidgetClass k_fov_edit {
+             ignorepointer 1
+             position 0 0
+             size 0.2 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "FOV"
+             font "gui/fonts/sdf_MetronBook24"
+            }
+            TextWidgetClass k_dof_edit {
+             ignorepointer 1
+             position 0 0
+             size 0.2 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "DOF"
+             font "gui/fonts/sdf_MetronBook24"
+            }
+            TextWidgetClass k_pin_edit {
+             ignorepointer 1
+             position 0 0
+             size 0.2 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "Pin Actor"
+             font "gui/fonts/sdf_MetronBook24"
+            }
+           }
+          }
+         }
+        }
+        ScrollWidgetClass keyframe_list_scroller {
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         "no focus" 1
+         "Ignore invisible" 0
+         "Scrollbar V" 1
+         {
+          WrapSpacerWidgetClass keyframe_list_content {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           "no focus" 1
+           "Ignore invisible" 0
+           Padding 0
+           Margin 4
+           "Size To Content H" 1
+           "Size To Content V" 1
+          }
+         }
+        }
+        ButtonWidgetClass add_keyframe {
+         position 0 0
+         size 1 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Empty
+         "no focus" 0
+         text "Add Keyframe"
+         text_proportion 0.7
+         font "gui/fonts/sdf_MetronBook24"
+        }
+       }
+      }
+      GridSpacerWidgetClass keyframe_list_toolbar {
+       ignorepointer 1
+       position 0 0
+       size 1 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       "no focus" 1
+       Padding 0
+       Margin 0
+       Rows 1
+       {
+        ButtonWidgetClass snap_to_keyframe {
+         position 0 0
+         size 30 30
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Empty
+         text "Snap To"
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronLight24"
+        }
+        ButtonWidgetClass save_keyframe {
+         position 0 0
+         size 30 30
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Empty
+         text "Save"
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronLight24"
+        }
+        ButtonWidgetClass delete_keyframe {
+         position 0 0
+         size 30 30
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Empty
+         text "Delete"
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronLight24"
+        }
+       }
+      }
+     }
+    }
+    GridSpacerWidgetClass events_list_root {
+     ignorepointer 1
+     color 0 0 0 0.8627
+     position 0 0
+     size 1 0.5
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     "no focus" 1
+     Padding 0
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     Columns 1
+     {
+      PanelWidgetClass events_list_header {
+       ignorepointer 1
+       color 0 0 0 0.9608
+       position 0 0
+       size 1 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       style rover_sim_colorable
+       "no focus" 1
+       {
+        TextWidgetClass events_list_header_text {
+         ignorepointer 1
+         position 0 0
+         size 1 0.5
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "EVENTS"
+         font "gui/fonts/sdf_MetronLight24"
+         "exact text" 0
+         "exact text size" 24
+         "text halign" center
+         "text valign" center
+        }
+       }
+      }
+      GridSpacerWidgetClass events_list_content_root {
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       "no focus" 1
+       Padding 0
+       Margin 8
+       "Size To Content H" 1
+       "Size To Content V" 1
+       Columns 1
+       Rows 2
+       {
+        FrameWidgetClass event_info {
+         ignorepointer 1
+         color 0.1569 0.1569 0.1569 0.6275
+         position 0 0
+         size 1 14
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         {
+          GridSpacerWidgetClass event_info_spacer {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           "no focus" 1
+           Padding 0
+           Margin 0
+           "Size To Content H" 1
+           Columns 5
+           Rows 1
+           {
+            TextWidgetClass e_id {
+             ignorepointer 1
+             position 0 0
+             size 30 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 0
+             text "ID"
+             font "gui/fonts/sdf_MetronBook24"
+             "text valign" center
+            }
+            TextWidgetClass e_actor_edit {
+             ignorepointer 1
+             position 0 0
+             size 0.35 0.5
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "Event Actor"
+             font "gui/fonts/sdf_MetronBook24"
+             "text valign" center
+            }
+            TextWidgetClass e_time_edit {
+             ignorepointer 1
+             position 0 0
+             size 0.35 0.5
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "Event Time"
+             font "gui/fonts/sdf_MetronBook24"
+             "text valign" center
+            }
+            TextWidgetClass e_type_edit {
+             ignorepointer 1
+             position 0 0
+             size 0.3 0.5
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "Type"
+             font "gui/fonts/sdf_MetronBook24"
+             "text valign" center
+            }
+            TextWidgetClass e_pin_to {
+             ignorepointer 1
+             position 0 0
+             size 32 30
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             text "Walk"
+             font "gui/fonts/sdf_MetronLight24"
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        ScrollWidgetClass events_list_scroller {
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         "no focus" 1
+         "Ignore invisible" 0
+         "Scrollbar V" 1
+         {
+          WrapSpacerWidgetClass events_list_content {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           "no focus" 1
+           "Ignore invisible" 0
+           Padding 0
+           Margin 4
+           "Size To Content H" 1
+           "Size To Content V" 1
+          }
+         }
+        }
+        ButtonWidgetClass add_event {
+         position 0 0
+         size 1 20
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 1
+         style Empty
+         text "Add Event"
+         text_proportion 0.7
+         font "gui/fonts/sdf_MetronBook24"
+        }
+       }
+      }
+      GridSpacerWidgetClass events_list_toolbar {
+       ignorepointer 1
+       position 0 0
+       size 1 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       Padding 0
+       Margin 0
+       Rows 1
+       {
+        ButtonWidgetClass snap_to_event {
+         position 0 0
+         size 30 30
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Empty
+         text "Snap To"
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronLight24"
+        }
+        ButtonWidgetClass save_event {
+         position 0 0
+         size 30 30
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Empty
+         text "Save"
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronLight24"
+        }
+        ButtonWidgetClass delete_event {
+         position 0 0
+         size 30 30
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style Empty
+         text "Delete"
+         text_proportion 0.6
+         font "gui/fonts/sdf_MetronLight24"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  WrapSpacerWidgetClass bottom_toolbar {
+   size 700 68
+   halign center_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   priority 2
+   "no focus" 1
+   Padding 8
+   Margin 0
+   "Size To Content H" 1
+   content_halign center
+   {
+    ButtonWidgetClass play {
+     color 0.1569 0.1569 0.1569 0.902
+     position 0 0
+     size 80 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Colorable
+     text "Play"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    ButtonWidgetClass stop {
+     color 0.1569 0.1569 0.1569 0.902
+     position 0 0
+     size 80 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Colorable
+     text "Stop"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    EditBoxWidgetClass add_actor_type {
+     position 0 0
+     size 300 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Editor
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    ButtonWidgetClass add_actor {
+     color 0.1569 0.1569 0.1569 0.902
+     position 0 0
+     size 80 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Colorable
+     text "Add Actor"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    GridSpacerWidgetClass add_actor_item_panel {
+     visible 1
+     position 0 0
+     size 1 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     Padding 4
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     Columns 6
+     Rows 1
+     {
+      TextWidgetClass add_actor_item_id_label {
+       position 0 0
+       size 90 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Actor ID: "
+       font "gui/fonts/sdf_MetronLight24"
+       text_proportion 0.6
+       "text halign" center
+       "text valign" center
+      }
+      EditBoxWidgetClass add_actor_id {
+       position 90 0
+       size 60 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       font "gui/fonts/sdf_MetronLight24"
+      }
+      TextWidgetClass add_actor_item_type_label {
+       position 150 0
+       size 80 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "Item type:"
+       font "gui/fonts/sdf_MetronLight24"
+       text_proportion 0.6
+       "text halign" center
+       "text valign" center
+      }
+      EditBoxWidgetClass add_item_type {
+       position 0 0
+       size 300 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Editor
+       font "gui/fonts/sdf_MetronLight24"
+      }
+      ButtonWidgetClass add_actor_item {
+       color 0.1569 0.1569 0.1569 0.902
+       position 0 0
+       size 80 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Colorable
+       text "Add Item"
+       text_proportion 0.6
+       font "gui/fonts/sdf_MetronLight24"
+      }
+      ButtonWidgetClass add_actor_item_hands {
+       color 0.1569 0.1569 0.1569 0.902
+       position 0 0
+       size 80 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Colorable
+       text "To Hands"
+       text_proportion 0.6
+       font "gui/fonts/sdf_MetronLight24"
+      }
+     }
+    }
+   }
+  }
+  WrapSpacerWidgetClass controls_helper {
+   clipchildren 0
+   color 0.1569 0.1569 0.1569 0.6275
+   position 40 40
+   size 220 80
+   halign right_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   priority 2
+   "no focus" 1
+   Padding 0
+   Margin 8
+   "Size To Content H" 1
+   "Size To Content V" 1
+   content_halign right
+   content_valign bottom
+   {
+    TextWidgetClass TextWidget0 {
+     clipchildren 0
+     size 220 20
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Play/Pause - Spacebar"
+     font "gui/fonts/sdf_MetronBook24"
+     text_proportion 0.8
+     "text halign" right
+     "text valign" center
+    }
+    TextWidgetClass TextWidget1 {
+     clipchildren 0
+     size 220 20
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Add Keyframe - CTRL + Q"
+     font "gui/fonts/sdf_MetronBook24"
+     text_proportion 0.8
+     "text halign" right
+     "text valign" center
+    }
+    TextWidgetClass TextWidget2 {
+     clipchildren 0
+     size 220 20
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Remove Keyframe - CTRL + E"
+     font "gui/fonts/sdf_MetronBook24"
+     text_proportion 0.8
+     "text halign" right
+     "text valign" center
+    }
+    TextWidgetClass TextWidget3 {
+     clipchildren 0
+     size 220 20
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Update Keyframe - CTRL + S"
+     font "gui/fonts/sdf_MetronBook24"
+     text_proportion 0.8
+     "text halign" right
+     "text valign" center
+    }
+   }
+  }
+  FrameWidgetClass FrameWidget0 {
+   ignorepointer 1
+   position 39.8208 3
+   size 0.19844 0.03632
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   {
+    ButtonWidgetClass save {
+     color 0.1569 0.1569 0.1569 0.902
+     position 0 4.75
+     size 80 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 2
+     style Colorable
+     text "Save"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    ButtonWidgetClass load {
+     color 0.1569 0.1569 0.1569 0.902
+     position -1.74864 4.752
+     size 80 30
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 2
+     style Colorable
+     text "Load"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    ButtonWidgetClass reset {
+     color 0.1569 0.1569 0.1569 0.902
+     position 129.547 4.75
+     size 80 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 2
+     style Colorable
+     text "Reset"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+   }
+  }
+  ImageWidgetClass ImageWidget0 {
+   ignorepointer 1
+   color 0.2353 0.2353 0.2353 0.4706
+   position 0.00311 0.0051
+   size 0.27232 0.07652
+   halign right_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 1
+   {
+    ButtonWidgetClass CopyButton {
+     color 0.1569 0.1569 0.1569 0.902
+     position 3.72221 6.20366
+     size 80 30
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 2
+     style Colorable
+     text "Copy"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    ButtonWidgetClass ApplyButton {
+     color 0.1569 0.1569 0.1569 0.902
+     position 3.72222 8.68512
+     size 80 29.74
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 2
+     style Colorable
+     text "Apply"
+     text_proportion 0.6
+     font "gui/fonts/sdf_MetronLight24"
+    }
+    EditBoxWidgetClass CameraEditbox {
+     inheritalpha 0
+     position 0.03348 0.1051
+     size 360 29.74
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     priority 2
+     style Default
+     text "paste pos|rot here"
+     "limit visible" 0
+     "Use default text" 1
+     "exact text" 1
+     "disabled text color" 1 0 0 1
+    }
+    TextWidgetClass CameraValues {
+     ignorepointer 1
+     position 0.03348 0.07845
+     size 360 29.74
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     priority 2
+    }
+   }
+  }
+ }
+}

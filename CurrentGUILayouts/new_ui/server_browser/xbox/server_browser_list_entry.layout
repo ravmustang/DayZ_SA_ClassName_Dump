@@ -1,0 +1,368 @@
+ButtonWidgetClass server_browser_list_entry_root {
+ ignorepointer 0
+ color 0 0 0 0
+ position 0 0
+ size 1 30
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ style Colorable
+ "no focus" 0
+ "next left" "none"
+ "next right" "none"
+ "next up" ""
+ "next down" ""
+ font "gui/fonts/sdf_MetronLight24"
+ {
+  GridSpacerWidgetClass basic_info {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   "no focus" 1
+   Padding 0
+   Margin 0
+   "Size To Content H" 1
+   "Size To Content V" 1
+   Columns 8
+   Rows 1
+   {
+    FrameWidgetClass favorite_button {
+     disabled 0
+     ignorepointer 0
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass unfavorite_image {
+       visible 1
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_favourite_off"
+       mode additive
+       "src alpha" 1
+      }
+      ImageWidgetClass favorite_image {
+       visible 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_favourite_on"
+       mode additive
+       "src alpha" 1
+      }
+     }
+    }
+    FrameWidgetClass lock {
+     visible 1
+     disabled 0
+     ignorepointer 1
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass lock_icon {
+       visible 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_locked_sb"
+       mode additive
+       "src alpha" 1
+      }
+     }
+    }
+    FrameWidgetClass modded_panel {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass modded_icon {
+       visible 0
+       clipchildren 0
+       ignorepointer 1
+       size 28 28
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:ccgui_enforce image:HudRepair"
+       mode additive
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       filter 1
+       {
+        ImageWidgetClass Owned {
+         visible 0
+         clipchildren 0
+         ignorepointer 1
+         color 0 1 0 1
+         position 0.05 0.05
+         size 0.4 0.4
+         halign right_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         image0 "set:dayz_gui image:circle"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+        }
+        ImageWidgetClass Unowned {
+         visible 0
+         clipchildren 0
+         ignorepointer 1
+         color 1 0 0 1
+         position 0.05 0.05
+         size 0.4 0.4
+         halign right_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         image0 "set:dayz_gui image:circle"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+     }
+    }
+    FrameWidgetClass mandk {
+     visible 1
+     disabled 0
+     ignorepointer 1
+     position 0 0
+     size 57 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass mandk_icon {
+       visible 0
+       ignorepointer 1
+       size 47 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_mouseandkeyboard_sb"
+       mode additive
+       "src alpha" 1
+      }
+     }
+    }
+    FrameWidgetClass server_name_panel {
+     ignorepointer 1
+     position 0 0
+     size 1 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      TextWidgetClass server_name {
+       clipchildren 1
+       ignorepointer 1
+       position 50 0
+       size 0.85 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       text "DayZ Rain DE 1-5 (Experimental/Unstable)"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text valign" center
+      }
+     }
+    }
+    FrameWidgetClass server_time_panel {
+     visible 0
+     disabled 1
+     ignorepointer 1
+     position 0 0
+     size 95 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass server_time {
+       ignorepointer 1
+       size 23 24
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_sun_accel"
+       mode additive
+       "src alpha" 1
+       filter 1
+      }
+     }
+    }
+    FrameWidgetClass server_map_panel {
+     visible 1
+     ignorepointer 1
+     size 110 30
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass server_map {
+       clipchildren 0
+       ignorepointer 1
+       size 1 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       text "Chernarus"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    FrameWidgetClass server_ping_panel {
+     visible 0
+     ignorepointer 1
+     size 90 30
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass server_ping {
+       ignorepointer 1
+       size 90 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       text "1000"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    FrameWidgetClass server_population_panel {
+     visible 1
+     ignorepointer 1
+     size 200 30
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass server_population {
+       clipchildren 0
+       ignorepointer 1
+       size 1 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       text "999/999"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    FrameWidgetClass server_slots_panel {
+     visible 0
+     ignorepointer 1
+     size 102 30
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass server_slots {
+       clipchildren 0
+       ignorepointer 1
+       size 70 0.55
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       text "120"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,369 @@
+FrameWidgetClass rootFrame {
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass vp_BG {
+   ignorepointer 1
+   color 0 0 0 1
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style editor_quad_dark
+  }
+  VideoWidgetClass vp_Video {
+   ignorepointer 1
+   ignoregloballv 1
+   position 0 0
+   size 1 1010
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   mode opaque
+   "src alpha" 0
+   "clamp mode" border
+   "stretch mode" fit_w_center
+   filter 1
+   font "gui/fonts/sdf_MetronLight42"
+   "outline size" 1
+   "outline color" 0 0 0 1
+   {
+    ImageWidgetClass vp_Buffering {
+     visible 0
+     ignorepointer 1
+     color 0 0 0 0.8824
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     mode blend
+     "src alpha" 1
+     "clamp mode" wrap
+     "stretch mode" stretch_w_h
+     {
+      TextWidgetClass vp_BufferingText {
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       text "Buffering..."
+       font "gui/fonts/sdf_MetronBook72"
+       "outline color" 0 0 0 1
+       "shadow size" 3
+       "shadow color" 0 0 0 1
+       "exact text" 1
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass vp_Controls {
+   ignorepointer 1
+   color 0.0588 0.0588 0.0588 1
+   size 1 70
+   halign center_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   style DayZDefaultPanel
+   {
+    FrameWidgetClass vp_PlayPause {
+     ignorepointer 1
+     position 10 0
+     size 64 64
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ButtonWidgetClass vp_PlayButton {
+       position 0 0
+       size 64 64
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass vp_PlayImg {
+         visible 1
+         ignorepointer 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         imageTexture "{C0FD32C41205D820}Gui/textures/video_player/Play.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+      ButtonWidgetClass vp_PauseButton {
+       visible 0
+       position 0 0
+       size 64 64
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass vp_PauseImg {
+         ignorepointer 1
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         imageTexture "{F590C7F79E916751}Gui/textures/video_player/Pause.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+     }
+    }
+    ButtonWidgetClass vp_StopButton {
+     position 84 0
+     size 64 64
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass vp_StopImg {
+       visible 1
+       ignorepointer 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       imageTexture "{6E0E58BF7904735F}Gui/textures/video_player/Stop.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" border
+       "stretch mode" stretch_w_h
+      }
+     }
+    }
+    FrameWidgetClass vp_OnceRepeat {
+     ignorepointer 1
+     position 158 0
+     size 64 64
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ButtonWidgetClass vp_RepeatButton {
+       visible 1
+       position 0 0
+       size 64 64
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass vp_RepeatImg {
+         visible 1
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         imageTexture "{DDA552262677C952}Gui/textures/video_player/Once.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+      ButtonWidgetClass vp_OnceButton {
+       visible 0
+       position 0 0
+       size 64 64
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass vp_OnceImg {
+         visible 1
+         ignorepointer 1
+         position 0 0
+         size 1 1
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         imageTexture "{4899E9E5639DF6C5}Gui/textures/video_player/Repeat.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" border
+         "stretch mode" stretch_w_h
+        }
+       }
+      }
+     }
+    }
+    ButtonWidgetClass vp_LoadButton {
+     position 232 0
+     size 64 64
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass vp_LoadImg {
+       visible 1
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       imageTexture "{8497AF7F607AF0FF}Gui/textures/video_player/Load.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" border
+       "stretch mode" stretch_w_h
+      }
+     }
+    }
+    SliderWidgetClass vp_Progress {
+     clipchildren 1
+     size 0.5 64
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     draggable 0
+     style Default
+     "marker thickness" 0.005
+     "fill in" 1
+     "draw marker" 1
+    }
+    FrameWidgetClass vp_Time {
+     ignorepointer 1
+     position 10 0
+     size 300 64
+     halign right_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass vp_CurrentTime {
+       ignorepointer 1
+       position 163 0
+       size 128 64
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "00:00:00"
+       font "gui/fonts/MetronLight28"
+       "exact text" 1
+       "size to text v" 0
+       "text halign" right
+       "text valign" center
+      }
+      TextWidgetClass vp_TotalTime {
+       ignorepointer 1
+       position 10 0
+       size 128 64
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "00:00:00"
+       font "gui/fonts/MetronBook-Bold28"
+       "exact text" 1
+       "text valign" center
+      }
+      TextWidgetClass vp_SeparatorTime {
+       ignorepointer 1
+       position 138 0
+       size 25 64
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "/"
+       font "gui/fonts/MetronLight-Italic28"
+       "exact text" 1
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+  GridSpacerWidgetClass vp_LoadVideo {
+   visible 0
+   ignorepointer 1
+   position 158 70
+   size 800 0.9
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 0
+   Columns 1
+   Rows 30
+  }
+ }
+}

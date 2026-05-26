@@ -1,0 +1,123 @@
+FrameWidgetClass FrameWidget0 {
+ position 0 0
+ size 1 1
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass PanelWidget0 {
+   color 0.5647 0.5647 0.5647 0.7843
+   position 0.01681 0.03
+   size 0.24109 0.31
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_colorable
+   {
+    CheckBoxWidgetClass ListCheckBox {
+     position 0.026 0.031
+     size 0.207 0.094
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "List"
+    }
+    CheckBoxWidgetClass LogCheckBox {
+     position 0.233 0.031
+     size 0.207 0.094
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "Log"
+     checked 1
+    }
+    CheckBoxWidgetClass NameCheckBox {
+     position 0.441 0.031
+     size 0.311 0.094
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "Name"
+    }
+    CheckBoxWidgetClass FCCheckBox {
+     position 0.752 0.031
+     size 0.207 0.094
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "FC"
+    }
+    TextWidgetClass TextWidget0 {
+     position 0.026 0.126
+     size 0.933 0.105
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Bold
+     text "Players"
+    }
+    TextListboxWidgetClass PlayersListbox {
+     position 0.026 0.252
+     size 0.933 0.692
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     lines 10
+    }
+   }
+  }
+  PanelWidgetClass PanelWidget1 {
+   color 0.5647 0.5647 0.5647 0.7843
+   position 0.019 0.744
+   size 0.438 0.233
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_colorable
+   {
+    ButtonWidgetClass ClearButton {
+     color 0.2471 0.2471 0.2471 1
+     position 0.014 0.048
+     size 0.128 0.143
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style MenuDefault
+     text "Clear"
+     text_proportion 0.8
+    }
+    ButtonWidgetClass CopyButton {
+     color 0.2471 0.2471 0.2471 1
+     position 0.157 0.048
+     size 0.128 0.143
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style MenuDefault
+     text "Copy"
+     text_proportion 0.8
+    }
+    TextListboxWidgetClass LogListbox {
+     position 0.014 0.215
+     size 0.97 0.73
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     lines 9
+    }
+   }
+  }
+ }
+}

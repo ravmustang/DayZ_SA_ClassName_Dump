@@ -1,0 +1,669 @@
+GridSpacerWidgetClass server_browser_list_entry_root {
+ visible 1
+ ignorepointer 0
+ color 0.1961 0.1961 0.1961 0
+ position 0 0
+ size 1 30
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ "no focus" 1
+ "next right" "search_name_setting"
+ Padding 0
+ Margin 0
+ "Size To Content H" 1
+ "Size To Content V" 1
+ Columns 1
+ Rows 2
+ {
+  GridSpacerWidgetClass basic_info {
+   visible 1
+   ignorepointer 1
+   position 0 0
+   size 1 30
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   "no focus" 1
+   Padding 0
+   Margin 0
+   "Size To Content H" 1
+   Columns 9
+   Rows 1
+   {
+    FrameWidgetClass favorite_button {
+     ignorepointer 0
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass favorite_image {
+       visible 1
+       clipchildren 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_favourite_off"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+      ImageWidgetClass unfavorite_image {
+       visible 0
+       clipchildren 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_favourite_on"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+     }
+    }
+    FrameWidgetClass expand_button {
+     ignorepointer 0
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass expand_image {
+       visible 1
+       clipchildren 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_collapse"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+      ImageWidgetClass collapse_image {
+       visible 0
+       clipchildren 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_expand"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+     }
+    }
+    FrameWidgetClass player_icon_panel {
+     visible 0
+     ignorepointer 1
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass player_icon {
+       visible 1
+       clipchildren 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_player"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+     }
+    }
+    FrameWidgetClass lock {
+     visible 1
+     disabled 0
+     ignorepointer 1
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass lock_icon {
+       visible 0
+       clipchildren 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_locked_sb"
+       mode additive
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+     }
+    }
+    FrameWidgetClass server_name_panel {
+     ignorepointer 1
+     position 0 0
+     size 1 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     {
+      TextWidgetClass server_name {
+       ignorepointer 1
+       position 50 0
+       size 0.85 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       text "DayZ Rain DE 1-5 (Experimental/Unstable)"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text valign" center
+      }
+     }
+    }
+    FrameWidgetClass server_time_panel {
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 30 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass server_time {
+       clipchildren 0
+       ignorepointer 1
+       size 20 20
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:icon_sun_accel"
+       mode blend
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       filter 1
+      }
+     }
+    }
+    FrameWidgetClass server_population_panel {
+     ignorepointer 1
+     size 180 30
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass server_population {
+       ignorepointer 1
+       size 180 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       text "Medium(30)"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    FrameWidgetClass server_slots_panel {
+     ignorepointer 1
+     size 70 30
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass server_slots {
+       ignorepointer 1
+       size 70 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       text "120"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    FrameWidgetClass server_ping_panel {
+     ignorepointer 1
+     size 90 30
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass server_ping {
+       ignorepointer 1
+       size 90 0.55
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       text "1000"
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 0
+       "exact text size" 18
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+   }
+  }
+  GridSpacerWidgetClass detailed_info {
+   visible 1
+   ignorepointer 1
+   position 0 0
+   size 1 80
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   Padding 0
+   Margin 0
+   "Size To Content H" 1
+   Rows 1
+   {
+    FrameWidgetClass spacer_left {
+     position 0 0
+     size 140 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+    }
+    PanelWidgetClass detail_info_panel {
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style blank
+     {
+      FrameWidgetClass shard {
+       ignorepointer 1
+       position 0 0.08
+       size 0.5 0.2
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass shard_label {
+         ignorepointer 1
+         color 0.8627 0.8627 0.8627 1
+         position 0 0
+         size 0.15 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_shard_shard_label0"
+         font "gui/fonts/sdf_MetronBook24"
+         "italic text" 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+        TextWidgetClass shard_text {
+         ignorepointer 1
+         position 0.15 0
+         size 0.85 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_shard_shard_text0"
+         font "gui/fonts/sdf_MetronBook24"
+         "text offset" 8 0
+         "exact text" 0
+         "text valign" center
+        }
+       }
+      }
+      FrameWidgetClass character_alive {
+       ignorepointer 1
+       position 0 0.28
+       size 0.5 0.2
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass character_alive_label {
+         ignorepointer 1
+         color 0.8627 0.8627 0.8627 1
+         position 0 0
+         size 0.36 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_character_alive_character_alive_label0"
+         font "gui/fonts/sdf_MetronBook24"
+         "italic text" 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+        TextWidgetClass character_alive_text {
+         ignorepointer 1
+         position 0.36 0
+         size 0.64 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "-"
+         font "gui/fonts/sdf_MetronBook24"
+         "text offset" 8 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+       }
+      }
+      FrameWidgetClass steam_friends {
+       ignorepointer 1
+       position 0 0.48
+       size 0.5 0.2
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass steam_friends_label {
+         ignorepointer 1
+         color 0.8627 0.8627 0.8627 1
+         position 0 0
+         size 0.345 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_steam_friends_steam_friends_label0"
+         font "gui/fonts/sdf_MetronBook24"
+         "italic text" 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+        TextWidgetClass steam_friends_text {
+         ignorepointer 1
+         position 0.345 0
+         size 0.655 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "Erika, Tony, Janko Hrasko"
+         font "gui/fonts/sdf_MetronBook24"
+         "text offset" 8 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+       }
+      }
+      FrameWidgetClass mode {
+       ignorepointer 1
+       position 0.5 0.08
+       size 0.5 0.2
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass mode_label {
+         ignorepointer 1
+         color 0.8627 0.8627 0.8627 1
+         position 0 0
+         size 0.142 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_mode_mode_label0"
+         font "gui/fonts/sdf_MetronBook24"
+         "italic text" 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+        TextWidgetClass mode_text {
+         ignorepointer 1
+         position 0.142 0
+         size 0.858 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_mode_mode_text0"
+         font "gui/fonts/sdf_MetronBook24"
+         "text offset" 8 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+       }
+      }
+      FrameWidgetClass battlleye {
+       ignorepointer 1
+       position 0.5 0.28
+       size 0.5 0.2
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass battlleye_label {
+         ignorepointer 1
+         color 0.8627 0.8627 0.8627 1
+         position 0 0
+         size 0.2 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_battlleye_battlleye_label0"
+         font "gui/fonts/sdf_MetronBook24"
+         "italic text" 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+        TextWidgetClass battlleye_text {
+         ignorepointer 1
+         color 0 1 0.251 1
+         position 0.2 0
+         size 0.8 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_battlleye_battlleye_text0"
+         font "gui/fonts/sdf_MetronBook24"
+         "text color" 0 1 0.251 1
+         "text offset" 8 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+       }
+      }
+      FrameWidgetClass ip {
+       ignorepointer 1
+       position 0.5 0.48
+       size 0.5 0.2
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass ip_label {
+         ignorepointer 1
+         color 0.8627 0.8627 0.8627 1
+         position 0 0
+         size 0.06 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "#STR_server_browser_list_entry_root_detailed_info_detail_info_panel_ip_ip_label0"
+         font "gui/fonts/sdf_MetronBook24"
+         "italic text" 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+        TextWidgetClass ip_text {
+         ignorepointer 1
+         position 0.06 0
+         size 0.94 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "192.168.1.1:2302"
+         font "gui/fonts/sdf_MetronBook24"
+         "text offset" 8 0
+         "bold text" 0
+         "exact text" 0
+         "text valign" center
+        }
+       }
+      }
+      PanelWidgetClass mods {
+       visible 1
+       ignorepointer 1
+       position 0 0.68
+       size 1 0.2
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       {
+        TextWidgetClass mods_text {
+         ignorepointer 1
+         size 0.875 1
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+        }
+        ButtonWidgetClass mods_expand {
+         position 0 0
+         size 0.1 1
+         halign right_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         text "#str_server_browser_list_entry_root_detailed_info_detail_info_panel_mod_expand0"
+        }
+       }
+      }
+     }
+    }
+    FrameWidgetClass spacer_right {
+     position 0 0
+     size 370 1
+     hexactpos 0
+     vexactpos 1
+     hexactsize 1
+     vexactsize 0
+     {
+      TextWidgetClass server_acceleration_text {
+       position 0 0
+       size 30 30
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       font "gui/fonts/sdf_MetronLight24"
+       "exact text" 1
+       "exact text size" 16
+      }
+     }
+    }
+   }
+  }
+ }
+}

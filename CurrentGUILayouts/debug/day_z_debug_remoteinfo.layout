@@ -1,0 +1,43 @@
+GridSpacerWidgetClass rootFrame {
+ visible 0
+ disabled 0
+ clipchildren 0
+ position 10 9
+ size 183 407
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ "Size To Content H" 1
+ "Size To Content V" 1
+ Columns 1
+ Rows 2
+ {
+  TextWidgetClass TextWidget0 {
+   visible 1
+   position 2 6
+   size 176 15
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style Normal
+   text "test"
+   font "gui/fonts/Metron-Bold12"
+   "text color" 0.251 0.502 0 1
+  }
+  TextListboxWidgetClass TextListboxWidget0 {
+   position 2 29
+   size 176 376
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style NoScrollBar
+   "title visible" 0
+   colums "Item;80;Value;50;"
+   "highlight row" 0
+   font "gui/fonts/Metron-Bold12"
+  }
+ }
+}

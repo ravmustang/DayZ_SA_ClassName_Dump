@@ -1,0 +1,263 @@
+FrameWidgetClass FrameWidget1 {
+ position 0.0125 0.01111
+ size 0.96875 0.96667
+ priority 50
+ {
+  WindowWidgetClass MainWindowWidget {
+   visible 1
+   disabled 0
+   clipchildren 1
+   color 1 1 1 1
+   position -0.0129 -0.02874
+   size 728 512
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   fixaspect none
+   priority 0
+   style rover_sim_black
+   "title visible" 0
+   "text color" 1 1 0 1
+   {
+    PanelWidgetClass ControlsPanelWidget1 {
+     visible 1
+     position 16 72
+     size 696 384
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style rover_sim_black
+     {
+      TextListboxWidgetClass SpecialKeysListboxWidget {
+       clipchildren 1
+       position 352 32
+       size 336 304
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Default
+       "title visible" 0
+       lines 20
+      }
+      TextListboxWidgetClass AssignedListboxWidget {
+       clipchildren 1
+       position 8 32
+       size 336 304
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style Default
+       "title visible" 0
+       lines 20
+      }
+      TextWidgetClass TextWidget3 {
+       position 8 8
+       size 280 24
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#options_controls_assigned_keys"
+       "exact text" 1
+      }
+      TextWidgetClass TextWidget4 {
+       position 352 8
+       size 280 24
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "#options_controls_special_keys"
+       "exact text" 1
+      }
+      ButtonWidgetClass RemoveButton {
+       visible 1
+       position 96 344
+       size 80 32
+       halign left
+       valign top
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       userID 0
+       style Default
+       text "#menu_remove"
+       text_offset 1 1
+       text_proportion 0.8
+       text_halign center
+       "text color" 1 1 1 1
+       "disabled text color" 0.3373 0.3373 0.3373 1
+      }
+      ButtonWidgetClass AddButton {
+       visible 1
+       position 8 344
+       size 80 32
+       halign left
+       valign top
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       userID 0
+       style Default
+       text "#menu_add"
+       text_offset 1 1
+       text_proportion 0.8
+       text_halign center
+       "text color" 1 1 1 1
+       "disabled text color" 0.3373 0.3373 0.3373 1
+      }
+      ButtonWidgetClass AddSpecialButton {
+       visible 1
+       position 352 344
+       size 120 32
+       halign left
+       valign top
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       userID 0
+       style Default
+       text "#options_controls_add_special"
+       text_offset 1 1
+       text_proportion 0.8
+       text_halign center
+       "text color" 1 1 1 1
+       "disabled text color" 0.3373 0.3373 0.3373 1
+      }
+     }
+    }
+    ButtonWidgetClass BackBtn1 {
+     visible 1
+     position 576 464
+     size 64 32
+     halign left
+     valign top
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     userID 1
+     style Default
+     text "#menu_apply"
+     text_offset 1 1
+     text_proportion 0.8
+     text_halign center
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass BackBtn2 {
+     visible 1
+     position 648 464
+     size 64 32
+     halign left
+     valign top
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     userID 2
+     style Default
+     text "#menu_back"
+     text_offset 1 1
+     text_proportion 0.8
+     text_halign center
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    TextWidgetClass TextWidget1 {
+     position 16 8
+     size 280 40
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "#options_controls_assignments_label2"
+     "exact text" 1
+     "text halign" left
+    }
+    TextWidgetClass ActionNameTextWidget {
+     position 16 48
+     size 696 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "#options_controls_action_label"
+     "exact text" 1
+    }
+    ButtonWidgetClass DefaultButton {
+     visible 1
+     position 472 464
+     size 80 32
+     halign left
+     valign top
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     userID 0
+     style Default
+     text "#menu_default"
+     text_offset 1 1
+     text_proportion 0.8
+     text_halign center
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+    ButtonWidgetClass ResetButton {
+     visible 1
+     position 400 464
+     size 64 32
+     halign left
+     valign top
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     userID 0
+     style Default
+     text "#menu_reset"
+     text_offset 1 1
+     text_proportion 0.8
+     text_halign center
+     "text color" 1 1 1 1
+     "disabled text color" 0.3373 0.3373 0.3373 1
+    }
+   }
+  }
+  WindowWidgetClass AssignWindowWidget {
+   visible 1
+   position -0.01129 -0.08764
+   size 312 152
+   halign center_ref
+   valign center_ref
+   hexactsize 1
+   vexactsize 1
+   priority 1
+   style rover_sim_black_2
+   {
+    TextWidgetClass ActionNameTextWidget1 {
+     position 16 16
+     size 280 34
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "#options_controls_press_key"
+     "exact text" 1
+     "text halign" center
+     "text valign" center
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,162 @@
+PanelWidgetClass DropzoneX {
+ visible 1
+ clipchildren 0
+ ignorepointer 0
+ color 1 1 1 0
+ size 504 1
+ halign right_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 0
+ priority 10
+ scriptclass ""
+ style Outline
+ {
+  WrapSpacerWidgetClass Header {
+   ignorepointer 1
+   size 504 1
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 0
+   Padding 0
+   Margin 0
+   "Size To Content V" 1
+   content_valign center
+   {
+    PanelWidgetClass SlotsHeader {
+     clipchildren 1
+     ignorepointer 0
+     size 493 48
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass ""
+     style blank
+    }
+    ScrollWidgetClass ScrollerSlotsContent {
+     visible 1
+     clipchildren 1
+     ignorepointer 0
+     keepsafezone 0
+     color 0.502 0.502 0.502 0.8
+     size 504 150
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass ""
+     style blank
+     "Ignore invisible" 0
+     "Scrollbar V" 1
+     {
+      GridSpacerWidgetClass SlotsContent {
+       clipchildren 1
+       ignorepointer 0
+       size 1 1
+       halign right_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       scriptclass ""
+       style Colorable
+       Padding 0
+       Margin 0
+       "Size To Content V" 1
+       Columns 1
+       Rows 100
+      }
+     }
+    }
+   }
+  }
+  ScrollWidgetClass Scroller {
+   visible 1
+   clipchildren 1
+   ignorepointer 0
+   color 0.502 0.502 0.502 0.8
+   size 504 0.77
+   halign right_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 0
+   scriptclass ""
+   style blank
+   "Ignore invisible" 0
+   "Scrollbar V" 1
+   {
+    PanelWidgetClass DropzoneXa {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     size 1 1
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 10
+     style dashed
+    }
+    FrameWidgetClass ContentParent {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     size 1 0
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     scriptclass ""
+    }
+    GridSpacerWidgetClass Content {
+     clipchildren 1
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scriptclass ""
+     style Colorable
+     "Ignore invisible" 0
+     Padding 0
+     Margin 0
+     "Size To Content V" 1
+     Columns 1
+     Rows 100
+    }
+    PanelWidgetClass Down {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     position 0 50
+     size 36 50
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+    }
+    PanelWidgetClass Up {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     size 40 150
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+    }
+   }
+  }
+ }
+}

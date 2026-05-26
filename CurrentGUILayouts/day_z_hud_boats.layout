@@ -1,0 +1,178 @@
+PanelWidgetClass VehiclePanel {
+ clipchildren 0
+ position 1 40
+ size 457 218
+ valign bottom_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ fixaspect fixwidth
+ priority 1
+ {
+  PanelWidgetClass SpeedPanel {
+   visible 1
+   clipchildren 0
+   size 214 201
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style blank
+   {
+    ImageWidgetClass SpeedDial {
+     clipchildren 0
+     color 0.6275 0.6275 0.6275 1
+     size 195 164
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 ""
+     imageTexture "{DD4435A772DFE53F}Enfusion/Gui/textures/cardial_big.edds"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+    }
+    ImageWidgetClass SpeedPointer {
+     visible 1
+     clipchildren 0
+     position 0 -0.15
+     size 18 111
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:large_pointer"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+     rotation 0 0 225
+     pivot 0.5 0.77
+    }
+    ImageWidgetClass EngineLight {
+     position -45 -15
+     size 38 38
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:icon_engine_alert"
+     mode blend
+     "src alpha" 1
+    }
+    ImageWidgetClass FuelLight {
+     clipchildren 1
+     position 45 -15
+     size 38 38
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect inside
+     image0 "set:dayz_gui image:fuel"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+    }
+    PanelWidgetClass GearsIndicator {
+     clipchildren 0
+     position 0 16
+     size 0.4 0.4
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style blank
+     {
+      TextWidgetClass Current {
+       size 0.33 0.5
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style None
+       text "N"
+       font "gui/fonts/sdf_MetronBook72"
+       "shadow offset" 2 2
+       "bold text" 1
+       "exact text" 0
+       "text halign" center
+      }
+      TextWidgetClass Prev {
+       color 0.6824 0.6824 0.6824 1
+       position -0.33 0.05
+       size 0.33 0.4
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Normal
+       text "R"
+       font "gui/fonts/sdf_MetronBook72"
+       "shadow offset" 1 1
+       "italic text" 0
+       "exact text" 0
+       "text halign" center
+      }
+      TextWidgetClass Next {
+       color 0.6824 0.6824 0.6824 1
+       position 0.33 0.05
+       size 0.33 0.4
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style None
+       text "F"
+       font "gui/fonts/sdf_MetronBook72"
+       "shadow offset" 1 1
+       "exact text" 0
+       "text halign" center
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass VehicleHudBg {
+   color 0 0 0 1
+   position -120 0
+   size 0.6 1.2
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{203A18D5F4B1DBF9}Enfusion/Gui/imagesets/vehicle_hud_shadow.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+  }
+ }
+}

@@ -1,0 +1,214 @@
+FrameWidgetClass rootFrame {
+ position 10 10
+ size 1320.54004 1037.93005
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  ScrollWidgetClass ScrollWidget0 {
+   position 210.45399 167.45399
+   size 475.72299 313.798
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   "Scrollbar V" 1
+   {
+    WrapSpacerWidgetClass WrapSpacerWidget0 {
+     position 0 0
+     size 1 30
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     "Size To Content V" 1
+     {
+      ButtonWidgetClass ButtonWidget0 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget1 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget2 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget3 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget4 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget5 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget6 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget7 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget8 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget9 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget10 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget11 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget12 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget13 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+      ButtonWidgetClass ButtonWidget14 {
+       position 180.68001 1.83
+       size 150 150
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style MenuDefault
+       text "B"
+      }
+     }
+    }
+   }
+  }
+  ScrollWidgetClass ScrollWidget1 {
+   position 784.47406 150.81599
+   size 348.93298 345.879
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   "Scrollbar H" 1
+   "Scrollbar V" 1
+   {
+    ButtonWidgetClass ButtonWidget15 {
+     position 15.7012 7.94033
+     size 150 150
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "B"
+    }
+    ButtonWidgetClass ButtonWidget16 {
+     position 333.439 386.78
+     size 150 150
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style MenuDefault
+     text "B"
+    }
+   }
+  }
+ }
+}

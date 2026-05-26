@@ -1,0 +1,91 @@
+FrameWidgetClass WatermarkRoot {
+ ignorepointer 1
+ position 0.35 -1.35
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ scaled 0
+ {
+  PanelWidgetClass WatermarkPanel {
+   clipchildren 0
+   ignorepointer 1
+   position 0.0044 0.01
+   size 140 166
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   scaled 0
+   {
+    ImageWidgetClass WatermarkLogo {
+     inheritalpha 1
+     ignorepointer 1
+     color 0.8627 0.8627 0.8627 0.7451
+     position 0 0
+     size 140 72
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 0
+     image0 "set:dayz_gui image:DayZLogo"
+     mode blend
+     "src alpha" 1
+     "clamp mode" invalid
+     "stretch mode" invalid
+    }
+    TextWidgetClass WatermarkBuild {
+     ignorepointer 1
+     color 0.8627 0.8627 0.8627 0.7059
+     position 0 66
+     size 140 26
+     halign center_ref
+     hexactpos 0
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 0
+     text "1.26.XXXXXX"
+     font "gui/fonts/sdf_MetronBook24"
+     "outline size" 1
+     "outline color" 0.1608 0.1725 0.1608 1
+     "shadow opacity" 0.5
+     "bold text" 1
+     "exact text" 1
+     "exact text size" 12
+     "text halign" center
+     "text valign" center
+    }
+    TextWidgetClass WatermarkLabel {
+     visible 1
+     ignorepointer 1
+     color 0.8627 0.8627 0.8627 0.7451
+     position 0 59
+     size 140 26
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 0
+     text "WISHLIST ON STEAM"
+     font "gui/fonts/sdf_MetronBook24"
+     "outline size" 1
+     "outline color" 0.1608 0.1725 0.1608 0.7059
+     "shadow opacity" 0.5
+     "bold text" 1
+     "exact text" 1
+     "exact text size" 12
+     "size to text h" 0
+     "size to text v" 0
+     "text halign" center
+     "text valign" center
+    }
+   }
+  }
+ }
+}

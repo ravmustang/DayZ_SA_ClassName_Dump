@@ -1,0 +1,3287 @@
+FrameWidgetClass rootFrame {
+ clipchildren 0
+ inheritalpha 1
+ ignorepointer 1
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  FrameWidgetClass PoisitioningFrames {
+   visible 1
+   ignorepointer 1
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   {
+    FrameWidgetClass Positions0 {
+     ignorepointer 1
+     position 0.09 0.05
+     size 100 0.4
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+    }
+    FrameWidgetClass Positions2 {
+     ignorepointer 1
+     position 0.09 0.05
+     size 100 0.4
+     halign right_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+    }
+    FrameWidgetClass Positions3 {
+     ignorepointer 1
+     position 0.12 0.17
+     size 250 0.08
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+    }
+    FrameWidgetClass Positions4 {
+     ignorepointer 1
+     position 0.12 0.17
+     size 250 0.08
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+    }
+   }
+  }
+  FrameWidgetClass BloodDrps {
+   visible 1
+   clipchildren 0
+   inheritalpha 1
+   ignorepointer 1
+   position 0.0015 -0.002
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   userID 60
+   {
+    ImageWidgetClass Drop1 {
+     visible 1
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop2 {
+     visible 1
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop3 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop4 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop5 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop6 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop7 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop8 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop9 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop10 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop11 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop12 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop13 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop14 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop15 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop16 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop17 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop18 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop19 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop20 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop21 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop22 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop23 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop24 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop25 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop26 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop27 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop28 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop29 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop30 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop31 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop32 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop33 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop34 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop35 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop36 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop37 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop38 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop39 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop40 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop41 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop42 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop43 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop44 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop45 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop46 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop47 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop48 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop49 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop50 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop51 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop52 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop53 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop54 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop55 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop56 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop57 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop58 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop59 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop60 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop61 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop62 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop63 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop64 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop65 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop66 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop67 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop68 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop69 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop70 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop71 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop72 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop73 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop74 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop75 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop76 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop77 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop78 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop79 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop80 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop81 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop82 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop83 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop84 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop85 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop86 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop87 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop88 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop89 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop90 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop91 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop92 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop93 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop94 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop95 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop96 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop97 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop98 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop99 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop100 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop101 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop103 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop104 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop105 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop106 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop107 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop108 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop109 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop110 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop111 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop112 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop113 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop114 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding1"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop115 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding2"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 0
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop116 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding3"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop117 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding4"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop118 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding5"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop119 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding6"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop120 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding7"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop121 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding8"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop122 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding9"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop123 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding10"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop124 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding11"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop125 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding12"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop126 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding13"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop127 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding14"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop128 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding15"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+    ImageWidgetClass Drop129 {
+     visible 0
+     clipchildren 0
+     inheritalpha 1
+     ignorepointer 1
+     size 128 128
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     draggable 0
+     scriptclass ""
+     image0 "set:BleedingDrops image:Bleeding16"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip v" 0
+     filter 1
+     "Transition width" 0
+     Progress 0
+    }
+   }
+  }
+ }
+}

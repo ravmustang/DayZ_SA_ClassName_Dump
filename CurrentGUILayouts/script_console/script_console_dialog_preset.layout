@@ -1,0 +1,110 @@
+WindowWidgetClass TextInputDialogRoot {
+ clipchildren 0
+ position -57 -42
+ size 386 196
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ priority 3001
+ style rover_sim_black_2
+ "text color" 1 1 0 1
+ {
+  ButtonWidgetClass ButtonOk {
+   visible 1
+   position 210 124
+   size 166 30
+   halign left
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   userID 1
+   style Default
+   text "#menu_ok"
+   text_proportion 0.8
+   "disabled text color" 0.3412 0.3412 0.3412 1
+  }
+  ButtonWidgetClass ButtonCancel {
+   visible 1
+   position 10 124
+   size 166 30
+   halign left
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   userID 2
+   style Default
+   text "#menu_cancel"
+   text_proportion 0.8
+   "disabled text color" 0.3412 0.3412 0.3412 1
+  }
+  TextWidgetClass WindowLabel {
+   disabled 0
+   color 1 1 1 1
+   position 8 10
+   size 370 24
+   halign left
+   valign top
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "LABEL"
+   "exact text" 1
+   "text halign" center
+   "text valign" center
+  }
+  EditBoxWidgetClass PrimaryEditBox {
+   position 90 84
+   size 288 25
+   valign top
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass PrimaryLabel {
+   position 10 84
+   size 77 25
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "Value:"
+   "exact text" 1
+   "text valign" center
+  }
+  TextWidgetClass MessageText {
+   disabled 0
+   inheritalpha 1
+   color 1 1 1 1
+   position 90 44
+   size 288 25
+   halign left
+   valign top
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text ""
+   "exact text" 1
+   "text halign" left
+   "text valign" center
+  }
+  TextWidgetClass PrimaryLabel1 {
+   position 10 44
+   size 77 25
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   text "Current:"
+   "exact text" 1
+   "text valign" center
+  }
+ }
+}

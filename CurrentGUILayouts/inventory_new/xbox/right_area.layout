@@ -1,0 +1,202 @@
+PanelWidgetClass DropzoneX {
+ visible 1
+ clipchildren 0
+ ignorepointer 1
+ color 1 1 1 0
+ position 0 6
+ size 538 0.99
+ halign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 0
+ priority 10
+ scriptclass ""
+ style Outline
+ {
+  ScrollWidgetClass Scroller {
+   visible 1
+   clipchildren 0
+   ignorepointer 0
+   color 0.502 0.502 0.502 0.8
+   size 534 0.95
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 0
+   scriptclass ""
+   style blank
+   "Ignore invisible" 0
+   "Scrollbar V" 1
+   {
+    PanelWidgetClass DropzoneXa {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 10
+     style dashed
+    }
+    FrameWidgetClass ContentParent {
+     visible 0
+     clipchildren 0
+     ignorepointer 1
+     size 513 0
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass "SizeToChild"
+     {
+      ScriptParamsClass {
+       m_ChildName "Content"
+       m_ResizeVertical 1
+      }
+     }
+    }
+    GridSpacerWidgetClass Content {
+     clipchildren 0
+     ignorepointer 1
+     position 0 0.005
+     size 1 0.99
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scriptclass ""
+     style Colorable
+     Padding 8
+     Margin 0
+     "Size To Content V" 1
+     Columns 1
+     Rows 100
+    }
+    PanelWidgetClass Up {
+     visible 1
+     disabled 0
+     clipchildren 0
+     ignorepointer 1
+     size 40 150
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      ImageWidgetClass UpBackground {
+       ignorepointer 1
+       color 0 0 0 0.706
+       position -64 0
+       size 29 50
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:inv_panel_bg"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 0
+       "flip v" 0
+       {
+        GridSpacerWidgetClass GridSpacerWidget0 {
+         ignorepointer 1
+         size 48 48
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         "Size To Content H" 1
+         Columns 1
+         Rows 2
+         {
+          ImageWidgetClass LTArrow {
+           ignorepointer 1
+           position 0 0
+           size 29 29
+           halign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 "set:dayz_gui image:icon_minus"
+           mode blend
+           "src alpha" 1
+          }
+          ImageWidgetClass LTIcon {
+           visible 0
+           ignorepointer 1
+           position 0 24
+           size 32 44.44
+           halign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 "set:xbox_buttons image:LT"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+           "stretch mode" stretch_w_h
+          }
+          ImageWidgetClass RTIcon {
+           visible 0
+           ignorepointer 1
+           position 0 24
+           size 32 44.44
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 "set:xbox_buttons image:RT"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+           "stretch mode" stretch_w_h
+          }
+          ImageWidgetClass RTArrow {
+           ignorepointer 1
+           position 0 0
+           size 29 29
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 "set:dayz_gui image:icon_plus"
+           mode blend
+           "src alpha" 1
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass Down {
+   visible 1
+   disabled 0
+   clipchildren 0
+   ignorepointer 1
+   position 0 50
+   size 36 50
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+ }
+}

@@ -1,0 +1,11 @@
+TextListboxWidgetClass ListRoot {
+ keepsafezone 1
+ size 1 1
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ style Editor
+ lines 1000
+ font "gui/fonts/etelkatextpro22"
+}

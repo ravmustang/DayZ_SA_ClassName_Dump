@@ -1,0 +1,634 @@
+FrameWidgetClass rootFrame {
+ position 0 0
+ size 1 1
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  ImageWidgetClass child0 {
+   position 0 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1 {
+   position 0.125 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child2 {
+   position 0.25 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child3 {
+   position 0.375 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child4 {
+   position 0.5 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child5 {
+   position 0.625 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child6 {
+   position 0.75 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child7 {
+   position 0.875 0
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child8 {
+   position 0 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child9 {
+   position 0.125 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child10 {
+   position 0.25 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child11 {
+   position 0.375 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child12 {
+   position 0.5 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child13 {
+   position 0.625 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child14 {
+   position 0.75 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child15 {
+   position 0.875 0.125
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child16 {
+   visible 1
+   position 0 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child17 {
+   visible 1
+   position 0.125 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child18 {
+   visible 1
+   position 0.25 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child19 {
+   visible 1
+   position 0.375 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child20 {
+   visible 1
+   position 0.5 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child21 {
+   visible 1
+   position 0.625 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child22 {
+   visible 1
+   position 0.75 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child23 {
+   visible 1
+   position 0.875 0.25
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child110 {
+   visible 1
+   position 0 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child111 {
+   visible 1
+   position 0.125 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child112 {
+   visible 1
+   position 0.25 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child113 {
+   visible 1
+   position 0.375 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child24 {
+   visible 1
+   position 0.5 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child25 {
+   visible 1
+   position 0.625 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child26 {
+   visible 1
+   position 0.75 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child27 {
+   visible 1
+   position 0.875 0.375
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child114 {
+   visible 1
+   position 0 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child115 {
+   visible 1
+   position 0.125 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child116 {
+   visible 1
+   position 0.25 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child117 {
+   visible 1
+   position 0.375 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child28 {
+   visible 1
+   position 0.5 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child29 {
+   visible 1
+   position 0.625 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child210 {
+   visible 1
+   position 0.75 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child211 {
+   visible 1
+   position 0.875 0.5
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child118 {
+   visible 1
+   position 0 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child119 {
+   visible 1
+   position 0.125 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1110 {
+   visible 1
+   position 0.25 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1111 {
+   visible 1
+   position 0.375 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child212 {
+   visible 1
+   position 0.5 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child213 {
+   visible 1
+   position 0.625 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child214 {
+   visible 1
+   position 0.75 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child215 {
+   visible 1
+   position 0.875 0.625
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1112 {
+   visible 1
+   position 0 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1113 {
+   visible 1
+   position 0.125 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1114 {
+   visible 1
+   position 0.25 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1115 {
+   visible 1
+   position 0.375 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child216 {
+   visible 1
+   position 0.5 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child217 {
+   visible 1
+   position 0.625 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child218 {
+   visible 1
+   position 0.75 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child219 {
+   visible 1
+   position 0.875 0.75
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1116 {
+   visible 1
+   position 0 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1117 {
+   visible 1
+   position 0.125 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1118 {
+   visible 1
+   position 0.25 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child1119 {
+   visible 1
+   position 0.375 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child2110 {
+   visible 1
+   position 0.5 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child2111 {
+   visible 1
+   position 0.625 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child2112 {
+   visible 1
+   position 0.75 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+  ImageWidgetClass child2113 {
+   visible 1
+   position 0.875 0.875
+   size 0.125 0.125
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   mode blend
+  }
+ }
+}

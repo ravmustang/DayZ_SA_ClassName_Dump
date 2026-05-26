@@ -1,0 +1,55 @@
+WrapSpacerWidgetClass Content {
+ ignorepointer 1
+ size 444 1
+ halign right_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 0
+ Padding 0
+ Margin 0
+ "Size To Content H" 1
+ "Size To Content V" 1
+ content_halign right
+ {
+  FrameWidgetClass ModMore {
+   ignorepointer 0
+   position 0 0
+   size 56 56
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   priority 100
+   {
+    ImageWidgetClass ModMoreImage {
+     visible 1
+     ignorepointer 1
+     position 0 0
+     size 56 56
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:mod_more"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+    }
+    PanelWidgetClass ModMoreOverlay {
+     visible 0
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 6
+     style Outline
+    }
+   }
+  }
+ }
+}

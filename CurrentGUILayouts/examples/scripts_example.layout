@@ -1,0 +1,186 @@
+FrameWidgetClass TabsWidget {
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ scriptclass "Tabber"
+ {
+  PanelWidgetClass ButtonsPanel {
+   position 0.01389 13.10316
+   size 0.97222 59.1727
+   hexactpos 0
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   scriptclass "HorizontalSpacer"
+   style rover_sim_black
+   "no focus" 0
+   {
+    ButtonWidgetClass ButtonWidget0 {
+     position 16 8
+     size 112 32
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Default
+     text "Bouncer"
+    }
+    ButtonWidgetClass ButtonWidget1 {
+     position 136 8
+     size 112 32
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Default
+     text "Spacer"
+    }
+    ButtonWidgetClass ButtonWidget2 {
+     position 256 8
+     size 112 32
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Default
+     text "Rotator"
+    }
+   }
+   {
+    ScriptParamsClass {
+    }
+   }
+  }
+  PanelWidgetClass ContentPanel {
+   position 0.01389 81.72052
+   size 0.97222 0.87523
+   hexactpos 0
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_black
+   {
+    ImageWidgetClass ImageWidget7 {
+     clipchildren 0
+     inheritalpha 1
+     size 0.44909 0.32768
+     halign center_ref
+     valign center_ref
+     scriptclass "Bouncer"
+     image0 "set:dayz_gui image:DayZLogo"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     {
+      ScriptParamsClass {
+       amount 0.1
+       speed 1
+      }
+     }
+    }
+    FrameWidgetClass FrameWidget3 {
+     size 248 352
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass "VerticalSpacer"
+     {
+      ImageWidgetClass ImageWidget8 {
+       clipchildren 0
+       inheritalpha 1
+       position 23.9998 24
+       size 220 104
+       scriptclass "HoverEffect"
+       image0 "set:dayz_gui image:DayZLogo"
+       mode blend
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       {
+        ScriptParamsClass {
+         speed 5
+         amount 0.1
+        }
+       }
+      }
+      ImageWidgetClass ImageWidget9 {
+       clipchildren 0
+       inheritalpha 1
+       position 23.9998 138
+       size 220 104
+       scriptclass "HoverEffect"
+       image0 "set:dayz_gui image:DayZLogo"
+       mode blend
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       {
+        ScriptParamsClass {
+         speed 5
+         amount 0.1
+        }
+       }
+      }
+      ImageWidgetClass ImageWidget10 {
+       clipchildren 0
+       inheritalpha 1
+       position 23.9998 252
+       size 220 104
+       scriptclass "HoverEffect"
+       image0 "set:dayz_gui image:DayZLogo"
+       mode blend
+       "src alpha" 1
+       "no wrap" 1
+       stretch 1
+       {
+        ScriptParamsClass {
+         speed 5
+         amount 0.1
+        }
+       }
+      }
+     }
+     {
+      ScriptParamsClass {
+       border 30
+       gap 10
+      }
+     }
+    }
+    ImageWidgetClass ImageWidget11 {
+     clipchildren 0
+     inheritalpha 1
+     position 0 0
+     size 0.5505 0.43009
+     halign center_ref
+     valign center_ref
+     scriptclass "Rotator"
+     image0 "set:dayz_gui image:DayZLogo"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     {
+      ScriptParamsClass {
+       speed 0.1
+      }
+     }
+    }
+   }
+  }
+ }
+ {
+  ScriptParamsClass {
+   SelectedTab 0
+  }
+ }
+}

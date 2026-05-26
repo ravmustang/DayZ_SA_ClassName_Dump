@@ -1,0 +1,314 @@
+PanelWidgetClass Item {
+ visible 1
+ color 0.1294 0.1294 0.1294 1
+ position 0 104
+ size 1 130
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ scaled 0
+ priority 10
+ style editor_quad
+ {
+  FrameWidgetClass Header {
+   position 0 0
+   size 1 30
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   scaled 0
+   priority 1
+   {
+    CheckBoxWidgetClass CB_Favorite {
+     visible 1
+     position 0.00503 0.167
+     size 0.7 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     userID 165
+     style NewStyle
+     checked 0
+    }
+    ImageWidgetClass IMG_Character {
+     visible 1
+     position 0.065 0.16667
+     size 0.7 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     image0 "set:dayz_gui image:icon_player"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+    }
+    TextWidgetClass TX_ServerName {
+     position 0.1333 0.15
+     size 0.6221 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    ImageWidgetClass IMG_Lock {
+     position 0.09869 0.167
+     size 0.7 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     image0 "set:dayz_gui image:icon_locked_sb"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+    }
+    ImageWidgetClass IMG_DayTime {
+     visible 1
+     position 0.7746 0.15
+     size 0.7 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     image0 "set:dayz_gui image:icon_sun"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+     "flip u" 0
+    }
+    TextWidgetClass TX_Popularity {
+     position 0.8079 0.15
+     size 0.0891 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Normal
+     text "#layout_server_browser_item_popularity"
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text halign" center
+     "text valign" center
+    }
+    TextWidgetClass TX_Ping {
+     position 0.9639 0.15
+     size 0.036 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "#layout_server_browser_item_ping"
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text halign" center
+     "text valign" center
+    }
+    ImageWidgetClass IMG_Expand {
+     position 0.0341 0.1667
+     size 0.7 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     userID 197
+     image0 "set:dayz_gui image:icon_collapse"
+     mode blend
+     "src alpha" 1
+     "no wrap" 1
+    }
+    TextWidgetClass TX_Slots {
+     position 0.902 0.15
+     size 0.056 0.7
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "text halign" center
+     "text valign" center
+    }
+   }
+  }
+  FrameWidgetClass Body {
+   visible 1
+   position 0.00021 0
+   size 0.99959 130
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   scaled 0
+   {
+    TextWidgetClass TX_Description {
+     position 0.00506 0.276
+     size 0.522 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_Shard {
+     position 0.005 0.463
+     size 0.245 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_Mode {
+     position 0.255 0.463
+     size 0.245 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_Version {
+     position 0.505 0.463
+     size 0.245 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_IP {
+     position 0.50661 0.63992
+     size 0.245 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_Battleye {
+     position 0.2553 0.649
+     size 0.245 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_Character {
+     position 0.00531 0.649
+     size 0.245 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_Friends {
+     position 0.005 0.836
+     size 0.629 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass TX_TimeAcc {
+     position 0.7635 0.27
+     size 0.0383 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 0
+     "text halign" center
+     "text valign" center
+    }
+    TextWidgetClass TX_LoginQueue {
+     position 0.8071 0.27
+     size 0.0892 0.115
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     font "gui/fonts/sdf_MetronBook24"
+     "text halign" center
+     "text valign" center
+    }
+   }
+  }
+  PanelWidgetClass separator0 {
+   color 0.1294 0.1294 0.1294 1
+   position 0.80281 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   scaled 0
+   style editor_quad
+  }
+  PanelWidgetClass separator1 {
+   color 0.1294 0.1294 0.1294 1
+   position 0.89838 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   scaled 0
+   style editor_quad
+  }
+  PanelWidgetClass separator2 {
+   color 0.1294 0.1294 0.1294 1
+   position 0.961 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   scaled 0
+   style editor_quad
+  }
+  PanelWidgetClass separator3 {
+   color 0.1294 0.1294 0.1294 1
+   position 0.76075 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   scaled 0
+   style editor_quad
+  }
+ }
+}

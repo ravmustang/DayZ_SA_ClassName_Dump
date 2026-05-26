@@ -1,0 +1,14 @@
+ImageWidgetClass rootFrame {
+ ignorepointer 1
+ position 0 0
+ size 24 24
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ priority 1000
+ imageTexture "{0000B2EA113261D2}Gui/textures/arrow_raw.edds"
+ mode blend
+ "src alpha" 1
+ stretch 1
+}

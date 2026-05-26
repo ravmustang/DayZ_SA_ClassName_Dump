@@ -1,0 +1,120 @@
+WindowWidgetClass HelpWindow {
+ disabled 0
+ inheritalpha 0
+ color 0 0 0 0.502
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ style Colorable
+ {
+  PanelWidgetClass HelpPanel {
+   visible 1
+   clipchildren 1
+   inheritalpha 0
+   position 0.008 0.0656
+   size 0.984 0.87778
+   style rover_sim_black_2
+   {
+    TextWidgetClass HeaderTextWidget {
+     visible 1
+     position 0.014 0.019
+     size 0.97545 36
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     style Normal
+     text "#layout_help_help"
+     "exact text" 1
+     "text valign" center
+    }
+    FrameWidgetClass KeyBindingsFrameWidget {
+     position 0.0145 0.078
+     size 0.48 0.904
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     {
+      TextWidgetClass KeyBindingsMultilineTextWidget {
+       visible 1
+       position 0 0
+       size 1 27
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       style Normal
+       text "#layout_help_key_bindings"
+       "exact text" 1
+       "text valign" center
+      }
+      TextListboxWidgetClass KeyBindingsTextListboxWidget {
+       disabled 1
+       clipchildren 0
+       position 0 0.061
+       size 1 0.93
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       "title visible" 0
+       colums "text;25;text2;75"
+       font "gui/fonts/AmorSerifPro-Bold16"
+      }
+     }
+    }
+    FrameWidgetClass MouseBindingsFrameWidget {
+     position 0.51 0.078
+     size 0.48 0.8999
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     {
+      TextWidgetClass MouseBindingsMultilineTextWidget {
+       visible 1
+       position 0 0
+       size 1 27
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       style Normal
+       text "#layout_help_mouse_bindings"
+       "exact text" 1
+       "text valign" center
+      }
+      TextListboxWidgetClass MouseBindingsTextListboxWidget {
+       disabled 1
+       clipchildren 0
+       position 0 0.061
+       size 1 0.93
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       "title visible" 0
+       colums "text;25;text2;75"
+       font "gui/fonts/AmorSerifPro-Bold16"
+      }
+     }
+    }
+   }
+  }
+  ButtonWidgetClass CloseButtonWidget {
+   visible 1
+   position 0.00849 0.01545
+   size 0.22 20
+   halign right_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   userID 0
+   style Default
+   text "#layout_help_close"
+   switch once
+  }
+ }
+}

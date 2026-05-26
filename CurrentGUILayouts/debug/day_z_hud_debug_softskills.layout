@@ -1,0 +1,83 @@
+PanelWidgetClass PaneSoftSkills {
+ visible 1
+ position 10 10
+ size 358 478
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  TextWidgetClass SpecialtyTotal {
+   visible 0
+   position 6 22
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass ComponentBonusAfter {
+   visible 0
+   position 6 94
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass CoolDown {
+   visible 0
+   position 6 166
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass IsCoolDown {
+   visible 0
+   position 6 190
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass ComponentBonusBefore {
+   visible 0
+   position 6 70
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass SpecialtyChange {
+   visible 0
+   position 6 46
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass GeneralBonusAfter {
+   visible 0
+   position 6 142
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  TextWidgetClass GeneralBonusBefore {
+   visible 0
+   position 6 118
+   size 352 24
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+ }
+}

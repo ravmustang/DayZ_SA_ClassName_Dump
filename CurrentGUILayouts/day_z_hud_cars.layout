@@ -1,0 +1,582 @@
+PanelWidgetClass VehiclePanel {
+ clipchildren 0
+ position 1 40
+ size 457 218
+ valign bottom_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ fixaspect fixwidth
+ priority 1
+ {
+  PanelWidgetClass SpeedPanel {
+   visible 1
+   clipchildren 0
+   size 214 201
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style blank
+   {
+    ImageWidgetClass SpeedDial {
+     clipchildren 0
+     color 0.6275 0.6275 0.6275 1
+     size 195 164
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 ""
+     imageTexture "{DD4435A772DFE53F}Gui/textures/cardial_big.edds"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+    }
+    ImageWidgetClass SpeedPointer {
+     visible 1
+     clipchildren 0
+     position 0 -0.15
+     size 18 111
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:large_pointer"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+     pivot 0.5 0.77
+    }
+    TextWidgetClass SpeedValue {
+     position 0 16
+     size 1 36
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style None
+     text "124"
+     font "gui/fonts/sdf_MetronBook72"
+     "shadow offset" 0.5 0.5
+     "exact text" 0
+     "exact text size" 30
+     "size to text h" 0
+     "size to text v" 0
+     "text halign" center
+     "text valign" center
+    }
+    TextWidgetClass SpeedLabel {
+     size 1 18
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style None
+     text "km/h"
+     font "gui/fonts/sdf_MetronBook72"
+     "shadow offset" 1 1
+     "exact text" 0
+     "size to text h" 0
+     "size to text v" 0
+     "text halign" center
+     "text valign" center
+    }
+    ImageWidgetClass BatteryLight {
+     visible 0
+     position 0 -45
+     size 38 38
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:battery"
+     mode blend
+     "src alpha" 1
+    }
+    ImageWidgetClass WheelLight {
+     position -50.5423 -13.2674
+     size 44 33
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:blokedWheel"
+     mode blend
+     "src alpha" 1
+    }
+    ImageWidgetClass HandBrakeLight {
+     position 45 -15
+     size 40 34
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:handBrake"
+     mode blend
+     "src alpha" 1
+    }
+   }
+  }
+  PanelWidgetClass CenterIndicators {
+   visible 1
+   clipchildren 0
+   size 68 1
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 0
+   style blank
+   "no focus" 0
+   {
+    PanelWidgetClass FuelIndicator {
+     visible 1
+     size 68 80
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style blank
+     {
+      ImageWidgetClass FuelDial {
+       color 0.6275 0.6275 0.6275 1
+       position 0 0
+       size 68 56
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 ""
+       imageTexture "{22721E7344C22D6A}Gui/textures/cardial_small.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 1
+       Mask "{48BFB4B086E16C62}Gui/textures/cardial_small_mask.edds"
+       "Transition width" 0.8
+       Progress 0.75
+      }
+      ImageWidgetClass FuelDialLow {
+       color 1 0 0 1
+       position 0 0
+       size 68 56
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 1
+       image0 ""
+       imageTexture "{22721E7344C22D6A}Gui/textures/cardial_small.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 0
+       Mask "{48BFB4B086E16C62}Gui/textures/cardial_small_mask.edds"
+       "Transition width" 0.2
+       Progress 0.25
+      }
+      ImageWidgetClass FuelPointer {
+       clipchildren 0
+       position 0 -0.15
+       size 13 40
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:small_pointer"
+       mode blend
+       "src alpha" 1
+       filter 1
+       rotation 0 0 -40
+       pivot 0.5 0.7
+      }
+      ImageWidgetClass FuelLight {
+       size 30 30
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       fixaspect inside
+       image0 "set:dayz_gui image:fuel"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       filter 1
+       nocache 0
+      }
+     }
+    }
+    PanelWidgetClass TemperatureIndicator {
+     visible 1
+     position 0 0
+     size 68 80
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style blank
+     {
+      ImageWidgetClass TemperatureDial {
+       color 0.6275 0.6275 0.6275 1
+       position 0 0
+       size 68 56
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 ""
+       imageTexture "{22721E7344C22D6A}Gui/textures/cardial_small.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 1
+       Mask "{48BFB4B086E16C62}Gui/textures/cardial_small_mask.edds"
+       "Transition width" 0
+      }
+      ImageWidgetClass TemperatureDialLow {
+       visible 1
+       color 1 0 0 1
+       size 68 56
+       halign right_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 1
+       image0 ""
+       imageTexture "{22721E7344C22D6A}Gui/textures/cardial_small.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 1
+       Mask "{48BFB4B086E16C62}Gui/textures/cardial_small_mask.edds"
+       "Transition width" 0.2
+       Progress 0.3
+      }
+      ImageWidgetClass TemperatureDialHigh {
+       visible 0
+       color 1 0 0 1
+       position 0 0
+       size 68 56
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 1
+       image0 ""
+       imageTexture "{22721E7344C22D6A}Gui/textures/cardial_small.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 1
+       Mask "{48BFB4B086E16C62}Gui/textures/cardial_small_mask.edds"
+       "Transition width" 0.2
+       Progress 0.3
+      }
+      ImageWidgetClass TemperaturePointer {
+       clipchildren 0
+       position 0 -0.15
+       size 13 40
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:small_pointer"
+       mode blend
+       "src alpha" 1
+       rotation 0 0 20
+       pivot 0.5 0.7
+      }
+      ImageWidgetClass TemperatureLight {
+       size 30 30
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       fixaspect inside
+       image0 "set:dayz_gui image:liquid"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       filter 1
+       nocache 0
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass VehicleHudBg {
+   color 0 0 0 1
+   size 1.2 1.2
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{203A18D5F4B1DBF9}Gui/imagesets/vehicle_hud_shadow.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+  }
+  PanelWidgetClass RpmPanel {
+   clipchildren 0
+   size 214 201
+   halign right_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style blank
+   {
+    ImageWidgetClass RPMDial {
+     clipchildren 1
+     color 0.6275 0.6275 0.6275 1
+     size 195 164
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 ""
+     imageTexture "{DD4435A772DFE53F}Gui/textures/cardial_big.edds"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+     Mask "{A794C8AEB6A0287B}Gui/textures/cardial_big_mask.edds"
+     "Transition width" 0
+     Progress 0.8
+     {
+      ImageWidgetClass RPMDialRedline {
+       visible 1
+       clipchildren 0
+       color 1 0 0 1
+       position 0 0
+       size 1 1
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       priority 1
+       image0 ""
+       imageTexture "{DD4435A772DFE53F}Gui/textures/cardial_big.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 1
+       filter 1
+       nocache 0
+       pivot 0 0
+       Mask "{A794C8AEB6A0287B}Gui/textures/cardial_big_mask.edds"
+       "Transition width" 0
+       Progress 0.2
+      }
+      ImageWidgetClass RPMDialOptimal {
+       visible 0
+       clipchildren 0
+       color 1 1 1 0.7843
+       size 1 1
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       image0 ""
+       imageTexture "{DD4435A772DFE53F}Gui/textures/cardial_big.edds"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+       "flip u" 1
+       "flip v" 0
+       filter 1
+       nocache 0
+       pivot 0 0
+       Mask "{A794C8AEB6A0287B}Gui/textures/cardial_big_mask.edds"
+       "Transition width" 0
+       Progress 0.8
+      }
+     }
+    }
+    ImageWidgetClass RPMPointer {
+     visible 1
+     clipchildren 0
+     position 0 -0.15
+     size 18 111
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:large_pointer"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+     rotation 0 0 -90
+     pivot 0.5 0.77
+    }
+    TextWidgetClass RPMLabel {
+     clipchildren 0
+     size 1 18
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style None
+     text "r/min"
+     font "gui/fonts/sdf_MetronBook72"
+     "shadow offset" 1 1
+     "italic text" 0
+     "exact text" 0
+     "size to text h" 0
+     "size to text v" 0
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass GearsIndicator {
+     clipchildren 0
+     position 0 16
+     size 0.4 0.4
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style blank
+     {
+      TextWidgetClass Current {
+       size 0.33 0.5
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style None
+       text "3"
+       font "gui/fonts/sdf_MetronBook72"
+       "shadow offset" 2 2
+       "bold text" 1
+       "exact text" 0
+       "text halign" center
+      }
+      TextWidgetClass Prev {
+       color 0.6824 0.6824 0.6824 1
+       position -0.33 0.05
+       size 0.33 0.4
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Normal
+       text "2"
+       font "gui/fonts/sdf_MetronBook72"
+       "shadow offset" 1 1
+       "italic text" 0
+       "exact text" 0
+       "text halign" center
+      }
+      TextWidgetClass Next {
+       color 0.6824 0.6824 0.6824 1
+       position 0.33 0.05
+       size 0.33 0.4
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style None
+       text "4"
+       font "gui/fonts/sdf_MetronBook72"
+       "shadow offset" 1 1
+       "exact text" 0
+       "text halign" center
+      }
+     }
+    }
+    ImageWidgetClass EngineLight {
+     position -45 -15
+     size 38 38
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:icon_engine_alert"
+     mode blend
+     "src alpha" 1
+    }
+    ImageWidgetClass OilLight {
+     visible 0
+     position 45 -15
+     size 50 38
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:dayz_gui image:oil"
+     mode blend
+     "src alpha" 1
+    }
+   }
+  }
+ }
+}

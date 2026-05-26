@@ -1,0 +1,20 @@
+PanelWidgetClass rootFrame {
+ position 0 0
+ size 215.39101 13.2589
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  CheckBoxWidgetClass Item {
+   position 0 0
+   size 209.636 11.9729
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   text "tst"
+  }
+ }
+}

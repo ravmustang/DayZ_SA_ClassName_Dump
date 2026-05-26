@@ -1,0 +1,27 @@
+FrameWidgetClass rootFrame {
+ visible 0
+ disabled 0
+ clipchildren 0
+ position 10 9
+ size 169 155
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  TextListboxWidgetClass TextListboxWidget1 {
+   visible 0
+   clipchildren 0
+   position 4 2
+   size 163 150
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style NoScrollBar
+   "title visible" 1
+   colums "Health;33;Blood;33;Shock;34;"
+   font "gui/fonts/Metron-Bold12"
+  }
+ }
+}

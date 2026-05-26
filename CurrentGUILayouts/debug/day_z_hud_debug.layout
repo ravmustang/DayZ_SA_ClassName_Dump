@@ -1,0 +1,724 @@
+FrameWidgetClass HudDebugFrameWidget {
+ position 0 0
+ size 1 1
+ halign right_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ priority 1
+ draggable 0
+ {
+  WindowWidgetClass wdw_CharacterStats {
+   visible 1
+   position 0.005 0.04
+   size 0.25 273.673
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   style rover_sim_black_2
+   "title visible" 0
+   font "gui/fonts/MetronBook16"
+   {
+    TextWidgetClass txt_CharStats_Title {
+     disabled 0
+     position 7 4
+     size 0.9 22
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Normal
+     text "Character Stats"
+     font "gui/fonts/MetronBook22"
+     "exact text" 1
+     "text valign" center
+    }
+    TextListboxWidgetClass txl_CharStats_Values {
+     disabled 1
+     position 4.03289 30
+     size 388.332 192.735
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     colums "text;75;text2;25;"
+     lines 0
+     font "gui/fonts/MetronBook16"
+    }
+    ButtonWidgetClass ResetStats {
+     size 27.0427 24.2484
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "R"
+     font "gui/fonts/MetronBlack22"
+    }
+    PanelWidgetClass Stats {
+     ignorepointer 0
+     position 3.64167 34.37
+     size 387.32098 26.7658
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass "AutoHeightSpacer"
+     {
+      ScriptParamsClass {
+       AlignChilds 1
+       MinHeight 20
+      }
+     }
+    }
+   }
+  }
+  WindowWidgetClass wdw_CharacterModifiers {
+   position 8.21902 0.0378
+   size 325.104 1034.12
+   halign right_ref
+   hexactpos 1
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   draggable 1
+   scriptclass "AutoHeightSpacer"
+   style rover_sim_black_2
+   "title visible" 0
+   font "gui/fonts/MetronBook16"
+   {
+    TextWidgetClass txt_CharModifiers_Title {
+     disabled 0
+     inheritalpha 0
+     ignorepointer 0
+     keepsafezone 0
+     position 8 5
+     size 0.9 22
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Character Modifiers"
+     font "gui/fonts/MetronBook22"
+     "exact text" 1
+     "text valign" center
+    }
+    PanelWidgetClass pnl_CharModifiers_Values {
+     disabled 1
+     position 6.34521 33.3274
+     size 293.53699 21.4759
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass "AutoHeightSpacer"
+     {
+      ScriptParamsClass {
+       AlignChilds 1
+       MinHeight 20
+      }
+     }
+    }
+    ButtonWidgetClass ResetModifiers {
+     position 272.81601 2.87175
+     size 27.0427 24.2484
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "R"
+     font "gui/fonts/MetronBlack22"
+    }
+   }
+  }
+  WindowWidgetClass wdw_CharacterDebug {
+   clipchildren 1
+   position 0 0
+   size 704 36
+   halign right_ref
+   hexactpos 1
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_black_2
+   font "gui/fonts/MetronBook16"
+   {
+    TextWidgetClass txt_PlayerPos {
+     position 21 8
+     size 170 19
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Pos:"
+     font "gui/fonts/MetronBook12"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass txt_Clipboard {
+     position 204 8
+     size 495 19
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "Clipboard:"
+     font "gui/fonts/MetronBook12"
+     "exact text" 1
+     "text valign" center
+    }
+   }
+  }
+  PanelWidgetClass wdw_Crosshair {
+   visible 0
+   size 1 0.03
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   {
+    ImageWidgetClass img_crosshair {
+     inheritalpha 1
+     position 0 0
+     size 0.01 0.01
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect inside
+     image0 "set:ccgui_enforce image:MapDroid"
+     mode blend
+     "src alpha" 1
+     "stretch mode" stretch_w_h
+    }
+   }
+  }
+  WindowWidgetClass wdw_CharacterAgents {
+   visible 1
+   position 358 50
+   size 400 220
+   halign right_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style rover_sim_black_2
+   "title visible" 0
+   font "gui/fonts/MetronBook16"
+   {
+    PanelWidgetClass AgentList {
+     ignorepointer 1
+     position 2 32.2504
+     size 396 20
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass "AutoHeightSpacer"
+     {
+      ScriptParamsClass {
+       AlignChilds 1
+       MinHeight 20
+      }
+     }
+    }
+    TextWidgetClass txt_CharAgents_Title {
+     disabled 0
+     position 8 4
+     size 0.9 22
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Normal
+     text "Character Agents"
+     font "gui/fonts/MetronBook22"
+     "exact text" 1
+     "text valign" center
+    }
+    ButtonWidgetClass ResetAgents {
+     size 48 48
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "R"
+     font "gui/fonts/MetronBlack22"
+    }
+   }
+  }
+  WindowWidgetClass wdw_CharacterLevels {
+   ignorepointer 1
+   position 0.01 0.0372
+   size 0.3876 0.2305
+   halign right_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_black_2
+   {
+    TextWidgetClass txt_CharLvels_Title {
+     position 7.18 5.8764
+     size 156.40199 27.9257
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     text "Player Levels"
+     font "gui/fonts/sdf_MetronBook24"
+     "exact text" 1
+    }
+    TextListboxWidgetClass txl_CharLevels_Values {
+     visible 1
+     disabled 1
+     clipchildren 0
+     ignorepointer 1
+     position 7.18 42
+     size 0.98 0.7927
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     style NoScrollBar
+     "title visible" 1
+     colums "Category;45;Num.Level;20;Progression;55;"
+     lines 15
+     font "gui/fonts/sdf_MetronBook24"
+    }
+   }
+  }
+  WindowWidgetClass wdw_CharacterStomach {
+   disabled 0
+   clipchildren 1
+   ignorepointer 0
+   position 13.8735 18.1423
+   size 1042 418
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scaled 1
+   style rover_sim_black_2
+   {
+    TextWidgetClass TextWidget0 {
+     disabled 0
+     ignorepointer 0
+     position 343.88498 11.47
+     size 238.013 37.22
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     text "Player Stomach"
+    }
+    TextListboxWidgetClass txl_StomachContents {
+     disabled 1
+     clipchildren 0
+     position 0.01512 0.15202
+     size 0.9635 0.7508
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scaled 0
+     draggable 0
+     style Default
+     "title visible" 1
+     colums "class;20;amount;8;stage;8;temperature;14;(agent_types) names;20;"
+     lines 0
+     "highlight row" 1
+    }
+    TextWidgetClass InfoOverall {
+     ignorepointer 1
+     position 7.95257 376.08899
+     size 1025.55005 36.2609
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+    }
+   }
+  }
+  WindowWidgetClass wdw_Version {
+   clipchildren 1
+   position 0.005 0.005
+   size 0.25 36
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   style rover_sim_black_2
+   {
+    TextWidgetClass txt_Version {
+     position 0.005 0.005
+     size 0.98 0.98
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "Version:"
+     font "gui/fonts/MetronBook22"
+     "exact text" 1
+     "text valign" center
+    }
+   }
+  }
+  WindowWidgetClass wdw_Temp {
+   clipchildren 1
+   position 0.5 2
+   size 350 39
+   hexactpos 0
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scriptclass "AutoHeightSpacer"
+   style rover_sim_black_2
+   {
+    TextWidgetClass txt_Temp {
+     visible 1
+     clipchildren 1
+     position 2 2
+     size 185 28
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scriptclass ""
+     text "Environment debug"
+     font "gui/fonts/MetronBook-Italic16"
+     "exact text" 1
+    }
+   }
+   {
+    ScriptParamsClass {
+     MinHeight 100
+    }
+   }
+  }
+  WindowWidgetClass wdw_Health {
+   ignorepointer 0
+   position 8 100
+   size 600 650
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   scriptclass "Horizo"
+   style rover_sim_black_2
+   "title visible" 0
+   font "gui/fonts/MetronBook16"
+   {
+    TextWidgetClass txt_Health_Title {
+     clipchildren 0
+     ignorepointer 1
+     position 0.01 10
+     size 0.4 28
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Health Debug"
+    }
+    ScrollWidgetClass HealthPanelScroll {
+     ignorepointer 0
+     position 0.01 0.1
+     size 1 0.88
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scriptclass ""
+     "Scrollbar V" 1
+     {
+      PanelWidgetClass HealthPanel {
+       ignorepointer 0
+       position 0 0
+       size 1 10
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       scriptclass "AutoHeightSpacer"
+       {
+        ScriptParamsClass {
+         AlignChilds 1
+         MinHeight 20
+        }
+       }
+      }
+     }
+    }
+    ButtonWidgetClass ButtonSelf {
+     position 0.5 10
+     size 0.2 24
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Self"
+    }
+    ButtonWidgetClass ButtonTarget {
+     position 0.7 10
+     size 0.2 24
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Target"
+    }
+    TextWidgetClass txt_TargetName {
+     clipchildren 0
+     ignorepointer 1
+     color 0.3725 0.749 0.749 1
+     position 0.5 34
+     size 0.4 24
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "TargetDisplayName"
+     "text color" 0.3725 0.749 0.749 1
+     "text halign" center
+     "text valign" center
+    }
+   }
+  }
+  WindowWidgetClass wdw_Horticulture {
+   clipchildren 1
+   position 0.255 0.00588
+   size 0.24 240
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   scriptclass ""
+   style rover_sim_black_2
+   {
+    TextWidgetClass txt_Horticulture_Title {
+     clipchildren 0
+     ignorepointer 1
+     position 5 0.015
+     size 0.4 28
+     hexactpos 1
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "Horticulture Debug"
+    }
+    TextWidgetClass txt_Maturity {
+     clipchildren 0
+     ignorepointer 1
+     position 0.01 45
+     size 0.45 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Plant -> Maturity:"
+    }
+    TextWidgetClass txt_Spoil {
+     clipchildren 0
+     ignorepointer 1
+     position 0.01 75
+     size 0.45 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Maturity -> Spoil:"
+    }
+    TextWidgetClass txt_SpoilRemove {
+     clipchildren 0
+     ignorepointer 1
+     position 0.01 105
+     size 0.45 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Spoil -> Removal:"
+    }
+    TextWidgetClass txt_DryRemove {
+     clipchildren 0
+     ignorepointer 1
+     position 0.01 135
+     size 0.45 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     text "Dry -> Removal:"
+    }
+    TextWidgetClass txt_HintSeconds {
+     clipchildren 0
+     ignorepointer 1
+     color 0.5843 0.5843 0.5843 1
+     position 0.5 0.08
+     size 0.15 20
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "(seconds)"
+     font "gui/fonts/MetronBook-Italic"
+    }
+    EditBoxWidgetClass FullMaturityEBox {
+     position 0.5 45
+     size 0.15 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Default
+     text "0"
+    }
+    EditBoxWidgetClass SpoilEBox {
+     position 0.5 75
+     size 0.15 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Default
+     text "0"
+    }
+    EditBoxWidgetClass SpoilRemoveEBox {
+     position 0.5 105
+     size 0.15 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Default
+     text "0"
+    }
+    EditBoxWidgetClass DryRemoveEBox {
+     position 0.5 135
+     size 0.15 22
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style Default
+     text "0"
+    }
+    ButtonWidgetClass ButtonUpdate {
+     clipchildren 0
+     position 0.67 0.22
+     size 0.3 40
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "Update Defaults"
+     text_proportion 0.5
+     "text color" 0.6235 0.5059 0.1569 1
+    }
+    ButtonWidgetClass ButtonUpdateTarget {
+     clipchildren 0
+     position 0.67 0.47
+     size 0.3 40
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "Update Target"
+     text_proportion 0.5
+     "text color" 0.6235 0.5059 0.1569 1
+    }
+    ButtonWidgetClass ButtonReset {
+     visible 1
+     position 0.01 0.01
+     size 0.08 0.15
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "R"
+     font "gui/fonts/MetronBlack22"
+    }
+    ButtonWidgetClass ButtonSetAll {
+     clipchildren 0
+     position 0.01 0.7
+     size 0.45 22
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "Set All Above"
+     text_halign left
+     "text color" 0.8118 0.7373 0.5059 1
+    }
+    EditBoxWidgetClass SetAllEBox {
+     position 0.5 0.7
+     size 0.15 22
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     style Default
+     text "5"
+    }
+    ButtonWidgetClass ButtonSpeed {
+     clipchildren 0
+     position 0.67 0.84
+     size 0.3 22
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "Update speed"
+     "text color" 0.6235 0.5059 0.1569 1
+    }
+    TextWidgetClass txt_Speed {
+     clipchildren 1
+     ignorepointer 1
+     position 0.01 0.84
+     size 0.45 22
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "Global speed multiplier:"
+    }
+    EditBoxWidgetClass SpeedEBox {
+     clipchildren 0
+     position 0.5 0.84
+     size 0.15 22
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     style Default
+     text "1"
+    }
+    TextWidgetClass txt_Speed0 {
+     clipchildren 0
+     ignorepointer 1
+     position 0.47 0.84
+     size 0.03 24
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     text "x"
+    }
+   }
+  }
+ }
+}

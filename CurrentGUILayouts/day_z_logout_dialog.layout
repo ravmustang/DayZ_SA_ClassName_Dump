@@ -1,0 +1,264 @@
+WindowWidgetClass LogoutDialogRoot {
+ visible 1
+ clipchildren 1
+ inheritalpha 0
+ color 0.1176 0.1176 0.1176 0.9804
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 960
+ style Default
+ {
+  GridSpacerWidgetClass LogoutDialogPanel {
+   color 0.1176 0.1176 0.1176 0.9804
+   position 0 0
+   size 0.45 0.3
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   scaled 1
+   style Colorable
+   Padding 10
+   Margin 10
+   "Size To Content V" 1
+   content_halign center
+   Columns 1
+   Rows 5
+   {
+    TextWidgetClass txtLogoutTime {
+     visible 1
+     clipchildren 0
+     position 0 20
+     size 0.95 0.22
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style Bold
+     text "Logout in"
+     font "gui/fonts/sdf_MetronBook72"
+     "text color" 1 1 1 1
+     "exact text" 1
+     "exact text size" 32
+     "size to text v" 1
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass SeparatorPanel {
+     color 0.7569 0.0941 0.0941 0.7843
+     position 0 0
+     size 0.85 0.015
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     priority 5
+     style rover_sim_colorable
+    }
+    PanelWidgetClass MidFillerTop {
+     ignorepointer 1
+     size 1 10
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     priority 6
+    }
+    MultilineTextWidgetClass txtDescription {
+     color 1 1 1 1
+     position 0 0
+     size 0.95 0.46
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 10
+     text " "
+     font "gui/fonts/sdf_MetronLight72"
+     "exact text" 1
+     "exact text size" 20
+     "size to text h" 0
+     "size to text v" 1
+     "text halign" center
+     wrap 1
+     "condense whitespace" 1
+    }
+    PanelWidgetClass MidFillerBottom {
+     ignorepointer 1
+     size 1 10
+     halign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     priority 11
+    }
+    PanelWidgetClass PanelWidget0 {
+     ignorepointer 1
+     position 10 10
+     size 48 36
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 15
+     {
+      ButtonWidgetClass bLogoutNow {
+       visible 1
+       inheritalpha 0
+       color 1 0 0 1
+       position 100 0
+       size 0.25 0.85
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style EmptyHighlight
+       text "#layout_day_z_dialog_exit"
+       text_proportion 0.55
+       font "gui/fonts/sdf_MetronBook24"
+      }
+      ButtonWidgetClass bCancel {
+       visible 1
+       inheritalpha 0
+       color 1 0 0 1
+       position 100 0
+       size 0.25 0.85
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style EmptyHighlight
+       text "#cancel"
+       text_proportion 0.55
+       font "gui/fonts/sdf_MetronBook24"
+      }
+      ButtonWidgetClass bCancelConsole {
+       visible 0
+       inheritalpha 0
+       color 1 0 0 1
+       size 0.25 0.85
+       halign center_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style EmptyHighlight
+       text "#cancel"
+       text_proportion 0.55
+       font "gui/fonts/sdf_MetronBook24"
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass toolbar_bg {
+   visible 0
+   inheritalpha 0
+   color 0 0 0 0.549
+   position 0 0
+   size 1 0.1
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 1
+   style ToolbarWidget
+   {
+    WrapSpacerWidgetClass ConsoleToolbar {
+     visible 1
+     clipchildren 0
+     position 100 11
+     size 800 48
+     halign right_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     priority 100
+     "no focus" 1
+     Padding 20
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     content_halign right
+     content_valign center
+     {
+      GridSpacerWidgetClass Back {
+       clipchildren 0
+       size 0 48
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 1
+       Padding 5
+       Margin 0
+       "Size To Content H" 1
+       content_valign center
+       Columns 2
+       Rows 1
+       {
+        RichTextWidgetClass BackIcon {
+         clipchildren 0
+         inheritalpha 0
+         position 0 0
+         size 48 48
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         text "BackIconData"
+         font "gui/fonts/sdf_MetronBook24"
+         "exact text" 1
+         "exact text size" 24
+         "size to text h" 1
+         "size to text v" 1
+         "text valign" center
+        }
+        TextWidgetClass BackText {
+         clipchildren 0
+         position 40 0
+         size 80 48
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "#cancel"
+         font "gui/fonts/sdf_MetronLight42"
+         "exact text" 1
+         "exact text size" 22
+         "size to text h" 1
+         "size to text v" 0
+         "text valign" center
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

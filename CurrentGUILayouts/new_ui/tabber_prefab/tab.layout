@@ -1,0 +1,21 @@
+FrameWidgetClass Tab_x {
+ visible 0
+ position 80 160
+ size 1760 800
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  ImageWidgetClass test {
+   visible 0
+   ignorepointer 1
+   position 0 0
+   size 48 48
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+ }
+}

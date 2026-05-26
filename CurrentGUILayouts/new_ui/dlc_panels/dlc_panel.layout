@@ -1,0 +1,231 @@
+FrameWidgetClass rootFrame {
+ position 0 0
+ size 1 1
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass dlc_Panel {
+   visible 1
+   clipchildren 0
+   color 0 0 0 0.549
+   size 444 548.31
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   priority 5
+   draggable 0
+   scriptclass ""
+   style DayZDefaultPanel
+   {
+    ImageWidgetClass dlc_header {
+     ignorepointer 1
+     color 0 0 0 0.6275
+     position 0 0
+     size 1 42
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     image0 "set:dayz_gui image:inv_header_1"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     "flip u" 0
+     "flip v" 0
+     filter 1
+     nocache 0
+     {
+      TextWidgetClass dlc_title {
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scaled 1
+       style Normal
+       text "header_text"
+       font "gui/fonts/sdf_MetronLight42"
+       "exact text" 1
+       "exact text size" 22
+       "size to text h" 0
+       "size to text v" 0
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    VideoWidgetClass dlc_Video {
+     visible 0
+     ignorepointer 1
+     ignoregloballv 1
+     color 0.549 0.549 0.549 1
+     position 0.04 0.11
+     size 0.92 0.42
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 11
+     mode opaque
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     "outline size" 1
+     "outline color" 0 0 0 1
+     "background color" 0 0 0 0.6824
+     {
+      FrameWidgetClass dlc_BannerFrameVideo {
+       ignorepointer 1
+       position 0 0.12
+       size 1 32
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+      }
+     }
+    }
+    ImageWidgetClass dlc_ImageMain {
+     ignorepointer 1
+     ignoregloballv 1
+     position 0.04 0.11
+     size 0.92 0.42
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 11
+     imageTexture "{E0C0E089DAF634B7}Gui/textures/dlc_panel_frostline.edds"
+     mode opaque
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     {
+      FrameWidgetClass dlc_BannerFrame {
+       ignorepointer 1
+       position 0 0.12
+       size 1 32
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+      }
+     }
+    }
+    MultilineTextWidgetClass dlc_Description {
+     ignorepointer 1
+     position 0.04 0.57
+     size 0.92 0.2
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "description_text"
+     font "gui/fonts/sdf_MetronLight72"
+     "exact text" 1
+     "exact text size" 18
+     "size to text v" 1
+     wrap 1
+    }
+    PanelWidgetClass dlc_Separator {
+     clipchildren 0
+     ignorepointer 1
+     color 0.7843 0 0 1
+     position 0 0.92
+     size 1 2
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     style rover_sim_colorable
+    }
+    ButtonWidgetClass dlc_openStore {
+     color 0 0 0 0
+     position 0 0.927
+     size 1 0.075
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 1
+     style Empty
+     "no focus" 0
+     "next left" ""
+     "next right" ""
+     "next up" ""
+     "next down" ""
+     {
+      PanelWidgetClass dlc_openStore_panel {
+       ignorepointer 1
+       color 0 0 0 0.549
+       position 0 -0.05
+       size 1 40
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       style DayZDefaultPanel
+       {
+        TextWidgetClass dlc_openStore_label {
+         clipchildren 0
+         ignorepointer 1
+         position 0 0
+         size 1 22
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 1
+         text "#dlc_open_store"
+         font "gui/fonts/sdf_MetronLight24"
+         "exact text" 0
+         "text halign" center
+         "text valign" center
+         {
+          ImageWidgetClass image_button_xbox {
+           visible 0
+           ignorepointer 1
+           position 0.04 0
+           size 0.065 1.3
+           halign right_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           image0 "set:xbox_buttons image:X"
+           mode blend
+           "src alpha" 1
+          }
+          ImageWidgetClass image_button_ps {
+           visible 0
+           ignorepointer 1
+           position 0.04 0
+           size 0.065 1.3
+           halign right_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           image0 "set:playstation_buttons image:square"
+           mode blend
+           "src alpha" 1
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,460 @@
+FrameWidgetClass inventory_root {
+ clipchildren 0
+ color 0 0 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ priority 1
+ {
+  FrameWidgetClass InventoryFrameWidget {
+   clipchildren 0
+   ignorepointer 0
+   size 0.9 0.9
+   halign center_ref
+   valign center_ref
+   priority 1
+   {
+    FrameWidgetClass InventoryFrameWidgetInside {
+     clipchildren 0
+     ignorepointer 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     priority 1
+     {
+      WindowWidgetClass InventoryWindow {
+       visible 1
+       clipchildren 0
+       inheritalpha 1
+       ignorepointer 0
+       position 0 0
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       fixaspect none
+       priority 1
+       style Default
+       "no focus" 0
+       "title visible" 0
+       font "gui/fonts/AmorSerifPro16"
+       "text color" 1 1 0 1
+       {
+        PanelWidgetClass LeftPanel {
+         clipchildren 1
+         ignorepointer 1
+         position 0 20
+         size 380 0.9
+         hexactpos 0
+         vexactpos 1
+         hexactsize 1
+         vexactsize 0
+         priority 101
+         scriptclass ""
+         style blank
+         "no focus" 1
+        }
+        PanelWidgetClass RightPanel {
+         clipchildren 1
+         ignorepointer 1
+         position 0 20
+         size 391 0.9
+         halign right_ref
+         hexactpos 0
+         vexactpos 1
+         hexactsize 1
+         vexactsize 0
+         priority 101
+         style blank
+        }
+        PanelWidgetClass CenterPanel {
+         visible 1
+         clipchildren 0
+         ignorepointer 1
+         color 1 1 1 0
+         position 0 20
+         size 372 0.9
+         halign center_ref
+         hexactpos 0
+         vexactpos 1
+         hexactsize 1
+         vexactsize 0
+         priority 1
+         style blank
+         {
+          FrameWidgetClass CharacterPanel {
+           visible 1
+           disabled 0
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 0
+           position 0 0
+           size 1 660
+           halign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           fixaspect none
+           priority 0
+           {
+            FrameWidgetClass CursorCharacter {
+             visible 0
+             position 0 0
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             priority 100
+            }
+           }
+          }
+          ScrollWidgetClass HandsPanel {
+           visible 1
+           disabled 0
+           clipchildren 1
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           color 0.196 0.196 0.196 0.392
+           size 372 0
+           halign center_ref
+           valign bottom_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           fixaspect none
+           priority 100
+           scriptclass "SizeToChild"
+           "Scrollbar V" 1
+           {
+            FrameWidgetClass DropzoneX {
+             visible 0
+             clipchildren 0
+             ignorepointer 1
+             position 0 0
+             size 1 1
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+            }
+           }
+           {
+            ScriptParamsClass {
+             m_ChildName "Content"
+             m_ResizeVertical 1
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass CenterBackground {
+         visible 1
+         clipchildren 0
+         ignorepointer 0
+         color 0.196 0 0 0
+         size 400 1.2
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 1
+         vexactsize 0
+         draggable 0
+         style rover_sim_colorable
+         "no focus" 0
+        }
+       }
+      }
+     }
+    }
+    PlayerPreviewWidgetClass CharacterPanelWidget {
+     disabled 0
+     clipchildren 0
+     ignorepointer 1
+     keepsafezone 0
+     position 0 0
+     size 1 1
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     priority 1
+    }
+    WrapSpacerWidgetClass QuickbarGrid {
+     visible 1
+     disabled 0
+     position 0 0
+     size 1 66
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     priority 100
+     scriptclass "InventoryGrid"
+     Margin 0
+     "Size To Content H" 1
+     content_halign center
+     content_valign bottom
+     {
+      ScriptParamsClass {
+      }
+     }
+    }
+    FrameWidgetClass SpecializationPanelPanel {
+     visible 0
+     ignorepointer 1
+     position 0 32
+     size 292 32
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      PanelWidgetClass SpecializationPanel {
+       visible 1
+       clipchildren 0
+       size 260 32
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       priority 1
+       style blank
+       {
+        ImageWidgetClass SpecializationIconNeedle {
+         visible 1
+         size 1 1
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_needle"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+        }
+        ImageWidgetClass SpecializationIconHammer {
+         visible 1
+         size 1 1
+         halign right_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_hammer"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass SpecializationBar {
+         visible 1
+         clipchildren 0
+         position 0 0
+         size 180 8
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_bar_specialisation"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 0
+         {
+          ImageWidgetClass SpecializationIcon {
+           visible 1
+           clipchildren 0
+           position 0 -0.75
+           size 17 11
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           fixaspect fixwidth
+           priority 999
+           image0 "set:dayz_gui image:specialization_arrow"
+           mode additive
+           "src alpha" 1
+           "clamp mode" clamp
+           "flip u" 0
+           "flip v" 0
+           filter 1
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  ImageWidgetClass vignette {
+   visible 1
+   ignorepointer 0
+   color 0 0 0 0.784
+   size 2.2 1.13
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{E6B3EF816E067499}Gui/textures/inventory_bgvignette.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   filter 0
+   nocache 1
+  }
+  PanelWidgetClass ConsoleToolbar {
+   visible 0
+   clipchildren 1
+   color 1 1 1 0.706
+   position 0 0
+   size 1 0.1
+   halign center_ref
+   valign bottom_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 200
+   style ToolbarWidget
+   "no focus" 0
+   {
+    PanelWidgetClass GeneralToolbar {
+     clipchildren 0
+     position 0.05 0.1
+     size 0.365 32
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     {
+      RichTextWidgetClass GeneralToolbarText {
+       visible 1
+       clipchildren 0
+       position 20 0
+       size 0.98 32
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#layout_console_inventory_toolbar_text"
+       font "gui/fonts/MetronLight"
+       "italic text" 0
+       "exact text" 1
+       "size to text h" 1
+       "size to text v" 0
+       "text valign" center
+       wrap 1
+      }
+     }
+    }
+    PanelWidgetClass ContextToolbar {
+     clipchildren 0
+     position 0.05 0.1
+     size 0.535 32
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     {
+      RichTextWidgetClass ContextToolbarText {
+       clipchildren 0
+       position 20 0
+       size 0.98 32
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "#layout_console_inventory_toolbar_context"
+       font "gui/fonts/MetronLight"
+       "italic text" 0
+       "exact text" 1
+       "size to text h" 1
+       "size to text v" 0
+       "text halign" right
+       "text valign" center
+       wrap 1
+      }
+     }
+    }
+   }
+  }
+  PanelWidgetClass LeftBackground {
+   visible 1
+   clipchildren 0
+   ignorepointer 0
+   color 0 0 0 0.098
+   size 467 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   scaled 1
+   draggable 0
+   style rover_sim_colorable
+  }
+  PanelWidgetClass RightBackground {
+   visible 1
+   clipchildren 0
+   ignorepointer 0
+   color 0 0 0 0.098
+   position 0 0
+   size 477 1
+   halign right_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   draggable 0
+   style rover_sim_colorable
+   "no focus" 0
+  }
+ }
+}
