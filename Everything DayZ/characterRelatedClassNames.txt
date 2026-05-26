@@ -76,14 +76,44 @@
 "DrysackBag_Yellow"
 
 **Belts**
-"LeatherBelt_Beige"
+"CivilianBelt",
+"MilitaryBelt",
+"RopeBelt",
+"LeatherKnifeSheath",
+"NylonKnifeSheath",
+"LeatherBelt_Natural",
+"LeatherBelt_Beige",
+"LeatherBelt_Brown",
+"LeatherBelt_Black",
+"HipPack_Black",
+"HipPack_Green",
+"HipPack_Medical",
+"HipPack_Party"
 
 **Glasses**
-"SportGlasses",
+"SportGlasses_Black",
+"SportGlasses_Blue",
+"SportGlasses_Green",
+"SportGlasses_Orange",
 "AviatorGlasses",
 "DesignerGlasses",
 "ThickFramesGlasses",
-"ThinFramesGlasses"
+"ThinFramesGlasses",
+"TacticalGoggles",
+"EyePatch_Improvised",
+"NVGHeadstrap",
+"NVGoggles",
+"EyeMask_Valentines",
+"EyeMask_NewYears",
+"EyeMask_Christmas",
+"EyeMask_Dead",
+"EyeMask_Black",
+"EyeMask_Blue",
+"EyeMask_Red",
+"EyeMask_Yellow",
+"SkiGoggles_WhiteClear",
+"SkiGoggles_WhiteDark",
+"SkiGoggles_BlackYellow"
 
 **Gloves**
 "WorkingGloves_Black",
