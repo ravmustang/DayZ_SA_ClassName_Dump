@@ -419,8 +419,12 @@
 "Radio"
 
 **Tools**
+"AlarmClock_Red",
+"AlarmClock_Blue",
+"AlarmClock_Green",
+"KitchenTimer",
 "Flashlight",
-"Pen_ColorBase",
+"Raycaster",
 "Pen_Black",
 "Pen_Red",
 "Pen_Green",
@@ -434,7 +438,13 @@
 "SewingKit",
 "LeatherSewingKit",
 "Handcuffs",
+"HandcuffsLocked",
 "HandcuffKeys",
+"ScientificBriefcaseKeys",
+"ShippingContainerKeys_Blue",
+"ShippingContainerKeys_Orange",
+"ShippingContainerKeys_Yellow",
+"ShippingContainerKeys_Red",
 "Cassette",
 "Shovel",
 "FieldShovel",
@@ -452,6 +462,7 @@
 "SteakKnife",
 "HayHook",
 "StoneKnife",
+"BoneKnife",
 "Mace",
 "FarmingHoe",
 "ImprovisedFishingRod",
@@ -460,8 +471,19 @@
 "SledgeHammer",
 "Iceaxe",
 "Broom",
+"Broom_Birch",
 "Paddle",
-"DoorTestCamera"
+"ElectronicRepairKit",
+"EpoxyPutty",
+"Whetstone",
+"HandSaw",
+"FireworksLauncher",
+"Anniversary_FireworksLauncher",
+"DoorTestCamera",
+"RemoteDetonator",
+"RemoteDetonatorReceiver",
+"RemoteDetonatorTrigger",
+"Blowtorch"
 
 **Traps**
 "BearTrap",
