@@ -1,0 +1,417 @@
+{
+    "Triggers":
+	[
+		{ 	
+			"Position": [ 9663.464844, 211.883530, 8466.494141 ],
+			"Orientation": [ 45, 0, 0 ],
+			"Size": [ 30, 8, 20 ],
+			"EyeAccommodation": 1,
+			"UseLinePointFade": 1,
+			"AmbientSoundType": "caveBig",
+			"Breadcrumbs": 
+			[
+				{			
+					"Position": [ 9674.978516, 213.507248, 8469.383789 ],
+					"EyeAccommodation": 1,
+					"UseRaycast": 0,
+					"Radius": -1
+				},
+				{			
+					"Position": [ 9672.067383, 213.062958, 8467.806641 ],
+					"EyeAccommodation": 0.7
+				},
+				{			
+					"Position": [ 9668.590820, 212.331680, 8465.144531 ],
+					"EyeAccommodation": 0.4
+				},
+				{			
+					"Position": [ 9653.555664, 211.387711, 8471.645508 ],
+					"EyeAccommodation": 0.2
+				},
+				{			
+					"Position": [ 9658.448242, 211.632492, 8468.666992 ],
+					"EyeAccommodation": 0.2
+				},
+				{			
+					"Position": [ 9663.481445, 211.884689, 8466.133789 ],
+					"EyeAccommodation": 0.2
+				},
+				{			
+					"Position": [ 9661.632813, 211.830048, 8461.665039 ],
+					"EyeAccommodation": 0.2
+				},
+				{			
+					"Position": [ 9652.816406, 211.551056, 8465.878906 ],
+					"EyeAccommodation": 0.2
+				},
+				{			
+					"Position": [ 9656.041016, 211.765930, 8462.152344 ],
+					"EyeAccommodation": 0.2
+				}
+			]
+		},
+		{ 	
+			"Position": [ 9642, 220, 8486 ],
+			"Orientation": [ 0, 0, 0 ],
+			"Size": [ 22, 18, 19 ],
+			"EyeAccommodation": 0.2,
+			"UseLinePointFade": 1,
+			"AmbientSoundType": "caveBig",
+			"Breadcrumbs": 
+			[
+				{			
+					"Position": [ 9650.916016, 210.198608, 8478.496094 ],
+					"EyeAccommodation": 0.2,
+					"LightLerp": 0
+				},
+				{			
+					"Position": [ 9647.158203, 209.810532, 8481.623047 ],
+					"EyeAccommodation": 0,
+					"LightLerp": 0
+				},
+				{			
+					"Position": [ 9644.646484, 209.776398, 8481.253906 ],
+					"EyeAccommodation": 0,
+					"LightLerp": 1
+				}
+			]
+		},
+		{ 	
+			"Position": [ 6983.809570, 146.756973, 9975.903320 ],
+			"Orientation": [ 145, 0, 0 ],
+			"Size": [ 10, 7, 15 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 6880.375488, 147.208023, 9381.888672 ],
+			"Orientation": [ 0, 0, 0 ],
+			"Size": [ 6, 7, 14 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 10614.082031, 216.792526, 8980.394531 ],
+			"Orientation": [ -40, 30, 0 ],
+			"Size": [ 7, 10, 14 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 11782.889648, 189.010422, 8718.484375 ],
+			"Orientation": [ 90, 0, 0 ],
+			"Size": [ 11, 6, 13 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 12566.620117, 198.722488, 9713.251953 ],
+			"Orientation": [ 55, 0, 0 ],
+			"Size": [ 9, 9, 15 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 12651.300781, 193.057175, 10471.278320 ],
+			"Orientation": [ 0, 0, 0 ],
+			"Size": [ 8, 8, 7 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 11380.710938, 254.151993, 11848.693359 ],
+			"Orientation": [ 0, 0, 0 ],
+			"Size": [ 14, 7, 15 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 9872.567383, 162.911423, 10995.979492 ],
+			"Orientation": [ 0, 0, 0 ],
+			"Size": [ 7, 8, 11 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 9257.123047, 151.052902, 11619.291992 ],
+			"Orientation": [ 45, 0, 0 ],
+			"Size": [ 9, 8, 13 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 9094.572266, 224.794846, 12680.565430 ],
+			"Orientation": [ 15, 0, 0 ],
+			"Size": [ 10, 7, 11 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+				{ 	
+			"Position": [ 8756.909180, 212.855713, 12551.108398 ],
+			"Orientation": [ 0, 0, 0 ],
+			"Size": [ 12, 15, 12 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 	
+			"Position": [ 8072.501953, 237.749084, 11598.812500 ],
+			"Orientation": [ -35, 0, 0 ],
+			"Size": [ 7, 8, 10 ],
+			"EyeAccommodation": 1,
+			"AmbientSoundType": "caveSmall",
+			"Breadcrumbs": []
+		},
+		{ 
+			"Comment": "warheadstorage-big-entrance2-out",
+			"Position": [ 2585.062988, 20.0, 5982.861816 ],
+			"Orientation": [ 15, 0, 0 ],
+			"Size": [ 6, 3, 5 ],
+			"EyeAccommodation": 1,
+			"InterpolationSpeed": 1,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{
+			"CustomSpawn": true,
+			"ParentNetworkId": [352380923, -2147280896],
+			"Comment": "warheadstorage-big-entrance2-chamber",
+			"Position": [ 2582.628418, 20.0, 5976.411621 ],
+			"Orientation": [ 15, 0, 0 ],
+			"Size": [ 7, 3, 7.0 ],
+			"EyeAccommodation": 0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet",
+			"Breadcrumbs":
+			[
+				{			
+					"Position": [ 2582.628418, 20.0, 5976.411621 ],
+					"EyeAccommodation": 1,
+					"UseRaycast": 0,
+					"Radius": -1,
+					"ExternalValueController":
+					{
+						"Type": "DoorState",
+						"Params": ["maindoor2_outer"]
+					}
+				}
+			]
+		},
+		{ 
+			"Comment": "warheadstorage-big-entrance1-out",
+			"Position": [ 2571.16, 20.0, 5940.15 ],
+			"Orientation": [ 15, 0, 0 ],
+			"Size": [ 6, 3, 5 ],
+			"EyeAccommodation": 1,
+			"InterpolationSpeed": 1,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{
+			"CustomSpawn": true,
+			"ParentNetworkId": [352380923, -2147280896],
+			"Comment": "warheadstorage-big-entrance1-chamber",
+			"Position": [ 2573.23, 20.0, 5946.09 ],
+			"Orientation": [ 15, 0, 0 ],
+			"Size": [ 7, 3, 7.0 ],
+			"EyeAccommodation": 0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet",
+			"Breadcrumbs":
+			[
+				{			
+					"Position": [ 2573.12, 20.0, 5945.76 ],
+					"EyeAccommodation": 1,
+					"UseRaycast": 0,
+					"Radius": -1,
+					"ExternalValueController":
+					{
+						"Type": "DoorState",
+						"Params": ["maindoor1_outer"]
+					}
+				}
+			]
+		},
+		{ 
+			"Comment": "warheadstorage-big-hall",
+			"Position": [ 2577.88, 18.252346, 5961.51 ],
+			"Orientation": [ 17.0, 0, 0 ],
+			"Size": [ 7.0, 6.0, 25 ],
+			"EyeAccommodation": 0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{ 
+			"Comment": "warheadstorage-hall-chambers",
+			"Position": [ 2570.149902, 16.5, 5963.709961 ],
+			"Orientation": [ 17.0, 0, 0 ],
+			"Size": [ 11.0, 3.2, 23.0 ],
+			"EyeAccommodation": 0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{
+			"Comment": "warheadstorage-hall-fill_1",
+			"Position": [ 2583.537598, 16.0, 5977.254883 ],
+			"Orientation": [ 15, 0, 0 ],
+			"Size": [ 7.5, 3.2, 7.0 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{
+			"Comment": "warheadstorage-hall-fill_2",
+			"Position": [ 2573.660156, 16.0, 5946.834961 ],
+			"Orientation": [ 15, 0, 0 ],
+			"Size": [ 7.7, 3.2, 7.0 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{ 
+			"Comment": "warheadstorage-facility-entrance-outside",
+			"Position": [ 2594.37, 22.11, 5963.87 ],
+			"Orientation": [ 18.5, 0, 0 ],
+			"Size": [ 5, 3.5, 5 ],
+			"EyeAccommodation": 1.0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{ 
+			"Comment": "warheadstorage-facility-entrance",
+			"Position": [ 2593.42, 21.065001, 5958.03 ],
+			"Orientation": [ 18.5, 0, 0 ],
+			"Size": [ 3.25, 5.5, 7 ],
+			"EyeAccommodation": 1,
+			"InterpolationSpeed": 0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet",
+			"Breadcrumbs":
+			[
+				{			
+					"Position": [ 2592.85, 21.46, 5960.05 ],
+					"EyeAccommodation": 1,
+					"UseRaycast": 1,
+					"Radius": 4
+				},
+				{			
+					"Position": [ 2592.05, 19.96, 5957.96 ],
+					"EyeAccommodation": 0.4,
+					"UseRaycast": 1,
+					"Radius": 5
+				},
+				{			
+					"Position": [ 2593.90, 19.11, 5955.80 ],
+					"EyeAccommodation": 0.3,
+					"Radius": 10
+				}
+			]
+		},
+		{
+			"Comment": "warheadstorage-facility-entrance-stairway",
+			"Position": [ 2594.055176, 16.775000, 5959.950195 ],
+			"Orientation": [ 18.5, 0, 0 ],
+			"Size": [ 3.4, 3.1, 7.2 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet",
+			"Breadcrumbs":
+			[
+				{			
+					"Position": [ 2594.48, 17.69, 5958.5 ],
+					"EyeAccommodation": 0.15,
+					"Radius": 10
+				},
+				{			
+					"Position": [ 2594.55, 16.26, 5962.59 ],
+					"EyeAccommodation": 0.075,
+					"Radius": 8
+				}
+			]
+		},
+		{
+			"CustomSpawn": true,
+			"ParentNetworkId": [360769692, -2147280896],			
+			"Comment": "warheadstorage-facility-airlock",
+			"Position": [ 2592.214844, 16.684999, 5963.459961 ],
+			"Orientation": [ 18.5, 0, 0 ],
+			"Size": [ 2.3, 3, 2.3 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 1,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet",
+			"Breadcrumbs":
+			[	
+				{			
+					"Position": [ 2592.478516, 16.218510, 5963.532715 ],
+					"EyeAccommodation": 0.075,
+					"UseRaycast": 0,
+					"Radius": 3,
+					"ExternalValueController":
+					{
+						"Type": "DoorState",
+						"Params": ["pressuredoor1"]
+					}
+				}
+			]
+		},
+		{
+			"CustomSpawn": true,
+			"ParentNetworkId": [360769692, -2147280896],
+			"Comment": "warheadstorage-facility-large-crate-room",
+			"Position": [ 2591.0, 16.605000, 5968.3 ],
+			"Orientation": [ 18.5, 0, 0 ],
+			"Size": [ 14.209961, 3.010000, 6.6 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 1,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet",
+			"Breadcrumbs":
+			[
+				{			
+					"Position": [ 2594.9, 16.78, 5965.31 ],
+					"EyeAccommodation": 0.05,
+					"UseRaycast": 0,
+					"Radius": -1,
+					"ExternalValueController":
+					{
+						"Type": "DoorState",
+						"Params": ["pressuredoor1"]
+					}
+				}
+			]
+		},
+		{ 
+			"Comment": "warheadstorage-facility-back-rooms-large",
+			"Position": [ 2585, 16.779999, 5956 ],
+			"Orientation": [ 17.0, 0, 0 ],
+			"Size": [ 10.5, 3.391150, 16 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{ 
+			"Comment": "warheadstorage-facility-tvstrip",
+			"Position": [ 2587.014893, 16.650000, 5964.900391 ],
+			"Orientation": [ 17.0, 0, 0 ],
+			"Size": [ 7.8, 2.900001, 2.7 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		},
+		{ 
+			"Comment": "warheadstorage-facility-toilet-watertreatment-rooms",
+			"Position": [ 2590.479980, 16.900000, 5951.035156 ],
+			"Orientation": [ 17.0, 0, 0 ],
+			"Size": [ 5.572266, 2.5, 9.5 ],
+			"EyeAccommodation": 0.0,
+			"InterpolationSpeed": 0.0,
+			"AmbientSoundSet": "Warhead_Storage_Ambient_SoundSet"
+		}
+	]
+}
